@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.550">
+<meta name="generator" content="quarto-1.5.53">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -78,7 +78,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -97,7 +97,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools">
+            <div class="quarto-navbar-tools">
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -140,20 +140,42 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="office-hours" class="level3">
 <h3 class="anchored" data-anchor-id="office-hours">Office Hours</h3>
-<p>Any GW student is welcome at my office hours.</p>
-<p>The location is typically SEH 4675, although I am often in the SEH 4th floor lobby area, as my office is small.</p>
-<p><strong>Fall 2024:</strong>
-<ul>
-<li>M: 1-3 PM</li>
-<li>W 12:30-3 PM</li>
-<li>F 3-6 PM</li>
-  <ul>
-  <li><strong>Fri 13 Sep and Fri 20 Sep: 12:00-2:45 PM and not 3-6 PM</strong></li>
-  </ul>
-</ul>
-</p>You are welcome to make an <a href="https://calendar.app.google/QGPPEVvdwnbuEnzM9">appointment</a>. Appointments are not necessary, but will receive priority if you send an agenda at least 24 hours in advance.</p>
-<p></p>
-<br>  
+<p>Any GW student is welcome at my office hours. This schedule is up to date:</p>
+<div style="max-width: 75%; margin-left: 2rem">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Day</th>
+<th>Time</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Mondays</td>
+<td>1:00 PM - 3:00 PM</td>
+</tr>
+<tr class="even">
+<td>Wednesdays</td>
+<td>12:30 PM - 3:00 PM</td>
+</tr>
+<tr class="odd">
+<td><del>Fridays</del></td>
+<td><del>3:30 PM - 6 PM</del></td>
+</tr>
+<tr class="even">
+<td><strong>Friday 13 Sep 2024</strong></td>
+<td>12:00-3:00 PM</td>
+</tr>
+<tr class="odd">
+<td>Friday 20 Sep 2024</td>
+<td>12:00-3:00 PM</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>(Any <del>struck through</del> time indicates a deviation from the usual time.)</p>
+<p>The location is typically SEH 4675, although I am often in the SEH 4th floor lobby area, as my office is small and windowless.</p>
+<p>You are welcome to make an <a href="https://calendar.app.google/fZBKy17UHdYM9nXd6">appointment</a>. Appointments are not necessary, but will receive priority if you send an agenda at least 24 hours in advance.</p>
 <p>My office can be slightly difficult to find:</p>
 <ul>
 <li>It is on SEH 4th Floor, West wing
@@ -169,7 +191,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="electronic-mail" class="level3">
 <h3 class="anchored" data-anchor-id="electronic-mail">Electronic Mail</h3>
 <p>My address is <a href="mailto:joe.goldfrank@gwu.edu">joe.goldfrank@gwu.edu</a>. My notes are typically short, direct, and polite; I encourage you to write to me in this way.<br></p>
-<p>Lately I have observed a trend towards long formal notes, perhaps generated with some algorithm. This style makes it harder for me to find your message amidst all the extra words.</p>
+<p>Lately there is a trend towards long formal notes, perhaps generated with some algorithm (many of them look the same). This style makes it harder for me to find your message amidst all the words.</p>
 <p><em>Please refrain from sending me sales/marketing materials, I will mark these as spam.</em></p>
 
 
@@ -211,18 +233,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -254,7 +265,47 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -289,7 +340,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
