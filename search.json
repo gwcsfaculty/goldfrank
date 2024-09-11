@@ -84,53 +84,438 @@
     "text": "11 Q8 (3 pts): Suboptimal Search\nSometimes, even with A* and a good heuristic, finding the optimal path through all the dots is hard. In these cases, we’d still like to find a reasonably good path, quickly. In this section, you’ll write an agent that always greedily eats the closest dot. ClosestDotSearchAgent is implemented for you in searchAgents.py, but it’s missing a key function that finds a path to the closest dot.\nImplement the function findPathToClosestDot in searchAgents.py. Our agent solves this maze (suboptimally!) in under a second with a path cost of 350:\npython pacman.py -l bigSearch -p ClosestDotSearchAgent -z .5\nHint: The quickest way to complete findPathToClosestDot is to fill in the AnyFoodSearchProblem, which is missing its goal test. Then, solve that problem with an appropriate search function. The solution should be very short!\nYour ClosestDotSearchAgent won’t always find the shortest possible path through the maze. Make sure you understand why and try to come up with a small example where repeatedly going to the closest dot does not result in finding the shortest path for eating all the dots.\nGrading: Please run the below command to see if your implementation passes all the autograder test cases.\npython autograder.py -q q8"
   },
   {
-    "objectID": "4511/index.html",
-    "href": "4511/index.html",
-    "title": "CSCI 4511/6511 Fall 2024",
+    "objectID": "4511/03/03.html#announcements",
+    "href": "4511/03/03.html#announcements",
+    "title": "Local Search & Games",
+    "section": "Announcements",
+    "text": "Announcements\n\n\nHomework 1 is due on 15 September at 11:55 PM\n\nLate submission policy\n\nHomework 2 is due on 29 September at 11:55 PM\nFri 13 Sep Office Hours moved: 12 PM - 3 PM\nFri 20 Sep Office Hours moved: 12 PM - 3 PM"
+  },
+  {
+    "objectID": "4511/03/03.html#why-are-we-here",
+    "href": "4511/03/03.html#why-are-we-here",
+    "title": "Local Search & Games",
+    "section": "Why Are We Here?",
+    "text": "Why Are We Here?"
+  },
+  {
+    "objectID": "4511/03/03.html#why-are-we-here-1",
+    "href": "4511/03/03.html#why-are-we-here-1",
+    "title": "Local Search & Games",
+    "section": "Why Are We Here?",
+    "text": "Why Are We Here?\n\n⠀⠀⠀⠀⠀⠀⠀⢀⣠⣤⣤⣶⣶⣶⣶⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀\n⠀⠀⠀⠀⢀⣤⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣤⡀⠀⠀⠀⠀\n⠀⠀⠀⣴⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡄⠀⠀⠀\n⠀⢀⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⠁⠀⠀⠀\n⠀⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⠋⠀⠀⠀⠀⠀⠀\n⢠⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⠋            ⠀⣀⣄⡀      ⠀⠀⣠⣄⡀\n⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣏⠀⠀⠀            ⢸⣿⣿⣿      ⠀⢸⣿⣿⣿\n⠘⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣦⣀⠀            ⠉⠋⠁      ⠀⠀⠙⠋⠁\n⠀⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣦⡀⠀⠀⠀⠀⠀⠀\n⠀⠈⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣤⠀⠀⠀⠀\n⠀⠀⠀⠻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠃⠀⠀⠀\n⠀⠀⠀⠀⠈⠛⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠛⠁⠀⠀⠀⠀\n⠀⠀⠀⠀⠀⠀⠀⠈⠙⠛⠛⠿⠿⠿⠿⠛⠛⠋⠁⠀⠀⠀⠀⠀⠀⠀"
+  },
+  {
+    "objectID": "4511/03/03.html#search-why",
+    "href": "4511/03/03.html#search-why",
+    "title": "Local Search & Games",
+    "section": "Search: Why?",
+    "text": "Search: Why?\n\nFully-observed problem\nDeterministic actions and state\nWell-defined start and goal\n\n“Well-defined”"
+  },
+  {
+    "objectID": "4511/03/03.html#goal-tests",
+    "href": "4511/03/03.html#goal-tests",
+    "title": "Local Search & Games",
+    "section": "Goal Tests",
+    "text": "Goal Tests"
+  },
+  {
+    "objectID": "4511/03/03.html#goal-tests-1",
+    "href": "4511/03/03.html#goal-tests-1",
+    "title": "Local Search & Games",
+    "section": "Goal Tests",
+    "text": "Goal Tests"
+  },
+  {
+    "objectID": "4511/03/03.html#best-first-search",
+    "href": "4511/03/03.html#best-first-search",
+    "title": "Local Search & Games",
+    "section": "Best-First Search",
+    "text": "Best-First Search"
+  },
+  {
+    "objectID": "4511/03/03.html#a-search",
+    "href": "4511/03/03.html#a-search",
+    "title": "Local Search & Games",
+    "section": "A* Search",
+    "text": "A* Search\n\nInclude path-cost \\(g(n)\\)\n\n\\(f(n) = g(n) + h(n)\\)\n\n\n\n\n\n\nComplete (always)\nOptimal (sometimes)\nPainful \\(O(b^m)\\) time and space complexity"
+  },
+  {
+    "objectID": "4511/03/03.html#a-vs.-dijkstra",
+    "href": "4511/03/03.html#a-vs.-dijkstra",
+    "title": "Local Search & Games",
+    "section": "A* vs. Dijkstra",
+    "text": "A* vs. Dijkstra"
+  },
+  {
+    "objectID": "4511/03/03.html#choosing-heuristics",
+    "href": "4511/03/03.html#choosing-heuristics",
+    "title": "Local Search & Games",
+    "section": "Choosing Heuristics",
+    "text": "Choosing Heuristics\n\nRecall: \\(h(n)\\) estimates cost from \\(n\\) to goal\n\n\n\n\n\nAdmissibility\nConsistency"
+  },
+  {
+    "objectID": "4511/03/03.html#choosing-heuristics-1",
+    "href": "4511/03/03.html#choosing-heuristics-1",
+    "title": "Local Search & Games",
+    "section": "Choosing Heuristics",
+    "text": "Choosing Heuristics\n\nAdmissibility\n\nNever overestimates cost from \\(n\\) to goal\nCost-optimal!\n\nConsistency\n\n\\(h(n) \\leq c(n, a, n') + h(n')\\)\n\\(n'\\) successors of \\(n\\)\n\\(c(n, a, n')\\) cost from \\(n\\) to \\(n'\\) given action \\(a\\)"
+  },
+  {
+    "objectID": "4511/03/03.html#iterative-deepening-a-search",
+    "href": "4511/03/03.html#iterative-deepening-a-search",
+    "title": "Local Search & Games",
+    "section": "Iterative-Deepening A* Search",
+    "text": "Iterative-Deepening A* Search\n\n“IDA*” Search\n\nSimilar to Iterative Deepening with Depth-First Search\n\nDFS uses depth cutoff\nIDA* uses \\(h(n) + g(n)\\) cutoff with DFS\nOnce cutoff breached, new cutoff:\n\nTypically next-largest \\(h(n) + g(n)\\)\n\n\\(O(b^m)\\) time complexity 😔\n\\(O(d)\\) space complexity 😌"
+  },
+  {
+    "objectID": "4511/03/03.html#beam-search",
+    "href": "4511/03/03.html#beam-search",
+    "title": "Local Search & Games",
+    "section": "Beam Search",
+    "text": "Beam Search\n\nBest-First Search:\n\nFrontier is all expanded nodes\n\nBeam Search:\n\n\\(k\\) “best” nodes are kept on frontier\n\nOthers discarded\n\nAlt: all nodes within \\(\\delta\\) of best node\nNot Optimal\nNot Complete"
+  },
+  {
+    "objectID": "4511/03/03.html#recursive-best-first-search-rbfs",
+    "href": "4511/03/03.html#recursive-best-first-search-rbfs",
+    "title": "Local Search & Games",
+    "section": "Recursive Best-First Search (RBFS)",
+    "text": "Recursive Best-First Search (RBFS)\n\nNo \\(reached\\) table is kept\nSecond-best node \\(f(n)\\) retained\n\nSearch from each node cannot exceed this limit\nIf exceeded, recursion “backs up” to previous node\n\nMemory-efficient\n\nCan “cycle” between branches"
+  },
+  {
+    "objectID": "4511/03/03.html#recursive-best-first-search-rbfs-1",
+    "href": "4511/03/03.html#recursive-best-first-search-rbfs-1",
+    "title": "Local Search & Games",
+    "section": "Recursive Best-First Search (RBFS)",
+    "text": "Recursive Best-First Search (RBFS)"
+  },
+  {
+    "objectID": "4511/03/03.html#heuristic-characteristics",
+    "href": "4511/03/03.html#heuristic-characteristics",
+    "title": "Local Search & Games",
+    "section": "Heuristic Characteristics",
+    "text": "Heuristic Characteristics\n\nWhat makes a “good” heuristic?\n\nWe know about admissability and consistency\nWhat about performance?\n\nEffective branching factor\nEffective depth\n# of nodes expanded"
+  },
+  {
+    "objectID": "4511/03/03.html#where-do-heuristics-come-from",
+    "href": "4511/03/03.html#where-do-heuristics-come-from",
+    "title": "Local Search & Games",
+    "section": "Where Do Heuristics Come From?",
+    "text": "Where Do Heuristics Come From?\n\nIntuition\n\n“Just Be Really Smart”\n\nRelaxation\n\nThe problem is constrained\nRemove the constraint\n\nPre-computation\n\nSub problems\n\nLearning"
+  },
+  {
+    "objectID": "4511/03/03.html#what-even-is-the-goal",
+    "href": "4511/03/03.html#what-even-is-the-goal",
+    "title": "Local Search & Games",
+    "section": "What Even Is The Goal?",
+    "text": "What Even Is The Goal?\nUninformed/Informed Search:\n\nKnown start, known goal\nSearch for optimal path\n\nLocal Search:\n\n“Start” is irrelevant\nGoal is not known\n\nBut we know it when we see it\n\nSearch for goal"
+  },
+  {
+    "objectID": "4511/03/03.html#brutal-example",
+    "href": "4511/03/03.html#brutal-example",
+    "title": "Local Search & Games",
+    "section": "Brutal Example",
+    "text": "Brutal Example"
+  },
+  {
+    "objectID": "4511/03/03.html#less-brutal-example",
+    "href": "4511/03/03.html#less-brutal-example",
+    "title": "Local Search & Games",
+    "section": "Less-Brutal Example",
+    "text": "Less-Brutal Example"
+  },
+  {
+    "objectID": "4511/03/03.html#real-world-examples",
+    "href": "4511/03/03.html#real-world-examples",
+    "title": "Local Search & Games",
+    "section": "“Real-World” Examples",
+    "text": "“Real-World” Examples\n\nScheduling\nLayout optimization\n\nFactories\nCircuits\n\nPortfolio management\nOthers?"
+  },
+  {
+    "objectID": "4511/03/03.html#objective-function",
+    "href": "4511/03/03.html#objective-function",
+    "title": "Local Search & Games",
+    "section": "Objective Function",
+    "text": "Objective Function\n\nDo you know what you want?1\nCan you express it mathematically?2\n\nA single value\nMore is better\n\nObjective function: a function of state\n\nIf not, you might be humanIf not, you might be human"
+  },
+  {
+    "objectID": "4511/03/03.html#hill-climbing",
+    "href": "4511/03/03.html#hill-climbing",
+    "title": "Local Search & Games",
+    "section": "Hill-Climbing",
+    "text": "Hill-Climbing\n\nObjective function\nState space mapping\n\nNeighbors"
+  },
+  {
+    "objectID": "4511/03/03.html#hill-climbing-1",
+    "href": "4511/03/03.html#hill-climbing-1",
+    "title": "Local Search & Games",
+    "section": "Hill-Climbing",
+    "text": "Hill-Climbing"
+  },
+  {
+    "objectID": "4511/03/03.html#the-hazards-of-climbing-hills",
+    "href": "4511/03/03.html#the-hazards-of-climbing-hills",
+    "title": "Local Search & Games",
+    "section": "The Hazards of Climbing Hills",
+    "text": "The Hazards of Climbing Hills\n\nLocal maxima\nPlateaus\nRidges"
+  },
+  {
+    "objectID": "4511/03/03.html#five-queens",
+    "href": "4511/03/03.html#five-queens",
+    "title": "Local Search & Games",
+    "section": "Five Queens",
+    "text": "Five Queens"
+  },
+  {
+    "objectID": "4511/03/03.html#five-queens-1",
+    "href": "4511/03/03.html#five-queens-1",
+    "title": "Local Search & Games",
+    "section": "Five Queens",
+    "text": "Five Queens"
+  },
+  {
+    "objectID": "4511/03/03.html#five-queens-2",
+    "href": "4511/03/03.html#five-queens-2",
+    "title": "Local Search & Games",
+    "section": "Five Queens",
+    "text": "Five Queens"
+  },
+  {
+    "objectID": "4511/03/03.html#variations",
+    "href": "4511/03/03.html#variations",
+    "title": "Local Search & Games",
+    "section": "Variations",
+    "text": "Variations\n\nSideways moves\n\nNot free\n\nStochastic moves\n\nFull set\nFirst choice\n\nRandom restarts\n\nIf at first you don’t succeed, you fail try again!\nComplete 😌"
+  },
+  {
+    "objectID": "4511/03/03.html#the-trouble-with-local-maxima",
+    "href": "4511/03/03.html#the-trouble-with-local-maxima",
+    "title": "Local Search & Games",
+    "section": "The Trouble with Local Maxima",
+    "text": "The Trouble with Local Maxima\n\nWe don’t know that they’re local maxima\n\nUnless we do?\n\nHill climbing is efficient\n\nBut gets trapped\n\nExhaustive search is complete\n\nBut it’s exhaustive!\nStochastic methods are ‘exhaustive’"
+  },
+  {
+    "objectID": "4511/03/03.html#simulated-annealing",
+    "href": "4511/03/03.html#simulated-annealing",
+    "title": "Local Search & Games",
+    "section": "Simulated Annealing",
+    "text": "Simulated Annealing"
+  },
+  {
+    "objectID": "4511/03/03.html#simulated-annealing-1",
+    "href": "4511/03/03.html#simulated-annealing-1",
+    "title": "Local Search & Games",
+    "section": "Simulated Annealing",
+    "text": "Simulated Annealing\n\nDoesn’t actually have anything to do with metallurgy\nSearch begins with high “temperature”\n\nTemperature decreases during search\n\nNext state selected randomly\n\nImprovements always accepted\nNon-improvements rejected stochastically\nHigher temperature, less rejection\n“Worse” result, more rejection"
+  },
+  {
+    "objectID": "4511/03/03.html#simulated-annealing-2",
+    "href": "4511/03/03.html#simulated-annealing-2",
+    "title": "Local Search & Games",
+    "section": "Simulated Annealing",
+    "text": "Simulated Annealing"
+  },
+  {
+    "objectID": "4511/03/03.html#local-beam-search",
+    "href": "4511/03/03.html#local-beam-search",
+    "title": "Local Search & Games",
+    "section": "Local Beam Search",
+    "text": "Local Beam Search\nRecall:\n\nBeam search keeps track of \\(k\\) “best” branches\n\nLocal Beam Search:\n\nHill climbing search, keeping track of \\(k\\) successors\n\nDeterministic\nStochastic"
+  },
+  {
+    "objectID": "4511/03/03.html#local-beam-search-1",
+    "href": "4511/03/03.html#local-beam-search-1",
+    "title": "Local Search & Games",
+    "section": "Local Beam Search",
+    "text": "Local Beam Search"
+  },
+  {
+    "objectID": "4511/03/03.html#the-real-world-is-discrete",
+    "href": "4511/03/03.html#the-real-world-is-discrete",
+    "title": "Local Search & Games",
+    "section": "The Real World Is Discrete",
+    "text": "The Real World Is Discrete\n\n\n\n(it isn’t)"
+  },
+  {
+    "objectID": "4511/03/03.html#the-real-world-is-not-discrete",
+    "href": "4511/03/03.html#the-real-world-is-not-discrete",
+    "title": "Local Search & Games",
+    "section": "The Real World Is Not Discrete",
+    "text": "The Real World Is Not Discrete\n\nDiscretize continuous space\n\nWorks iff no objective function discontinuities\nWhat happens if there are discontinuities?\nHow do we know that there are discontinuities?"
+  },
+  {
+    "objectID": "4511/03/03.html#gradient-descent",
+    "href": "4511/03/03.html#gradient-descent",
+    "title": "Local Search & Games",
+    "section": "Gradient Descent",
+    "text": "Gradient Descent\n\nMinimize loss instead of climb hill\n\nStill the same idea\n\n\nConsider:\n\nOne state variable, \\(x\\)\nObjective function \\(f(x)\\)\n\nHow do we minimize \\(f(x)\\) ?\nIs there a closed form \\(\\frac{d}{dx}\\) ?"
+  },
+  {
+    "objectID": "4511/03/03.html#gradient-descent-1",
+    "href": "4511/03/03.html#gradient-descent-1",
+    "title": "Local Search & Games",
+    "section": "Gradient Descent",
+    "text": "Gradient Descent\nMultivariate \\(\\vec{x} = x_0, x_1, ...\\)\n\n\nInstead of derivative, gradient:\n\\(\\nabla f(\\vec{x}) = \\left[ \\frac{\\partial f}{\\partial x_0}, \\frac{\\partial f}{\\partial x_1}, ...\\right]\\)\n\n\n“Locally” descend gradient:\n\\(\\vec{x} \\gets \\vec{x} + \\alpha \\nabla f(\\vec{x})\\)"
+  },
+  {
+    "objectID": "4511/03/03.html#adversity",
+    "href": "4511/03/03.html#adversity",
+    "title": "Local Search & Games",
+    "section": "Adversity",
+    "text": "Adversity\nSo far:\n\nThe world does not care about us\nThis is a simplifying assumption!\n\nReality:\n\nThe world does not care us\n\n\n\n…but it wants things for “itself”\n\n\n\n\n…and we don’t want the same things"
+  },
+  {
+    "objectID": "4511/03/03.html#the-adversary",
+    "href": "4511/03/03.html#the-adversary",
+    "title": "Local Search & Games",
+    "section": "The Adversary",
+    "text": "The Adversary\nOne extreme:\n\nSingle adversary\n\nAdversary wants the exact opposite from us\nIf adversary “wins,” we lose\n\n\n\n😐\n\n\nOther extreme:\n\nAn entire world of agents with different values\n\nThey might want some things similar to us\n\n“Economics”\n\n\n\n😐"
+  },
+  {
+    "objectID": "4511/03/03.html#simple-games",
+    "href": "4511/03/03.html#simple-games",
+    "title": "Local Search & Games",
+    "section": "Simple Games",
+    "text": "Simple Games\n\nTwo-player\nTurn-taking\nDiscrete-state\nFully-observable\nZero-sum\n\nThis does some work for us!"
+  },
+  {
+    "objectID": "4511/03/03.html#max-and-min",
+    "href": "4511/03/03.html#max-and-min",
+    "title": "Local Search & Games",
+    "section": "Max and Min",
+    "text": "Max and Min\n\nTwo players want the opposite of each other\nState takes into account both agents\n\nActions depend on whose turn it is"
+  },
+  {
+    "objectID": "4511/03/03.html#minimax",
+    "href": "4511/03/03.html#minimax",
+    "title": "Local Search & Games",
+    "section": "Minimax",
+    "text": "Minimax\n\nInitial state \\(s_0\\)\nActions(\\(s\\)) and To-move(\\(s\\))\nResult(\\(s, a\\))\nIs-Terminal(\\(s\\))\nUtility(\\(s, p\\))"
+  },
+  {
+    "objectID": "4511/03/03.html#minimax-1",
+    "href": "4511/03/03.html#minimax-1",
+    "title": "Local Search & Games",
+    "section": "Minimax",
+    "text": "Minimax"
+  },
+  {
+    "objectID": "4511/03/03.html#minimax-2",
+    "href": "4511/03/03.html#minimax-2",
+    "title": "Local Search & Games",
+    "section": "Minimax",
+    "text": "Minimax"
+  },
+  {
+    "objectID": "4511/03/03.html#more-than-two-players",
+    "href": "4511/03/03.html#more-than-two-players",
+    "title": "Local Search & Games",
+    "section": "More Than Two Players",
+    "text": "More Than Two Players\n\nTwo players, two values: \\(v_A, v_B\\)\n\nZero-sum: \\(v_A = -v_B\\)\nOnly one value needs to be explicitly represented\n\n\\(&gt; 2\\) players:\n\n\\(v_A, v_B, v_C ...\\)\nValue scalar becomes \\(\\vec{v}\\)"
+  },
+  {
+    "objectID": "4511/03/03.html#society",
+    "href": "4511/03/03.html#society",
+    "title": "Local Search & Games",
+    "section": "Society",
+    "text": "Society\n\n\\(&gt;2\\) players, only one can win\nCooperation can be rational!\n\nExample:\n\nA & B: 30% win probability each\nC: 40% win probability\nA & B cooperate to eliminate C\n\n\\(\\rightarrow\\) A & B: 50% win probability each\n\n\n\n\n…what about friendship?"
+  },
+  {
+    "objectID": "4511/03/03.html#minimax-efficiency",
+    "href": "4511/03/03.html#minimax-efficiency",
+    "title": "Local Search & Games",
+    "section": "Minimax Efficiency",
+    "text": "Minimax Efficiency\nPruning removes the need to explore the full tree.\n\nMax and Min nodes alternate\nOnce one value has been found, we can eliminate parts of search\n\nLower values, for Max\nHigher values, for Min\n\nRemember highest value (\\(\\alpha\\)) for Max\nRemember lowest value (\\(\\beta\\)) for Min"
+  },
+  {
+    "objectID": "4511/03/03.html#pruning",
+    "href": "4511/03/03.html#pruning",
+    "title": "Local Search & Games",
+    "section": "Pruning",
+    "text": "Pruning"
+  },
+  {
+    "objectID": "4511/03/03.html#heuristics",
+    "href": "4511/03/03.html#heuristics",
+    "title": "Local Search & Games",
+    "section": "Heuristics 😌",
+    "text": "Heuristics 😌\n\nIn practice, trees are far too deep to completely search\nHeuristic: replace utility with evaluation function\n\nBetter than losing, worse than winning\nRepresents chance of winning\n\nChance? 🎲🎲\n\nEven in deterministic games\nWhy?"
+  },
+  {
+    "objectID": "4511/03/03.html#more-pruning",
+    "href": "4511/03/03.html#more-pruning",
+    "title": "Local Search & Games",
+    "section": "More Pruning",
+    "text": "More Pruning\n\nDon’t bother further searching bad moves\n\nExamples?\n\nBeam search\n\nLee Sedol’s singular win against AlphaGo"
+  },
+  {
+    "objectID": "4511/03/03.html#other-techniques",
+    "href": "4511/03/03.html#other-techniques",
+    "title": "Local Search & Games",
+    "section": "Other Techniques",
+    "text": "Other Techniques\n\nMove ordering\n\nHow do we decide?\n\nLookup tables\n\nFor subsets of games"
+  },
+  {
+    "objectID": "4511/03/03.html#monte-carlo-tree-search",
+    "href": "4511/03/03.html#monte-carlo-tree-search",
+    "title": "Local Search & Games",
+    "section": "Monte Carlo Tree Search",
+    "text": "Monte Carlo Tree Search\n\nMany games are too large even for an efficient \\(\\alpha\\)-\\(\\beta\\) search 😔\n\nWe can still play them\n\nSimulate plays of entire games from starting state\n\nUpdate win probability from each node (for each player) based on result\n\n“Explore/exploit” paradigm for move selection"
+  },
+  {
+    "objectID": "4511/03/03.html#choosing-moves",
+    "href": "4511/03/03.html#choosing-moves",
+    "title": "Local Search & Games",
+    "section": "Choosing Moves",
+    "text": "Choosing Moves\n\nWe want our search to pick good moves\nWe want our search to pick unknown moves\nWe don’t want our search to pick bad moves\n\n(Assuming they’re actually bad moves)\n\n\nSelect moves based on a heuristic."
+  },
+  {
+    "objectID": "4511/03/03.html#games-of-luck",
+    "href": "4511/03/03.html#games-of-luck",
+    "title": "Local Search & Games",
+    "section": "Games of Luck",
+    "text": "Games of Luck\n\nReal-world problems are rarely deterministic\nNon-deterministic state evolution:\n\nRoll a die to determine next position\nToss a coin to determine who picks candy first\nPrecise trajectory of kicked football1\nOthers?\n\n\nAny definition of “football”"
+  },
+  {
+    "objectID": "4511/03/03.html#solving-non-deterministic-games",
+    "href": "4511/03/03.html#solving-non-deterministic-games",
+    "title": "Local Search & Games",
+    "section": "Solving Non-Deterministic Games",
+    "text": "Solving Non-Deterministic Games\nPreviously: Max and Min alternate turns\nNow:\n\nMax\nChance\nMin\nChance\n\n 😣"
+  },
+  {
+    "objectID": "4511/03/03.html#expectiminimax",
+    "href": "4511/03/03.html#expectiminimax",
+    "title": "Local Search & Games",
+    "section": "Expectiminimax",
+    "text": "Expectiminimax\n\n“Expected value” of next position\n\n\n\n\n\nHow does this impact branching factor of the search?\n\n🫠"
+  },
+  {
+    "objectID": "4511/03/03.html#expectiminimax-1",
+    "href": "4511/03/03.html#expectiminimax-1",
+    "title": "Local Search & Games",
+    "section": "Expectiminimax",
+    "text": "Expectiminimax"
+  },
+  {
+    "objectID": "4511/03/03.html#filled-with-uncertainty",
+    "href": "4511/03/03.html#filled-with-uncertainty",
+    "title": "Local Search & Games",
+    "section": "Filled With Uncertainty",
+    "text": "Filled With Uncertainty\nWhat is to be done?\n\nPruning is still possible\n\nHow?\n\nHeuristic evaluation functions\n\nChoose carefully!"
+  },
+  {
+    "objectID": "4511/03/03.html#references",
+    "href": "4511/03/03.html#references",
+    "title": "Local Search & Games",
+    "section": "References",
+    "text": "References"
+  },
+  {
+    "objectID": "4511/03/03.html#section-1",
+    "href": "4511/03/03.html#section-1",
+    "title": "Local Search & Games",
     "section": "",
-    "text": "Syllabus"
-  },
-  {
-    "objectID": "4511/index.html#notes",
-    "href": "4511/index.html#notes",
-    "title": "CSCI 4511/6511 Fall 2024",
-    "section": "Notes",
-    "text": "Notes\n\nLecture 1 - 28 Aug\nLecture 2 - 04 Sep"
-  },
-  {
-    "objectID": "4511/index.html#homework",
-    "href": "4511/index.html#homework",
-    "title": "CSCI 4511/6511 Fall 2024",
-    "section": "Homework",
-    "text": "Homework\n\nHomework One"
-  },
-  {
-    "objectID": "advising.html",
-    "href": "advising.html",
-    "title": "Advising",
-    "section": "",
-    "text": "Undergraduate\nIf I am your undergraduate advisor, email and office hours are the most straightforward ways to discuss your questions.\n\n\nGraduate\nI am not currently soliciting applications, however any graduate student interested in collaborating is welcome to send me a proposal. It does not have to be particularly formal, however:\n\nTell me what questions you are interested in answering\nShow me what other work has been done in this avenue\nDiscuss a plan for executing your project\n\nI am fond of the Heilmeier Catechism, although it is not a perfect match for many kinds of academic research questions."
-  },
-  {
-    "objectID": "teaching_writing.html",
-    "href": "teaching_writing.html",
-    "title": "Teaching and Writing",
-    "section": "",
-    "text": "Teaching\nCurrently:\n\nCSCI 1012 Intro. Programming in Python\n\nCourse Site\n\nCSCI 4511/5611 Artificial Intelligence Algorithms\n\nCourse Notes\n\n\nPreviously:\n\nCSCI 6366/4366 Neural Networks & Deep Learning\nCSCI 6531/4531 Computer Security\nCSCI 6917 Guided Research\nSEAS 6402 Data Analytics Capstone\n\nLectures:\n\nCSCI 1111 Intro. Software Development\nCSCI 4364/6364 Machine Learning\nMS&E 250A (Stanford) Risk Analysis\nMS&E 350 (Stanford) Risk Analysis Seminar\nAA 149 (Stanford) Operation of Aerospace Systems\n\n\n\nWriting\nK. Dobolyi, G. P. Sieniawski, D. Dobolyi, J. Goldfrank, and Z. Hampel-Arias, “Hindsight2020: Characterizing Uncertainty in the COVID-19 Scientific Literature,” Disaster Medicine and Public Health Preparedness, vol. 17, p. e437, 2023. doi:10.1017/dmp.2023.82\nJ. Goldfrank, M. E. Paté-Cornell, G. Forbes, and D. Liedtka, “Risk Reduction in Target Motion Analysis Using Approximate Dynamic Programming.” Military Operations Research, no. 1, 5–26, 2023 https://www.jstor.org/stable/27207613.\nL. Tindall, Z. Hampel-Arias, J. Goldfrank, E. Mair and T. Q. Nguven, ”Localizing Radio Frequency Targets Using Reinforcement Learning,” 2021 IEEE International Symposium on Robotic and Sensors Environments (ROSE), FL, USA, 2021, pp. 1-7, doi: 10.1109/ROSE52750.2021.9611756."
-  },
-  {
-    "objectID": "contact.html",
-    "href": "contact.html",
-    "title": "Contact",
-    "section": "",
-    "text": "Office Hours\nAny GW student is welcome at my office hours. This schedule is up to date:\n\n\n\n\nDay\nTime\n\n\n\n\nMondays\n1:00 PM - 3:00 PM\n\n\nWednesdays\n12:30 PM - 3:00 PM\n\n\nFridays\n3:30 PM - 6 PM\n\n\nFriday 13 Sep 2024\n12:00-3:00 PM\n\n\nFriday 20 Sep 2024\n12:00-3:00 PM\n\n\n\n\n(Any struck through time indicates a deviation from the usual time.)\nThe location is typically SEH 4675, although I am often in the SEH 4th floor lobby area, as my office is small and windowless.\nYou are welcome to make an appointment. Appointments are not necessary, but will receive priority if you send an agenda at least 24 hours in advance.\nMy office can be slightly difficult to find:\n\nIt is on SEH 4th Floor, West wing\n\nExiting the elevators, make a right\nFrom the top of the stairs, go straight\n\nGo through the glass door (your card will work)\nMake a right where a right can be made, then an immediate left\nSEH 4675 will be on the left\n\n\n\nElectronic Mail\nMy address is joe.goldfrank@gwu.edu. My notes are typically short, direct, and polite; I encourage you to write to me in this way.\nLately there is a trend towards long formal notes, perhaps generated with some algorithm (many of them look the same). This style makes it harder for me to find your message amidst all the words.\nPlease refrain from sending me sales/marketing materials, I will mark these as spam."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Joe Goldfrank",
-    "section": "",
-    "text": "Assistant Professor of Practice Department of Computer Science George Washington University\n\nI joined the GWU Department of Computer Science as a Visiting Professor in August 2022, and as an Assistant Professor of Practice in August 2023. You might read more about teaching and writing I have done.\nBefore this, I completed my PhD in Decision & Risk Analysis under the guidance of Elisabeth Paté-Cornell at Stanford University in California.\nSome years ago, I served on active duty in the U.S. Navy as a nuclear submarine line officer, and worked at the DOD Strategic Capabilities Office. I completed a B.S. (with honors) in Physics at the College of William and Mary in 2009.\nI am interested in improving the decisions that humans make. What that means is determined by each human.\nAdjacent to the university, I make acoustic, electric, and electronic music."
+    "text": "Stuart J. Russell and Peter Norvig. Artificial Intelligence: A Modern Approach. 4th Edition, 2020.\nMykal Kochenderfer, Tim Wheeler, and Kyle Wray. Algorithms for Decision Making. 1st Edition, 2022.\nStanford CS231\nStanford CS228\nUC Berkeley CS188"
   },
   {
     "objectID": "4511/01/01.html#good-afternoon",
@@ -446,6 +831,55 @@
     "title": "AI Algorithms  Introduction",
     "section": "References",
     "text": "References\n\nStuart J. Russell and Peter Norvig. Artificial Intelligence: A Modern Approach. 4th Edition, 2020.\nStanford CS231\nUC Berkeley CS188"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Joe Goldfrank",
+    "section": "",
+    "text": "Assistant Professor of Practice Department of Computer Science George Washington University\n\nI joined the GWU Department of Computer Science as a Visiting Professor in August 2022, and as an Assistant Professor of Practice in August 2023. You might read more about teaching and writing I have done.\nBefore this, I completed my PhD in Decision & Risk Analysis under the guidance of Elisabeth Paté-Cornell at Stanford University in California.\nSome years ago, I served on active duty in the U.S. Navy as a nuclear submarine line officer, and worked at the DOD Strategic Capabilities Office. I completed a B.S. (with honors) in Physics at the College of William and Mary in 2009.\nI am interested in improving the decisions that humans make. What that means is determined by each human.\nAdjacent to the university, I make acoustic, electric, and electronic music."
+  },
+  {
+    "objectID": "contact.html",
+    "href": "contact.html",
+    "title": "Contact",
+    "section": "",
+    "text": "Office Hours\nAny GW student is welcome at my office hours. This schedule is up to date:\n\n\n\n\nDay\nTime\n\n\n\n\nMondays\n1:00 PM - 3:00 PM\n\n\nWednesdays\n12:30 PM - 3:00 PM\n\n\nFridays\n3:30 PM - 6 PM\n\n\nFriday 13 Sep 2024\n12:00-3:00 PM\n\n\nFriday 20 Sep 2024\n12:00-3:00 PM\n\n\n\n\n(Any struck through time indicates a deviation from the usual time.)\nThe location is typically SEH 4675, although I am often in the SEH 4th floor lobby area, as my office is small and windowless.\nYou are welcome to make an appointment. Appointments are not necessary, but will receive priority if you send an agenda at least 24 hours in advance.\nMy office can be slightly difficult to find:\n\nIt is on SEH 4th Floor, West wing\n\nExiting the elevators, make a right\nFrom the top of the stairs, go straight\n\nGo through the glass door (your card will work)\nMake a right where a right can be made, then an immediate left\nSEH 4675 will be on the left\n\n\n\nElectronic Mail\nMy address is joe.goldfrank@gwu.edu. My notes are typically short, direct, and polite; I encourage you to write to me in this way.\nLately there is a trend towards long formal notes, perhaps generated with some algorithm (many of them look the same). This style makes it harder for me to find your message amidst all the words.\nPlease refrain from sending me sales/marketing materials, I will mark these as spam."
+  },
+  {
+    "objectID": "teaching_writing.html",
+    "href": "teaching_writing.html",
+    "title": "Teaching and Writing",
+    "section": "",
+    "text": "Teaching\nCurrently:\n\nCSCI 1012 Intro. Programming in Python\n\nCourse Site\n\nCSCI 4511/5611 Artificial Intelligence Algorithms\n\nCourse Notes\n\n\nPreviously:\n\nCSCI 6366/4366 Neural Networks & Deep Learning\nCSCI 6531/4531 Computer Security\nCSCI 6917 Guided Research\nSEAS 6402 Data Analytics Capstone\n\nLectures:\n\nCSCI 1111 Intro. Software Development\nCSCI 4364/6364 Machine Learning\nMS&E 250A (Stanford) Risk Analysis\nMS&E 350 (Stanford) Risk Analysis Seminar\nAA 149 (Stanford) Operation of Aerospace Systems\n\n\n\nWriting\nK. Dobolyi, G. P. Sieniawski, D. Dobolyi, J. Goldfrank, and Z. Hampel-Arias, “Hindsight2020: Characterizing Uncertainty in the COVID-19 Scientific Literature,” Disaster Medicine and Public Health Preparedness, vol. 17, p. e437, 2023. doi:10.1017/dmp.2023.82\nJ. Goldfrank, M. E. Paté-Cornell, G. Forbes, and D. Liedtka, “Risk Reduction in Target Motion Analysis Using Approximate Dynamic Programming.” Military Operations Research, no. 1, 5–26, 2023 https://www.jstor.org/stable/27207613.\nL. Tindall, Z. Hampel-Arias, J. Goldfrank, E. Mair and T. Q. Nguven, ”Localizing Radio Frequency Targets Using Reinforcement Learning,” 2021 IEEE International Symposium on Robotic and Sensors Environments (ROSE), FL, USA, 2021, pp. 1-7, doi: 10.1109/ROSE52750.2021.9611756."
+  },
+  {
+    "objectID": "advising.html",
+    "href": "advising.html",
+    "title": "Advising",
+    "section": "",
+    "text": "Undergraduate\nIf I am your undergraduate advisor, email and office hours are the most straightforward ways to discuss your questions.\n\n\nGraduate\nI am not currently soliciting applications, however any graduate student interested in collaborating is welcome to send me a proposal. It does not have to be particularly formal, however:\n\nTell me what questions you are interested in answering\nShow me what other work has been done in this avenue\nDiscuss a plan for executing your project\n\nI am fond of the Heilmeier Catechism, although it is not a perfect match for many kinds of academic research questions."
+  },
+  {
+    "objectID": "4511/index.html",
+    "href": "4511/index.html",
+    "title": "CSCI 4511/6511 Fall 2024",
+    "section": "",
+    "text": "Syllabus"
+  },
+  {
+    "objectID": "4511/index.html#notes",
+    "href": "4511/index.html#notes",
+    "title": "CSCI 4511/6511 Fall 2024",
+    "section": "Notes",
+    "text": "Notes\n\nLecture 1 - 28 Aug\nLecture 2 - 04 Sep"
+  },
+  {
+    "objectID": "4511/index.html#homework",
+    "href": "4511/index.html#homework",
+    "title": "CSCI 4511/6511 Fall 2024",
+    "section": "Homework",
+    "text": "Homework\n\nHomework One"
   },
   {
     "objectID": "4511/02/02.html#good-afternoon",
