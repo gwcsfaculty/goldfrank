@@ -1,530 +1,5 @@
 [
   {
-    "objectID": "4511/hw1.html",
-    "href": "4511/hw1.html",
-    "title": "Homework One",
-    "section": "",
-    "text": "In this project, your Pacman agent will find paths through his maze world, both to reach a particular location and to collect food efficiently. You will build general search algorithms and apply them to Pacman scenarios.\nThis project includes an autograder for you to grade your answers on your machine. This can be run with the command:\npython autograder.py\nThe code for this project consists of several Python files, some of which you will need to read and understand in order to complete the assignment, and some of which you can ignore. You can download all the code and supporting files in: search.zip.\nFiles to Edit and Submit: You will fill in portions of search.py and searchAgents.py during the assignment. Once you have completed the assignment, you will submit these files to the submit server. Please submit a single (uncompressed) .tar containing these two files. The server will allow you to submit multiple times for credit, but please run the autograder locally first.\nEvaluation: Evaluation of your code’s correctness will be performed by the autograder. If you think your code is correct and the autograder is in error, bring this to my attention before the submission deadline. Point values are relative within each assignment: all assignments are scaled to 100 when calculating grades.\nAcademic Dishonesty: This assignment is individual effort. Please review the collaboration policy for the course and adhere to it.\n\n\n\n\n\n\n\n\nFiles you’ll edit:\n\n\n\nsearch.py\nWhere all of your search algorithms will reside.\n\n\nsearchAgents.py\nWhere all of your search-based agents will reside.\n\n\nFiles you might want to look at:\n\n\n\npacman.py\nThe main file that runs Pacman games. This file describes a Pacman GameState type, which you use in this project.\n\n\ngame.py\nThe logic behind how the Pacman world works. This file describes several supporting types like AgentState, Agent, Direction, and Grid.\n\n\nutil.py\nUseful data structures for implementing search algorithms.\n\n\nSupporting files you can ignore:\n\n\n\ngraphicsDisplay.py\nGraphics for Pacman\n\n\ngraphicsUtils.py\nSupport for Pacman graphics\n\n\ntextDisplay.py\nASCII graphics for Pacman\n\n\nghostAgents.py\nAgents to control ghosts\n\n\nkeyboardAgents.py\nKeyboard interfaces to control Pacman\n\n\nlayout.py\nCode for reading layout files and storing their contents\n\n\nautograder.py\nProject autograder\n\n\ntestParser.py\nParses autograder test and solution files\n\n\ntestClasses.py\nGeneral autograding test classes\n\n\ntest_cases/\nDirectory containing the test cases for each question\n\n\nsearchTestClasses.py\nProject 1 specific autograding test classes"
-  },
-  {
-    "objectID": "4511/hw1.html#introduction",
-    "href": "4511/hw1.html#introduction",
-    "title": "Homework One",
-    "section": "",
-    "text": "In this project, your Pacman agent will find paths through his maze world, both to reach a particular location and to collect food efficiently. You will build general search algorithms and apply them to Pacman scenarios.\nThis project includes an autograder for you to grade your answers on your machine. This can be run with the command:\npython autograder.py\nThe code for this project consists of several Python files, some of which you will need to read and understand in order to complete the assignment, and some of which you can ignore. You can download all the code and supporting files in: search.zip.\nFiles to Edit and Submit: You will fill in portions of search.py and searchAgents.py during the assignment. Once you have completed the assignment, you will submit these files to the submit server. Please submit a single (uncompressed) .tar containing these two files. The server will allow you to submit multiple times for credit, but please run the autograder locally first.\nEvaluation: Evaluation of your code’s correctness will be performed by the autograder. If you think your code is correct and the autograder is in error, bring this to my attention before the submission deadline. Point values are relative within each assignment: all assignments are scaled to 100 when calculating grades.\nAcademic Dishonesty: This assignment is individual effort. Please review the collaboration policy for the course and adhere to it.\n\n\n\n\n\n\n\n\nFiles you’ll edit:\n\n\n\nsearch.py\nWhere all of your search algorithms will reside.\n\n\nsearchAgents.py\nWhere all of your search-based agents will reside.\n\n\nFiles you might want to look at:\n\n\n\npacman.py\nThe main file that runs Pacman games. This file describes a Pacman GameState type, which you use in this project.\n\n\ngame.py\nThe logic behind how the Pacman world works. This file describes several supporting types like AgentState, Agent, Direction, and Grid.\n\n\nutil.py\nUseful data structures for implementing search algorithms.\n\n\nSupporting files you can ignore:\n\n\n\ngraphicsDisplay.py\nGraphics for Pacman\n\n\ngraphicsUtils.py\nSupport for Pacman graphics\n\n\ntextDisplay.py\nASCII graphics for Pacman\n\n\nghostAgents.py\nAgents to control ghosts\n\n\nkeyboardAgents.py\nKeyboard interfaces to control Pacman\n\n\nlayout.py\nCode for reading layout files and storing their contents\n\n\nautograder.py\nProject autograder\n\n\ntestParser.py\nParses autograder test and solution files\n\n\ntestClasses.py\nGeneral autograding test classes\n\n\ntest_cases/\nDirectory containing the test cases for each question\n\n\nsearchTestClasses.py\nProject 1 specific autograding test classes"
-  },
-  {
-    "objectID": "4511/hw1.html#welcome-to-pacman",
-    "href": "4511/hw1.html#welcome-to-pacman",
-    "title": "Homework One",
-    "section": "2 Welcome to Pacman",
-    "text": "2 Welcome to Pacman\nAfter downloading the code, unzipping it, and changing to the directory, you should be able to play a game of Pacman by typing the following at the command line:\npython pacman.py\nPacman lives in a shiny blue world of twisting corridors and tasty round treats. Navigating this world efficiently will be Pacman’s first step in mastering his domain.\nThe simplest agent in searchAgents.py is called the GoWestAgent, which always goes West (a trivial reflex agent). This agent can occasionally win:\npython pacman.py --layout testMaze --pacman GoWestAgent\nBut, things get ugly for this agent when turning is required:\npython pacman.py --layout tinyMaze --pacman GoWestAgent\nIf Pacman gets stuck, you can exit the game by typing CTRL-c into your terminal.\nSoon, your agent will solve not only tinyMaze, but any maze you want.\nNote that pacman.py supports a number of options that can each be expressed in a long way (e.g., --layout) or a short way (e.g., -l). You can see the list of all options and their default values via:\npython pacman.py -h"
-  },
-  {
-    "objectID": "4511/hw1.html#new-syntax",
-    "href": "4511/hw1.html#new-syntax",
-    "title": "Homework One",
-    "section": "3 New Syntax",
-    "text": "3 New Syntax\nYou may not have encoutered Python type hints before:\ndef my_function(a: int, b: Tuple[int, int], c: List[List], d: Any, e: float=1.0):\nThis is annotating the type of the arguments that Python should expect for this function. In the example below, a should be an int, b should be a tuple of 2 ints, c should be a List of Lists of anything – therefore a 2D array of anything, d is essentially the same as not annotated and can by anything, and e should be a float. e is also set to 1.0 if nothing is passed in for it, i.e.:\nmy_function(1, (2, 3), [['a', 'b'], [None, my_class], [[]]], ('h', 1))\nThe above call fits the type annotations, and doesn’t pass anything in for e. Type annotations are meant to be an adddition to the docstrings to help you know what the functions are working with. Python itself doesn’t enforce these. Using them in your functions is optional."
-  },
-  {
-    "objectID": "4511/hw1.html#q1-3-pts-depth-first-search",
-    "href": "4511/hw1.html#q1-3-pts-depth-first-search",
-    "title": "Homework One",
-    "section": "4 Q1 (3 pts): Depth First Search",
-    "text": "4 Q1 (3 pts): Depth First Search\n(3 pts) In searchAgents.py, you’ll find a fully implemented SearchAgent, which plans out a path through Pacman’s world and then executes that path step-by-step. The search algorithms for formulating a plan are not implemented – that’s your job.\nFirst, test that the SearchAgent is working correctly by running:\npython pacman.py -l tinyMaze -p SearchAgent -a fn=tinyMazeSearch\nThe command above tells the SearchAgent to use tinyMazeSearch as its search algorithm, which is implemented in search.py. Pacman should navigate the maze successfully.\nNow it’s time to write full-fledged generic search functions to help Pacman plan routes! Pseudocode for the search algorithms you’ll write can be found in the lecture slides. Remember that a search node must contain not only a state but also the information necessary to reconstruct the path (plan) which gets to that state.\nImportant note: All of your search functions need to return a list of actions that will lead the agent from the start to the goal. These actions all have to be legal moves (valid directions, no moving through walls).\nImportant note: Make sure to use the Stack, Queue and PriorityQueue data structures provided to you in util.py! These data structure implementations have particular properties which are required for compatibility with the autograder.\nHint: Each algorithm is very similar. Algorithms for DFS, BFS, UCS, and A* differ only in the details of how the fringe is managed. So, concentrate on getting DFS right and the rest should be relatively straightforward. Indeed, one possible implementation requires only a single generic search method which is configured with an algorithm-specific queuing strategy. (Your implementation need not be of this form to receive full credit).\nImplement the depth-first search (DFS) algorithm in the depthFirstSearch function in search.py. To make your algorithm complete, write the graph search version of DFS, which avoids expanding any already visited states.\nYour code should quickly find a solution for:\npython pacman.py -l tinyMaze -p SearchAgent\npython pacman.py -l mediumMaze -p SearchAgent\npython pacman.py -l bigMaze -z .5 -p SearchAgent\nThe Pacman board will show an overlay of the states explored, and the order in which they were explored (brighter red means earlier exploration). Is the exploration order what you would have expected? Does Pacman actually go to all the explored squares on his way to the goal?\nHint: If you use a Stack as your data structure, the solution found by your DFS algorithm for mediumMaze should have a length of 130 (provided you push successors onto the fringe in the order provided by getSuccessors; you might get 246 if you push them in the reverse order). Is this a least cost solution? If not, think about what depth-first search is doing wrong.\nGrading: Please run the below command to see if your implementation passes all the autograder test cases.\npython autograder.py -q q1"
-  },
-  {
-    "objectID": "4511/hw1.html#q2-3-pts-breadth-first-search",
-    "href": "4511/hw1.html#q2-3-pts-breadth-first-search",
-    "title": "Homework One",
-    "section": "5 Q2 (3 pts): Breadth First Search",
-    "text": "5 Q2 (3 pts): Breadth First Search\nImplement the breadth-first search (BFS) algorithm in the breadthFirstSearch function in search.py. Again, write a graph search algorithm that avoids expanding any already visited states. Test your code the same way you did for depth-first search.\npython pacman.py -l mediumMaze -p SearchAgent -a fn=bfs\npython pacman.py -l bigMaze -p SearchAgent -a fn=bfs -z .5\nDoes BFS find a least cost solution? If not, check your implementation.\nHint: If Pacman moves too slowly for you, try the option –frameTime 0.\nNote: If you’ve written your search code generically, your code should work equally well for the eight-puzzle search problem without any changes.\npython eightpuzzle.py\nGrading: Please run the below command to see if your implementation passes all the autograder test cases.\npython autograder.py -q q2"
-  },
-  {
-    "objectID": "4511/hw1.html#q3-3-pts-varying-the-cost-function",
-    "href": "4511/hw1.html#q3-3-pts-varying-the-cost-function",
-    "title": "Homework One",
-    "section": "6 Q3 (3 pts): Varying the Cost Function",
-    "text": "6 Q3 (3 pts): Varying the Cost Function\nWhile BFS will find a fewest-actions path to the goal, we might want to find paths that are “best” in other senses. Consider mediumDottedMaze and mediumScaryMaze.\nBy changing the cost function, we can encourage Pacman to find different paths. For example, we can charge more for dangerous steps in ghost-ridden areas or less for steps in food-rich areas, and a rational Pacman agent should adjust its behavior in response.\nImplement the uniform-cost graph search algorithm in the uniformCostSearch function in search.py. We encourage you to look through util.py for some data structures that may be useful in your implementation. You should now observe successful behavior in all three of the following layouts, where the agents below are all UCS agents that differ only in the cost function they use (the agents and cost functions are written for you):\npython pacman.py -l mediumMaze -p SearchAgent -a fn=ucs\npython pacman.py -l mediumDottedMaze -p StayEastSearchAgent\npython pacman.py -l mediumScaryMaze -p StayWestSearchAgent\nNote: You should get very low and very high path costs for the StayEastSearchAgent and StayWestSearchAgent respectively, due to their exponential cost functions (see searchAgents.py for details).\nGrading: Please run the below command to see if your implementation passes all the autograder test cases.\npython autograder.py -q q3"
-  },
-  {
-    "objectID": "4511/hw1.html#q4-3-pts-a-search",
-    "href": "4511/hw1.html#q4-3-pts-a-search",
-    "title": "Homework One",
-    "section": "7 Q4 (3 pts): A* search",
-    "text": "7 Q4 (3 pts): A* search\nImplement A* graph search in the empty function aStarSearch in search.py. A* takes a heuristic function as an argument. Heuristics take two arguments: a state in the search problem (the main argument), and the problem itself (for reference information). The nullHeuristic heuristic function in search.py is a trivial example.\nYou can test your A* implementation on the original problem of finding a path through a maze to a fixed position using the Manhattan distance heuristic (implemented already as manhattanHeuristic in searchAgents.py).\npython pacman.py -l bigMaze -z .5 -p SearchAgent -a fn=astar,heuristic=manhattanHeuristic\nYou should see that A* finds the optimal solution slightly faster than uniform cost search (about 549 vs. 620 search nodes expanded in our implementation, but ties in priority may make your numbers differ slightly). What happens on openMaze for the various search strategies?\nGrading: Please run the below command to see if your implementation passes all the autograder test cases.\npython autograder.py -q q4"
-  },
-  {
-    "objectID": "4511/hw1.html#q5-3-pts-finding-all-the-corners",
-    "href": "4511/hw1.html#q5-3-pts-finding-all-the-corners",
-    "title": "Homework One",
-    "section": "8 Q5 (3 pts): Finding All the Corners",
-    "text": "8 Q5 (3 pts): Finding All the Corners\nThe real power of A* will only be apparent with a more challenging search problem. Now, it’s time to formulate a new problem and design a heuristic for it.\nIn corner mazes, there are four dots, one in each corner. Our new search problem is to find the shortest path through the maze that touches all four corners (whether the maze actually has food there or not). Note that for some mazes like tinyCorners, the shortest path does not always go to the closest food first! Hint: the shortest path through tinyCorners takes 28 steps.\nNote: Make sure to complete Question 2 before working on Question 5, because Question 5 builds upon your answer for Question 2.\nImplement the CornersProblem search problem in searchAgents.py. You will need to choose a state representation that encodes all the information necessary to detect whether all four corners have been reached. Now, your search agent should solve:\npython pacman.py -l tinyCorners -p SearchAgent -a fn=bfs,prob=CornersProblem\npython pacman.py -l mediumCorners -p SearchAgent -a fn=bfs,prob=CornersProblem\nTo receive full credit, you need to define an abstract state representation that does not encode irrelevant information (like the position of ghosts, where extra food is, etc.). In particular, do not use a Pacman GameState as a search state. Your code will be very, very slow if you do (and also wrong).\nAn instance of the CornersProblem class represents an entire search problem, not a particular state. Particular states are returned by the functions you write, and your functions return a data structure of your choosing (e.g. tuple, set, etc.) that represents a state.\nFurthermore, while a program is running, remember that many states simultaneously exist, all on the queue of the search algorithm, and they should be independent of each other. In other words, you should not have only one state for the entire CornersProblem object; your class should be able to generate many different states to provide to the search algorithm.\nHint 1: The only parts of the game state you need to reference in your implementation are the starting Pacman position and the location of the four corners.\nHint 2: When coding up getSuccessors, make sure to add children to your successors list with a cost of 1.\nOur implementation of breadthFirstSearch expands just under 2000 search nodes on mediumCorners. However, heuristics (used with A* search) can reduce the amount of searching required.\nGrading: Please run the below command to see if your implementation passes all the autograder test cases.\npython autograder.py -q q5"
-  },
-  {
-    "objectID": "4511/hw1.html#q6-3-pts-corners-problem-heuristic",
-    "href": "4511/hw1.html#q6-3-pts-corners-problem-heuristic",
-    "title": "Homework One",
-    "section": "9 Q6 (3 pts): Corners Problem: Heuristic",
-    "text": "9 Q6 (3 pts): Corners Problem: Heuristic\nNote: Make sure to complete Question 4 before working on Question 6, because Question 6 builds upon your answer for Question 4.\nImplement a non-trivial, consistent heuristic for the CornersProblem in cornersHeuristic.\npython pacman.py -l mediumCorners -p AStarCornersAgent -z 0.5\nNote: AStarCornersAgent is a shortcut for\n-p SearchAgent -a fn=aStarSearch,prob=CornersProblem,heuristic=cornersHeuristic\nAdmissibility vs. Consistency: Remember, heuristics are just functions that take search states and return numbers that estimate the cost to a nearest goal. More effective heuristics will return values closer to the actual goal costs. To be admissible, the heuristic values must be lower bounds on the actual shortest path cost to the nearest goal (and non-negative). To be consistent, it must additionally hold that if an action has cost c, then taking that action can only cause a drop in heuristic of at most c.\nRemember that admissibility isn’t enough to guarantee correctness in graph search – you need the stronger condition of consistency. However, admissible heuristics are usually also consistent, especially if they are derived from problem relaxations. Therefore it is usually easiest to start out by brainstorming admissible heuristics. Once you have an admissible heuristic that works well, you can check whether it is indeed consistent, too. The only way to guarantee consistency is with a proof. However, inconsistency can often be detected by verifying that for each node you expand, its successor nodes are equal or higher in in f-value. Moreover, if UCS and A* ever return paths of different lengths, your heuristic is inconsistent. This stuff is tricky!\nNon-Trivial Heuristics: The trivial heuristics are the ones that return zero everywhere (UCS) and the heuristic which computes the true completion cost. The former won’t save you any time, while the latter will timeout the autograder. You want a heuristic which reduces total compute time, though for this assignment the autograder will only check node counts (aside from enforcing a reasonable time limit).\nGrading: Your heuristic must be a non-trivial non-negative consistent heuristic to receive any points. Make sure that your heuristic returns 0 at every goal state and never returns a negative value. Depending on how few nodes your heuristic expands, you’ll be graded:\n\n\n\nNumber of nodes expanded\nGrade\n\n\n\n\nmore than 2000\n0/3\n\n\nat most 2000\n1/3\n\n\nat most 1600\n2/3\n\n\nat most 1200\n3/3\n\n\n\nRemember: If your heuristic is inconsistent, you will receive no credit, so be careful!\nGrading: Please run the below command to see if your implementation passes all the autograder test cases.\npython autograder.py -q q6"
-  },
-  {
-    "objectID": "4511/hw1.html#q7-4-pts-eating-all-the-dots",
-    "href": "4511/hw1.html#q7-4-pts-eating-all-the-dots",
-    "title": "Homework One",
-    "section": "10 Q7 (4 pts): Eating All The Dots",
-    "text": "10 Q7 (4 pts): Eating All The Dots\nNow we’ll solve a hard search problem: eating all the Pacman food in as few steps as possible. For this, we’ll need a new search problem definition which formalizes the food-clearing problem: FoodSearchProblem in searchAgents.py (implemented for you). A solution is defined to be a path that collects all of the food in the Pacman world. For the present project, solutions do not take into account any ghosts or power pellets; solutions only depend on the placement of walls, regular food and Pacman. (Of course ghosts can ruin the execution of a solution! We’ll get to that in the next project.) If you have written your general search methods correctly, A* with a null heuristic (equivalent to uniform-cost search) should quickly find an optimal solution to testSearch with no code change on your part (total cost of 7).\npython pacman.py -l testSearch -p AStarFoodSearchAgent\nNote: AStarFoodSearchAgent is a shortcut for\n-p SearchAgent -a fn=astar,prob=FoodSearchProblem,heuristic=foodHeuristic\nYou should find that UCS starts to slow down even for the seemingly simple tinySearch. As a reference, our implementation takes 2.5 seconds to find a path of length 27 after expanding 5057 search nodes.\nNote: Make sure to complete Question 4 before working on Question 7, because Question 7 builds upon your answer for Question 4.\nFill in foodHeuristic in searchAgents.py with a consistent heuristic for the FoodSearchProblem. Try your agent on the trickySearch board:\npython pacman.py -l trickySearch -p AStarFoodSearchAgent\nOur UCS agent finds the optimal solution in about 13 seconds, exploring over 16,000 nodes.\nAny non-trivial non-negative consistent heuristic will receive 1 point. Make sure that your heuristic returns 0 at every goal state and never returns a negative value. Depending on how few nodes your heuristic expands, you’ll get additional points:\n\n\n\nNumber of nodes expanded\nGrade\n\n\n\n\nmore than 15000\n1/4\n\n\nat most 15000\n2/4\n\n\nat most 12000\n3/4\n\n\nat most 9000\n4/4 (full credit; medium)\n\n\nat most 7000\n5/4 (optional extra credit; hard)\n\n\n\nRemember: If your heuristic is inconsistent, you will receive no credit, so be careful! Can you solve mediumSearch in a short time? If so, we’re either very, very impressed, or your heuristic is inconsistent.\nGrading: Please run the below command to see if your implementation passes all the autograder test cases.\npython autograder.py -q q7"
-  },
-  {
-    "objectID": "4511/hw1.html#q8-3-pts-suboptimal-search",
-    "href": "4511/hw1.html#q8-3-pts-suboptimal-search",
-    "title": "Homework One",
-    "section": "11 Q8 (3 pts): Suboptimal Search",
-    "text": "11 Q8 (3 pts): Suboptimal Search\nSometimes, even with A* and a good heuristic, finding the optimal path through all the dots is hard. In these cases, we’d still like to find a reasonably good path, quickly. In this section, you’ll write an agent that always greedily eats the closest dot. ClosestDotSearchAgent is implemented for you in searchAgents.py, but it’s missing a key function that finds a path to the closest dot.\nImplement the function findPathToClosestDot in searchAgents.py. Our agent solves this maze (suboptimally!) in under a second with a path cost of 350:\npython pacman.py -l bigSearch -p ClosestDotSearchAgent -z .5\nHint: The quickest way to complete findPathToClosestDot is to fill in the AnyFoodSearchProblem, which is missing its goal test. Then, solve that problem with an appropriate search function. The solution should be very short!\nYour ClosestDotSearchAgent won’t always find the shortest possible path through the maze. Make sure you understand why and try to come up with a small example where repeatedly going to the closest dot does not result in finding the shortest path for eating all the dots.\nGrading: Please run the below command to see if your implementation passes all the autograder test cases.\npython autograder.py -q q8"
-  },
-  {
-    "objectID": "4511/03/03.html#announcements",
-    "href": "4511/03/03.html#announcements",
-    "title": "Local Search & Games",
-    "section": "Announcements",
-    "text": "Announcements\n\n\nHomework 1 is due on 15 September at 11:55 PM\n\nLate submission policy\n\nHomework 2 is due on 29 September at 11:55 PM\nFri 13 Sep Office Hours moved: 12 PM - 3 PM\nFri 20 Sep Office Hours moved: 12 PM - 3 PM"
-  },
-  {
-    "objectID": "4511/03/03.html#why-are-we-here",
-    "href": "4511/03/03.html#why-are-we-here",
-    "title": "Local Search & Games",
-    "section": "Why Are We Here?",
-    "text": "Why Are We Here?"
-  },
-  {
-    "objectID": "4511/03/03.html#why-are-we-here-1",
-    "href": "4511/03/03.html#why-are-we-here-1",
-    "title": "Local Search & Games",
-    "section": "Why Are We Here?",
-    "text": "Why Are We Here?\n\n⠀⠀⠀⠀⠀⠀⠀⢀⣠⣤⣤⣶⣶⣶⣶⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀\n⠀⠀⠀⠀⢀⣤⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣤⡀⠀⠀⠀⠀\n⠀⠀⠀⣴⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡄⠀⠀⠀\n⠀⢀⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⠁⠀⠀⠀\n⠀⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⠋⠀⠀⠀⠀⠀⠀\n⢠⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⠋            ⠀⣀⣄⡀      ⠀⠀⣠⣄⡀\n⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣏⠀⠀⠀            ⢸⣿⣿⣿      ⠀⢸⣿⣿⣿\n⠘⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣦⣀⠀            ⠉⠋⠁      ⠀⠀⠙⠋⠁\n⠀⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣦⡀⠀⠀⠀⠀⠀⠀\n⠀⠈⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣤⠀⠀⠀⠀\n⠀⠀⠀⠻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠃⠀⠀⠀\n⠀⠀⠀⠀⠈⠛⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠛⠁⠀⠀⠀⠀\n⠀⠀⠀⠀⠀⠀⠀⠈⠙⠛⠛⠿⠿⠿⠿⠛⠛⠋⠁⠀⠀⠀⠀⠀⠀⠀"
-  },
-  {
-    "objectID": "4511/03/03.html#search-why",
-    "href": "4511/03/03.html#search-why",
-    "title": "Local Search & Games",
-    "section": "Search: Why?",
-    "text": "Search: Why?\n\nFully-observed problem\nDeterministic actions and state\nWell-defined start and goal\n\n“Well-defined”"
-  },
-  {
-    "objectID": "4511/03/03.html#goal-tests",
-    "href": "4511/03/03.html#goal-tests",
-    "title": "Local Search & Games",
-    "section": "Goal Tests",
-    "text": "Goal Tests"
-  },
-  {
-    "objectID": "4511/03/03.html#goal-tests-1",
-    "href": "4511/03/03.html#goal-tests-1",
-    "title": "Local Search & Games",
-    "section": "Goal Tests",
-    "text": "Goal Tests"
-  },
-  {
-    "objectID": "4511/03/03.html#best-first-search",
-    "href": "4511/03/03.html#best-first-search",
-    "title": "Local Search & Games",
-    "section": "Best-First Search",
-    "text": "Best-First Search"
-  },
-  {
-    "objectID": "4511/03/03.html#a-search",
-    "href": "4511/03/03.html#a-search",
-    "title": "Local Search & Games",
-    "section": "A* Search",
-    "text": "A* Search\n\nInclude path-cost \\(g(n)\\)\n\n\\(f(n) = g(n) + h(n)\\)\n\n\n\n\n\n\nComplete (always)\nOptimal (sometimes)\nPainful \\(O(b^m)\\) time and space complexity"
-  },
-  {
-    "objectID": "4511/03/03.html#a-vs.-dijkstra",
-    "href": "4511/03/03.html#a-vs.-dijkstra",
-    "title": "Local Search & Games",
-    "section": "A* vs. Dijkstra",
-    "text": "A* vs. Dijkstra"
-  },
-  {
-    "objectID": "4511/03/03.html#choosing-heuristics",
-    "href": "4511/03/03.html#choosing-heuristics",
-    "title": "Local Search & Games",
-    "section": "Choosing Heuristics",
-    "text": "Choosing Heuristics\n\nRecall: \\(h(n)\\) estimates cost from \\(n\\) to goal\n\n\n\n\n\nAdmissibility\nConsistency"
-  },
-  {
-    "objectID": "4511/03/03.html#choosing-heuristics-1",
-    "href": "4511/03/03.html#choosing-heuristics-1",
-    "title": "Local Search & Games",
-    "section": "Choosing Heuristics",
-    "text": "Choosing Heuristics\n\nAdmissibility\n\nNever overestimates cost from \\(n\\) to goal\nCost-optimal!\n\nConsistency\n\n\\(h(n) \\leq c(n, a, n') + h(n')\\)\n\\(n'\\) successors of \\(n\\)\n\\(c(n, a, n')\\) cost from \\(n\\) to \\(n'\\) given action \\(a\\)"
-  },
-  {
-    "objectID": "4511/03/03.html#iterative-deepening-a-search",
-    "href": "4511/03/03.html#iterative-deepening-a-search",
-    "title": "Local Search & Games",
-    "section": "Iterative-Deepening A* Search",
-    "text": "Iterative-Deepening A* Search\n\n“IDA*” Search\n\nSimilar to Iterative Deepening with Depth-First Search\n\nDFS uses depth cutoff\nIDA* uses \\(h(n) + g(n)\\) cutoff with DFS\nOnce cutoff breached, new cutoff:\n\nTypically next-largest \\(h(n) + g(n)\\)\n\n\\(O(b^m)\\) time complexity 😔\n\\(O(d)\\) space complexity 😌"
-  },
-  {
-    "objectID": "4511/03/03.html#beam-search",
-    "href": "4511/03/03.html#beam-search",
-    "title": "Local Search & Games",
-    "section": "Beam Search",
-    "text": "Beam Search\n\nBest-First Search:\n\nFrontier is all expanded nodes\n\nBeam Search:\n\n\\(k\\) “best” nodes are kept on frontier\n\nOthers discarded\n\nAlt: all nodes within \\(\\delta\\) of best node\nNot Optimal\nNot Complete"
-  },
-  {
-    "objectID": "4511/03/03.html#recursive-best-first-search-rbfs",
-    "href": "4511/03/03.html#recursive-best-first-search-rbfs",
-    "title": "Local Search & Games",
-    "section": "Recursive Best-First Search (RBFS)",
-    "text": "Recursive Best-First Search (RBFS)\n\nNo \\(reached\\) table is kept\nSecond-best node \\(f(n)\\) retained\n\nSearch from each node cannot exceed this limit\nIf exceeded, recursion “backs up” to previous node\n\nMemory-efficient\n\nCan “cycle” between branches"
-  },
-  {
-    "objectID": "4511/03/03.html#recursive-best-first-search-rbfs-1",
-    "href": "4511/03/03.html#recursive-best-first-search-rbfs-1",
-    "title": "Local Search & Games",
-    "section": "Recursive Best-First Search (RBFS)",
-    "text": "Recursive Best-First Search (RBFS)"
-  },
-  {
-    "objectID": "4511/03/03.html#heuristic-characteristics",
-    "href": "4511/03/03.html#heuristic-characteristics",
-    "title": "Local Search & Games",
-    "section": "Heuristic Characteristics",
-    "text": "Heuristic Characteristics\n\nWhat makes a “good” heuristic?\n\nWe know about admissability and consistency\nWhat about performance?\n\nEffective branching factor\nEffective depth\n# of nodes expanded"
-  },
-  {
-    "objectID": "4511/03/03.html#where-do-heuristics-come-from",
-    "href": "4511/03/03.html#where-do-heuristics-come-from",
-    "title": "Local Search & Games",
-    "section": "Where Do Heuristics Come From?",
-    "text": "Where Do Heuristics Come From?\n\nIntuition\n\n“Just Be Really Smart”\n\nRelaxation\n\nThe problem is constrained\nRemove the constraint\n\nPre-computation\n\nSub problems\n\nLearning"
-  },
-  {
-    "objectID": "4511/03/03.html#what-even-is-the-goal",
-    "href": "4511/03/03.html#what-even-is-the-goal",
-    "title": "Local Search & Games",
-    "section": "What Even Is The Goal?",
-    "text": "What Even Is The Goal?\nUninformed/Informed Search:\n\nKnown start, known goal\nSearch for optimal path\n\nLocal Search:\n\n“Start” is irrelevant\nGoal is not known\n\nBut we know it when we see it\n\nSearch for goal"
-  },
-  {
-    "objectID": "4511/03/03.html#brutal-example",
-    "href": "4511/03/03.html#brutal-example",
-    "title": "Local Search & Games",
-    "section": "Brutal Example",
-    "text": "Brutal Example"
-  },
-  {
-    "objectID": "4511/03/03.html#less-brutal-example",
-    "href": "4511/03/03.html#less-brutal-example",
-    "title": "Local Search & Games",
-    "section": "Less-Brutal Example",
-    "text": "Less-Brutal Example"
-  },
-  {
-    "objectID": "4511/03/03.html#real-world-examples",
-    "href": "4511/03/03.html#real-world-examples",
-    "title": "Local Search & Games",
-    "section": "“Real-World” Examples",
-    "text": "“Real-World” Examples\n\nScheduling\nLayout optimization\n\nFactories\nCircuits\n\nPortfolio management\nOthers?"
-  },
-  {
-    "objectID": "4511/03/03.html#objective-function",
-    "href": "4511/03/03.html#objective-function",
-    "title": "Local Search & Games",
-    "section": "Objective Function",
-    "text": "Objective Function\n\nDo you know what you want?1\nCan you express it mathematically?2\n\nA single value\nMore is better\n\nObjective function: a function of state\n\nIf not, you might be humanIf not, you might be human"
-  },
-  {
-    "objectID": "4511/03/03.html#hill-climbing",
-    "href": "4511/03/03.html#hill-climbing",
-    "title": "Local Search & Games",
-    "section": "Hill-Climbing",
-    "text": "Hill-Climbing\n\nObjective function\nState space mapping\n\nNeighbors"
-  },
-  {
-    "objectID": "4511/03/03.html#hill-climbing-1",
-    "href": "4511/03/03.html#hill-climbing-1",
-    "title": "Local Search & Games",
-    "section": "Hill-Climbing",
-    "text": "Hill-Climbing"
-  },
-  {
-    "objectID": "4511/03/03.html#the-hazards-of-climbing-hills",
-    "href": "4511/03/03.html#the-hazards-of-climbing-hills",
-    "title": "Local Search & Games",
-    "section": "The Hazards of Climbing Hills",
-    "text": "The Hazards of Climbing Hills\n\nLocal maxima\nPlateaus\nRidges"
-  },
-  {
-    "objectID": "4511/03/03.html#five-queens",
-    "href": "4511/03/03.html#five-queens",
-    "title": "Local Search & Games",
-    "section": "Five Queens",
-    "text": "Five Queens"
-  },
-  {
-    "objectID": "4511/03/03.html#five-queens-1",
-    "href": "4511/03/03.html#five-queens-1",
-    "title": "Local Search & Games",
-    "section": "Five Queens",
-    "text": "Five Queens"
-  },
-  {
-    "objectID": "4511/03/03.html#five-queens-2",
-    "href": "4511/03/03.html#five-queens-2",
-    "title": "Local Search & Games",
-    "section": "Five Queens",
-    "text": "Five Queens"
-  },
-  {
-    "objectID": "4511/03/03.html#variations",
-    "href": "4511/03/03.html#variations",
-    "title": "Local Search & Games",
-    "section": "Variations",
-    "text": "Variations\n\nSideways moves\n\nNot free\n\nStochastic moves\n\nFull set\nFirst choice\n\nRandom restarts\n\nIf at first you don’t succeed, you fail try again!\nComplete 😌"
-  },
-  {
-    "objectID": "4511/03/03.html#the-trouble-with-local-maxima",
-    "href": "4511/03/03.html#the-trouble-with-local-maxima",
-    "title": "Local Search & Games",
-    "section": "The Trouble with Local Maxima",
-    "text": "The Trouble with Local Maxima\n\nWe don’t know that they’re local maxima\n\nUnless we do?\n\nHill climbing is efficient\n\nBut gets trapped\n\nExhaustive search is complete\n\nBut it’s exhaustive!\nStochastic methods are ‘exhaustive’"
-  },
-  {
-    "objectID": "4511/03/03.html#simulated-annealing",
-    "href": "4511/03/03.html#simulated-annealing",
-    "title": "Local Search & Games",
-    "section": "Simulated Annealing",
-    "text": "Simulated Annealing"
-  },
-  {
-    "objectID": "4511/03/03.html#simulated-annealing-1",
-    "href": "4511/03/03.html#simulated-annealing-1",
-    "title": "Local Search & Games",
-    "section": "Simulated Annealing",
-    "text": "Simulated Annealing\n\nDoesn’t actually have anything to do with metallurgy\nSearch begins with high “temperature”\n\nTemperature decreases during search\n\nNext state selected randomly\n\nImprovements always accepted\nNon-improvements rejected stochastically\nHigher temperature, less rejection\n“Worse” result, more rejection"
-  },
-  {
-    "objectID": "4511/03/03.html#simulated-annealing-2",
-    "href": "4511/03/03.html#simulated-annealing-2",
-    "title": "Local Search & Games",
-    "section": "Simulated Annealing",
-    "text": "Simulated Annealing"
-  },
-  {
-    "objectID": "4511/03/03.html#local-beam-search",
-    "href": "4511/03/03.html#local-beam-search",
-    "title": "Local Search & Games",
-    "section": "Local Beam Search",
-    "text": "Local Beam Search\nRecall:\n\nBeam search keeps track of \\(k\\) “best” branches\n\nLocal Beam Search:\n\nHill climbing search, keeping track of \\(k\\) successors\n\nDeterministic\nStochastic"
-  },
-  {
-    "objectID": "4511/03/03.html#local-beam-search-1",
-    "href": "4511/03/03.html#local-beam-search-1",
-    "title": "Local Search & Games",
-    "section": "Local Beam Search",
-    "text": "Local Beam Search"
-  },
-  {
-    "objectID": "4511/03/03.html#the-real-world-is-discrete",
-    "href": "4511/03/03.html#the-real-world-is-discrete",
-    "title": "Local Search & Games",
-    "section": "The Real World Is Discrete",
-    "text": "The Real World Is Discrete\n\n\n\n(it isn’t)"
-  },
-  {
-    "objectID": "4511/03/03.html#the-real-world-is-not-discrete",
-    "href": "4511/03/03.html#the-real-world-is-not-discrete",
-    "title": "Local Search & Games",
-    "section": "The Real World Is Not Discrete",
-    "text": "The Real World Is Not Discrete\n\nDiscretize continuous space\n\nWorks iff no objective function discontinuities\nWhat happens if there are discontinuities?\nHow do we know that there are discontinuities?"
-  },
-  {
-    "objectID": "4511/03/03.html#gradient-descent",
-    "href": "4511/03/03.html#gradient-descent",
-    "title": "Local Search & Games",
-    "section": "Gradient Descent",
-    "text": "Gradient Descent\n\nMinimize loss instead of climb hill\n\nStill the same idea\n\n\nConsider:\n\nOne state variable, \\(x\\)\nObjective function \\(f(x)\\)\n\nHow do we minimize \\(f(x)\\) ?\nIs there a closed form \\(\\frac{d}{dx}\\) ?"
-  },
-  {
-    "objectID": "4511/03/03.html#gradient-descent-1",
-    "href": "4511/03/03.html#gradient-descent-1",
-    "title": "Local Search & Games",
-    "section": "Gradient Descent",
-    "text": "Gradient Descent\nMultivariate \\(\\vec{x} = x_0, x_1, ...\\)\n\n\nInstead of derivative, gradient:\n\\(\\nabla f(\\vec{x}) = \\left[ \\frac{\\partial f}{\\partial x_0}, \\frac{\\partial f}{\\partial x_1}, ...\\right]\\)\n\n\n“Locally” descend gradient:\n\\(\\vec{x} \\gets \\vec{x} + \\alpha \\nabla f(\\vec{x})\\)"
-  },
-  {
-    "objectID": "4511/03/03.html#adversity",
-    "href": "4511/03/03.html#adversity",
-    "title": "Local Search & Games",
-    "section": "Adversity",
-    "text": "Adversity\nSo far:\n\nThe world does not care about us\nThis is a simplifying assumption!\n\nReality:\n\nThe world does not care us\n\n\n\n…but it wants things for “itself”\n\n\n\n\n…and we don’t want the same things"
-  },
-  {
-    "objectID": "4511/03/03.html#the-adversary",
-    "href": "4511/03/03.html#the-adversary",
-    "title": "Local Search & Games",
-    "section": "The Adversary",
-    "text": "The Adversary\nOne extreme:\n\nSingle adversary\n\nAdversary wants the exact opposite from us\nIf adversary “wins,” we lose\n\n\n\n😐\n\n\nOther extreme:\n\nAn entire world of agents with different values\n\nThey might want some things similar to us\n\n“Economics”\n\n\n\n😐"
-  },
-  {
-    "objectID": "4511/03/03.html#simple-games",
-    "href": "4511/03/03.html#simple-games",
-    "title": "Local Search & Games",
-    "section": "Simple Games",
-    "text": "Simple Games\n\nTwo-player\nTurn-taking\nDiscrete-state\nFully-observable\nZero-sum\n\nThis does some work for us!"
-  },
-  {
-    "objectID": "4511/03/03.html#max-and-min",
-    "href": "4511/03/03.html#max-and-min",
-    "title": "Local Search & Games",
-    "section": "Max and Min",
-    "text": "Max and Min\n\nTwo players want the opposite of each other\nState takes into account both agents\n\nActions depend on whose turn it is"
-  },
-  {
-    "objectID": "4511/03/03.html#minimax",
-    "href": "4511/03/03.html#minimax",
-    "title": "Local Search & Games",
-    "section": "Minimax",
-    "text": "Minimax\n\nInitial state \\(s_0\\)\nActions(\\(s\\)) and To-move(\\(s\\))\nResult(\\(s, a\\))\nIs-Terminal(\\(s\\))\nUtility(\\(s, p\\))"
-  },
-  {
-    "objectID": "4511/03/03.html#minimax-1",
-    "href": "4511/03/03.html#minimax-1",
-    "title": "Local Search & Games",
-    "section": "Minimax",
-    "text": "Minimax"
-  },
-  {
-    "objectID": "4511/03/03.html#minimax-2",
-    "href": "4511/03/03.html#minimax-2",
-    "title": "Local Search & Games",
-    "section": "Minimax",
-    "text": "Minimax"
-  },
-  {
-    "objectID": "4511/03/03.html#more-than-two-players",
-    "href": "4511/03/03.html#more-than-two-players",
-    "title": "Local Search & Games",
-    "section": "More Than Two Players",
-    "text": "More Than Two Players\n\nTwo players, two values: \\(v_A, v_B\\)\n\nZero-sum: \\(v_A = -v_B\\)\nOnly one value needs to be explicitly represented\n\n\\(&gt; 2\\) players:\n\n\\(v_A, v_B, v_C ...\\)\nValue scalar becomes \\(\\vec{v}\\)"
-  },
-  {
-    "objectID": "4511/03/03.html#society",
-    "href": "4511/03/03.html#society",
-    "title": "Local Search & Games",
-    "section": "Society",
-    "text": "Society\n\n\\(&gt;2\\) players, only one can win\nCooperation can be rational!\n\nExample:\n\nA & B: 30% win probability each\nC: 40% win probability\nA & B cooperate to eliminate C\n\n\\(\\rightarrow\\) A & B: 50% win probability each\n\n\n\n\n…what about friendship?"
-  },
-  {
-    "objectID": "4511/03/03.html#minimax-efficiency",
-    "href": "4511/03/03.html#minimax-efficiency",
-    "title": "Local Search & Games",
-    "section": "Minimax Efficiency",
-    "text": "Minimax Efficiency\nPruning removes the need to explore the full tree.\n\nMax and Min nodes alternate\nOnce one value has been found, we can eliminate parts of search\n\nLower values, for Max\nHigher values, for Min\n\nRemember highest value (\\(\\alpha\\)) for Max\nRemember lowest value (\\(\\beta\\)) for Min"
-  },
-  {
-    "objectID": "4511/03/03.html#pruning",
-    "href": "4511/03/03.html#pruning",
-    "title": "Local Search & Games",
-    "section": "Pruning",
-    "text": "Pruning"
-  },
-  {
-    "objectID": "4511/03/03.html#heuristics",
-    "href": "4511/03/03.html#heuristics",
-    "title": "Local Search & Games",
-    "section": "Heuristics 😌",
-    "text": "Heuristics 😌\n\nIn practice, trees are far too deep to completely search\nHeuristic: replace utility with evaluation function\n\nBetter than losing, worse than winning\nRepresents chance of winning\n\nChance? 🎲🎲\n\nEven in deterministic games\nWhy?"
-  },
-  {
-    "objectID": "4511/03/03.html#more-pruning",
-    "href": "4511/03/03.html#more-pruning",
-    "title": "Local Search & Games",
-    "section": "More Pruning",
-    "text": "More Pruning\n\nDon’t bother further searching bad moves\n\nExamples?\n\nBeam search\n\nLee Sedol’s singular win against AlphaGo"
-  },
-  {
-    "objectID": "4511/03/03.html#other-techniques",
-    "href": "4511/03/03.html#other-techniques",
-    "title": "Local Search & Games",
-    "section": "Other Techniques",
-    "text": "Other Techniques\n\nMove ordering\n\nHow do we decide?\n\nLookup tables\n\nFor subsets of games"
-  },
-  {
-    "objectID": "4511/03/03.html#monte-carlo-tree-search",
-    "href": "4511/03/03.html#monte-carlo-tree-search",
-    "title": "Local Search & Games",
-    "section": "Monte Carlo Tree Search",
-    "text": "Monte Carlo Tree Search\n\nMany games are too large even for an efficient \\(\\alpha\\)-\\(\\beta\\) search 😔\n\nWe can still play them\n\nSimulate plays of entire games from starting state\n\nUpdate win probability from each node (for each player) based on result\n\n“Explore/exploit” paradigm for move selection"
-  },
-  {
-    "objectID": "4511/03/03.html#choosing-moves",
-    "href": "4511/03/03.html#choosing-moves",
-    "title": "Local Search & Games",
-    "section": "Choosing Moves",
-    "text": "Choosing Moves\n\nWe want our search to pick good moves\nWe want our search to pick unknown moves\nWe don’t want our search to pick bad moves\n\n(Assuming they’re actually bad moves)\n\n\nSelect moves based on a heuristic."
-  },
-  {
-    "objectID": "4511/03/03.html#games-of-luck",
-    "href": "4511/03/03.html#games-of-luck",
-    "title": "Local Search & Games",
-    "section": "Games of Luck",
-    "text": "Games of Luck\n\nReal-world problems are rarely deterministic\nNon-deterministic state evolution:\n\nRoll a die to determine next position\nToss a coin to determine who picks candy first\nPrecise trajectory of kicked football1\nOthers?\n\n\nAny definition of “football”"
-  },
-  {
-    "objectID": "4511/03/03.html#solving-non-deterministic-games",
-    "href": "4511/03/03.html#solving-non-deterministic-games",
-    "title": "Local Search & Games",
-    "section": "Solving Non-Deterministic Games",
-    "text": "Solving Non-Deterministic Games\nPreviously: Max and Min alternate turns\nNow:\n\nMax\nChance\nMin\nChance\n\n 😣"
-  },
-  {
-    "objectID": "4511/03/03.html#expectiminimax",
-    "href": "4511/03/03.html#expectiminimax",
-    "title": "Local Search & Games",
-    "section": "Expectiminimax",
-    "text": "Expectiminimax\n\n“Expected value” of next position\n\n\n\n\n\nHow does this impact branching factor of the search?\n\n🫠"
-  },
-  {
-    "objectID": "4511/03/03.html#expectiminimax-1",
-    "href": "4511/03/03.html#expectiminimax-1",
-    "title": "Local Search & Games",
-    "section": "Expectiminimax",
-    "text": "Expectiminimax"
-  },
-  {
-    "objectID": "4511/03/03.html#filled-with-uncertainty",
-    "href": "4511/03/03.html#filled-with-uncertainty",
-    "title": "Local Search & Games",
-    "section": "Filled With Uncertainty",
-    "text": "Filled With Uncertainty\nWhat is to be done?\n\nPruning is still possible\n\nHow?\n\nHeuristic evaluation functions\n\nChoose carefully!"
-  },
-  {
-    "objectID": "4511/03/03.html#non-optimal-adversaries",
-    "href": "4511/03/03.html#non-optimal-adversaries",
-    "title": "Local Search & Games",
-    "section": "Non-Optimal Adversaries",
-    "text": "Non-Optimal Adversaries\n\nIs deterministic “best” behavior optimal?\nAre all adversaries rational?\n\n\n\n\nExpectimax"
-  },
-  {
-    "objectID": "4511/03/03.html#references",
-    "href": "4511/03/03.html#references",
-    "title": "Local Search & Games",
-    "section": "References",
-    "text": "References"
-  },
-  {
-    "objectID": "4511/03/03.html#section-1",
-    "href": "4511/03/03.html#section-1",
-    "title": "Local Search & Games",
-    "section": "",
-    "text": "Stuart J. Russell and Peter Norvig. Artificial Intelligence: A Modern Approach. 4th Edition, 2020.\nMykal Kochenderfer, Tim Wheeler, and Kyle Wray. Algorithms for Decision Making. 1st Edition, 2022.\nStanford CS231\nStanford CS228\nUC Berkeley CS188"
-  },
-  {
     "objectID": "4511/hw2.html",
     "href": "4511/hw2.html",
     "title": "Homework Two",
@@ -579,34 +54,6 @@
     "title": "Homework Two",
     "section": "7 Q5 (6 pts): Evaluation Function",
     "text": "7 Q5 (6 pts): Evaluation Function\nWrite a better evaluation function for Pacman in the provided function betterEvaluationFunction. The evaluation function should evaluate states, rather than actions like your reflex agent evaluation function did. With depth 2 search, your evaluation function should clear the smallClassic layout with one random ghost more than half the time and still run at a reasonable rate (to get full credit, Pacman should be averaging around 1000 points when he’s winning).\nGrading: the autograder will run your agent on the smallClassic layout 10 times. We will assign points to your evaluation function in the following way:\n\nIf you win at least once without timing out the autograder, you receive 1 points. Any agent not satisfying these criteria will receive 0 points.\n+1 for winning at least 5 times, +2 for winning all 10 times\n+1 for an average score of at least 500, +2 for an average score of at least 1000 (including scores on lost games)\n+1 if your games take on average less than 30 seconds on the autograder machine, when run with --no-graphics.\nThe additional points for average score and computation time will only be awarded if you win at least 5 times.\nPlease do not copy any files from the previous assignment, as it will not pass the autograder on Gradescope.\n\nYou can try your agent out under these conditions with\npython autograder.py -q q5\nTo run it without graphics, use:\npython autograder.py -q q5 --no-graphics"
-  },
-  {
-    "objectID": "advising.html",
-    "href": "advising.html",
-    "title": "Advising",
-    "section": "",
-    "text": "Undergraduate\nIf I am your undergraduate advisor, email and office hours are the most straightforward ways to discuss your questions.\n\n\nGraduate\nI am not currently soliciting applications, however any graduate student interested in collaborating is welcome to send me a proposal. It does not have to be particularly formal, however:\n\nTell me what questions you are interested in answering\nShow me what other work has been done in this avenue\nDiscuss a plan for executing your project\n\nI am fond of the Heilmeier Catechism, although it is not a perfect match for many kinds of academic research questions."
-  },
-  {
-    "objectID": "teaching_writing.html",
-    "href": "teaching_writing.html",
-    "title": "Teaching and Writing",
-    "section": "",
-    "text": "Teaching\nCurrently:\n\nCSCI 1012 Intro. Programming in Python\n\nCourse Site\n\nCSCI 4511/5611 Artificial Intelligence Algorithms\n\nCourse Notes\n\n\nPreviously:\n\nCSCI 6366/4366 Neural Networks & Deep Learning\nCSCI 6531/4531 Computer Security\nCSCI 6917 Guided Research\nSEAS 6402 Data Analytics Capstone\n\nLectures:\n\nCSCI 1111 Intro. Software Development\nCSCI 4364/6364 Machine Learning\nMS&E 250A (Stanford) Risk Analysis\nMS&E 350 (Stanford) Risk Analysis Seminar\nAA 149 (Stanford) Operation of Aerospace Systems\n\n\n\nWriting\nK. Dobolyi, G. P. Sieniawski, D. Dobolyi, J. Goldfrank, and Z. Hampel-Arias, “Hindsight2020: Characterizing Uncertainty in the COVID-19 Scientific Literature,” Disaster Medicine and Public Health Preparedness, vol. 17, p. e437, 2023. doi:10.1017/dmp.2023.82\nJ. Goldfrank, M. E. Paté-Cornell, G. Forbes, and D. Liedtka, “Risk Reduction in Target Motion Analysis Using Approximate Dynamic Programming.” Military Operations Research, no. 1, 5–26, 2023 https://www.jstor.org/stable/27207613.\nL. Tindall, Z. Hampel-Arias, J. Goldfrank, E. Mair and T. Q. Nguven, ”Localizing Radio Frequency Targets Using Reinforcement Learning,” 2021 IEEE International Symposium on Robotic and Sensors Environments (ROSE), FL, USA, 2021, pp. 1-7, doi: 10.1109/ROSE52750.2021.9611756."
-  },
-  {
-    "objectID": "contact.html",
-    "href": "contact.html",
-    "title": "Contact",
-    "section": "",
-    "text": "Office Hours\nAny GW student is welcome at my office hours. This schedule is up to date:\n\n\n\n\nDay\nTime\n\n\n\n\nMondays\n1:00 PM - 3:00 PM\n\n\nWednesdays\n12:30 PM - 3:00 PM\n\n\nFridays\n3:30 PM - 6 PM\n\n\nFriday 20 Sep 2024\n12:00-3:00 PM\n\n\n\n\n(Any struck through time indicates a deviation from the usual time.)\nThe location is typically SEH 4675, although I am often in the SEH 4th floor lobby area, as my office is small and windowless.\nYou are welcome to make an appointment. Appointments are not necessary, but will receive priority if you send an agenda at least 24 hours in advance.\nMy office can be slightly difficult to find:\n\nIt is on SEH 4th Floor, West wing\n\nExiting the elevators, make a right\nFrom the top of the stairs, go straight\n\nGo through the glass door (your card will work)\nMake a right where a right can be made, then an immediate left\nSEH 4675 will be on the left\n\n\n\nElectronic Mail\nMy address is joe.goldfrank@gwu.edu. My notes are typically short, direct, and polite; I encourage you to write to me in this way.\nLately there is a trend towards long formal notes, perhaps generated with some algorithm (many of them look the same). This style makes it harder for me to find your message amidst all the words.\nPlease refrain from sending me sales/marketing materials, I will mark these as spam."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Joe Goldfrank",
-    "section": "",
-    "text": "Assistant Professor of Practice Department of Computer Science George Washington University\n\nI joined the GWU Department of Computer Science as a Visiting Professor in August 2022, and as an Assistant Professor of Practice in August 2023. You might read more about teaching and writing I have done.\nBefore this, I completed my PhD in Decision & Risk Analysis under the guidance of Elisabeth Paté-Cornell at Stanford University in California.\nSome years ago, I served on active duty in the U.S. Navy as a nuclear submarine line officer, and worked at the DOD Strategic Capabilities Office. I completed a B.S. (with honors) in Physics at the College of William and Mary in 2009.\nI am interested in improving the decisions that humans make. What that means is determined by each human.\nAdjacent to the university, I make acoustic, electric, and electronic music."
   },
   {
     "objectID": "4511/01/01.html#good-afternoon",
@@ -704,7 +151,7 @@
     "href": "4511/01/01.html#is-it-intelligent",
     "title": "AI Algorithms  Introduction",
     "section": "Is It Intelligent?",
-    "text": "Is It Intelligent?\n\n\n\n\n\n\n\nImages: Speed Queen, Volvo"
+    "text": "Is It Intelligent?\n\n\n\n\n\n\n\n\nImages: Speed Queen, Volvo"
   },
   {
     "objectID": "4511/01/01.html#rationality",
@@ -1307,5 +754,621 @@
     "title": "Search",
     "section": "References",
     "text": "References\n\nStuart J. Russell and Peter Norvig. Artificial Intelligence: A Modern Approach. 4th Edition, 2020.\nStanford CS231\nUC Berkeley CS188"
+  },
+  {
+    "objectID": "teaching_writing.html",
+    "href": "teaching_writing.html",
+    "title": "Teaching and Writing",
+    "section": "",
+    "text": "Teaching\nCurrently:\n\nCSCI 1012 Intro. Programming in Python\n\nCourse Site\n\nCSCI 4511/5611 Artificial Intelligence Algorithms\n\nCourse Notes\n\n\nPreviously:\n\nCSCI 6366/4366 Neural Networks & Deep Learning\nCSCI 6531/4531 Computer Security\nCSCI 6917 Guided Research\nSEAS 6402 Data Analytics Capstone\n\nLectures:\n\nCSCI 1111 Intro. Software Development\nCSCI 4364/6364 Machine Learning\nMS&E 250A (Stanford) Risk Analysis\nMS&E 350 (Stanford) Risk Analysis Seminar\nAA 149 (Stanford) Operation of Aerospace Systems\n\n\n\nWriting\nK. Dobolyi, G. P. Sieniawski, D. Dobolyi, J. Goldfrank, and Z. Hampel-Arias, “Hindsight2020: Characterizing Uncertainty in the COVID-19 Scientific Literature,” Disaster Medicine and Public Health Preparedness, vol. 17, p. e437, 2023. doi:10.1017/dmp.2023.82\nJ. Goldfrank, M. E. Paté-Cornell, G. Forbes, and D. Liedtka, “Risk Reduction in Target Motion Analysis Using Approximate Dynamic Programming.” Military Operations Research, no. 1, 5–26, 2023 https://www.jstor.org/stable/27207613.\nL. Tindall, Z. Hampel-Arias, J. Goldfrank, E. Mair and T. Q. Nguven, ”Localizing Radio Frequency Targets Using Reinforcement Learning,” 2021 IEEE International Symposium on Robotic and Sensors Environments (ROSE), FL, USA, 2021, pp. 1-7, doi: 10.1109/ROSE52750.2021.9611756."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Joe Goldfrank",
+    "section": "",
+    "text": "Assistant Professor of Practice Department of Computer Science George Washington University\n\nI joined the GWU Department of Computer Science as a Visiting Professor in August 2022, and as an Assistant Professor of Practice in August 2023. You might read more about teaching and writing I have done.\nBefore this, I completed my PhD in Decision & Risk Analysis under the guidance of Elisabeth Paté-Cornell at Stanford University in California.\nSome years ago, I served on active duty in the U.S. Navy as a nuclear submarine line officer, and worked at the DOD Strategic Capabilities Office. I completed a B.S. (with honors) in Physics at the College of William and Mary in 2009.\nI am interested in improving the decisions that humans make. What that means is determined by each human.\nAdjacent to the university, I make acoustic, electric, and electronic music."
+  },
+  {
+    "objectID": "contact.html",
+    "href": "contact.html",
+    "title": "Contact",
+    "section": "",
+    "text": "Office Hours\nAny GW student is welcome at my office hours. This schedule is up to date:\n\n\n\n\nDay\nTime\n\n\n\n\nMondays\n1:00 PM - 3:00 PM\n\n\nWednesdays\n12:30 PM - 3:00 PM\n\n\nFridays\n3:30 PM - 6 PM\n\n\nFriday 20 Sep 2024\n12:00-3:00 PM\n\n\n\n\n(Any struck through time indicates a deviation from the usual time.)\nThe location is typically SEH 4675, although I am often in the SEH 4th floor lobby area, as my office is small and windowless.\nYou are welcome to make an appointment. Appointments are not necessary, but will receive priority if you send an agenda at least 24 hours in advance.\nMy office can be slightly difficult to find:\n\nIt is on SEH 4th Floor, West wing\n\nExiting the elevators, make a right\nFrom the top of the stairs, go straight\n\nGo through the glass door (your card will work)\nMake a right where a right can be made, then an immediate left\nSEH 4675 will be on the left\n\n\n\nElectronic Mail\nMy address is joe.goldfrank@gwu.edu. My notes are typically short, direct, and polite; I encourage you to write to me in this way.\nLately there is a trend towards long formal notes, perhaps generated with some algorithm (many of them look the same). This style makes it harder for me to find your message amidst all the words.\nPlease refrain from sending me sales/marketing materials, I will mark these as spam."
+  },
+  {
+    "objectID": "advising.html",
+    "href": "advising.html",
+    "title": "Advising",
+    "section": "",
+    "text": "Undergraduate\nIf I am your undergraduate advisor, email and office hours are the most straightforward ways to discuss your questions.\n\n\nGraduate\nI am not currently soliciting applications, however any graduate student interested in collaborating is welcome to send me a proposal. It does not have to be particularly formal, however:\n\nTell me what questions you are interested in answering\nShow me what other work has been done in this avenue\nDiscuss a plan for executing your project\n\nI am fond of the Heilmeier Catechism, although it is not a perfect match for many kinds of academic research questions."
+  },
+  {
+    "objectID": "4511/03/03.html#announcements",
+    "href": "4511/03/03.html#announcements",
+    "title": "Local Search & Games",
+    "section": "Announcements",
+    "text": "Announcements\n\n\nHomework 1 is due on 15 September at 11:55 PM\n\nLate submission policy\n\nHomework 2 is due on 29 September at 11:55 PM\nFri 13 Sep Office Hours moved: 12 PM - 3 PM\nFri 20 Sep Office Hours moved: 12 PM - 3 PM"
+  },
+  {
+    "objectID": "4511/03/03.html#why-are-we-here",
+    "href": "4511/03/03.html#why-are-we-here",
+    "title": "Local Search & Games",
+    "section": "Why Are We Here?",
+    "text": "Why Are We Here?"
+  },
+  {
+    "objectID": "4511/03/03.html#why-are-we-here-1",
+    "href": "4511/03/03.html#why-are-we-here-1",
+    "title": "Local Search & Games",
+    "section": "Why Are We Here?",
+    "text": "Why Are We Here?\n\n⠀⠀⠀⠀⠀⠀⠀⢀⣠⣤⣤⣶⣶⣶⣶⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀\n⠀⠀⠀⠀⢀⣤⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣤⡀⠀⠀⠀⠀\n⠀⠀⠀⣴⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡄⠀⠀⠀\n⠀⢀⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⠁⠀⠀⠀\n⠀⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⠋⠀⠀⠀⠀⠀⠀\n⢠⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⠋            ⠀⣀⣄⡀      ⠀⠀⣠⣄⡀\n⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣏⠀⠀⠀            ⢸⣿⣿⣿      ⠀⢸⣿⣿⣿\n⠘⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣦⣀⠀            ⠉⠋⠁      ⠀⠀⠙⠋⠁\n⠀⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣦⡀⠀⠀⠀⠀⠀⠀\n⠀⠈⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣤⠀⠀⠀⠀\n⠀⠀⠀⠻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠃⠀⠀⠀\n⠀⠀⠀⠀⠈⠛⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠛⠁⠀⠀⠀⠀\n⠀⠀⠀⠀⠀⠀⠀⠈⠙⠛⠛⠿⠿⠿⠿⠛⠛⠋⠁⠀⠀⠀⠀⠀⠀⠀"
+  },
+  {
+    "objectID": "4511/03/03.html#search-why",
+    "href": "4511/03/03.html#search-why",
+    "title": "Local Search & Games",
+    "section": "Search: Why?",
+    "text": "Search: Why?\n\nFully-observed problem\nDeterministic actions and state\nWell-defined start and goal\n\n“Well-defined”"
+  },
+  {
+    "objectID": "4511/03/03.html#goal-tests",
+    "href": "4511/03/03.html#goal-tests",
+    "title": "Local Search & Games",
+    "section": "Goal Tests",
+    "text": "Goal Tests"
+  },
+  {
+    "objectID": "4511/03/03.html#goal-tests-1",
+    "href": "4511/03/03.html#goal-tests-1",
+    "title": "Local Search & Games",
+    "section": "Goal Tests",
+    "text": "Goal Tests"
+  },
+  {
+    "objectID": "4511/03/03.html#best-first-search",
+    "href": "4511/03/03.html#best-first-search",
+    "title": "Local Search & Games",
+    "section": "Best-First Search",
+    "text": "Best-First Search"
+  },
+  {
+    "objectID": "4511/03/03.html#a-search",
+    "href": "4511/03/03.html#a-search",
+    "title": "Local Search & Games",
+    "section": "A* Search",
+    "text": "A* Search\n\nInclude path-cost \\(g(n)\\)\n\n\\(f(n) = g(n) + h(n)\\)\n\n\n\n\n\n\nComplete (always)\nOptimal (sometimes)\nPainful \\(O(b^m)\\) time and space complexity"
+  },
+  {
+    "objectID": "4511/03/03.html#a-vs.-dijkstra",
+    "href": "4511/03/03.html#a-vs.-dijkstra",
+    "title": "Local Search & Games",
+    "section": "A* vs. Dijkstra",
+    "text": "A* vs. Dijkstra"
+  },
+  {
+    "objectID": "4511/03/03.html#choosing-heuristics",
+    "href": "4511/03/03.html#choosing-heuristics",
+    "title": "Local Search & Games",
+    "section": "Choosing Heuristics",
+    "text": "Choosing Heuristics\n\nRecall: \\(h(n)\\) estimates cost from \\(n\\) to goal\n\n\n\n\n\nAdmissibility\nConsistency"
+  },
+  {
+    "objectID": "4511/03/03.html#choosing-heuristics-1",
+    "href": "4511/03/03.html#choosing-heuristics-1",
+    "title": "Local Search & Games",
+    "section": "Choosing Heuristics",
+    "text": "Choosing Heuristics\n\nAdmissibility\n\nNever overestimates cost from \\(n\\) to goal\nCost-optimal!\n\nConsistency\n\n\\(h(n) \\leq c(n, a, n') + h(n')\\)\n\\(n'\\) successors of \\(n\\)\n\\(c(n, a, n')\\) cost from \\(n\\) to \\(n'\\) given action \\(a\\)"
+  },
+  {
+    "objectID": "4511/03/03.html#iterative-deepening-a-search",
+    "href": "4511/03/03.html#iterative-deepening-a-search",
+    "title": "Local Search & Games",
+    "section": "Iterative-Deepening A* Search",
+    "text": "Iterative-Deepening A* Search\n\n“IDA*” Search\n\nSimilar to Iterative Deepening with Depth-First Search\n\nDFS uses depth cutoff\nIDA* uses \\(h(n) + g(n)\\) cutoff with DFS\nOnce cutoff breached, new cutoff:\n\nTypically next-largest \\(h(n) + g(n)\\)\n\n\\(O(b^m)\\) time complexity 😔\n\\(O(d)\\) space complexity 😌"
+  },
+  {
+    "objectID": "4511/03/03.html#beam-search",
+    "href": "4511/03/03.html#beam-search",
+    "title": "Local Search & Games",
+    "section": "Beam Search",
+    "text": "Beam Search\n\nBest-First Search:\n\nFrontier is all expanded nodes\n\nBeam Search:\n\n\\(k\\) “best” nodes are kept on frontier\n\nOthers discarded\n\nAlt: all nodes within \\(\\delta\\) of best node\nNot Optimal\nNot Complete"
+  },
+  {
+    "objectID": "4511/03/03.html#recursive-best-first-search-rbfs",
+    "href": "4511/03/03.html#recursive-best-first-search-rbfs",
+    "title": "Local Search & Games",
+    "section": "Recursive Best-First Search (RBFS)",
+    "text": "Recursive Best-First Search (RBFS)\n\nNo \\(reached\\) table is kept\nSecond-best node \\(f(n)\\) retained\n\nSearch from each node cannot exceed this limit\nIf exceeded, recursion “backs up” to previous node\n\nMemory-efficient\n\nCan “cycle” between branches"
+  },
+  {
+    "objectID": "4511/03/03.html#recursive-best-first-search-rbfs-1",
+    "href": "4511/03/03.html#recursive-best-first-search-rbfs-1",
+    "title": "Local Search & Games",
+    "section": "Recursive Best-First Search (RBFS)",
+    "text": "Recursive Best-First Search (RBFS)"
+  },
+  {
+    "objectID": "4511/03/03.html#heuristic-characteristics",
+    "href": "4511/03/03.html#heuristic-characteristics",
+    "title": "Local Search & Games",
+    "section": "Heuristic Characteristics",
+    "text": "Heuristic Characteristics\n\nWhat makes a “good” heuristic?\n\nWe know about admissability and consistency\nWhat about performance?\n\nEffective branching factor\nEffective depth\n# of nodes expanded"
+  },
+  {
+    "objectID": "4511/03/03.html#where-do-heuristics-come-from",
+    "href": "4511/03/03.html#where-do-heuristics-come-from",
+    "title": "Local Search & Games",
+    "section": "Where Do Heuristics Come From?",
+    "text": "Where Do Heuristics Come From?\n\nIntuition\n\n“Just Be Really Smart”\n\nRelaxation\n\nThe problem is constrained\nRemove the constraint\n\nPre-computation\n\nSub problems\n\nLearning"
+  },
+  {
+    "objectID": "4511/03/03.html#what-even-is-the-goal",
+    "href": "4511/03/03.html#what-even-is-the-goal",
+    "title": "Local Search & Games",
+    "section": "What Even Is The Goal?",
+    "text": "What Even Is The Goal?\nUninformed/Informed Search:\n\nKnown start, known goal\nSearch for optimal path\n\nLocal Search:\n\n“Start” is irrelevant\nGoal is not known\n\nBut we know it when we see it\n\nSearch for goal"
+  },
+  {
+    "objectID": "4511/03/03.html#brutal-example",
+    "href": "4511/03/03.html#brutal-example",
+    "title": "Local Search & Games",
+    "section": "Brutal Example",
+    "text": "Brutal Example"
+  },
+  {
+    "objectID": "4511/03/03.html#less-brutal-example",
+    "href": "4511/03/03.html#less-brutal-example",
+    "title": "Local Search & Games",
+    "section": "Less-Brutal Example",
+    "text": "Less-Brutal Example"
+  },
+  {
+    "objectID": "4511/03/03.html#real-world-examples",
+    "href": "4511/03/03.html#real-world-examples",
+    "title": "Local Search & Games",
+    "section": "“Real-World” Examples",
+    "text": "“Real-World” Examples\n\nScheduling\nLayout optimization\n\nFactories\nCircuits\n\nPortfolio management\nOthers?"
+  },
+  {
+    "objectID": "4511/03/03.html#objective-function",
+    "href": "4511/03/03.html#objective-function",
+    "title": "Local Search & Games",
+    "section": "Objective Function",
+    "text": "Objective Function\n\nDo you know what you want?1\nCan you express it mathematically?2\n\nA single value\nMore is better\n\nObjective function: a function of state\n\nIf not, you might be humanIf not, you might be human"
+  },
+  {
+    "objectID": "4511/03/03.html#hill-climbing",
+    "href": "4511/03/03.html#hill-climbing",
+    "title": "Local Search & Games",
+    "section": "Hill-Climbing",
+    "text": "Hill-Climbing\n\nObjective function\nState space mapping\n\nNeighbors"
+  },
+  {
+    "objectID": "4511/03/03.html#hill-climbing-1",
+    "href": "4511/03/03.html#hill-climbing-1",
+    "title": "Local Search & Games",
+    "section": "Hill-Climbing",
+    "text": "Hill-Climbing"
+  },
+  {
+    "objectID": "4511/03/03.html#the-hazards-of-climbing-hills",
+    "href": "4511/03/03.html#the-hazards-of-climbing-hills",
+    "title": "Local Search & Games",
+    "section": "The Hazards of Climbing Hills",
+    "text": "The Hazards of Climbing Hills\n\nLocal maxima\nPlateaus\nRidges"
+  },
+  {
+    "objectID": "4511/03/03.html#five-queens",
+    "href": "4511/03/03.html#five-queens",
+    "title": "Local Search & Games",
+    "section": "Five Queens",
+    "text": "Five Queens"
+  },
+  {
+    "objectID": "4511/03/03.html#five-queens-1",
+    "href": "4511/03/03.html#five-queens-1",
+    "title": "Local Search & Games",
+    "section": "Five Queens",
+    "text": "Five Queens"
+  },
+  {
+    "objectID": "4511/03/03.html#five-queens-2",
+    "href": "4511/03/03.html#five-queens-2",
+    "title": "Local Search & Games",
+    "section": "Five Queens",
+    "text": "Five Queens"
+  },
+  {
+    "objectID": "4511/03/03.html#variations",
+    "href": "4511/03/03.html#variations",
+    "title": "Local Search & Games",
+    "section": "Variations",
+    "text": "Variations\n\nSideways moves\n\nNot free\n\nStochastic moves\n\nFull set\nFirst choice\n\nRandom restarts\n\nIf at first you don’t succeed, you fail try again!\nComplete 😌"
+  },
+  {
+    "objectID": "4511/03/03.html#the-trouble-with-local-maxima",
+    "href": "4511/03/03.html#the-trouble-with-local-maxima",
+    "title": "Local Search & Games",
+    "section": "The Trouble with Local Maxima",
+    "text": "The Trouble with Local Maxima\n\nWe don’t know that they’re local maxima\n\nUnless we do?\n\nHill climbing is efficient\n\nBut gets trapped\n\nExhaustive search is complete\n\nBut it’s exhaustive!\nStochastic methods are ‘exhaustive’"
+  },
+  {
+    "objectID": "4511/03/03.html#simulated-annealing",
+    "href": "4511/03/03.html#simulated-annealing",
+    "title": "Local Search & Games",
+    "section": "Simulated Annealing",
+    "text": "Simulated Annealing"
+  },
+  {
+    "objectID": "4511/03/03.html#simulated-annealing-1",
+    "href": "4511/03/03.html#simulated-annealing-1",
+    "title": "Local Search & Games",
+    "section": "Simulated Annealing",
+    "text": "Simulated Annealing\n\nDoesn’t actually have anything to do with metallurgy\nSearch begins with high “temperature”\n\nTemperature decreases during search\n\nNext state selected randomly\n\nImprovements always accepted\nNon-improvements rejected stochastically\nHigher temperature, less rejection\n“Worse” result, more rejection"
+  },
+  {
+    "objectID": "4511/03/03.html#simulated-annealing-2",
+    "href": "4511/03/03.html#simulated-annealing-2",
+    "title": "Local Search & Games",
+    "section": "Simulated Annealing",
+    "text": "Simulated Annealing"
+  },
+  {
+    "objectID": "4511/03/03.html#local-beam-search",
+    "href": "4511/03/03.html#local-beam-search",
+    "title": "Local Search & Games",
+    "section": "Local Beam Search",
+    "text": "Local Beam Search\nRecall:\n\nBeam search keeps track of \\(k\\) “best” branches\n\nLocal Beam Search:\n\nHill climbing search, keeping track of \\(k\\) successors\n\nDeterministic\nStochastic"
+  },
+  {
+    "objectID": "4511/03/03.html#local-beam-search-1",
+    "href": "4511/03/03.html#local-beam-search-1",
+    "title": "Local Search & Games",
+    "section": "Local Beam Search",
+    "text": "Local Beam Search"
+  },
+  {
+    "objectID": "4511/03/03.html#the-real-world-is-discrete",
+    "href": "4511/03/03.html#the-real-world-is-discrete",
+    "title": "Local Search & Games",
+    "section": "The Real World Is Discrete",
+    "text": "The Real World Is Discrete\n\n\n\n(it isn’t)"
+  },
+  {
+    "objectID": "4511/03/03.html#the-real-world-is-not-discrete",
+    "href": "4511/03/03.html#the-real-world-is-not-discrete",
+    "title": "Local Search & Games",
+    "section": "The Real World Is Not Discrete",
+    "text": "The Real World Is Not Discrete\n\nDiscretize continuous space\n\nWorks iff no objective function discontinuities\nWhat happens if there are discontinuities?\nHow do we know that there are discontinuities?"
+  },
+  {
+    "objectID": "4511/03/03.html#gradient-descent",
+    "href": "4511/03/03.html#gradient-descent",
+    "title": "Local Search & Games",
+    "section": "Gradient Descent",
+    "text": "Gradient Descent\n\nMinimize loss instead of climb hill\n\nStill the same idea\n\n\nConsider:\n\nOne state variable, \\(x\\)\nObjective function \\(f(x)\\)\n\nHow do we minimize \\(f(x)\\) ?\nIs there a closed form \\(\\frac{d}{dx}\\) ?"
+  },
+  {
+    "objectID": "4511/03/03.html#gradient-descent-1",
+    "href": "4511/03/03.html#gradient-descent-1",
+    "title": "Local Search & Games",
+    "section": "Gradient Descent",
+    "text": "Gradient Descent\nMultivariate \\(\\vec{x} = x_0, x_1, ...\\)\n\n\nInstead of derivative, gradient:\n\\(\\nabla f(\\vec{x}) = \\left[ \\frac{\\partial f}{\\partial x_0}, \\frac{\\partial f}{\\partial x_1}, ...\\right]\\)\n\n\n“Locally” descend gradient:\n\\(\\vec{x} \\gets \\vec{x} + \\alpha \\nabla f(\\vec{x})\\)"
+  },
+  {
+    "objectID": "4511/03/03.html#adversity",
+    "href": "4511/03/03.html#adversity",
+    "title": "Local Search & Games",
+    "section": "Adversity",
+    "text": "Adversity\nSo far:\n\nThe world does not care about us\nThis is a simplifying assumption!\n\nReality:\n\nThe world does not care us\n\n\n\n…but it wants things for “itself”\n\n\n\n\n…and we don’t want the same things"
+  },
+  {
+    "objectID": "4511/03/03.html#the-adversary",
+    "href": "4511/03/03.html#the-adversary",
+    "title": "Local Search & Games",
+    "section": "The Adversary",
+    "text": "The Adversary\nOne extreme:\n\nSingle adversary\n\nAdversary wants the exact opposite from us\nIf adversary “wins,” we lose\n\n\n\n😐\n\n\nOther extreme:\n\nAn entire world of agents with different values\n\nThey might want some things similar to us\n\n“Economics”\n\n\n\n😐"
+  },
+  {
+    "objectID": "4511/03/03.html#simple-games",
+    "href": "4511/03/03.html#simple-games",
+    "title": "Local Search & Games",
+    "section": "Simple Games",
+    "text": "Simple Games\n\nTwo-player\nTurn-taking\nDiscrete-state\nFully-observable\nZero-sum\n\nThis does some work for us!"
+  },
+  {
+    "objectID": "4511/03/03.html#max-and-min",
+    "href": "4511/03/03.html#max-and-min",
+    "title": "Local Search & Games",
+    "section": "Max and Min",
+    "text": "Max and Min\n\nTwo players want the opposite of each other\nState takes into account both agents\n\nActions depend on whose turn it is"
+  },
+  {
+    "objectID": "4511/03/03.html#minimax",
+    "href": "4511/03/03.html#minimax",
+    "title": "Local Search & Games",
+    "section": "Minimax",
+    "text": "Minimax\n\nInitial state \\(s_0\\)\nActions(\\(s\\)) and To-move(\\(s\\))\nResult(\\(s, a\\))\nIs-Terminal(\\(s\\))\nUtility(\\(s, p\\))"
+  },
+  {
+    "objectID": "4511/03/03.html#minimax-1",
+    "href": "4511/03/03.html#minimax-1",
+    "title": "Local Search & Games",
+    "section": "Minimax",
+    "text": "Minimax"
+  },
+  {
+    "objectID": "4511/03/03.html#minimax-2",
+    "href": "4511/03/03.html#minimax-2",
+    "title": "Local Search & Games",
+    "section": "Minimax",
+    "text": "Minimax"
+  },
+  {
+    "objectID": "4511/03/03.html#more-than-two-players",
+    "href": "4511/03/03.html#more-than-two-players",
+    "title": "Local Search & Games",
+    "section": "More Than Two Players",
+    "text": "More Than Two Players\n\nTwo players, two values: \\(v_A, v_B\\)\n\nZero-sum: \\(v_A = -v_B\\)\nOnly one value needs to be explicitly represented\n\n\\(&gt; 2\\) players:\n\n\\(v_A, v_B, v_C ...\\)\nValue scalar becomes \\(\\vec{v}\\)"
+  },
+  {
+    "objectID": "4511/03/03.html#society",
+    "href": "4511/03/03.html#society",
+    "title": "Local Search & Games",
+    "section": "Society",
+    "text": "Society\n\n\\(&gt;2\\) players, only one can win\nCooperation can be rational!\n\nExample:\n\nA & B: 30% win probability each\nC: 40% win probability\nA & B cooperate to eliminate C\n\n\\(\\rightarrow\\) A & B: 50% win probability each\n\n\n\n\n…what about friendship?"
+  },
+  {
+    "objectID": "4511/03/03.html#minimax-efficiency",
+    "href": "4511/03/03.html#minimax-efficiency",
+    "title": "Local Search & Games",
+    "section": "Minimax Efficiency",
+    "text": "Minimax Efficiency\nPruning removes the need to explore the full tree.\n\nMax and Min nodes alternate\nOnce one value has been found, we can eliminate parts of search\n\nLower values, for Max\nHigher values, for Min\n\nRemember highest value (\\(\\alpha\\)) for Max\nRemember lowest value (\\(\\beta\\)) for Min"
+  },
+  {
+    "objectID": "4511/03/03.html#pruning",
+    "href": "4511/03/03.html#pruning",
+    "title": "Local Search & Games",
+    "section": "Pruning",
+    "text": "Pruning"
+  },
+  {
+    "objectID": "4511/03/03.html#heuristics",
+    "href": "4511/03/03.html#heuristics",
+    "title": "Local Search & Games",
+    "section": "Heuristics 😌",
+    "text": "Heuristics 😌\n\nIn practice, trees are far too deep to completely search\nHeuristic: replace utility with evaluation function\n\nBetter than losing, worse than winning\nRepresents chance of winning\n\nChance? 🎲🎲\n\nEven in deterministic games\nWhy?"
+  },
+  {
+    "objectID": "4511/03/03.html#more-pruning",
+    "href": "4511/03/03.html#more-pruning",
+    "title": "Local Search & Games",
+    "section": "More Pruning",
+    "text": "More Pruning\n\nDon’t bother further searching bad moves\n\nExamples?\n\nBeam search\n\nLee Sedol’s singular win against AlphaGo"
+  },
+  {
+    "objectID": "4511/03/03.html#other-techniques",
+    "href": "4511/03/03.html#other-techniques",
+    "title": "Local Search & Games",
+    "section": "Other Techniques",
+    "text": "Other Techniques\n\nMove ordering\n\nHow do we decide?\n\nLookup tables\n\nFor subsets of games"
+  },
+  {
+    "objectID": "4511/03/03.html#monte-carlo-tree-search",
+    "href": "4511/03/03.html#monte-carlo-tree-search",
+    "title": "Local Search & Games",
+    "section": "Monte Carlo Tree Search",
+    "text": "Monte Carlo Tree Search\n\nMany games are too large even for an efficient \\(\\alpha\\)-\\(\\beta\\) search 😔\n\nWe can still play them\n\nSimulate plays of entire games from starting state\n\nUpdate win probability from each node (for each player) based on result\n\n“Explore/exploit” paradigm for move selection"
+  },
+  {
+    "objectID": "4511/03/03.html#choosing-moves",
+    "href": "4511/03/03.html#choosing-moves",
+    "title": "Local Search & Games",
+    "section": "Choosing Moves",
+    "text": "Choosing Moves\n\nWe want our search to pick good moves\nWe want our search to pick unknown moves\nWe don’t want our search to pick bad moves\n\n(Assuming they’re actually bad moves)\n\n\nSelect moves based on a heuristic."
+  },
+  {
+    "objectID": "4511/03/03.html#games-of-luck",
+    "href": "4511/03/03.html#games-of-luck",
+    "title": "Local Search & Games",
+    "section": "Games of Luck",
+    "text": "Games of Luck\n\nReal-world problems are rarely deterministic\nNon-deterministic state evolution:\n\nRoll a die to determine next position\nToss a coin to determine who picks candy first\nPrecise trajectory of kicked football1\nOthers?\n\n\nAny definition of “football”"
+  },
+  {
+    "objectID": "4511/03/03.html#solving-non-deterministic-games",
+    "href": "4511/03/03.html#solving-non-deterministic-games",
+    "title": "Local Search & Games",
+    "section": "Solving Non-Deterministic Games",
+    "text": "Solving Non-Deterministic Games\nPreviously: Max and Min alternate turns\nNow:\n\nMax\nChance\nMin\nChance\n\n 😣"
+  },
+  {
+    "objectID": "4511/03/03.html#expectiminimax",
+    "href": "4511/03/03.html#expectiminimax",
+    "title": "Local Search & Games",
+    "section": "Expectiminimax",
+    "text": "Expectiminimax\n\n“Expected value” of next position\n\n\n\n\n\nHow does this impact branching factor of the search?\n\n🫠"
+  },
+  {
+    "objectID": "4511/03/03.html#expectiminimax-1",
+    "href": "4511/03/03.html#expectiminimax-1",
+    "title": "Local Search & Games",
+    "section": "Expectiminimax",
+    "text": "Expectiminimax"
+  },
+  {
+    "objectID": "4511/03/03.html#filled-with-uncertainty",
+    "href": "4511/03/03.html#filled-with-uncertainty",
+    "title": "Local Search & Games",
+    "section": "Filled With Uncertainty",
+    "text": "Filled With Uncertainty\nWhat is to be done?\n\nPruning is still possible\n\nHow?\n\nHeuristic evaluation functions\n\nChoose carefully!"
+  },
+  {
+    "objectID": "4511/03/03.html#non-optimal-adversaries",
+    "href": "4511/03/03.html#non-optimal-adversaries",
+    "title": "Local Search & Games",
+    "section": "Non-Optimal Adversaries",
+    "text": "Non-Optimal Adversaries\n\nIs deterministic “best” behavior optimal?\nAre all adversaries rational?\n\n\n\n\nExpectimax"
+  },
+  {
+    "objectID": "4511/03/03.html#references",
+    "href": "4511/03/03.html#references",
+    "title": "Local Search & Games",
+    "section": "References",
+    "text": "References"
+  },
+  {
+    "objectID": "4511/03/03.html#section-1",
+    "href": "4511/03/03.html#section-1",
+    "title": "Local Search & Games",
+    "section": "",
+    "text": "Stuart J. Russell and Peter Norvig. Artificial Intelligence: A Modern Approach. 4th Edition, 2020.\nMykal Kochenderfer, Tim Wheeler, and Kyle Wray. Algorithms for Decision Making. 1st Edition, 2022.\nStanford CS231\nStanford CS228\nUC Berkeley CS188"
+  },
+  {
+    "objectID": "4511/python.html",
+    "href": "4511/python.html",
+    "title": "Python Notes",
+    "section": "",
+    "text": "You probably know this:\n\nimport numpy\n\nprint(numpy.random.random())\n\n0.2449865568395131\n\n\nand this1\n1 It might not run if you don’t have scipy installed, so install scipy.\nimport numpy as np\nimport pandas as pd\nfrom scipy import stats\n\na = stats.uniform(1, 5)\nprint(a)\nprint(a.cdf(2), a.cdf(3), a.cdf(5))\n\n&lt;scipy.stats._distn_infrastructure.rv_continuous_frozen object at 0x7e4b14e32840&gt;\n0.2 0.4 0.8\n\n\nWhere do imports come from? The environment. There’s a default environment; but for any complicated project, you’ll want to create your own. You can call it whatever you want. .venv works. You could call it otis. You should call it something meaningful.\nAt the command line:2\n2 Your install might use python3 instead of pythonpython -m venv otis\ncd otis; tree | head -n 172\n.\n├── bin\n│   ├── activate\n│   ├── activate.csh\n│   ├── activate.fish\n│   ├── Activate.ps1\n│   ├── pip\n│   ├── pip3\n│   ├── pip3.11\n│   ├── python -&gt; /home/adsr/miniconda3/bin/python\n│   ├── python3 -&gt; python\n│   └── python3.11 -&gt; python\n├── include\n│   └── python3.11\n├── lib\n│   └── python3.11\n│       └── site-packages\nMake a new environment for every project! Or don’t, and find out what happens:\n\nThere are several package managers for python, poetry and conda are the most popular3 as of 2024. You can use pip, it’s fine.\n3 My own assertion, no data to back this up, probably true.\n\n\nWhen you make a .py file with any definitions, it’s called a module, and the module name is the file name (before the .py extension).\nConsider this module:\n\n\nutils.py\n\nfrom copy import deepcopy\n\ndef stringify(L: list[int]) -&gt; list:\n    L = deepcopy(L)\n    L.sort()\n    return str(L)\n\nWe can import it from any script in the same folder:\n\nimport utils\nA = utils.stringify([3, 2, 2, 1])\nprint(A, type(A))\n\n[1, 2, 2, 3] &lt;class 'str'&gt;\n\n\nWe can also import component definitions:\n\nfrom utils import stringify\nA = stringify([\"otis\", \"carl\", \"bruce\"])\nprint(A, type(A))\n\n['bruce', 'carl', 'otis'] &lt;class 'str'&gt;\n\n\nPython doesn’t enforce type hints 🙃"
+  },
+  {
+    "objectID": "4511/python.html#modules-and-imports",
+    "href": "4511/python.html#modules-and-imports",
+    "title": "Python Notes",
+    "section": "",
+    "text": "You probably know this:\n\nimport numpy\n\nprint(numpy.random.random())\n\n0.2449865568395131\n\n\nand this1\n1 It might not run if you don’t have scipy installed, so install scipy.\nimport numpy as np\nimport pandas as pd\nfrom scipy import stats\n\na = stats.uniform(1, 5)\nprint(a)\nprint(a.cdf(2), a.cdf(3), a.cdf(5))\n\n&lt;scipy.stats._distn_infrastructure.rv_continuous_frozen object at 0x7e4b14e32840&gt;\n0.2 0.4 0.8\n\n\nWhere do imports come from? The environment. There’s a default environment; but for any complicated project, you’ll want to create your own. You can call it whatever you want. .venv works. You could call it otis. You should call it something meaningful.\nAt the command line:2\n2 Your install might use python3 instead of pythonpython -m venv otis\ncd otis; tree | head -n 172\n.\n├── bin\n│   ├── activate\n│   ├── activate.csh\n│   ├── activate.fish\n│   ├── Activate.ps1\n│   ├── pip\n│   ├── pip3\n│   ├── pip3.11\n│   ├── python -&gt; /home/adsr/miniconda3/bin/python\n│   ├── python3 -&gt; python\n│   └── python3.11 -&gt; python\n├── include\n│   └── python3.11\n├── lib\n│   └── python3.11\n│       └── site-packages\nMake a new environment for every project! Or don’t, and find out what happens:\n\nThere are several package managers for python, poetry and conda are the most popular3 as of 2024. You can use pip, it’s fine.\n3 My own assertion, no data to back this up, probably true.\n\n\nWhen you make a .py file with any definitions, it’s called a module, and the module name is the file name (before the .py extension).\nConsider this module:\n\n\nutils.py\n\nfrom copy import deepcopy\n\ndef stringify(L: list[int]) -&gt; list:\n    L = deepcopy(L)\n    L.sort()\n    return str(L)\n\nWe can import it from any script in the same folder:\n\nimport utils\nA = utils.stringify([3, 2, 2, 1])\nprint(A, type(A))\n\n[1, 2, 2, 3] &lt;class 'str'&gt;\n\n\nWe can also import component definitions:\n\nfrom utils import stringify\nA = stringify([\"otis\", \"carl\", \"bruce\"])\nprint(A, type(A))\n\n['bruce', 'carl', 'otis'] &lt;class 'str'&gt;\n\n\nPython doesn’t enforce type hints 🙃"
+  },
+  {
+    "objectID": "4511/python.html#classes",
+    "href": "4511/python.html#classes",
+    "title": "Python Notes",
+    "section": "Classes",
+    "text": "Classes\nPython has excellent support for objects (classes), even though they aren’t necessary for basic scripts.\n\nclass Node:\n    def __init__(self, state, parent=None):\n        self.state = state\n        self.parent = parent\n\n    def __str__(self): # this determines the string representation of the node\n        return str(self.state)\n\nThe __init__ function is the constructor. We’ll try to unpack what happens below:\n\na = Node([2, 3])\nprint(a, a.parent)\n\nb = Node([2, 4], a)\na = 3\nprint(b.parent)\n\n[2, 3] None\n[2, 3]\n\n\n\nThe constructor is defined as __init__ but is called with the class name\nWe overrode __str__ so that printing a Node prints its state variable\nWe reassigned a to an integer, 3\nb still has a valid .parent reference!\n\n\nc = b.parent\nc.state = [2, 5]\nprint(b.parent)\n\n[2, 5]"
+  },
+  {
+    "objectID": "4511/python.html#references",
+    "href": "4511/python.html#references",
+    "title": "Python Notes",
+    "section": "References?",
+    "text": "References?\nSurely you are aware that Python doesn’t have pointers.\n…Python doesn’t have pointers in the sense that it does not have pointers that directly reference locations in memory. Python does have references, which point to objects in namespaces, and they are simultaneously extremely useful and extremely confusing. 🙃\n\nPrimitive/immutable types are assigned ‘directly’\nObjects are assigned as references\n\nTo illustrate:\nInts are immutable (so are floats and strings) \\rightarrow assignment is to the value\n\nx = 2\ny = x\nx = 3\nprint(y)\n\n2\n\n\nLists are objects \\rightarrow assignment is a reference\n\nA = [1, 2, 3]\nB = A\nA.append(4)\nprint(B)\n\n[1, 2, 3, 4]\n\n\nTuples are immutable \\rightarrow assignment is to the value\n\nA = 1, 2, 3\nB = A\nA = 4, 5, 6\nprint(B)\n\n(1, 2, 3)\n\n\nTuples also allow multiple assignment:\n\nA, B = 1, 2\nprint(A)\nprint(B)\n\n1\n2\n\n\nDicts are objects \\rightarrow assignment is a reference\n\nA = {\"carl\": 5, \"otis\": 6}\nB = A\nB[\"bruce\"] = 4\nprint(A)\n\n{'carl': 5, 'otis': 6, 'bruce': 4}\n\n\nStrings are immutable \\rightarrow assignment is to the value\n\nIf you want to just access the values of a list or dict, but not the object as a reference, use copy.deepcopy\n\n\nA = \"otis\"\nB = A\nA = \"carl\"\nprint(B)\n\notis"
+  },
+  {
+    "objectID": "4511/python.html#hashing",
+    "href": "4511/python.html#hashing",
+    "title": "Python Notes",
+    "section": "Hashing",
+    "text": "Hashing\nAnything that’s immutable can be hashed (can be the key of a dict):\n\nD = {}\nD[\"first\"] = 3\nD[(2, 3)] = 4\nD[1] = 1\nprint(D)\n\n{'first': 3, (2, 3): 4, 1: 1}"
+  },
+  {
+    "objectID": "4511/python.html#looping",
+    "href": "4511/python.html#looping",
+    "title": "Python Notes",
+    "section": "Looping",
+    "text": "Looping\nPython has several ways to loop through things and many of them can be cursed. TL;DR, use enumerate.\n\nL = [\"cat\", \"dog\", \"owl\"]\nfor j in range(3):\n    print(L[j], end=\" - \")\n\ncat - dog - owl - \n\n\n\nL = [\"cat\", \"dog\", \"owl\"]\nfor j in L:\n    print(j, end= \" - \")\n\ncat - dog - owl - \n\n\n\nL = [\"cat\", \"dog\", \"owl\"]\nfor j, item in enumerate(L):\n    print(item, j, end=\" - \")\n\ncat 0 - dog 1 - owl 2 - \n\n\nLooping directly through a dict iterates over keys:4\n4 Note the f-string\nA = {\"carl\": 5, \"otis\": 6, \"alan\": 2}\nfor j in A:\n    print(f\"{j}:{A[j]}\", end=\" - \")\n\ncarl:5 - otis:6 - alan:2 - \n\n\nYou can also iterate over the values:\n\nA = {\"carl\": 5, \"otis\": 6, \"alan\": 2}\nfor j in A.values():\n    print(j, end=\" - \")\n\n5 - 6 - 2 - \n\n\nOr the items:\n\nA = {\"carl\": 5, \"otis\": 6, \"alan\": 2}\nfor i, j in A.items():\n    print(i, j, end=\" - \")\n\ncarl 5 - otis 6 - alan 2 -"
+  },
+  {
+    "objectID": "4511/python.html#functions-as-references",
+    "href": "4511/python.html#functions-as-references",
+    "title": "Python Notes",
+    "section": "Functions as References",
+    "text": "Functions as References\nFunctions are objects, too.\nRecall:\n\n\nutils.py\n\nfrom copy import deepcopy\n\ndef stringify(L: list[int]) -&gt; list:\n    L = deepcopy(L)\n    L.sort()\n    return str(L)\n\n\nfrom utils import stringify\nprint(stringify)\nx = stringify # what.\nx([1, 4, 5])\n\n&lt;function stringify at 0x7e4b538c7c40&gt;\n\n\n'[1, 4, 5]'\n\n\nWe can pass them as arguments:\n\ndef f(x, y):\n    return x(y) + \"!!\"\n\na = f(stringify, [\"sun\", \"set\"])\nprint(a)\n\n['set', 'sun']!!"
+  },
+  {
+    "objectID": "4511/python.html#comprehensions",
+    "href": "4511/python.html#comprehensions",
+    "title": "Python Notes",
+    "section": "Comprehensions",
+    "text": "Comprehensions\nThey start out kind of cute\n\nx = [i**2 % 24 for i in range(2, 15)]\nprint(x)\n\n[4, 9, 16, 1, 12, 1, 16, 9, 4, 1, 0, 1, 4]\n\n\n\nx = [i**2 % 24 for i in range(2, 15) if i % 3 == 1]\nprint(x)\n\n[16, 1, 4, 1]\n\n\nThey rapidly become kind of cursed and unreadable:\n\ny = [j+i if i % 2 == 1 else \"otis\" for j, i in enumerate(x)]\nprint(y)\n\n['otis', 2, 'otis', 4]\n\n\nDict comprehensions exist:\n\nz = {i:j for i, j in enumerate(x)}\nprint(z)\n\n{0: 16, 1: 1, 2: 4, 3: 1}\n\n\nDon’t 🏌️\n\n[print(i+j, end=\" \") for i, j in enumerate([x+int(x**1.5) for x in range(2, 19)])]\nprint(\":)\")\n\n4 9 14 19 24 30 36 43 49 56 63 70 78 86 94 102 110 :)"
+  },
+  {
+    "objectID": "4511/python.html#grab-bag",
+    "href": "4511/python.html#grab-bag",
+    "title": "Python Notes",
+    "section": "Grab Bag",
+    "text": "Grab Bag"
+  },
+  {
+    "objectID": "4511/hw1.html",
+    "href": "4511/hw1.html",
+    "title": "Homework One",
+    "section": "",
+    "text": "In this project, your Pacman agent will find paths through his maze world, both to reach a particular location and to collect food efficiently. You will build general search algorithms and apply them to Pacman scenarios.\nThis project includes an autograder for you to grade your answers on your machine. This can be run with the command:\npython autograder.py\nThe code for this project consists of several Python files, some of which you will need to read and understand in order to complete the assignment, and some of which you can ignore. You can download all the code and supporting files in: search.zip.\nFiles to Edit and Submit: You will fill in portions of search.py and searchAgents.py during the assignment. Once you have completed the assignment, you will submit these files to the submit server. Please submit a single (uncompressed) .tar containing these two files. The server will allow you to submit multiple times for credit, but please run the autograder locally first.\nEvaluation: Evaluation of your code’s correctness will be performed by the autograder. If you think your code is correct and the autograder is in error, bring this to my attention before the submission deadline. Point values are relative within each assignment: all assignments are scaled to 100 when calculating grades.\nAcademic Dishonesty: This assignment is individual effort. Please review the collaboration policy for the course and adhere to it.\n\n\n\n\n\n\n\n\nFiles you’ll edit:\n\n\n\nsearch.py\nWhere all of your search algorithms will reside.\n\n\nsearchAgents.py\nWhere all of your search-based agents will reside.\n\n\nFiles you might want to look at:\n\n\n\npacman.py\nThe main file that runs Pacman games. This file describes a Pacman GameState type, which you use in this project.\n\n\ngame.py\nThe logic behind how the Pacman world works. This file describes several supporting types like AgentState, Agent, Direction, and Grid.\n\n\nutil.py\nUseful data structures for implementing search algorithms.\n\n\nSupporting files you can ignore:\n\n\n\ngraphicsDisplay.py\nGraphics for Pacman\n\n\ngraphicsUtils.py\nSupport for Pacman graphics\n\n\ntextDisplay.py\nASCII graphics for Pacman\n\n\nghostAgents.py\nAgents to control ghosts\n\n\nkeyboardAgents.py\nKeyboard interfaces to control Pacman\n\n\nlayout.py\nCode for reading layout files and storing their contents\n\n\nautograder.py\nProject autograder\n\n\ntestParser.py\nParses autograder test and solution files\n\n\ntestClasses.py\nGeneral autograding test classes\n\n\ntest_cases/\nDirectory containing the test cases for each question\n\n\nsearchTestClasses.py\nProject 1 specific autograding test classes"
+  },
+  {
+    "objectID": "4511/hw1.html#introduction",
+    "href": "4511/hw1.html#introduction",
+    "title": "Homework One",
+    "section": "",
+    "text": "In this project, your Pacman agent will find paths through his maze world, both to reach a particular location and to collect food efficiently. You will build general search algorithms and apply them to Pacman scenarios.\nThis project includes an autograder for you to grade your answers on your machine. This can be run with the command:\npython autograder.py\nThe code for this project consists of several Python files, some of which you will need to read and understand in order to complete the assignment, and some of which you can ignore. You can download all the code and supporting files in: search.zip.\nFiles to Edit and Submit: You will fill in portions of search.py and searchAgents.py during the assignment. Once you have completed the assignment, you will submit these files to the submit server. Please submit a single (uncompressed) .tar containing these two files. The server will allow you to submit multiple times for credit, but please run the autograder locally first.\nEvaluation: Evaluation of your code’s correctness will be performed by the autograder. If you think your code is correct and the autograder is in error, bring this to my attention before the submission deadline. Point values are relative within each assignment: all assignments are scaled to 100 when calculating grades.\nAcademic Dishonesty: This assignment is individual effort. Please review the collaboration policy for the course and adhere to it.\n\n\n\n\n\n\n\n\nFiles you’ll edit:\n\n\n\nsearch.py\nWhere all of your search algorithms will reside.\n\n\nsearchAgents.py\nWhere all of your search-based agents will reside.\n\n\nFiles you might want to look at:\n\n\n\npacman.py\nThe main file that runs Pacman games. This file describes a Pacman GameState type, which you use in this project.\n\n\ngame.py\nThe logic behind how the Pacman world works. This file describes several supporting types like AgentState, Agent, Direction, and Grid.\n\n\nutil.py\nUseful data structures for implementing search algorithms.\n\n\nSupporting files you can ignore:\n\n\n\ngraphicsDisplay.py\nGraphics for Pacman\n\n\ngraphicsUtils.py\nSupport for Pacman graphics\n\n\ntextDisplay.py\nASCII graphics for Pacman\n\n\nghostAgents.py\nAgents to control ghosts\n\n\nkeyboardAgents.py\nKeyboard interfaces to control Pacman\n\n\nlayout.py\nCode for reading layout files and storing their contents\n\n\nautograder.py\nProject autograder\n\n\ntestParser.py\nParses autograder test and solution files\n\n\ntestClasses.py\nGeneral autograding test classes\n\n\ntest_cases/\nDirectory containing the test cases for each question\n\n\nsearchTestClasses.py\nProject 1 specific autograding test classes"
+  },
+  {
+    "objectID": "4511/hw1.html#welcome-to-pacman",
+    "href": "4511/hw1.html#welcome-to-pacman",
+    "title": "Homework One",
+    "section": "2 Welcome to Pacman",
+    "text": "2 Welcome to Pacman\nAfter downloading the code, unzipping it, and changing to the directory, you should be able to play a game of Pacman by typing the following at the command line:\npython pacman.py\nPacman lives in a shiny blue world of twisting corridors and tasty round treats. Navigating this world efficiently will be Pacman’s first step in mastering his domain.\nThe simplest agent in searchAgents.py is called the GoWestAgent, which always goes West (a trivial reflex agent). This agent can occasionally win:\npython pacman.py --layout testMaze --pacman GoWestAgent\nBut, things get ugly for this agent when turning is required:\npython pacman.py --layout tinyMaze --pacman GoWestAgent\nIf Pacman gets stuck, you can exit the game by typing CTRL-c into your terminal.\nSoon, your agent will solve not only tinyMaze, but any maze you want.\nNote that pacman.py supports a number of options that can each be expressed in a long way (e.g., --layout) or a short way (e.g., -l). You can see the list of all options and their default values via:\npython pacman.py -h"
+  },
+  {
+    "objectID": "4511/hw1.html#new-syntax",
+    "href": "4511/hw1.html#new-syntax",
+    "title": "Homework One",
+    "section": "3 New Syntax",
+    "text": "3 New Syntax\nYou may not have encoutered Python type hints before:\ndef my_function(a: int, b: Tuple[int, int], c: List[List], d: Any, e: float=1.0):\nThis is annotating the type of the arguments that Python should expect for this function. In the example below, a should be an int, b should be a tuple of 2 ints, c should be a List of Lists of anything – therefore a 2D array of anything, d is essentially the same as not annotated and can by anything, and e should be a float. e is also set to 1.0 if nothing is passed in for it, i.e.:\nmy_function(1, (2, 3), [['a', 'b'], [None, my_class], [[]]], ('h', 1))\nThe above call fits the type annotations, and doesn’t pass anything in for e. Type annotations are meant to be an adddition to the docstrings to help you know what the functions are working with. Python itself doesn’t enforce these. Using them in your functions is optional."
+  },
+  {
+    "objectID": "4511/hw1.html#q1-3-pts-depth-first-search",
+    "href": "4511/hw1.html#q1-3-pts-depth-first-search",
+    "title": "Homework One",
+    "section": "4 Q1 (3 pts): Depth First Search",
+    "text": "4 Q1 (3 pts): Depth First Search\n(3 pts) In searchAgents.py, you’ll find a fully implemented SearchAgent, which plans out a path through Pacman’s world and then executes that path step-by-step. The search algorithms for formulating a plan are not implemented – that’s your job.\nFirst, test that the SearchAgent is working correctly by running:\npython pacman.py -l tinyMaze -p SearchAgent -a fn=tinyMazeSearch\nThe command above tells the SearchAgent to use tinyMazeSearch as its search algorithm, which is implemented in search.py. Pacman should navigate the maze successfully.\nNow it’s time to write full-fledged generic search functions to help Pacman plan routes! Pseudocode for the search algorithms you’ll write can be found in the lecture slides. Remember that a search node must contain not only a state but also the information necessary to reconstruct the path (plan) which gets to that state.\nImportant note: All of your search functions need to return a list of actions that will lead the agent from the start to the goal. These actions all have to be legal moves (valid directions, no moving through walls).\nImportant note: Make sure to use the Stack, Queue and PriorityQueue data structures provided to you in util.py! These data structure implementations have particular properties which are required for compatibility with the autograder.\nHint: Each algorithm is very similar. Algorithms for DFS, BFS, UCS, and A* differ only in the details of how the fringe is managed. So, concentrate on getting DFS right and the rest should be relatively straightforward. Indeed, one possible implementation requires only a single generic search method which is configured with an algorithm-specific queuing strategy. (Your implementation need not be of this form to receive full credit).\nImplement the depth-first search (DFS) algorithm in the depthFirstSearch function in search.py. To make your algorithm complete, write the graph search version of DFS, which avoids expanding any already visited states.\nYour code should quickly find a solution for:\npython pacman.py -l tinyMaze -p SearchAgent\npython pacman.py -l mediumMaze -p SearchAgent\npython pacman.py -l bigMaze -z .5 -p SearchAgent\nThe Pacman board will show an overlay of the states explored, and the order in which they were explored (brighter red means earlier exploration). Is the exploration order what you would have expected? Does Pacman actually go to all the explored squares on his way to the goal?\nHint: If you use a Stack as your data structure, the solution found by your DFS algorithm for mediumMaze should have a length of 130 (provided you push successors onto the fringe in the order provided by getSuccessors; you might get 246 if you push them in the reverse order). Is this a least cost solution? If not, think about what depth-first search is doing wrong.\nGrading: Please run the below command to see if your implementation passes all the autograder test cases.\npython autograder.py -q q1"
+  },
+  {
+    "objectID": "4511/hw1.html#q2-3-pts-breadth-first-search",
+    "href": "4511/hw1.html#q2-3-pts-breadth-first-search",
+    "title": "Homework One",
+    "section": "5 Q2 (3 pts): Breadth First Search",
+    "text": "5 Q2 (3 pts): Breadth First Search\nImplement the breadth-first search (BFS) algorithm in the breadthFirstSearch function in search.py. Again, write a graph search algorithm that avoids expanding any already visited states. Test your code the same way you did for depth-first search.\npython pacman.py -l mediumMaze -p SearchAgent -a fn=bfs\npython pacman.py -l bigMaze -p SearchAgent -a fn=bfs -z .5\nDoes BFS find a least cost solution? If not, check your implementation.\nHint: If Pacman moves too slowly for you, try the option –frameTime 0.\nNote: If you’ve written your search code generically, your code should work equally well for the eight-puzzle search problem without any changes.\npython eightpuzzle.py\nGrading: Please run the below command to see if your implementation passes all the autograder test cases.\npython autograder.py -q q2"
+  },
+  {
+    "objectID": "4511/hw1.html#q3-3-pts-varying-the-cost-function",
+    "href": "4511/hw1.html#q3-3-pts-varying-the-cost-function",
+    "title": "Homework One",
+    "section": "6 Q3 (3 pts): Varying the Cost Function",
+    "text": "6 Q3 (3 pts): Varying the Cost Function\nWhile BFS will find a fewest-actions path to the goal, we might want to find paths that are “best” in other senses. Consider mediumDottedMaze and mediumScaryMaze.\nBy changing the cost function, we can encourage Pacman to find different paths. For example, we can charge more for dangerous steps in ghost-ridden areas or less for steps in food-rich areas, and a rational Pacman agent should adjust its behavior in response.\nImplement the uniform-cost graph search algorithm in the uniformCostSearch function in search.py. We encourage you to look through util.py for some data structures that may be useful in your implementation. You should now observe successful behavior in all three of the following layouts, where the agents below are all UCS agents that differ only in the cost function they use (the agents and cost functions are written for you):\npython pacman.py -l mediumMaze -p SearchAgent -a fn=ucs\npython pacman.py -l mediumDottedMaze -p StayEastSearchAgent\npython pacman.py -l mediumScaryMaze -p StayWestSearchAgent\nNote: You should get very low and very high path costs for the StayEastSearchAgent and StayWestSearchAgent respectively, due to their exponential cost functions (see searchAgents.py for details).\nGrading: Please run the below command to see if your implementation passes all the autograder test cases.\npython autograder.py -q q3"
+  },
+  {
+    "objectID": "4511/hw1.html#q4-3-pts-a-search",
+    "href": "4511/hw1.html#q4-3-pts-a-search",
+    "title": "Homework One",
+    "section": "7 Q4 (3 pts): A* search",
+    "text": "7 Q4 (3 pts): A* search\nImplement A* graph search in the empty function aStarSearch in search.py. A* takes a heuristic function as an argument. Heuristics take two arguments: a state in the search problem (the main argument), and the problem itself (for reference information). The nullHeuristic heuristic function in search.py is a trivial example.\nYou can test your A* implementation on the original problem of finding a path through a maze to a fixed position using the Manhattan distance heuristic (implemented already as manhattanHeuristic in searchAgents.py).\npython pacman.py -l bigMaze -z .5 -p SearchAgent -a fn=astar,heuristic=manhattanHeuristic\nYou should see that A* finds the optimal solution slightly faster than uniform cost search (about 549 vs. 620 search nodes expanded in our implementation, but ties in priority may make your numbers differ slightly). What happens on openMaze for the various search strategies?\nGrading: Please run the below command to see if your implementation passes all the autograder test cases.\npython autograder.py -q q4"
+  },
+  {
+    "objectID": "4511/hw1.html#q5-3-pts-finding-all-the-corners",
+    "href": "4511/hw1.html#q5-3-pts-finding-all-the-corners",
+    "title": "Homework One",
+    "section": "8 Q5 (3 pts): Finding All the Corners",
+    "text": "8 Q5 (3 pts): Finding All the Corners\nThe real power of A* will only be apparent with a more challenging search problem. Now, it’s time to formulate a new problem and design a heuristic for it.\nIn corner mazes, there are four dots, one in each corner. Our new search problem is to find the shortest path through the maze that touches all four corners (whether the maze actually has food there or not). Note that for some mazes like tinyCorners, the shortest path does not always go to the closest food first! Hint: the shortest path through tinyCorners takes 28 steps.\nNote: Make sure to complete Question 2 before working on Question 5, because Question 5 builds upon your answer for Question 2.\nImplement the CornersProblem search problem in searchAgents.py. You will need to choose a state representation that encodes all the information necessary to detect whether all four corners have been reached. Now, your search agent should solve:\npython pacman.py -l tinyCorners -p SearchAgent -a fn=bfs,prob=CornersProblem\npython pacman.py -l mediumCorners -p SearchAgent -a fn=bfs,prob=CornersProblem\nTo receive full credit, you need to define an abstract state representation that does not encode irrelevant information (like the position of ghosts, where extra food is, etc.). In particular, do not use a Pacman GameState as a search state. Your code will be very, very slow if you do (and also wrong).\nAn instance of the CornersProblem class represents an entire search problem, not a particular state. Particular states are returned by the functions you write, and your functions return a data structure of your choosing (e.g. tuple, set, etc.) that represents a state.\nFurthermore, while a program is running, remember that many states simultaneously exist, all on the queue of the search algorithm, and they should be independent of each other. In other words, you should not have only one state for the entire CornersProblem object; your class should be able to generate many different states to provide to the search algorithm.\nHint 1: The only parts of the game state you need to reference in your implementation are the starting Pacman position and the location of the four corners.\nHint 2: When coding up getSuccessors, make sure to add children to your successors list with a cost of 1.\nOur implementation of breadthFirstSearch expands just under 2000 search nodes on mediumCorners. However, heuristics (used with A* search) can reduce the amount of searching required.\nGrading: Please run the below command to see if your implementation passes all the autograder test cases.\npython autograder.py -q q5"
+  },
+  {
+    "objectID": "4511/hw1.html#q6-3-pts-corners-problem-heuristic",
+    "href": "4511/hw1.html#q6-3-pts-corners-problem-heuristic",
+    "title": "Homework One",
+    "section": "9 Q6 (3 pts): Corners Problem: Heuristic",
+    "text": "9 Q6 (3 pts): Corners Problem: Heuristic\nNote: Make sure to complete Question 4 before working on Question 6, because Question 6 builds upon your answer for Question 4.\nImplement a non-trivial, consistent heuristic for the CornersProblem in cornersHeuristic.\npython pacman.py -l mediumCorners -p AStarCornersAgent -z 0.5\nNote: AStarCornersAgent is a shortcut for\n-p SearchAgent -a fn=aStarSearch,prob=CornersProblem,heuristic=cornersHeuristic\nAdmissibility vs. Consistency: Remember, heuristics are just functions that take search states and return numbers that estimate the cost to a nearest goal. More effective heuristics will return values closer to the actual goal costs. To be admissible, the heuristic values must be lower bounds on the actual shortest path cost to the nearest goal (and non-negative). To be consistent, it must additionally hold that if an action has cost c, then taking that action can only cause a drop in heuristic of at most c.\nRemember that admissibility isn’t enough to guarantee correctness in graph search – you need the stronger condition of consistency. However, admissible heuristics are usually also consistent, especially if they are derived from problem relaxations. Therefore it is usually easiest to start out by brainstorming admissible heuristics. Once you have an admissible heuristic that works well, you can check whether it is indeed consistent, too. The only way to guarantee consistency is with a proof. However, inconsistency can often be detected by verifying that for each node you expand, its successor nodes are equal or higher in in f-value. Moreover, if UCS and A* ever return paths of different lengths, your heuristic is inconsistent. This stuff is tricky!\nNon-Trivial Heuristics: The trivial heuristics are the ones that return zero everywhere (UCS) and the heuristic which computes the true completion cost. The former won’t save you any time, while the latter will timeout the autograder. You want a heuristic which reduces total compute time, though for this assignment the autograder will only check node counts (aside from enforcing a reasonable time limit).\nGrading: Your heuristic must be a non-trivial non-negative consistent heuristic to receive any points. Make sure that your heuristic returns 0 at every goal state and never returns a negative value. Depending on how few nodes your heuristic expands, you’ll be graded:\n\n\n\nNumber of nodes expanded\nGrade\n\n\n\n\nmore than 2000\n0/3\n\n\nat most 2000\n1/3\n\n\nat most 1600\n2/3\n\n\nat most 1200\n3/3\n\n\n\nRemember: If your heuristic is inconsistent, you will receive no credit, so be careful!\nGrading: Please run the below command to see if your implementation passes all the autograder test cases.\npython autograder.py -q q6"
+  },
+  {
+    "objectID": "4511/hw1.html#q7-4-pts-eating-all-the-dots",
+    "href": "4511/hw1.html#q7-4-pts-eating-all-the-dots",
+    "title": "Homework One",
+    "section": "10 Q7 (4 pts): Eating All The Dots",
+    "text": "10 Q7 (4 pts): Eating All The Dots\nNow we’ll solve a hard search problem: eating all the Pacman food in as few steps as possible. For this, we’ll need a new search problem definition which formalizes the food-clearing problem: FoodSearchProblem in searchAgents.py (implemented for you). A solution is defined to be a path that collects all of the food in the Pacman world. For the present project, solutions do not take into account any ghosts or power pellets; solutions only depend on the placement of walls, regular food and Pacman. (Of course ghosts can ruin the execution of a solution! We’ll get to that in the next project.) If you have written your general search methods correctly, A* with a null heuristic (equivalent to uniform-cost search) should quickly find an optimal solution to testSearch with no code change on your part (total cost of 7).\npython pacman.py -l testSearch -p AStarFoodSearchAgent\nNote: AStarFoodSearchAgent is a shortcut for\n-p SearchAgent -a fn=astar,prob=FoodSearchProblem,heuristic=foodHeuristic\nYou should find that UCS starts to slow down even for the seemingly simple tinySearch. As a reference, our implementation takes 2.5 seconds to find a path of length 27 after expanding 5057 search nodes.\nNote: Make sure to complete Question 4 before working on Question 7, because Question 7 builds upon your answer for Question 4.\nFill in foodHeuristic in searchAgents.py with a consistent heuristic for the FoodSearchProblem. Try your agent on the trickySearch board:\npython pacman.py -l trickySearch -p AStarFoodSearchAgent\nOur UCS agent finds the optimal solution in about 13 seconds, exploring over 16,000 nodes.\nAny non-trivial non-negative consistent heuristic will receive 1 point. Make sure that your heuristic returns 0 at every goal state and never returns a negative value. Depending on how few nodes your heuristic expands, you’ll get additional points:\n\n\n\nNumber of nodes expanded\nGrade\n\n\n\n\nmore than 15000\n1/4\n\n\nat most 15000\n2/4\n\n\nat most 12000\n3/4\n\n\nat most 9000\n4/4 (full credit; medium)\n\n\nat most 7000\n5/4 (optional extra credit; hard)\n\n\n\nRemember: If your heuristic is inconsistent, you will receive no credit, so be careful! Can you solve mediumSearch in a short time? If so, we’re either very, very impressed, or your heuristic is inconsistent.\nGrading: Please run the below command to see if your implementation passes all the autograder test cases.\npython autograder.py -q q7"
+  },
+  {
+    "objectID": "4511/hw1.html#q8-3-pts-suboptimal-search",
+    "href": "4511/hw1.html#q8-3-pts-suboptimal-search",
+    "title": "Homework One",
+    "section": "11 Q8 (3 pts): Suboptimal Search",
+    "text": "11 Q8 (3 pts): Suboptimal Search\nSometimes, even with A* and a good heuristic, finding the optimal path through all the dots is hard. In these cases, we’d still like to find a reasonably good path, quickly. In this section, you’ll write an agent that always greedily eats the closest dot. ClosestDotSearchAgent is implemented for you in searchAgents.py, but it’s missing a key function that finds a path to the closest dot.\nImplement the function findPathToClosestDot in searchAgents.py. Our agent solves this maze (suboptimally!) in under a second with a path cost of 350:\npython pacman.py -l bigSearch -p ClosestDotSearchAgent -z .5\nHint: The quickest way to complete findPathToClosestDot is to fill in the AnyFoodSearchProblem, which is missing its goal test. Then, solve that problem with an appropriate search function. The solution should be very short!\nYour ClosestDotSearchAgent won’t always find the shortest possible path through the maze. Make sure you understand why and try to come up with a small example where repeatedly going to the closest dot does not result in finding the shortest path for eating all the dots.\nGrading: Please run the below command to see if your implementation passes all the autograder test cases.\npython autograder.py -q q8"
   }
 ]
