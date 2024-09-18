@@ -1,5 +1,12 @@
 [
   {
+    "objectID": "advising.html",
+    "href": "advising.html",
+    "title": "Advising",
+    "section": "",
+    "text": "Undergraduate\nIf I am your undergraduate advisor, email and office hours are the most straightforward ways to discuss your questions.\n\n\nGraduate\nI am not currently soliciting applications, however any graduate student interested in collaborating is welcome to send me a proposal. It does not have to be particularly formal, however:\n\nTell me what questions you are interested in answering\nShow me what other work has been done in this avenue\nDiscuss a plan for executing your project\n\nI am fond of the Heilmeier Catechism, although it is not a perfect match for many kinds of academic research questions."
+  },
+  {
     "objectID": "4511/hw2.html",
     "href": "4511/hw2.html",
     "title": "Homework Two",
@@ -56,321 +63,6 @@
     "text": "7 Q5 (6 pts): Evaluation Function\nWrite a better evaluation function for Pacman in the provided function betterEvaluationFunction. The evaluation function should evaluate states, rather than actions like your reflex agent evaluation function did. With depth 2 search, your evaluation function should clear the smallClassic layout with one random ghost more than half the time and still run at a reasonable rate (to get full credit, Pacman should be averaging around 1000 points when he’s winning).\nGrading: the autograder will run your agent on the smallClassic layout 10 times. We will assign points to your evaluation function in the following way:\n\nIf you win at least once without timing out the autograder, you receive 1 points. Any agent not satisfying these criteria will receive 0 points.\n+1 for winning at least 5 times, +2 for winning all 10 times\n+1 for an average score of at least 500, +2 for an average score of at least 1000 (including scores on lost games)\n+1 if your games take on average less than 30 seconds on the autograder machine, when run with --no-graphics.\nThe additional points for average score and computation time will only be awarded if you win at least 5 times.\nPlease do not copy any files from the previous assignment, as it will not pass the autograder on Gradescope.\n\nYou can try your agent out under these conditions with\npython autograder.py -q q5\nTo run it without graphics, use:\npython autograder.py -q q5 --no-graphics"
   },
   {
-    "objectID": "4511/01/01.html#good-afternoon",
-    "href": "4511/01/01.html#good-afternoon",
-    "title": "AI Algorithms  Introduction",
-    "section": "Good Afternoon",
-    "text": "Good Afternoon"
-  },
-  {
-    "objectID": "4511/01/01.html#how-to-succeed",
-    "href": "4511/01/01.html#how-to-succeed",
-    "title": "AI Algorithms  Introduction",
-    "section": "How To Succeed",
-    "text": "How To Succeed\n\nPay Attention\nStart Early\nDo The Work\n\nYourself"
-  },
-  {
-    "objectID": "4511/01/01.html#extremely-important-dates",
-    "href": "4511/01/01.html#extremely-important-dates",
-    "title": "AI Algorithms  Introduction",
-    "section": "Extremely Important Dates",
-    "text": "Extremely Important Dates\nMidterm Exam: 16 October\n\nFinal Exam: 4 Dec\n\n\n\nArrange to be present for both exams."
-  },
-  {
-    "objectID": "4511/01/01.html#grading",
-    "href": "4511/01/01.html#grading",
-    "title": "AI Algorithms  Introduction",
-    "section": "Grading",
-    "text": "Grading\n\n35% Homework average: weighted average of all homework\n\nLowest homework weighted 50%\n\n15% Project:\n\nOne intermediate deliverable\n\n50% Exam average: weighted average of two exams\n\nFinal replaces midterm if higher"
-  },
-  {
-    "objectID": "4511/01/01.html#attendance",
-    "href": "4511/01/01.html#attendance",
-    "title": "AI Algorithms  Introduction",
-    "section": "Attendance",
-    "text": "Attendance\n\nOptional\nRecommended\nAssumed\nOffice Hours\n\nWhy are there so many?"
-  },
-  {
-    "objectID": "4511/01/01.html#office-hours",
-    "href": "4511/01/01.html#office-hours",
-    "title": "AI Algorithms  Introduction",
-    "section": "Office Hours",
-    "text": "Office Hours\n\nMon 1:00-3:00 PM\nWeds 12:30 PM - 3:00 PM\nFri 3:00-6:00 PM\nAppointments are not necessary"
-  },
-  {
-    "objectID": "4511/01/01.html#the-syllabus",
-    "href": "4511/01/01.html#the-syllabus",
-    "title": "AI Algorithms  Introduction",
-    "section": "The Syllabus",
-    "text": "The Syllabus\n\nHomework 0:\n\nSyllabus acknowledgement\nPython/autograder check\nMust be completed before you get credit for anything\nWrite it yourself"
-  },
-  {
-    "objectID": "4511/01/01.html#write-it-yourself",
-    "href": "4511/01/01.html#write-it-yourself",
-    "title": "AI Algorithms  Introduction",
-    "section": "Write It Yourself",
-    "text": "Write It Yourself\n\nCopying code (from anywhere!) is generally prohibited, however:\n\nSearching for errors, use of Stack Overflow, etc. is allowed\nUse of code snippets from language documentation is allowed\nCollaborating to understand the algorithms is always allowed\n\nDocument what help you received when solving the problems\n\nYour code will almost certainly show up on your exam."
-  },
-  {
-    "objectID": "4511/01/01.html#write-it-yourself-1",
-    "href": "4511/01/01.html#write-it-yourself-1",
-    "title": "AI Algorithms  Introduction",
-    "section": "Write It Yourself",
-    "text": "Write It Yourself\n\nI check my email and respond\nPlease do not use ChatGPT (etc.) to write emails to me\n\n“I hope this email finds you well”\n“I understand the importance of…”\n“I appreciate your time and attention to this matter”\n“I look forward to your response”\n\n\nIf nobody wrote it, why should anybody read it?"
-  },
-  {
-    "objectID": "4511/01/01.html#textbook",
-    "href": "4511/01/01.html#textbook",
-    "title": "AI Algorithms  Introduction",
-    "section": "Textbook",
-    "text": "Textbook\nStuart J. Russell and Peter Norvig. Artificial Intelligence: A Modern Approach. 4th Edition, 2020.\nSeveral copies will be on reserve at the GWU Library."
-  },
-  {
-    "objectID": "4511/01/01.html#mechanics",
-    "href": "4511/01/01.html#mechanics",
-    "title": "AI Algorithms  Introduction",
-    "section": "Mechanics",
-    "text": "Mechanics\n\nOne 2.5 hr meeting per week\nExams in person\n\nPeriodic in-class practice\n\nHomework via submit server\nProgramming assignments in Python\n\nIf you don’t know Python: you will.\n\nRhythms"
-  },
-  {
-    "objectID": "4511/01/01.html#do-we-even-need-to-introduce-ai",
-    "href": "4511/01/01.html#do-we-even-need-to-introduce-ai",
-    "title": "AI Algorithms  Introduction",
-    "section": "Do We Even Need to Introduce AI?",
-    "text": "Do We Even Need to Introduce AI?\n\nYou have undoubtedly used an LLM\n\nYou have almost certainly used speech-to-text\n\nYou may have ridden in a self-driving car\nYou probably unlock your telephone with your face\n\nConsider how this sentence would have been received in 1995\n\nYou trust software to give you street directions\nYou have probably flown on an airliner with autopilot\nYou might have lost to a computer at chess"
-  },
-  {
-    "objectID": "4511/01/01.html#what-is-artificial-intelligence",
-    "href": "4511/01/01.html#what-is-artificial-intelligence",
-    "title": "AI Algorithms  Introduction",
-    "section": "What Is Artificial Intelligence?",
-    "text": "What Is Artificial Intelligence?\nWhat is intelligence?\n\nThought\nReasoning\nBehavior\n\nDo we need all three?\nDoes “AI” need all three?"
-  },
-  {
-    "objectID": "4511/01/01.html#is-it-intelligent",
-    "href": "4511/01/01.html#is-it-intelligent",
-    "title": "AI Algorithms  Introduction",
-    "section": "Is It Intelligent?",
-    "text": "Is It Intelligent?\n\n\n\n\n\n\n\n\nImages: Speed Queen, Volvo"
-  },
-  {
-    "objectID": "4511/01/01.html#rationality",
-    "href": "4511/01/01.html#rationality",
-    "title": "AI Algorithms  Introduction",
-    "section": "Rationality",
-    "text": "Rationality\n\nDecisions\nOutcomes\nValues\n\nIt is possible to make better decisions.\n\n\nRational agents make better decisions."
-  },
-  {
-    "objectID": "4511/01/01.html#which-decision",
-    "href": "4511/01/01.html#which-decision",
-    "title": "AI Algorithms  Introduction",
-    "section": "Which Decision?",
-    "text": "Which Decision?\n\n\n\nPay $17 for this pizza, delivered\nPay $21 for the same pizza, delivered"
-  },
-  {
-    "objectID": "4511/01/01.html#basically-the-same-problem",
-    "href": "4511/01/01.html#basically-the-same-problem",
-    "title": "AI Algorithms  Introduction",
-    "section": "Basically The Same Problem",
-    "text": "Basically The Same Problem\n\n\nImage: Bloomberg"
-  },
-  {
-    "objectID": "4511/01/01.html#expected-utility",
-    "href": "4511/01/01.html#expected-utility",
-    "title": "AI Algorithms  Introduction",
-    "section": "Expected Utility",
-    "text": "Expected Utility\nWhich would you prefer?\n\nReceive $10\nFlip a fair coin:\n\nHeads - Pay $10\nTails - Receive $100\n\n\n\n\n\nMany outcomes aren’t directly expressed in dollars\nRational agents maximize expected utility"
-  },
-  {
-    "objectID": "4511/01/01.html#defining-ai-again",
-    "href": "4511/01/01.html#defining-ai-again",
-    "title": "AI Algorithms  Introduction",
-    "section": "Defining AI, Again",
-    "text": "Defining AI, Again\n\nThought “vs.” Action\nHuman “vs.” Rational\nWhat is necessary?\n\nAll four combinations have been asserted"
-  },
-  {
-    "objectID": "4511/01/01.html#errors",
-    "href": "4511/01/01.html#errors",
-    "title": "AI Algorithms  Introduction",
-    "section": "Errors",
-    "text": "Errors\n\nWhat happens when a human1 crashes a bicycle?\nWhat happens when a self-driving car2 crashes?\nWho is responsible when a self-driving car crashes?\n\n\n\nHow do “we” ensure AI values align with human values?\nHuman at faultSoftware at fault"
-  },
-  {
-    "objectID": "4511/01/01.html#alignment",
-    "href": "4511/01/01.html#alignment",
-    "title": "AI Algorithms  Introduction",
-    "section": "Alignment",
-    "text": "Alignment\n\n\nImage: Meme; fair use."
-  },
-  {
-    "objectID": "4511/01/01.html#alignment-1",
-    "href": "4511/01/01.html#alignment-1",
-    "title": "AI Algorithms  Introduction",
-    "section": "Alignment",
-    "text": "Alignment\n\nAre universal human values defined?\nHow are AI values defined?\nHow are AI values validated?\n\nThis is an open area of investigation.1\nAnd of concern."
-  },
-  {
-    "objectID": "4511/01/01.html#how-we-got-here",
-    "href": "4511/01/01.html#how-we-got-here",
-    "title": "AI Algorithms  Introduction",
-    "section": "How We Got Here",
-    "text": "How We Got Here\n\n\nNeural Networks\n\nPerceptron (McCulloch & Pitts, 1943)\n“Computing Machinery and Intelligence” (Turing, 1950)\n\nLogic\n\nSamuel’s checkers, MANIAC Chess (1950s)\nDartmouth “Artificial Intelligence” conference (1956)\nMinsky & Papert assault perceptrons (1959)"
-  },
-  {
-    "objectID": "4511/01/01.html#how-we-got-here-1",
-    "href": "4511/01/01.html#how-we-got-here-1",
-    "title": "AI Algorithms  Introduction",
-    "section": "How We Got Here",
-    "text": "How We Got Here\n\n\nKnowledge/Expert Systems\n\nExpert systems boom (1980s)\nBack propagation paper (Rumelhart et al., 1986)\nExpert systems bust (1990s)\n\nProbabilistic methods\n\nTD-Gammon (1992)\nDeep Blue defeats Kasparov (1997)"
-  },
-  {
-    "objectID": "4511/01/01.html#how-we-got-here-2",
-    "href": "4511/01/01.html#how-we-got-here-2",
-    "title": "AI Algorithms  Introduction",
-    "section": "How We Got Here",
-    "text": "How We Got Here\n\n\nNeural Networks\n\nAlexNet computer vision (2012)\nDeepMind Atari (2013)\nAlphaGo defeats Sedol (2016)\nGoogle Translate LSTM (2016)\nAlphaFold (2018)\n\nLarge Language Models\n\nAttention Is All You Need (2017)\nGPT-3.5 (2022)"
-  },
-  {
-    "objectID": "4511/01/01.html#where-do-we-go-now",
-    "href": "4511/01/01.html#where-do-we-go-now",
-    "title": "AI Algorithms  Introduction",
-    "section": "Where Do We Go Now?",
-    "text": "Where Do We Go Now?\n\nGame-playing\n\nReal-world tasks that look like games\n\nStatistical generation of text, images, video…\nOpen-ended logical problems\n\nUnsolved problems\n\nProblems with poorly-defined interfaces"
-  },
-  {
-    "objectID": "4511/01/01.html#societal-implications",
-    "href": "4511/01/01.html#societal-implications",
-    "title": "AI Algorithms  Introduction",
-    "section": "Societal Implications",
-    "text": "Societal Implications\n\nTranslation\nText generation\n“Art” generation\nDecision-making\n\n“Who is responsible for…”"
-  },
-  {
-    "objectID": "4511/01/01.html#what-this-course-is-not-about",
-    "href": "4511/01/01.html#what-this-course-is-not-about",
-    "title": "AI Algorithms  Introduction",
-    "section": "What This Course Is Not About",
-    "text": "What This Course Is Not About\n\nTranslation\nText generation\n“Art” generation"
-  },
-  {
-    "objectID": "4511/01/01.html#what-this-course-is-about",
-    "href": "4511/01/01.html#what-this-course-is-about",
-    "title": "AI Algorithms  Introduction",
-    "section": "What This Course Is About",
-    "text": "What This Course Is About\n\nThe design of rational agents\nGeneral AI techniques for problem solving\n\nRecognizing when a new problem has an “existing” solution\n\nSolving problems approximately\n\nOptimal solutions often intractable"
-  },
-  {
-    "objectID": "4511/01/01.html#the-rational-agent",
-    "href": "4511/01/01.html#the-rational-agent",
-    "title": "AI Algorithms  Introduction",
-    "section": "The Rational Agent",
-    "text": "The Rational Agent\n\nHas a utility function\n\nMaximizes expected utility\n\nSensors: perceives environment\nActuators: influences environment\n\nWhat is in between sensors and actuators?\nThe agent function."
-  },
-  {
-    "objectID": "4511/01/01.html#reflex-agent",
-    "href": "4511/01/01.html#reflex-agent",
-    "title": "AI Algorithms  Introduction",
-    "section": "Reflex Agent",
-    "text": "Reflex Agent\n\n\n\nVery basic form of agent function\nPercept \\(\\rightarrow\\) Action lookup table\nGood for simple games\n\nTic-tac-toe\nCheckers?\n\nNeeds entire state space in table"
-  },
-  {
-    "objectID": "4511/01/01.html#state-space-size",
-    "href": "4511/01/01.html#state-space-size",
-    "title": "AI Algorithms  Introduction",
-    "section": "State Space Size",
-    "text": "State Space Size\n\n\n\nTic-tac-toe: \\(10^3\\)\nCheckers: \\(10^{20}\\)\nChess: \\(10^{44}\\)\nGo: \\(10^{170}\\)\nSelf-driving car: ?"
-  },
-  {
-    "objectID": "4511/01/01.html#partially-observable-state",
-    "href": "4511/01/01.html#partially-observable-state",
-    "title": "AI Algorithms  Introduction",
-    "section": "Partially-Observable State",
-    "text": "Partially-Observable State"
-  },
-  {
-    "objectID": "4511/01/01.html#partially-observable-state-1",
-    "href": "4511/01/01.html#partially-observable-state-1",
-    "title": "AI Algorithms  Introduction",
-    "section": "Partially-Observable State",
-    "text": "Partially-Observable State\n\nMost real-world problems\n\nSensor error\nModel error\n\nReflex agents fail1\nAgent needs a belief state\n\nUnless total number of partial observations is bounded"
-  },
-  {
-    "objectID": "4511/01/01.html#backing-up",
-    "href": "4511/01/01.html#backing-up",
-    "title": "AI Algorithms  Introduction",
-    "section": "Backing Up",
-    "text": "Backing Up\n\nThe Environment\n\nState Space\n\nRational Agents:\n\nSensors\nActuators\n\nSensors + State Space = Belief State\n\nFeatures of the problem are pre-defined; we define the agent function."
-  },
-  {
-    "objectID": "4511/01/01.html#high-level-topics",
-    "href": "4511/01/01.html#high-level-topics",
-    "title": "AI Algorithms  Introduction",
-    "section": "High-Level Topics",
-    "text": "High-Level Topics\n\nSearch & Planning\nMulti-Agent Problems\nProbability & Inference\nLearning"
-  },
-  {
-    "objectID": "4511/01/01.html#search-planning",
-    "href": "4511/01/01.html#search-planning",
-    "title": "AI Algorithms  Introduction",
-    "section": "Search & Planning",
-    "text": "Search & Planning\n\nWorld model\n\n“Fully known”\n\nHow do we accomplish a goal?"
-  },
-  {
-    "objectID": "4511/01/01.html#multi-agent-problems",
-    "href": "4511/01/01.html#multi-agent-problems",
-    "title": "AI Algorithms  Introduction",
-    "section": "Multi-Agent Problems",
-    "text": "Multi-Agent Problems\n\nOther agents with different utility functions\nAgents react to our agent\nHow do we maximize our own utility?"
-  },
-  {
-    "objectID": "4511/01/01.html#probability-inference",
-    "href": "4511/01/01.html#probability-inference",
-    "title": "AI Algorithms  Introduction",
-    "section": "Probability & Inference",
-    "text": "Probability & Inference\n\nPartially-observed states\nStochastic actions\nHow do we maintain a belief state?\nHow do we maximize our utility?"
-  },
-  {
-    "objectID": "4511/01/01.html#learning",
-    "href": "4511/01/01.html#learning",
-    "title": "AI Algorithms  Introduction",
-    "section": "Learning",
-    "text": "Learning\n\nInitially-unknown problem structure\nExplore vs. exploit\n\nActions tell us more about the problem\nActions have some cost\n\nCan also learn from data"
-  },
-  {
-    "objectID": "4511/01/01.html#big-picture",
-    "href": "4511/01/01.html#big-picture",
-    "title": "AI Algorithms  Introduction",
-    "section": "Big Picture",
-    "text": "Big Picture\n\nRepresent problems\n\nStates, actions\n\nImplement algorithms\nTrain (if needed) using data"
-  },
-  {
-    "objectID": "4511/01/01.html#the-pac-man",
-    "href": "4511/01/01.html#the-pac-man",
-    "title": "AI Algorithms  Introduction",
-    "section": "The Pac-Man",
-    "text": "The Pac-Man\n\n\nNote that Bandai Namco Entertainment Inc. owns the trademark to “PAC-MAN” for Coin and Non-Coin Operated Electronic Amusement Apparatus for Playing a Game on a Video Output Display, as well as for Entertainment, namely providing a computer game that may be accessed network-wide by network users via mobile phones and computers; providing computer games via network between communications networks and computers. Our use is educational."
-  },
-  {
-    "objectID": "4511/01/01.html#why-pac-man",
-    "href": "4511/01/01.html#why-pac-man",
-    "title": "AI Algorithms  Introduction",
-    "section": "Why Pac-Man?",
-    "text": "Why Pac-Man?\n\nReal world AI problems are hard\n\nThis is a one-semester course\n\nAlgorithms themselves are reasonably simple\n\nApplying them to problems is “the” problem\n\nPac-man is simple\nYou don’t have to like games\n\nSame algorithms apply to real world"
-  },
-  {
-    "objectID": "4511/01/01.html#the-real-world",
-    "href": "4511/01/01.html#the-real-world",
-    "title": "AI Algorithms  Introduction",
-    "section": "The Real World",
-    "text": "The Real World\n\nObservable?\nDeterministic?\nMarkov?\nStatic?\nDiscrete?\n\nExamples…"
-  },
-  {
-    "objectID": "4511/01/01.html#references",
-    "href": "4511/01/01.html#references",
-    "title": "AI Algorithms  Introduction",
-    "section": "References",
-    "text": "References\n\nStuart J. Russell and Peter Norvig. Artificial Intelligence: A Modern Approach. 4th Edition, 2020.\nStanford CS231\nUC Berkeley CS188"
-  },
-  {
     "objectID": "4511/index.html",
     "href": "4511/index.html",
     "title": "CSCI 4511/6511 Fall 2024",
@@ -390,6 +82,370 @@
     "title": "CSCI 4511/6511 Fall 2024",
     "section": "Homework",
     "text": "Homework\n\nHomework One\nHomework Two"
+  },
+  {
+    "objectID": "4511/02/02.html#good-afternoon",
+    "href": "4511/02/02.html#good-afternoon",
+    "title": "Search",
+    "section": "Good Afternoon",
+    "text": "Good Afternoon\n\nGood afternoon"
+  },
+  {
+    "objectID": "4511/02/02.html#announcements",
+    "href": "4511/02/02.html#announcements",
+    "title": "Search",
+    "section": "Announcements",
+    "text": "Announcements\n\nHomework 1 is due on 15 September at 11:55 PM\n\nAutomatic extensions"
+  },
+  {
+    "objectID": "4511/02/02.html#why-are-we-here",
+    "href": "4511/02/02.html#why-are-we-here",
+    "title": "Search",
+    "section": "Why Are We Here?",
+    "text": "Why Are We Here?\n\nWe’re designing rational agents!\n\nPerception\nLogic\nAction"
+  },
+  {
+    "objectID": "4511/02/02.html#in-practice",
+    "href": "4511/02/02.html#in-practice",
+    "title": "Search",
+    "section": "In Practice",
+    "text": "In Practice\n\nEnvironment\n\nWhat happens next\n\nPerception\n\nWhat agent can see\n\nAction\n\nWhat agent can do\n\nMeasure/Reward\n\nEncoded utility function"
+  },
+  {
+    "objectID": "4511/02/02.html#search-why",
+    "href": "4511/02/02.html#search-why",
+    "title": "Search",
+    "section": "Search: Why?",
+    "text": "Search: Why?\n\nFully-observed problem\nDeterministic actions and state\nWell defined start and goal"
+  },
+  {
+    "objectID": "4511/02/02.html#state",
+    "href": "4511/02/02.html#state",
+    "title": "Search",
+    "section": "State",
+    "text": "State\nWhat is the state space?"
+  },
+  {
+    "objectID": "4511/02/02.html#state-1",
+    "href": "4511/02/02.html#state-1",
+    "title": "Search",
+    "section": "State",
+    "text": "State"
+  },
+  {
+    "objectID": "4511/02/02.html#other-applications",
+    "href": "4511/02/02.html#other-applications",
+    "title": "Search",
+    "section": "Other Applications",
+    "text": "Other Applications\n\nRoute planning\nProtein design\nRobotic navigation\nScheduling\n\nScience\nManufacturing"
+  },
+  {
+    "objectID": "4511/02/02.html#not-included",
+    "href": "4511/02/02.html#not-included",
+    "title": "Search",
+    "section": "Not Included",
+    "text": "Not Included\n\nUncertainty\n\nState transitions known\n\nAdversary\n\nNobody wants us to lose\n\nCooperation\nContinuous state"
+  },
+  {
+    "objectID": "4511/02/02.html#who-is-the-pac-man",
+    "href": "4511/02/02.html#who-is-the-pac-man",
+    "title": "Search",
+    "section": "Who Is The Pac-Man?",
+    "text": "Who Is The Pac-Man?"
+  },
+  {
+    "objectID": "4511/02/02.html#search-problem",
+    "href": "4511/02/02.html#search-problem",
+    "title": "Search",
+    "section": "Search Problem",
+    "text": "Search Problem\n\n\nSearch problem includes:\n\nStart State\nState Space\nState Transitions\nGoal Test\n\n\n\nState Space:\n\n\n\nActions & Successor States:"
+  },
+  {
+    "objectID": "4511/02/02.html#tour-of-croatia",
+    "href": "4511/02/02.html#tour-of-croatia",
+    "title": "Search",
+    "section": "Tour of Croatia",
+    "text": "Tour of Croatia"
+  },
+  {
+    "objectID": "4511/02/02.html#tour-of-croatia-1",
+    "href": "4511/02/02.html#tour-of-croatia-1",
+    "title": "Search",
+    "section": "Tour of Croatia",
+    "text": "Tour of Croatia"
+  },
+  {
+    "objectID": "4511/02/02.html#state-space-size",
+    "href": "4511/02/02.html#state-space-size",
+    "title": "Search",
+    "section": "State Space Size?",
+    "text": "State Space Size?\n\n\nPacman positions, Wall Positions\nFood positions, Food Status?\nGhost positions, Ghost Status?"
+  },
+  {
+    "objectID": "4511/02/02.html#state-space-graph",
+    "href": "4511/02/02.html#state-space-graph",
+    "title": "Search",
+    "section": "State Space Graph",
+    "text": "State Space Graph"
+  },
+  {
+    "objectID": "4511/02/02.html#search-trees",
+    "href": "4511/02/02.html#search-trees",
+    "title": "Search",
+    "section": "Search Trees",
+    "text": "Search Trees\n\nGraph:\n\n\n\nTree:"
+  },
+  {
+    "objectID": "4511/02/02.html#node-representation",
+    "href": "4511/02/02.html#node-representation",
+    "title": "Search",
+    "section": "Node Representation",
+    "text": "Node Representation\n\nGraph:\n\n\n\nTree:"
+  },
+  {
+    "objectID": "4511/02/02.html#lets-talk-about-trees",
+    "href": "4511/02/02.html#lets-talk-about-trees",
+    "title": "Search",
+    "section": "Let’s Talk About Trees",
+    "text": "Let’s Talk About Trees\n\nFor any non-trivial problem, they’re big\n\n(Effective) branching factor\nDepth\n\nGraph and tree both too large for memory\n\nSuccessor function (graph)\nExpansion function (tree)"
+  },
+  {
+    "objectID": "4511/02/02.html#how-to-solve-it",
+    "href": "4511/02/02.html#how-to-solve-it",
+    "title": "Search",
+    "section": "How To Solve It",
+    "text": "How To Solve It\n\nGiven:\n\nStarting node\nGoal test\nExpansion\n\nDo:\n\nExpand nodes from start\nTest each new node for goal\n\nIf goal, success\n\nExpand new nodes\n\nIf nothing left to expand, failure"
+  },
+  {
+    "objectID": "4511/02/02.html#best-first-search",
+    "href": "4511/02/02.html#best-first-search",
+    "title": "Search",
+    "section": "Best-First Search",
+    "text": "Best-First Search"
+  },
+  {
+    "objectID": "4511/02/02.html#frontier-expansion",
+    "href": "4511/02/02.html#frontier-expansion",
+    "title": "Search",
+    "section": "Frontier Expansion",
+    "text": "Frontier Expansion"
+  },
+  {
+    "objectID": "4511/02/02.html#frontier-expansion-1",
+    "href": "4511/02/02.html#frontier-expansion-1",
+    "title": "Search",
+    "section": "Frontier Expansion",
+    "text": "Frontier Expansion\n\nFrontier: nodes “currently” expanded\n\nIf no frontier node is goal, need to add to frontier\nHow?\n\nCan we have cycles?\n\nHow do we deal with cycles?"
+  },
+  {
+    "objectID": "4511/02/02.html#queues-searches",
+    "href": "4511/02/02.html#queues-searches",
+    "title": "Search",
+    "section": "Queues & Searches",
+    "text": "Queues & Searches\n\nPriority Queues\n\nBest-First Search\nUniform-Cost Search1\n\nFIFO Queues\n\nBreadth-First Search\n\nLIFO Queues2\n\nDepth-First Search\n\n\nAlso known as “Dijkstra’s Algorithm,” because it is Dijkstra’s AlgorithmAlso known as “stacks,” because they are stacks."
+  },
+  {
+    "objectID": "4511/02/02.html#search-features",
+    "href": "4511/02/02.html#search-features",
+    "title": "Search",
+    "section": "Search Features",
+    "text": "Search Features\n\nCompleteness\n\nIf there is a solution, will we find it?\n\nOptimality\n\nWill we find the best solution?\n\nTime complexity\nMemory complexity"
+  },
+  {
+    "objectID": "4511/02/02.html#breadth-first-search",
+    "href": "4511/02/02.html#breadth-first-search",
+    "title": "Search",
+    "section": "Breadth-First Search",
+    "text": "Breadth-First Search\n\nFIFO Queue\nComplete\nOptimal\n\\(O(b^d)\\)\nNice features for equal-weight arcs:\n\nLowest-cost path first\n\\(reached\\) collection can be a set"
+  },
+  {
+    "objectID": "4511/02/02.html#breadth-first-search-1",
+    "href": "4511/02/02.html#breadth-first-search-1",
+    "title": "Search",
+    "section": "Breadth-First Search",
+    "text": "Breadth-First Search"
+  },
+  {
+    "objectID": "4511/02/02.html#uniform-cost-search",
+    "href": "4511/02/02.html#uniform-cost-search",
+    "title": "Search",
+    "section": "Uniform-Cost Search",
+    "text": "Uniform-Cost Search\nNon-uniform costs \\(\\rightarrow\\) BFS inappropriate."
+  },
+  {
+    "objectID": "4511/02/02.html#depth-first-search",
+    "href": "4511/02/02.html#depth-first-search",
+    "title": "Search",
+    "section": "Depth-First Search",
+    "text": "Depth-First Search\n\n“Family” of searches\nLIFO stack\nProblems?"
+  },
+  {
+    "objectID": "4511/02/02.html#uninformed-search-variants",
+    "href": "4511/02/02.html#uninformed-search-variants",
+    "title": "Search",
+    "section": "Uninformed Search Variants",
+    "text": "Uninformed Search Variants\n\nDepth-Limited Search\n\nFail if depth limit reached (why?)\n\nIterative deepening\n\nvs. Breadth-First Search\n\nBidirectional Search"
+  },
+  {
+    "objectID": "4511/02/02.html#how-to-choose",
+    "href": "4511/02/02.html#how-to-choose",
+    "title": "Search",
+    "section": "How to Choose?",
+    "text": "How to Choose?\n\nThink about when the searches “fail”\nThink about complexity\nDo we need an optimal solution?\n\nAre we looking for “any” solution"
+  },
+  {
+    "objectID": "4511/02/02.html#it-is-possible-to-know-things",
+    "href": "4511/02/02.html#it-is-possible-to-know-things",
+    "title": "Search",
+    "section": "It Is Possible To Know Things",
+    "text": "It Is Possible To Know Things\n😌"
+  },
+  {
+    "objectID": "4511/02/02.html#it-is-possible-to-know-things-1",
+    "href": "4511/02/02.html#it-is-possible-to-know-things-1",
+    "title": "Search",
+    "section": "It Is Possible To Know Things",
+    "text": "It Is Possible To Know Things"
+  },
+  {
+    "objectID": "4511/02/02.html#heuristics",
+    "href": "4511/02/02.html#heuristics",
+    "title": "Search",
+    "section": "Heuristics",
+    "text": "Heuristics\nheuristic - adj - Serving to discover or find out.1\n\nWe know things about the problem\nThese things are external to the graph/tree structure\n\nWe could model the problem differently\nWe can use the information directly\n\n\nWebster’s, 1913"
+  },
+  {
+    "objectID": "4511/02/02.html#best-first-search-reprise",
+    "href": "4511/02/02.html#best-first-search-reprise",
+    "title": "Search",
+    "section": "Best-First Search (reprise)",
+    "text": "Best-First Search (reprise)"
+  },
+  {
+    "objectID": "4511/02/02.html#greedy-best-first-search",
+    "href": "4511/02/02.html#greedy-best-first-search",
+    "title": "Search",
+    "section": "Greedy Best-First Search",
+    "text": "Greedy Best-First Search\n\nHeuristic \\(h(n)\\)\n\n\\(n\\) is the search-tree node\n\\(h(n)\\) estimates cost from \\(n\\) to goal\n\nBest-first search: \\(f(n)\\) orders priority queue\n\nUse \\(f(n) = h(n)\\)\n\nComplete\nNo optimality guarantee\n\n(expected)"
+  },
+  {
+    "objectID": "4511/02/02.html#a-search",
+    "href": "4511/02/02.html#a-search",
+    "title": "Search",
+    "section": "A* Search",
+    "text": "A* Search\n\nInclude path-cost \\(g(n)\\)\n\n\\(f(n) = g(n) + h(n)\\)\n\n\n\n\n\n\nComplete (always)\nOptimal (sometimes)\nPainful \\(O(b^m)\\) time and space complexity"
+  },
+  {
+    "objectID": "4511/02/02.html#choosing-heuristics",
+    "href": "4511/02/02.html#choosing-heuristics",
+    "title": "Search",
+    "section": "Choosing Heuristics",
+    "text": "Choosing Heuristics\n\nRecall: \\(h(n)\\) estimates cost from \\(n\\) to goal\n\n\n\n\n\nAdmissibility\nConsistency"
+  },
+  {
+    "objectID": "4511/02/02.html#choosing-heuristics-1",
+    "href": "4511/02/02.html#choosing-heuristics-1",
+    "title": "Search",
+    "section": "Choosing Heuristics",
+    "text": "Choosing Heuristics\n\nAdmissibility\n\nNever overestimates cost from \\(n\\) to goal\nCost-optimal!\n\nConsistency\n\n\\(h(n) \\leq c(n, a, n') + h(n')\\)\n\\(n'\\) successors of \\(n\\)\n\\(c(n, a, n')\\) cost from \\(n\\) to \\(n'\\) given action \\(a\\)"
+  },
+  {
+    "objectID": "4511/02/02.html#consistency",
+    "href": "4511/02/02.html#consistency",
+    "title": "Search",
+    "section": "Consistency",
+    "text": "Consistency\n\nConsistent heuristics are admissible\n\nInverse not necessarily true\n\nAlways reach each state on optimal path\nImplications for inconsistent heuristic?"
+  },
+  {
+    "objectID": "4511/02/02.html#is-optimality-desirable",
+    "href": "4511/02/02.html#is-optimality-desirable",
+    "title": "Search",
+    "section": "Is Optimality Desirable?",
+    "text": "Is Optimality Desirable?"
+  },
+  {
+    "objectID": "4511/02/02.html#is-optimality-desirable-1",
+    "href": "4511/02/02.html#is-optimality-desirable-1",
+    "title": "Search",
+    "section": "Is Optimality Desirable?",
+    "text": "Is Optimality Desirable?\n\nYes"
+  },
+  {
+    "objectID": "4511/02/02.html#is-optimality-desirable-2",
+    "href": "4511/02/02.html#is-optimality-desirable-2",
+    "title": "Search",
+    "section": "Is Optimality Desirable?",
+    "text": "Is Optimality Desirable?\n\nYes, but it isn’t always feasible\n\nA* search still exponentially complex in solution length\nOptimality is never guaranteed “inexpensively”\n\nWe need strategies for “good enough” solutions"
+  },
+  {
+    "objectID": "4511/02/02.html#satisficing",
+    "href": "4511/02/02.html#satisficing",
+    "title": "Search",
+    "section": "Satisficing",
+    "text": "Satisficing\n\nsatisfy - verb - To give satisfaction; to afford gratification; to leave nothing to be desired.1\n\n\nsuffice - verb - To be enough, or sufficient; to meet the need (of anything)2\n\nWebster’s, 1913Webster’s, 1913"
+  },
+  {
+    "objectID": "4511/02/02.html#weighted-a-search",
+    "href": "4511/02/02.html#weighted-a-search",
+    "title": "Search",
+    "section": "Weighted A* Search",
+    "text": "Weighted A* Search\n\nGreedy: \\(f(n) = h(n)\\)\nA*: \\(f(n) = h(n) + g(n)\\)\nUniform-Cost Search: \\(f(n) = g(n)\\)\n\n…\n\nWeighted A* Search: \\(f(n) = W\\cdot h(n) + g(n)\\)\n\nWeight \\(W &gt; 1\\)"
+  },
+  {
+    "objectID": "4511/02/02.html#reducing-complexity",
+    "href": "4511/02/02.html#reducing-complexity",
+    "title": "Search",
+    "section": "Reducing Complexity",
+    "text": "Reducing Complexity\n\nFrontier Management\nElimination of \\(reached\\) collection\n\nReference counts\nHow else?\n\n\n\n\n\nOther searches"
+  },
+  {
+    "objectID": "4511/02/02.html#iterative-deepening-a-search",
+    "href": "4511/02/02.html#iterative-deepening-a-search",
+    "title": "Search",
+    "section": "Iterative-Deepening A* Search",
+    "text": "Iterative-Deepening A* Search\n\n“IDA*” Search\n\nSimilar to Iterative Deepening with Depth-First Search\n\nDFS uses depth cutoff\nIDA* uses \\(h(n) + g(n)\\) cutoff with DFS\nOnce cutoff breached, new cutoff:\n\nTypically next-largest \\(h(n) + g(n)\\)\n\n\\(O(b^m)\\) time complexity 😔\n\\(O(d)\\) space complexity1 😌\n\n\n\nThis is slightly complicated based on heuristic branching factor \\(b_h\\)."
+  },
+  {
+    "objectID": "4511/02/02.html#beam-search",
+    "href": "4511/02/02.html#beam-search",
+    "title": "Search",
+    "section": "Beam Search",
+    "text": "Beam Search\n\nBest-First Search:\n\nFrontier is all expanded nodes\n\nBeam Search:\n\n\\(k\\) “best” nodes are kept on frontier\n\nOthers discarded\n\nAlt: all nodes within \\(\\delta\\) of best node\nNot Optimal\nNot Complete"
+  },
+  {
+    "objectID": "4511/02/02.html#recursive-best-first-search-rbfs",
+    "href": "4511/02/02.html#recursive-best-first-search-rbfs",
+    "title": "Search",
+    "section": "Recursive Best-First Search (RBFS)",
+    "text": "Recursive Best-First Search (RBFS)\n\nNo \\(reached\\) table is kept\nSecond-best node \\(f(n)\\) retained\n\nSearch from each node cannot exceed this limit\nIf exceeded, recursion “backs up” to previous node\n\nMemory-efficient\n\nCan “cycle” between branches"
+  },
+  {
+    "objectID": "4511/02/02.html#recursive-best-first-search-rbfs-1",
+    "href": "4511/02/02.html#recursive-best-first-search-rbfs-1",
+    "title": "Search",
+    "section": "Recursive Best-First Search (RBFS)",
+    "text": "Recursive Best-First Search (RBFS)"
+  },
+  {
+    "objectID": "4511/02/02.html#heuristic-characteristics",
+    "href": "4511/02/02.html#heuristic-characteristics",
+    "title": "Search",
+    "section": "Heuristic Characteristics",
+    "text": "Heuristic Characteristics\n\nWhat makes a “good” heuristic?\n\nWe know about admissability and consistency\nWhat about performance?\n\nEffective branching factor\nEffective depth\n# of nodes expanded"
+  },
+  {
+    "objectID": "4511/02/02.html#where-do-heuristics-come-from",
+    "href": "4511/02/02.html#where-do-heuristics-come-from",
+    "title": "Search",
+    "section": "Where Do Heuristics Come From?",
+    "text": "Where Do Heuristics Come From?\n\nIntuition\n\n“Just Be Really Smart”\n\nRelaxation\n\nThe problem is constrained\nRemove the constraint\n\nPre-computation\n\nSub problems\n\nLearning"
+  },
+  {
+    "objectID": "4511/02/02.html#references",
+    "href": "4511/02/02.html#references",
+    "title": "Search",
+    "section": "References",
+    "text": "References\n\nStuart J. Russell and Peter Norvig. Artificial Intelligence: A Modern Approach. 4th Edition, 2020.\nStanford CS231\nUC Berkeley CS188"
   },
   {
     "objectID": "4511/03/03.html#announcements",
@@ -833,11 +889,11 @@
     "text": "Stuart J. Russell and Peter Norvig. Artificial Intelligence: A Modern Approach. 4th Edition, 2020.\nMykal Kochenderfer, Tim Wheeler, and Kyle Wray. Algorithms for Decision Making. 1st Edition, 2022.\nStanford CS231\nStanford CS228\nUC Berkeley CS188"
   },
   {
-    "objectID": "advising.html",
-    "href": "advising.html",
-    "title": "Advising",
+    "objectID": "teaching_writing.html",
+    "href": "teaching_writing.html",
+    "title": "Teaching and Writing",
     "section": "",
-    "text": "Undergraduate\nIf I am your undergraduate advisor, email and office hours are the most straightforward ways to discuss your questions.\n\n\nGraduate\nI am not currently soliciting applications, however any graduate student interested in collaborating is welcome to send me a proposal. It does not have to be particularly formal, however:\n\nTell me what questions you are interested in answering\nShow me what other work has been done in this avenue\nDiscuss a plan for executing your project\n\nI am fond of the Heilmeier Catechism, although it is not a perfect match for many kinds of academic research questions."
+    "text": "Teaching\nCurrently:\n\nCSCI 1012 Intro. Programming in Python\n\nCourse Site\n\nCSCI 4511/5611 Artificial Intelligence Algorithms\n\nCourse Notes\n\n\nPreviously:\n\nCSCI 6366/4366 Neural Networks & Deep Learning\nCSCI 6531/4531 Computer Security\nCSCI 6917 Guided Research\nSEAS 6402 Data Analytics Capstone\n\nLectures:\n\nCSCI 1111 Intro. Software Development\nCSCI 4364/6364 Machine Learning\nMS&E 250A (Stanford) Risk Analysis\nMS&E 350 (Stanford) Risk Analysis Seminar\nAA 149 (Stanford) Operation of Aerospace Systems\n\n\n\nWriting\nK. Dobolyi, G. P. Sieniawski, D. Dobolyi, J. Goldfrank, and Z. Hampel-Arias, “Hindsight2020: Characterizing Uncertainty in the COVID-19 Scientific Literature,” Disaster Medicine and Public Health Preparedness, vol. 17, p. e437, 2023. doi:10.1017/dmp.2023.82\nJ. Goldfrank, M. E. Paté-Cornell, G. Forbes, and D. Liedtka, “Risk Reduction in Target Motion Analysis Using Approximate Dynamic Programming.” Military Operations Research, no. 1, 5–26, 2023 https://www.jstor.org/stable/27207613.\nL. Tindall, Z. Hampel-Arias, J. Goldfrank, E. Mair and T. Q. Nguven, ”Localizing Radio Frequency Targets Using Reinforcement Learning,” 2021 IEEE International Symposium on Robotic and Sensors Environments (ROSE), FL, USA, 2021, pp. 1-7, doi: 10.1109/ROSE52750.2021.9611756."
   },
   {
     "objectID": "contact.html",
@@ -852,377 +908,6 @@
     "title": "Joe Goldfrank",
     "section": "",
     "text": "Assistant Professor of Practice Department of Computer Science George Washington University\n\nI joined the GWU Department of Computer Science as a Visiting Professor in August 2022, and as an Assistant Professor of Practice in August 2023. You might read more about teaching and writing I have done.\nBefore this, I completed my PhD in Decision & Risk Analysis under the guidance of Elisabeth Paté-Cornell at Stanford University in California.\nSome years ago, I served on active duty in the U.S. Navy as a nuclear submarine line officer, and worked at the DOD Strategic Capabilities Office. I completed a B.S. (with honors) in Physics at the College of William and Mary in 2009.\nI am interested in improving the decisions that humans make. What that means is determined by each human.\nAdjacent to the university, I make acoustic, electric, and electronic music."
-  },
-  {
-    "objectID": "teaching_writing.html",
-    "href": "teaching_writing.html",
-    "title": "Teaching and Writing",
-    "section": "",
-    "text": "Teaching\nCurrently:\n\nCSCI 1012 Intro. Programming in Python\n\nCourse Site\n\nCSCI 4511/5611 Artificial Intelligence Algorithms\n\nCourse Notes\n\n\nPreviously:\n\nCSCI 6366/4366 Neural Networks & Deep Learning\nCSCI 6531/4531 Computer Security\nCSCI 6917 Guided Research\nSEAS 6402 Data Analytics Capstone\n\nLectures:\n\nCSCI 1111 Intro. Software Development\nCSCI 4364/6364 Machine Learning\nMS&E 250A (Stanford) Risk Analysis\nMS&E 350 (Stanford) Risk Analysis Seminar\nAA 149 (Stanford) Operation of Aerospace Systems\n\n\n\nWriting\nK. Dobolyi, G. P. Sieniawski, D. Dobolyi, J. Goldfrank, and Z. Hampel-Arias, “Hindsight2020: Characterizing Uncertainty in the COVID-19 Scientific Literature,” Disaster Medicine and Public Health Preparedness, vol. 17, p. e437, 2023. doi:10.1017/dmp.2023.82\nJ. Goldfrank, M. E. Paté-Cornell, G. Forbes, and D. Liedtka, “Risk Reduction in Target Motion Analysis Using Approximate Dynamic Programming.” Military Operations Research, no. 1, 5–26, 2023 https://www.jstor.org/stable/27207613.\nL. Tindall, Z. Hampel-Arias, J. Goldfrank, E. Mair and T. Q. Nguven, ”Localizing Radio Frequency Targets Using Reinforcement Learning,” 2021 IEEE International Symposium on Robotic and Sensors Environments (ROSE), FL, USA, 2021, pp. 1-7, doi: 10.1109/ROSE52750.2021.9611756."
-  },
-  {
-    "objectID": "4511/02/02.html#good-afternoon",
-    "href": "4511/02/02.html#good-afternoon",
-    "title": "Search",
-    "section": "Good Afternoon",
-    "text": "Good Afternoon\n\nGood afternoon"
-  },
-  {
-    "objectID": "4511/02/02.html#announcements",
-    "href": "4511/02/02.html#announcements",
-    "title": "Search",
-    "section": "Announcements",
-    "text": "Announcements\n\nHomework 1 is due on 15 September at 11:55 PM\n\nAutomatic extensions"
-  },
-  {
-    "objectID": "4511/02/02.html#why-are-we-here",
-    "href": "4511/02/02.html#why-are-we-here",
-    "title": "Search",
-    "section": "Why Are We Here?",
-    "text": "Why Are We Here?\n\nWe’re designing rational agents!\n\nPerception\nLogic\nAction"
-  },
-  {
-    "objectID": "4511/02/02.html#in-practice",
-    "href": "4511/02/02.html#in-practice",
-    "title": "Search",
-    "section": "In Practice",
-    "text": "In Practice\n\nEnvironment\n\nWhat happens next\n\nPerception\n\nWhat agent can see\n\nAction\n\nWhat agent can do\n\nMeasure/Reward\n\nEncoded utility function"
-  },
-  {
-    "objectID": "4511/02/02.html#search-why",
-    "href": "4511/02/02.html#search-why",
-    "title": "Search",
-    "section": "Search: Why?",
-    "text": "Search: Why?\n\nFully-observed problem\nDeterministic actions and state\nWell defined start and goal"
-  },
-  {
-    "objectID": "4511/02/02.html#state",
-    "href": "4511/02/02.html#state",
-    "title": "Search",
-    "section": "State",
-    "text": "State\nWhat is the state space?"
-  },
-  {
-    "objectID": "4511/02/02.html#state-1",
-    "href": "4511/02/02.html#state-1",
-    "title": "Search",
-    "section": "State",
-    "text": "State"
-  },
-  {
-    "objectID": "4511/02/02.html#other-applications",
-    "href": "4511/02/02.html#other-applications",
-    "title": "Search",
-    "section": "Other Applications",
-    "text": "Other Applications\n\nRoute planning\nProtein design\nRobotic navigation\nScheduling\n\nScience\nManufacturing"
-  },
-  {
-    "objectID": "4511/02/02.html#not-included",
-    "href": "4511/02/02.html#not-included",
-    "title": "Search",
-    "section": "Not Included",
-    "text": "Not Included\n\nUncertainty\n\nState transitions known\n\nAdversary\n\nNobody wants us to lose\n\nCooperation\nContinuous state"
-  },
-  {
-    "objectID": "4511/02/02.html#who-is-the-pac-man",
-    "href": "4511/02/02.html#who-is-the-pac-man",
-    "title": "Search",
-    "section": "Who Is The Pac-Man?",
-    "text": "Who Is The Pac-Man?"
-  },
-  {
-    "objectID": "4511/02/02.html#search-problem",
-    "href": "4511/02/02.html#search-problem",
-    "title": "Search",
-    "section": "Search Problem",
-    "text": "Search Problem\n\n\nSearch problem includes:\n\nStart State\nState Space\nState Transitions\nGoal Test\n\n\n\nState Space:\n\n\n\nActions & Successor States:"
-  },
-  {
-    "objectID": "4511/02/02.html#tour-of-croatia",
-    "href": "4511/02/02.html#tour-of-croatia",
-    "title": "Search",
-    "section": "Tour of Croatia",
-    "text": "Tour of Croatia"
-  },
-  {
-    "objectID": "4511/02/02.html#tour-of-croatia-1",
-    "href": "4511/02/02.html#tour-of-croatia-1",
-    "title": "Search",
-    "section": "Tour of Croatia",
-    "text": "Tour of Croatia"
-  },
-  {
-    "objectID": "4511/02/02.html#state-space-size",
-    "href": "4511/02/02.html#state-space-size",
-    "title": "Search",
-    "section": "State Space Size?",
-    "text": "State Space Size?\n\n\nPacman positions, Wall Positions\nFood positions, Food Status?\nGhost positions, Ghost Status?"
-  },
-  {
-    "objectID": "4511/02/02.html#state-space-graph",
-    "href": "4511/02/02.html#state-space-graph",
-    "title": "Search",
-    "section": "State Space Graph",
-    "text": "State Space Graph"
-  },
-  {
-    "objectID": "4511/02/02.html#search-trees",
-    "href": "4511/02/02.html#search-trees",
-    "title": "Search",
-    "section": "Search Trees",
-    "text": "Search Trees\n\nGraph:\n\n\n\nTree:"
-  },
-  {
-    "objectID": "4511/02/02.html#node-representation",
-    "href": "4511/02/02.html#node-representation",
-    "title": "Search",
-    "section": "Node Representation",
-    "text": "Node Representation\n\nGraph:\n\n\n\nTree:"
-  },
-  {
-    "objectID": "4511/02/02.html#lets-talk-about-trees",
-    "href": "4511/02/02.html#lets-talk-about-trees",
-    "title": "Search",
-    "section": "Let’s Talk About Trees",
-    "text": "Let’s Talk About Trees\n\nFor any non-trivial problem, they’re big\n\n(Effective) branching factor\nDepth\n\nGraph and tree both too large for memory\n\nSuccessor function (graph)\nExpansion function (tree)"
-  },
-  {
-    "objectID": "4511/02/02.html#how-to-solve-it",
-    "href": "4511/02/02.html#how-to-solve-it",
-    "title": "Search",
-    "section": "How To Solve It",
-    "text": "How To Solve It\n\nGiven:\n\nStarting node\nGoal test\nExpansion\n\nDo:\n\nExpand nodes from start\nTest each new node for goal\n\nIf goal, success\n\nExpand new nodes\n\nIf nothing left to expand, failure"
-  },
-  {
-    "objectID": "4511/02/02.html#best-first-search",
-    "href": "4511/02/02.html#best-first-search",
-    "title": "Search",
-    "section": "Best-First Search",
-    "text": "Best-First Search"
-  },
-  {
-    "objectID": "4511/02/02.html#frontier-expansion",
-    "href": "4511/02/02.html#frontier-expansion",
-    "title": "Search",
-    "section": "Frontier Expansion",
-    "text": "Frontier Expansion"
-  },
-  {
-    "objectID": "4511/02/02.html#frontier-expansion-1",
-    "href": "4511/02/02.html#frontier-expansion-1",
-    "title": "Search",
-    "section": "Frontier Expansion",
-    "text": "Frontier Expansion\n\nFrontier: nodes “currently” expanded\n\nIf no frontier node is goal, need to add to frontier\nHow?\n\nCan we have cycles?\n\nHow do we deal with cycles?"
-  },
-  {
-    "objectID": "4511/02/02.html#queues-searches",
-    "href": "4511/02/02.html#queues-searches",
-    "title": "Search",
-    "section": "Queues & Searches",
-    "text": "Queues & Searches\n\nPriority Queues\n\nBest-First Search\nUniform-Cost Search1\n\nFIFO Queues\n\nBreadth-First Search\n\nLIFO Queues2\n\nDepth-First Search\n\n\nAlso known as “Dijkstra’s Algorithm,” because it is Dijkstra’s AlgorithmAlso known as “stacks,” because they are stacks."
-  },
-  {
-    "objectID": "4511/02/02.html#search-features",
-    "href": "4511/02/02.html#search-features",
-    "title": "Search",
-    "section": "Search Features",
-    "text": "Search Features\n\nCompleteness\n\nIf there is a solution, will we find it?\n\nOptimality\n\nWill we find the best solution?\n\nTime complexity\nMemory complexity"
-  },
-  {
-    "objectID": "4511/02/02.html#breadth-first-search",
-    "href": "4511/02/02.html#breadth-first-search",
-    "title": "Search",
-    "section": "Breadth-First Search",
-    "text": "Breadth-First Search\n\nFIFO Queue\nComplete\nOptimal\n\\(O(b^d)\\)\nNice features for equal-weight arcs:\n\nLowest-cost path first\n\\(reached\\) collection can be a set"
-  },
-  {
-    "objectID": "4511/02/02.html#breadth-first-search-1",
-    "href": "4511/02/02.html#breadth-first-search-1",
-    "title": "Search",
-    "section": "Breadth-First Search",
-    "text": "Breadth-First Search"
-  },
-  {
-    "objectID": "4511/02/02.html#uniform-cost-search",
-    "href": "4511/02/02.html#uniform-cost-search",
-    "title": "Search",
-    "section": "Uniform-Cost Search",
-    "text": "Uniform-Cost Search\nNon-uniform costs \\(\\rightarrow\\) BFS inappropriate."
-  },
-  {
-    "objectID": "4511/02/02.html#depth-first-search",
-    "href": "4511/02/02.html#depth-first-search",
-    "title": "Search",
-    "section": "Depth-First Search",
-    "text": "Depth-First Search\n\n“Family” of searches\nLIFO stack\nProblems?"
-  },
-  {
-    "objectID": "4511/02/02.html#uninformed-search-variants",
-    "href": "4511/02/02.html#uninformed-search-variants",
-    "title": "Search",
-    "section": "Uninformed Search Variants",
-    "text": "Uninformed Search Variants\n\nDepth-Limited Search\n\nFail if depth limit reached (why?)\n\nIterative deepening\n\nvs. Breadth-First Search\n\nBidirectional Search"
-  },
-  {
-    "objectID": "4511/02/02.html#how-to-choose",
-    "href": "4511/02/02.html#how-to-choose",
-    "title": "Search",
-    "section": "How to Choose?",
-    "text": "How to Choose?\n\nThink about when the searches “fail”\nThink about complexity\nDo we need an optimal solution?\n\nAre we looking for “any” solution"
-  },
-  {
-    "objectID": "4511/02/02.html#it-is-possible-to-know-things",
-    "href": "4511/02/02.html#it-is-possible-to-know-things",
-    "title": "Search",
-    "section": "It Is Possible To Know Things",
-    "text": "It Is Possible To Know Things\n😌"
-  },
-  {
-    "objectID": "4511/02/02.html#it-is-possible-to-know-things-1",
-    "href": "4511/02/02.html#it-is-possible-to-know-things-1",
-    "title": "Search",
-    "section": "It Is Possible To Know Things",
-    "text": "It Is Possible To Know Things"
-  },
-  {
-    "objectID": "4511/02/02.html#heuristics",
-    "href": "4511/02/02.html#heuristics",
-    "title": "Search",
-    "section": "Heuristics",
-    "text": "Heuristics\nheuristic - adj - Serving to discover or find out.1\n\nWe know things about the problem\nThese things are external to the graph/tree structure\n\nWe could model the problem differently\nWe can use the information directly\n\n\nWebster’s, 1913"
-  },
-  {
-    "objectID": "4511/02/02.html#best-first-search-reprise",
-    "href": "4511/02/02.html#best-first-search-reprise",
-    "title": "Search",
-    "section": "Best-First Search (reprise)",
-    "text": "Best-First Search (reprise)"
-  },
-  {
-    "objectID": "4511/02/02.html#greedy-best-first-search",
-    "href": "4511/02/02.html#greedy-best-first-search",
-    "title": "Search",
-    "section": "Greedy Best-First Search",
-    "text": "Greedy Best-First Search\n\nHeuristic \\(h(n)\\)\n\n\\(n\\) is the search-tree node\n\\(h(n)\\) estimates cost from \\(n\\) to goal\n\nBest-first search: \\(f(n)\\) orders priority queue\n\nUse \\(f(n) = h(n)\\)\n\nComplete\nNo optimality guarantee\n\n(expected)"
-  },
-  {
-    "objectID": "4511/02/02.html#a-search",
-    "href": "4511/02/02.html#a-search",
-    "title": "Search",
-    "section": "A* Search",
-    "text": "A* Search\n\nInclude path-cost \\(g(n)\\)\n\n\\(f(n) = g(n) + h(n)\\)\n\n\n\n\n\n\nComplete (always)\nOptimal (sometimes)\nPainful \\(O(b^m)\\) time and space complexity"
-  },
-  {
-    "objectID": "4511/02/02.html#choosing-heuristics",
-    "href": "4511/02/02.html#choosing-heuristics",
-    "title": "Search",
-    "section": "Choosing Heuristics",
-    "text": "Choosing Heuristics\n\nRecall: \\(h(n)\\) estimates cost from \\(n\\) to goal\n\n\n\n\n\nAdmissibility\nConsistency"
-  },
-  {
-    "objectID": "4511/02/02.html#choosing-heuristics-1",
-    "href": "4511/02/02.html#choosing-heuristics-1",
-    "title": "Search",
-    "section": "Choosing Heuristics",
-    "text": "Choosing Heuristics\n\nAdmissibility\n\nNever overestimates cost from \\(n\\) to goal\nCost-optimal!\n\nConsistency\n\n\\(h(n) \\leq c(n, a, n') + h(n')\\)\n\\(n'\\) successors of \\(n\\)\n\\(c(n, a, n')\\) cost from \\(n\\) to \\(n'\\) given action \\(a\\)"
-  },
-  {
-    "objectID": "4511/02/02.html#consistency",
-    "href": "4511/02/02.html#consistency",
-    "title": "Search",
-    "section": "Consistency",
-    "text": "Consistency\n\nConsistent heuristics are admissible\n\nInverse not necessarily true\n\nAlways reach each state on optimal path\nImplications for inconsistent heuristic?"
-  },
-  {
-    "objectID": "4511/02/02.html#is-optimality-desirable",
-    "href": "4511/02/02.html#is-optimality-desirable",
-    "title": "Search",
-    "section": "Is Optimality Desirable?",
-    "text": "Is Optimality Desirable?"
-  },
-  {
-    "objectID": "4511/02/02.html#is-optimality-desirable-1",
-    "href": "4511/02/02.html#is-optimality-desirable-1",
-    "title": "Search",
-    "section": "Is Optimality Desirable?",
-    "text": "Is Optimality Desirable?\n\nYes"
-  },
-  {
-    "objectID": "4511/02/02.html#is-optimality-desirable-2",
-    "href": "4511/02/02.html#is-optimality-desirable-2",
-    "title": "Search",
-    "section": "Is Optimality Desirable?",
-    "text": "Is Optimality Desirable?\n\nYes, but it isn’t always feasible\n\nA* search still exponentially complex in solution length\nOptimality is never guaranteed “inexpensively”\n\nWe need strategies for “good enough” solutions"
-  },
-  {
-    "objectID": "4511/02/02.html#satisficing",
-    "href": "4511/02/02.html#satisficing",
-    "title": "Search",
-    "section": "Satisficing",
-    "text": "Satisficing\n\nsatisfy - verb - To give satisfaction; to afford gratification; to leave nothing to be desired.1\n\n\nsuffice - verb - To be enough, or sufficient; to meet the need (of anything)2\n\nWebster’s, 1913Webster’s, 1913"
-  },
-  {
-    "objectID": "4511/02/02.html#weighted-a-search",
-    "href": "4511/02/02.html#weighted-a-search",
-    "title": "Search",
-    "section": "Weighted A* Search",
-    "text": "Weighted A* Search\n\nGreedy: \\(f(n) = h(n)\\)\nA*: \\(f(n) = h(n) + g(n)\\)\nUniform-Cost Search: \\(f(n) = g(n)\\)\n\n…\n\nWeighted A* Search: \\(f(n) = W\\cdot h(n) + g(n)\\)\n\nWeight \\(W &gt; 1\\)"
-  },
-  {
-    "objectID": "4511/02/02.html#reducing-complexity",
-    "href": "4511/02/02.html#reducing-complexity",
-    "title": "Search",
-    "section": "Reducing Complexity",
-    "text": "Reducing Complexity\n\nFrontier Management\nElimination of \\(reached\\) collection\n\nReference counts\nHow else?\n\n\n\n\n\nOther searches"
-  },
-  {
-    "objectID": "4511/02/02.html#iterative-deepening-a-search",
-    "href": "4511/02/02.html#iterative-deepening-a-search",
-    "title": "Search",
-    "section": "Iterative-Deepening A* Search",
-    "text": "Iterative-Deepening A* Search\n\n“IDA*” Search\n\nSimilar to Iterative Deepening with Depth-First Search\n\nDFS uses depth cutoff\nIDA* uses \\(h(n) + g(n)\\) cutoff with DFS\nOnce cutoff breached, new cutoff:\n\nTypically next-largest \\(h(n) + g(n)\\)\n\n\\(O(b^m)\\) time complexity 😔\n\\(O(d)\\) space complexity1 😌\n\n\n\nThis is slightly complicated based on heuristic branching factor \\(b_h\\)."
-  },
-  {
-    "objectID": "4511/02/02.html#beam-search",
-    "href": "4511/02/02.html#beam-search",
-    "title": "Search",
-    "section": "Beam Search",
-    "text": "Beam Search\n\nBest-First Search:\n\nFrontier is all expanded nodes\n\nBeam Search:\n\n\\(k\\) “best” nodes are kept on frontier\n\nOthers discarded\n\nAlt: all nodes within \\(\\delta\\) of best node\nNot Optimal\nNot Complete"
-  },
-  {
-    "objectID": "4511/02/02.html#recursive-best-first-search-rbfs",
-    "href": "4511/02/02.html#recursive-best-first-search-rbfs",
-    "title": "Search",
-    "section": "Recursive Best-First Search (RBFS)",
-    "text": "Recursive Best-First Search (RBFS)\n\nNo \\(reached\\) table is kept\nSecond-best node \\(f(n)\\) retained\n\nSearch from each node cannot exceed this limit\nIf exceeded, recursion “backs up” to previous node\n\nMemory-efficient\n\nCan “cycle” between branches"
-  },
-  {
-    "objectID": "4511/02/02.html#recursive-best-first-search-rbfs-1",
-    "href": "4511/02/02.html#recursive-best-first-search-rbfs-1",
-    "title": "Search",
-    "section": "Recursive Best-First Search (RBFS)",
-    "text": "Recursive Best-First Search (RBFS)"
-  },
-  {
-    "objectID": "4511/02/02.html#heuristic-characteristics",
-    "href": "4511/02/02.html#heuristic-characteristics",
-    "title": "Search",
-    "section": "Heuristic Characteristics",
-    "text": "Heuristic Characteristics\n\nWhat makes a “good” heuristic?\n\nWe know about admissability and consistency\nWhat about performance?\n\nEffective branching factor\nEffective depth\n# of nodes expanded"
-  },
-  {
-    "objectID": "4511/02/02.html#where-do-heuristics-come-from",
-    "href": "4511/02/02.html#where-do-heuristics-come-from",
-    "title": "Search",
-    "section": "Where Do Heuristics Come From?",
-    "text": "Where Do Heuristics Come From?\n\nIntuition\n\n“Just Be Really Smart”\n\nRelaxation\n\nThe problem is constrained\nRemove the constraint\n\nPre-computation\n\nSub problems\n\nLearning"
-  },
-  {
-    "objectID": "4511/02/02.html#references",
-    "href": "4511/02/02.html#references",
-    "title": "Search",
-    "section": "References",
-    "text": "References\n\nStuart J. Russell and Peter Norvig. Artificial Intelligence: A Modern Approach. 4th Edition, 2020.\nStanford CS231\nUC Berkeley CS188"
   },
   {
     "objectID": "4511/04/04.html#announcements",
@@ -1572,14 +1257,14 @@
     "href": "4511/python.html",
     "title": "Python Notes",
     "section": "",
-    "text": "You probably know this:\n\nimport numpy\n\nprint(numpy.random.random())\n\n0.3029257081943124\n\n\nand this1\n1 It might not run if you don’t have scipy installed, so install scipy.\nimport numpy as np\nimport pandas as pd\nfrom scipy import stats\n\na = stats.uniform(1, 5)\nprint(a)\nprint(a.cdf(2), a.cdf(3), a.cdf(5))\n\n&lt;scipy.stats._distn_infrastructure.rv_continuous_frozen object at 0x71d141d86c90&gt;\n0.2 0.4 0.8\n\n\nWhere do imports come from? The environment. There’s a default environment; but for any complicated project, you’ll want to create your own. You can call it whatever you want. .venv works. You could call it otis. You should call it something meaningful.\nAt the command line:2\n2 Your install might use python3 instead of pythonpython -m venv otis\ncd otis; tree | head -n 172\n.\n├── bin\n│   ├── activate\n│   ├── activate.csh\n│   ├── activate.fish\n│   ├── Activate.ps1\n│   ├── pip\n│   ├── pip3\n│   ├── pip3.11\n│   ├── python -&gt; /home/adsr/miniconda3/bin/python\n│   ├── python3 -&gt; python\n│   └── python3.11 -&gt; python\n├── include\n│   └── python3.11\n├── lib\n│   └── python3.11\n│       └── site-packages\nMake a new environment for every project! Or don’t, and find out what happens:\n\nThere are several package managers for python, poetry and conda are the most popular3 as of 2024. You can use pip, it’s fine.\n3 My own assertion, no data to back this up, probably true.\n\n\nWhen you make a .py file with any definitions, it’s called a module, and the module name is the file name (before the .py extension).\nConsider this module:\n\n\nutils.py\n\nfrom copy import deepcopy\n\ndef stringify(L: list[int]) -&gt; list:\n    L = deepcopy(L)\n    L.sort()\n    return str(L)\n\nWe can import it from any script in the same folder:\n\nimport utils\nA = utils.stringify([3, 2, 2, 1])\nprint(A, type(A))\n\n[1, 2, 2, 3] &lt;class 'str'&gt;\n\n\nWe can also import component definitions:\n\nfrom utils import stringify\nA = stringify([\"otis\", \"carl\", \"bruce\"])\nprint(A, type(A))\n\n['bruce', 'carl', 'otis'] &lt;class 'str'&gt;\n\n\nPython doesn’t enforce type hints 🙃"
+    "text": "You probably know this:\n\nimport numpy\n\nprint(numpy.random.random())\n\n0.916051776405524\n\n\nand this1\n1 It might not run if you don’t have scipy installed, so install scipy.\nimport numpy as np\nimport pandas as pd\nfrom scipy import stats\n\na = stats.uniform(1, 5)\nprint(a)\nprint(a.cdf(2), a.cdf(3), a.cdf(5))\n\n&lt;scipy.stats._distn_infrastructure.rv_continuous_frozen object at 0x11aff07a0&gt;\n0.2 0.4 0.8\n\n\nWhere do imports come from? The environment. There’s a default environment; but for any complicated project, you’ll want to create your own. You can call it whatever you want. .venv works. You could call it otis. You should call it something meaningful.\nAt the command line:2\n2 Your install might use python3 instead of pythonpython -m venv otis\ncd otis; tree | head -n 172\n.\n├── bin\n│   ├── activate\n│   ├── activate.csh\n│   ├── activate.fish\n│   ├── Activate.ps1\n│   ├── pip\n│   ├── pip3\n│   ├── pip3.11\n│   ├── python -&gt; /home/adsr/miniconda3/bin/python\n│   ├── python3 -&gt; python\n│   └── python3.11 -&gt; python\n├── include\n│   └── python3.11\n├── lib\n│   └── python3.11\n│       └── site-packages\nMake a new environment for every project! Or don’t, and find out what happens:\n\nThere are several package managers for python, poetry and conda are the most popular3 as of 2024. You can use pip, it’s fine.\n3 My own assertion, no data to back this up, probably true.\n\n\nWhen you make a .py file with any definitions, it’s called a module, and the module name is the file name (before the .py extension).\nConsider this module:\n\n\nutils.py\n\nfrom copy import deepcopy\n\ndef stringify(L: list[int]) -&gt; list:\n    L = deepcopy(L)\n    L.sort()\n    return str(L)\n\nWe can import it from any script in the same folder:\n\nimport utils\nA = utils.stringify([3, 2, 2, 1])\nprint(A, type(A))\n\n[1, 2, 2, 3] &lt;class 'str'&gt;\n\n\nWe can also import component definitions:\n\nfrom utils import stringify\nA = stringify([\"otis\", \"carl\", \"bruce\"])\nprint(A, type(A))\n\n['bruce', 'carl', 'otis'] &lt;class 'str'&gt;\n\n\nPython doesn’t enforce type hints 🙃"
   },
   {
     "objectID": "4511/python.html#modules-and-imports",
     "href": "4511/python.html#modules-and-imports",
     "title": "Python Notes",
     "section": "",
-    "text": "You probably know this:\n\nimport numpy\n\nprint(numpy.random.random())\n\n0.3029257081943124\n\n\nand this1\n1 It might not run if you don’t have scipy installed, so install scipy.\nimport numpy as np\nimport pandas as pd\nfrom scipy import stats\n\na = stats.uniform(1, 5)\nprint(a)\nprint(a.cdf(2), a.cdf(3), a.cdf(5))\n\n&lt;scipy.stats._distn_infrastructure.rv_continuous_frozen object at 0x71d141d86c90&gt;\n0.2 0.4 0.8\n\n\nWhere do imports come from? The environment. There’s a default environment; but for any complicated project, you’ll want to create your own. You can call it whatever you want. .venv works. You could call it otis. You should call it something meaningful.\nAt the command line:2\n2 Your install might use python3 instead of pythonpython -m venv otis\ncd otis; tree | head -n 172\n.\n├── bin\n│   ├── activate\n│   ├── activate.csh\n│   ├── activate.fish\n│   ├── Activate.ps1\n│   ├── pip\n│   ├── pip3\n│   ├── pip3.11\n│   ├── python -&gt; /home/adsr/miniconda3/bin/python\n│   ├── python3 -&gt; python\n│   └── python3.11 -&gt; python\n├── include\n│   └── python3.11\n├── lib\n│   └── python3.11\n│       └── site-packages\nMake a new environment for every project! Or don’t, and find out what happens:\n\nThere are several package managers for python, poetry and conda are the most popular3 as of 2024. You can use pip, it’s fine.\n3 My own assertion, no data to back this up, probably true.\n\n\nWhen you make a .py file with any definitions, it’s called a module, and the module name is the file name (before the .py extension).\nConsider this module:\n\n\nutils.py\n\nfrom copy import deepcopy\n\ndef stringify(L: list[int]) -&gt; list:\n    L = deepcopy(L)\n    L.sort()\n    return str(L)\n\nWe can import it from any script in the same folder:\n\nimport utils\nA = utils.stringify([3, 2, 2, 1])\nprint(A, type(A))\n\n[1, 2, 2, 3] &lt;class 'str'&gt;\n\n\nWe can also import component definitions:\n\nfrom utils import stringify\nA = stringify([\"otis\", \"carl\", \"bruce\"])\nprint(A, type(A))\n\n['bruce', 'carl', 'otis'] &lt;class 'str'&gt;\n\n\nPython doesn’t enforce type hints 🙃"
+    "text": "You probably know this:\n\nimport numpy\n\nprint(numpy.random.random())\n\n0.916051776405524\n\n\nand this1\n1 It might not run if you don’t have scipy installed, so install scipy.\nimport numpy as np\nimport pandas as pd\nfrom scipy import stats\n\na = stats.uniform(1, 5)\nprint(a)\nprint(a.cdf(2), a.cdf(3), a.cdf(5))\n\n&lt;scipy.stats._distn_infrastructure.rv_continuous_frozen object at 0x11aff07a0&gt;\n0.2 0.4 0.8\n\n\nWhere do imports come from? The environment. There’s a default environment; but for any complicated project, you’ll want to create your own. You can call it whatever you want. .venv works. You could call it otis. You should call it something meaningful.\nAt the command line:2\n2 Your install might use python3 instead of pythonpython -m venv otis\ncd otis; tree | head -n 172\n.\n├── bin\n│   ├── activate\n│   ├── activate.csh\n│   ├── activate.fish\n│   ├── Activate.ps1\n│   ├── pip\n│   ├── pip3\n│   ├── pip3.11\n│   ├── python -&gt; /home/adsr/miniconda3/bin/python\n│   ├── python3 -&gt; python\n│   └── python3.11 -&gt; python\n├── include\n│   └── python3.11\n├── lib\n│   └── python3.11\n│       └── site-packages\nMake a new environment for every project! Or don’t, and find out what happens:\n\nThere are several package managers for python, poetry and conda are the most popular3 as of 2024. You can use pip, it’s fine.\n3 My own assertion, no data to back this up, probably true.\n\n\nWhen you make a .py file with any definitions, it’s called a module, and the module name is the file name (before the .py extension).\nConsider this module:\n\n\nutils.py\n\nfrom copy import deepcopy\n\ndef stringify(L: list[int]) -&gt; list:\n    L = deepcopy(L)\n    L.sort()\n    return str(L)\n\nWe can import it from any script in the same folder:\n\nimport utils\nA = utils.stringify([3, 2, 2, 1])\nprint(A, type(A))\n\n[1, 2, 2, 3] &lt;class 'str'&gt;\n\n\nWe can also import component definitions:\n\nfrom utils import stringify\nA = stringify([\"otis\", \"carl\", \"bruce\"])\nprint(A, type(A))\n\n['bruce', 'carl', 'otis'] &lt;class 'str'&gt;\n\n\nPython doesn’t enforce type hints 🙃"
   },
   {
     "objectID": "4511/python.html#classes",
@@ -1614,7 +1299,7 @@
     "href": "4511/python.html#functions-as-references",
     "title": "Python Notes",
     "section": "Functions as References",
-    "text": "Functions as References\nFunctions are objects, too.\nRecall:\n\n\nutils.py\n\nfrom copy import deepcopy\n\ndef stringify(L: list[int]) -&gt; list:\n    L = deepcopy(L)\n    L.sort()\n    return str(L)\n\n\nfrom utils import stringify\nprint(stringify)\nx = stringify # what.\nx([1, 4, 5])\n\n&lt;function stringify at 0x71d151e27c40&gt;\n\n\n'[1, 4, 5]'\n\n\nWe can pass them as arguments:\n\ndef f(x, y):\n    return x(y) + \"!!\"\n\na = f(stringify, [\"sun\", \"set\"])\nprint(a)\n\n['set', 'sun']!!"
+    "text": "Functions as References\nFunctions are objects, too.\nRecall:\n\n\nutils.py\n\nfrom copy import deepcopy\n\ndef stringify(L: list[int]) -&gt; list:\n    L = deepcopy(L)\n    L.sort()\n    return str(L)\n\n\nfrom utils import stringify\nprint(stringify)\nx = stringify # what.\nx([1, 4, 5])\n\n&lt;function stringify at 0x1064079c0&gt;\n\n\n'[1, 4, 5]'\n\n\nWe can pass them as arguments:\n\ndef f(x, y):\n    return x(y) + \"!!\"\n\na = f(stringify, [\"sun\", \"set\"])\nprint(a)\n\n['set', 'sun']!!"
   },
   {
     "objectID": "4511/python.html#comprehensions",
@@ -1706,5 +1391,320 @@
     "title": "Homework One",
     "section": "11 Q8 (3 pts): Suboptimal Search",
     "text": "11 Q8 (3 pts): Suboptimal Search\nSometimes, even with A* and a good heuristic, finding the optimal path through all the dots is hard. In these cases, we’d still like to find a reasonably good path, quickly. In this section, you’ll write an agent that always greedily eats the closest dot. ClosestDotSearchAgent is implemented for you in searchAgents.py, but it’s missing a key function that finds a path to the closest dot.\nImplement the function findPathToClosestDot in searchAgents.py. Our agent solves this maze (suboptimally!) in under a second with a path cost of 350:\npython pacman.py -l bigSearch -p ClosestDotSearchAgent -z .5\nHint: The quickest way to complete findPathToClosestDot is to fill in the AnyFoodSearchProblem, which is missing its goal test. Then, solve that problem with an appropriate search function. The solution should be very short!\nYour ClosestDotSearchAgent won’t always find the shortest possible path through the maze. Make sure you understand why and try to come up with a small example where repeatedly going to the closest dot does not result in finding the shortest path for eating all the dots.\nGrading: Please run the below command to see if your implementation passes all the autograder test cases.\npython autograder.py -q q8"
+  },
+  {
+    "objectID": "4511/01/01.html#good-afternoon",
+    "href": "4511/01/01.html#good-afternoon",
+    "title": "AI Algorithms  Introduction",
+    "section": "Good Afternoon",
+    "text": "Good Afternoon"
+  },
+  {
+    "objectID": "4511/01/01.html#how-to-succeed",
+    "href": "4511/01/01.html#how-to-succeed",
+    "title": "AI Algorithms  Introduction",
+    "section": "How To Succeed",
+    "text": "How To Succeed\n\nPay Attention\nStart Early\nDo The Work\n\nYourself"
+  },
+  {
+    "objectID": "4511/01/01.html#extremely-important-dates",
+    "href": "4511/01/01.html#extremely-important-dates",
+    "title": "AI Algorithms  Introduction",
+    "section": "Extremely Important Dates",
+    "text": "Extremely Important Dates\nMidterm Exam: 16 October\n\nFinal Exam: 4 Dec\n\n\n\nArrange to be present for both exams."
+  },
+  {
+    "objectID": "4511/01/01.html#grading",
+    "href": "4511/01/01.html#grading",
+    "title": "AI Algorithms  Introduction",
+    "section": "Grading",
+    "text": "Grading\n\n35% Homework average: weighted average of all homework\n\nLowest homework weighted 50%\n\n15% Project:\n\nOne intermediate deliverable\n\n50% Exam average: weighted average of two exams\n\nFinal replaces midterm if higher"
+  },
+  {
+    "objectID": "4511/01/01.html#attendance",
+    "href": "4511/01/01.html#attendance",
+    "title": "AI Algorithms  Introduction",
+    "section": "Attendance",
+    "text": "Attendance\n\nOptional\nRecommended\nAssumed\nOffice Hours\n\nWhy are there so many?"
+  },
+  {
+    "objectID": "4511/01/01.html#office-hours",
+    "href": "4511/01/01.html#office-hours",
+    "title": "AI Algorithms  Introduction",
+    "section": "Office Hours",
+    "text": "Office Hours\n\nMon 1:00-3:00 PM\nWeds 12:30 PM - 3:00 PM\nFri 3:00-6:00 PM\nAppointments are not necessary"
+  },
+  {
+    "objectID": "4511/01/01.html#the-syllabus",
+    "href": "4511/01/01.html#the-syllabus",
+    "title": "AI Algorithms  Introduction",
+    "section": "The Syllabus",
+    "text": "The Syllabus\n\nHomework 0:\n\nSyllabus acknowledgement\nPython/autograder check\nMust be completed before you get credit for anything\nWrite it yourself"
+  },
+  {
+    "objectID": "4511/01/01.html#write-it-yourself",
+    "href": "4511/01/01.html#write-it-yourself",
+    "title": "AI Algorithms  Introduction",
+    "section": "Write It Yourself",
+    "text": "Write It Yourself\n\nCopying code (from anywhere!) is generally prohibited, however:\n\nSearching for errors, use of Stack Overflow, etc. is allowed\nUse of code snippets from language documentation is allowed\nCollaborating to understand the algorithms is always allowed\n\nDocument what help you received when solving the problems\n\nYour code will almost certainly show up on your exam."
+  },
+  {
+    "objectID": "4511/01/01.html#write-it-yourself-1",
+    "href": "4511/01/01.html#write-it-yourself-1",
+    "title": "AI Algorithms  Introduction",
+    "section": "Write It Yourself",
+    "text": "Write It Yourself\n\nI check my email and respond\nPlease do not use ChatGPT (etc.) to write emails to me\n\n“I hope this email finds you well”\n“I understand the importance of…”\n“I appreciate your time and attention to this matter”\n“I look forward to your response”\n\n\nIf nobody wrote it, why should anybody read it?"
+  },
+  {
+    "objectID": "4511/01/01.html#textbook",
+    "href": "4511/01/01.html#textbook",
+    "title": "AI Algorithms  Introduction",
+    "section": "Textbook",
+    "text": "Textbook\nStuart J. Russell and Peter Norvig. Artificial Intelligence: A Modern Approach. 4th Edition, 2020.\nSeveral copies will be on reserve at the GWU Library."
+  },
+  {
+    "objectID": "4511/01/01.html#mechanics",
+    "href": "4511/01/01.html#mechanics",
+    "title": "AI Algorithms  Introduction",
+    "section": "Mechanics",
+    "text": "Mechanics\n\nOne 2.5 hr meeting per week\nExams in person\n\nPeriodic in-class practice\n\nHomework via submit server\nProgramming assignments in Python\n\nIf you don’t know Python: you will.\n\nRhythms"
+  },
+  {
+    "objectID": "4511/01/01.html#do-we-even-need-to-introduce-ai",
+    "href": "4511/01/01.html#do-we-even-need-to-introduce-ai",
+    "title": "AI Algorithms  Introduction",
+    "section": "Do We Even Need to Introduce AI?",
+    "text": "Do We Even Need to Introduce AI?\n\nYou have undoubtedly used an LLM\n\nYou have almost certainly used speech-to-text\n\nYou may have ridden in a self-driving car\nYou probably unlock your telephone with your face\n\nConsider how this sentence would have been received in 1995\n\nYou trust software to give you street directions\nYou have probably flown on an airliner with autopilot\nYou might have lost to a computer at chess"
+  },
+  {
+    "objectID": "4511/01/01.html#what-is-artificial-intelligence",
+    "href": "4511/01/01.html#what-is-artificial-intelligence",
+    "title": "AI Algorithms  Introduction",
+    "section": "What Is Artificial Intelligence?",
+    "text": "What Is Artificial Intelligence?\nWhat is intelligence?\n\nThought\nReasoning\nBehavior\n\nDo we need all three?\nDoes “AI” need all three?"
+  },
+  {
+    "objectID": "4511/01/01.html#is-it-intelligent",
+    "href": "4511/01/01.html#is-it-intelligent",
+    "title": "AI Algorithms  Introduction",
+    "section": "Is It Intelligent?",
+    "text": "Is It Intelligent?\n\n\n\n\n\n\n\n\nImages: Speed Queen, Volvo"
+  },
+  {
+    "objectID": "4511/01/01.html#rationality",
+    "href": "4511/01/01.html#rationality",
+    "title": "AI Algorithms  Introduction",
+    "section": "Rationality",
+    "text": "Rationality\n\nDecisions\nOutcomes\nValues\n\nIt is possible to make better decisions.\n\n\nRational agents make better decisions."
+  },
+  {
+    "objectID": "4511/01/01.html#which-decision",
+    "href": "4511/01/01.html#which-decision",
+    "title": "AI Algorithms  Introduction",
+    "section": "Which Decision?",
+    "text": "Which Decision?\n\n\n\nPay $17 for this pizza, delivered\nPay $21 for the same pizza, delivered"
+  },
+  {
+    "objectID": "4511/01/01.html#basically-the-same-problem",
+    "href": "4511/01/01.html#basically-the-same-problem",
+    "title": "AI Algorithms  Introduction",
+    "section": "Basically The Same Problem",
+    "text": "Basically The Same Problem\n\n\nImage: Bloomberg"
+  },
+  {
+    "objectID": "4511/01/01.html#expected-utility",
+    "href": "4511/01/01.html#expected-utility",
+    "title": "AI Algorithms  Introduction",
+    "section": "Expected Utility",
+    "text": "Expected Utility\nWhich would you prefer?\n\nReceive $10\nFlip a fair coin:\n\nHeads - Pay $10\nTails - Receive $100\n\n\n\n\n\nMany outcomes aren’t directly expressed in dollars\nRational agents maximize expected utility"
+  },
+  {
+    "objectID": "4511/01/01.html#defining-ai-again",
+    "href": "4511/01/01.html#defining-ai-again",
+    "title": "AI Algorithms  Introduction",
+    "section": "Defining AI, Again",
+    "text": "Defining AI, Again\n\nThought “vs.” Action\nHuman “vs.” Rational\nWhat is necessary?\n\nAll four combinations have been asserted"
+  },
+  {
+    "objectID": "4511/01/01.html#errors",
+    "href": "4511/01/01.html#errors",
+    "title": "AI Algorithms  Introduction",
+    "section": "Errors",
+    "text": "Errors\n\nWhat happens when a human1 crashes a bicycle?\nWhat happens when a self-driving car2 crashes?\nWho is responsible when a self-driving car crashes?\n\n\n\nHow do “we” ensure AI values align with human values?\nHuman at faultSoftware at fault"
+  },
+  {
+    "objectID": "4511/01/01.html#alignment",
+    "href": "4511/01/01.html#alignment",
+    "title": "AI Algorithms  Introduction",
+    "section": "Alignment",
+    "text": "Alignment\n\n\nImage: Meme; fair use."
+  },
+  {
+    "objectID": "4511/01/01.html#alignment-1",
+    "href": "4511/01/01.html#alignment-1",
+    "title": "AI Algorithms  Introduction",
+    "section": "Alignment",
+    "text": "Alignment\n\nAre universal human values defined?\nHow are AI values defined?\nHow are AI values validated?\n\nThis is an open area of investigation.1\nAnd of concern."
+  },
+  {
+    "objectID": "4511/01/01.html#how-we-got-here",
+    "href": "4511/01/01.html#how-we-got-here",
+    "title": "AI Algorithms  Introduction",
+    "section": "How We Got Here",
+    "text": "How We Got Here\n\n\nNeural Networks\n\nPerceptron (McCulloch & Pitts, 1943)\n“Computing Machinery and Intelligence” (Turing, 1950)\n\nLogic\n\nSamuel’s checkers, MANIAC Chess (1950s)\nDartmouth “Artificial Intelligence” conference (1956)\nMinsky & Papert assault perceptrons (1959)"
+  },
+  {
+    "objectID": "4511/01/01.html#how-we-got-here-1",
+    "href": "4511/01/01.html#how-we-got-here-1",
+    "title": "AI Algorithms  Introduction",
+    "section": "How We Got Here",
+    "text": "How We Got Here\n\n\nKnowledge/Expert Systems\n\nExpert systems boom (1980s)\nBack propagation paper (Rumelhart et al., 1986)\nExpert systems bust (1990s)\n\nProbabilistic methods\n\nTD-Gammon (1992)\nDeep Blue defeats Kasparov (1997)"
+  },
+  {
+    "objectID": "4511/01/01.html#how-we-got-here-2",
+    "href": "4511/01/01.html#how-we-got-here-2",
+    "title": "AI Algorithms  Introduction",
+    "section": "How We Got Here",
+    "text": "How We Got Here\n\n\nNeural Networks\n\nAlexNet computer vision (2012)\nDeepMind Atari (2013)\nAlphaGo defeats Sedol (2016)\nGoogle Translate LSTM (2016)\nAlphaFold (2018)\n\nLarge Language Models\n\nAttention Is All You Need (2017)\nGPT-3.5 (2022)"
+  },
+  {
+    "objectID": "4511/01/01.html#where-do-we-go-now",
+    "href": "4511/01/01.html#where-do-we-go-now",
+    "title": "AI Algorithms  Introduction",
+    "section": "Where Do We Go Now?",
+    "text": "Where Do We Go Now?\n\nGame-playing\n\nReal-world tasks that look like games\n\nStatistical generation of text, images, video…\nOpen-ended logical problems\n\nUnsolved problems\n\nProblems with poorly-defined interfaces"
+  },
+  {
+    "objectID": "4511/01/01.html#societal-implications",
+    "href": "4511/01/01.html#societal-implications",
+    "title": "AI Algorithms  Introduction",
+    "section": "Societal Implications",
+    "text": "Societal Implications\n\nTranslation\nText generation\n“Art” generation\nDecision-making\n\n“Who is responsible for…”"
+  },
+  {
+    "objectID": "4511/01/01.html#what-this-course-is-not-about",
+    "href": "4511/01/01.html#what-this-course-is-not-about",
+    "title": "AI Algorithms  Introduction",
+    "section": "What This Course Is Not About",
+    "text": "What This Course Is Not About\n\nTranslation\nText generation\n“Art” generation"
+  },
+  {
+    "objectID": "4511/01/01.html#what-this-course-is-about",
+    "href": "4511/01/01.html#what-this-course-is-about",
+    "title": "AI Algorithms  Introduction",
+    "section": "What This Course Is About",
+    "text": "What This Course Is About\n\nThe design of rational agents\nGeneral AI techniques for problem solving\n\nRecognizing when a new problem has an “existing” solution\n\nSolving problems approximately\n\nOptimal solutions often intractable"
+  },
+  {
+    "objectID": "4511/01/01.html#the-rational-agent",
+    "href": "4511/01/01.html#the-rational-agent",
+    "title": "AI Algorithms  Introduction",
+    "section": "The Rational Agent",
+    "text": "The Rational Agent\n\nHas a utility function\n\nMaximizes expected utility\n\nSensors: perceives environment\nActuators: influences environment\n\nWhat is in between sensors and actuators?\nThe agent function."
+  },
+  {
+    "objectID": "4511/01/01.html#reflex-agent",
+    "href": "4511/01/01.html#reflex-agent",
+    "title": "AI Algorithms  Introduction",
+    "section": "Reflex Agent",
+    "text": "Reflex Agent\n\n\n\nVery basic form of agent function\nPercept \\(\\rightarrow\\) Action lookup table\nGood for simple games\n\nTic-tac-toe\nCheckers?\n\nNeeds entire state space in table"
+  },
+  {
+    "objectID": "4511/01/01.html#state-space-size",
+    "href": "4511/01/01.html#state-space-size",
+    "title": "AI Algorithms  Introduction",
+    "section": "State Space Size",
+    "text": "State Space Size\n\n\n\nTic-tac-toe: \\(10^3\\)\nCheckers: \\(10^{20}\\)\nChess: \\(10^{44}\\)\nGo: \\(10^{170}\\)\nSelf-driving car: ?"
+  },
+  {
+    "objectID": "4511/01/01.html#partially-observable-state",
+    "href": "4511/01/01.html#partially-observable-state",
+    "title": "AI Algorithms  Introduction",
+    "section": "Partially-Observable State",
+    "text": "Partially-Observable State"
+  },
+  {
+    "objectID": "4511/01/01.html#partially-observable-state-1",
+    "href": "4511/01/01.html#partially-observable-state-1",
+    "title": "AI Algorithms  Introduction",
+    "section": "Partially-Observable State",
+    "text": "Partially-Observable State\n\nMost real-world problems\n\nSensor error\nModel error\n\nReflex agents fail1\nAgent needs a belief state\n\nUnless total number of partial observations is bounded"
+  },
+  {
+    "objectID": "4511/01/01.html#backing-up",
+    "href": "4511/01/01.html#backing-up",
+    "title": "AI Algorithms  Introduction",
+    "section": "Backing Up",
+    "text": "Backing Up\n\nThe Environment\n\nState Space\n\nRational Agents:\n\nSensors\nActuators\n\nSensors + State Space = Belief State\n\nFeatures of the problem are pre-defined; we define the agent function."
+  },
+  {
+    "objectID": "4511/01/01.html#high-level-topics",
+    "href": "4511/01/01.html#high-level-topics",
+    "title": "AI Algorithms  Introduction",
+    "section": "High-Level Topics",
+    "text": "High-Level Topics\n\nSearch & Planning\nMulti-Agent Problems\nProbability & Inference\nLearning"
+  },
+  {
+    "objectID": "4511/01/01.html#search-planning",
+    "href": "4511/01/01.html#search-planning",
+    "title": "AI Algorithms  Introduction",
+    "section": "Search & Planning",
+    "text": "Search & Planning\n\nWorld model\n\n“Fully known”\n\nHow do we accomplish a goal?"
+  },
+  {
+    "objectID": "4511/01/01.html#multi-agent-problems",
+    "href": "4511/01/01.html#multi-agent-problems",
+    "title": "AI Algorithms  Introduction",
+    "section": "Multi-Agent Problems",
+    "text": "Multi-Agent Problems\n\nOther agents with different utility functions\nAgents react to our agent\nHow do we maximize our own utility?"
+  },
+  {
+    "objectID": "4511/01/01.html#probability-inference",
+    "href": "4511/01/01.html#probability-inference",
+    "title": "AI Algorithms  Introduction",
+    "section": "Probability & Inference",
+    "text": "Probability & Inference\n\nPartially-observed states\nStochastic actions\nHow do we maintain a belief state?\nHow do we maximize our utility?"
+  },
+  {
+    "objectID": "4511/01/01.html#learning",
+    "href": "4511/01/01.html#learning",
+    "title": "AI Algorithms  Introduction",
+    "section": "Learning",
+    "text": "Learning\n\nInitially-unknown problem structure\nExplore vs. exploit\n\nActions tell us more about the problem\nActions have some cost\n\nCan also learn from data"
+  },
+  {
+    "objectID": "4511/01/01.html#big-picture",
+    "href": "4511/01/01.html#big-picture",
+    "title": "AI Algorithms  Introduction",
+    "section": "Big Picture",
+    "text": "Big Picture\n\nRepresent problems\n\nStates, actions\n\nImplement algorithms\nTrain (if needed) using data"
+  },
+  {
+    "objectID": "4511/01/01.html#the-pac-man",
+    "href": "4511/01/01.html#the-pac-man",
+    "title": "AI Algorithms  Introduction",
+    "section": "The Pac-Man",
+    "text": "The Pac-Man\n\n\nNote that Bandai Namco Entertainment Inc. owns the trademark to “PAC-MAN” for Coin and Non-Coin Operated Electronic Amusement Apparatus for Playing a Game on a Video Output Display, as well as for Entertainment, namely providing a computer game that may be accessed network-wide by network users via mobile phones and computers; providing computer games via network between communications networks and computers. Our use is educational."
+  },
+  {
+    "objectID": "4511/01/01.html#why-pac-man",
+    "href": "4511/01/01.html#why-pac-man",
+    "title": "AI Algorithms  Introduction",
+    "section": "Why Pac-Man?",
+    "text": "Why Pac-Man?\n\nReal world AI problems are hard\n\nThis is a one-semester course\n\nAlgorithms themselves are reasonably simple\n\nApplying them to problems is “the” problem\n\nPac-man is simple\nYou don’t have to like games\n\nSame algorithms apply to real world"
+  },
+  {
+    "objectID": "4511/01/01.html#the-real-world",
+    "href": "4511/01/01.html#the-real-world",
+    "title": "AI Algorithms  Introduction",
+    "section": "The Real World",
+    "text": "The Real World\n\nObservable?\nDeterministic?\nMarkov?\nStatic?\nDiscrete?\n\nExamples…"
+  },
+  {
+    "objectID": "4511/01/01.html#references",
+    "href": "4511/01/01.html#references",
+    "title": "AI Algorithms  Introduction",
+    "section": "References",
+    "text": "References\n\nStuart J. Russell and Peter Norvig. Artificial Intelligence: A Modern Approach. 4th Edition, 2020.\nStanford CS231\nUC Berkeley CS188"
   }
 ]
