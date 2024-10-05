@@ -10,10 +10,10 @@
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/quarto-contrib/pseudocode-2.4.1/pseudocode.min.js"></script>
 <link href="../../site_libs/quarto-contrib/pseudocode-2.4.1/pseudocode.min.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.553">
+  <meta name="generator" content="quarto-1.5.53">
 
   <meta name="author" content="Joe Goldfrank">
-  <title>Goldfrank Faculty Web Site - AI Algorithms &nbsp;Introduction</title>
+  <title>Goldfrank Faculty Web Site – AI Algorithms &nbsp;Introduction</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -507,8 +507,7 @@ Does “AI” need all three?</p>
 <p><img data-src="img/speedqueen.jpg"></p>
 </div><div class="column" style="width:60%;">
 <p><img data-src="img/volvo.webp"></p>
-</div>
-</div>
+</div></div>
 <div style="font-size: 60%">
 Images: Speed Queen, Volvo
 </div>
@@ -731,8 +730,7 @@ Image: Meme; fair use.
 </ul>
 </div><div class="column" style="width:40%;">
 <p><img data-src="img/tictac.png"></p>
-</div>
-</div>
+</div></div>
 </section>
 <section id="state-space-size" class="slide level2">
 <h2>State Space Size</h2>
@@ -747,8 +745,7 @@ Image: Meme; fair use.
 </ul>
 </div><div class="column" style="width:55%;">
 <p><img data-src="img/go.jpg"></p>
-</div>
-</div>
+</div></div>
 </section>
 <section id="partially-observable-state" class="slide level2">
 <h2>Partially-Observable State</h2>
@@ -1136,18 +1133,7 @@ Image: Meme; fair use.
         }
         return false;
       }
-      const clipboard = new window.ClipboardJS('.code-copy-button', {
-        text: function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-        }
-      });
-      clipboard.on('success', function(e) {
+      const onCopySuccess = function(e) {
         // button target
         const button = e.trigger;
         // don't keep focus
@@ -1179,7 +1165,29 @@ Image: Meme; fair use.
         }, 1000);
         // clear code selection
         e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
       });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
         var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
         var mailtoRegex = new RegExp(/^mailto:/);
           var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -1187,7 +1195,7 @@ Image: Meme; fair use.
             return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }
         // Inspect non-navigation links and adorn them if external
-     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
         for (var i=0; i<links.length; i++) {
           const link = links[i];
           if (!isInternal(link.href)) {
