@@ -514,7 +514,7 @@ P = \begin{bmatrix}
 <li>Use the matrix multiplication operator: <code>@</code></li>
 <li>Altneratively: <code>numpy.matmul</code></li>
 </ul>
-<div id="39697c99" class="cell" data-execution_count="1">
+<div id="533f227f" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a></a>P <span class="op">=</span> np.array([[<span class="fl">0.5</span>, <span class="fl">0.4</span>, <span class="fl">0.1</span>], </span>
 <span id="cb1-3"><a></a>              [<span class="fl">0.3</span>, <span class="fl">0.4</span>, <span class="fl">0.3</span>], </span>
@@ -547,7 +547,7 @@ P = \begin{bmatrix}
 <section id="stationary-behavior-numpy" class="slide level2">
 <h2>Stationary Behavior (<code>numpy</code>)</h2>
 <p><span class="math inline">\(P^k\)</span></p>
-<div id="3de6269b" class="cell" data-execution_count="2">
+<div id="53b389e3" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb3-2"><a></a>P <span class="op">=</span> np.array([[<span class="fl">0.5</span>, <span class="fl">0.4</span>, <span class="fl">0.1</span>], </span>
 <span id="cb3-3"><a></a>              [<span class="fl">0.3</span>, <span class="fl">0.4</span>, <span class="fl">0.3</span>], </span>
@@ -563,7 +563,7 @@ P = \begin{bmatrix}
 </div>
 </div>
 <p>Eigenvector</p>
-<div id="957f3e6a" class="cell" data-execution_count="3">
+<div id="4903c2a3" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a>a <span class="op">=</span> np.linalg.eig(P.T).eigenvectors[:,<span class="dv">0</span>] <span class="co"># row eigenvector</span></span>
 <span id="cb5-2"><a></a>pi <span class="op">=</span> a<span class="op">/</span><span class="bu">sum</span>(a) <span class="co"># normalized</span></span>
 <span id="cb5-3"><a></a><span class="bu">print</span>(pi)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -986,23 +986,27 @@ P = \begin{bmatrix}
 <h2>Value Iteration Illustrated</h2>
 <p><span class="math display">\[U_{k+1}(s) \gets \max \limits_a \left( R(s,a) + \gamma \sum \limits_s' T(s'|s, a) U_k(s') \right)\]</span></p>
 </section>
-<section id="asynchronous-value-iteration" class="slide level2">
-<h2>Asynchronous Value Iteration</h2>
-<p>Synchronous: <span class="math display">\[U_{k+1}(s) \gets \max \limits_a \left( R(s,a) + \gamma \sum \limits_s' T(s'|s, a) U_k(s') \right)\]</span></p>
+<section id="synchronous-value-iteration" class="slide level2">
+<h2>Synchronous Value Iteration…</h2>
+<p><span class="math display">\[U_{k+1}(s) \gets \max \limits_a \left( R(s,a) + \gamma \sum \limits_s' T(s'|s, a) U_k(s') \right)\]</span></p>
 <ul>
 <li><span class="math inline">\(U_k(s)\)</span> held in memory until <span class="math inline">\(U_{k+1}(s)\)</span> computed</li>
+<li>Effectively requires two copies of <span class="math inline">\(U\)</span></li>
+</ul>
+</section>
+<section id="asynchronous-value-iteration" class="slide level2">
+<h2>Asynchronous Value Iteration</h2>
+<ul>
 <li>Updating <span class="math inline">\(U(s)\)</span> for one state at a time:</li>
 </ul>
 <p><span class="math display">\[U(s) \gets \max \limits_a \left( R(s,a) + \gamma \sum \limits_s' T(s'|s, a) U(s) \right)\]</span></p>
 <ul>
+<li>Ordering of states can vary</li>
 <li>Converges if all states are updated
 <ul>
 <li>…and if algorithm runs infinitely</li>
 </ul></li>
 </ul>
-</section>
-<section id="convergence-1" class="slide level2">
-<h2>Convergence</h2>
 </section>
 <section id="references" class="slide level2">
 <h2>References</h2>
