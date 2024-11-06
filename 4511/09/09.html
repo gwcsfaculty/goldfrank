@@ -10,7 +10,7 @@
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/quarto-contrib/pseudocode-2.4.1/pseudocode.min.js"></script>
 <link href="../../site_libs/quarto-contrib/pseudocode-2.4.1/pseudocode.min.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.4.553">
+  <meta name="generator" content="quarto-1.4.551">
 
   <meta name="author" content="Joe Goldfrank">
   <title>Goldfrank Faculty Web Site - Markov Decision Processes</title>
@@ -514,7 +514,7 @@ P = \begin{bmatrix}
 <li>Use the matrix multiplication operator: <code>@</code></li>
 <li>Altneratively: <code>numpy.matmul</code></li>
 </ul>
-<div id="fa381909" class="cell" data-execution_count="1">
+<div id="b7129568" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a></a>P <span class="op">=</span> np.array([[<span class="fl">0.5</span>, <span class="fl">0.4</span>, <span class="fl">0.1</span>], </span>
 <span id="cb1-3"><a></a>              [<span class="fl">0.3</span>, <span class="fl">0.4</span>, <span class="fl">0.3</span>], </span>
@@ -547,7 +547,7 @@ P = \begin{bmatrix}
 <section id="stationary-behavior-numpy" class="slide level2">
 <h2>Stationary Behavior (<code>numpy</code>)</h2>
 <p><span class="math inline">\(P^k\)</span></p>
-<div id="ca0b3746" class="cell" data-execution_count="2">
+<div id="78769347" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb3-2"><a></a>P <span class="op">=</span> np.array([[<span class="fl">0.5</span>, <span class="fl">0.4</span>, <span class="fl">0.1</span>], </span>
 <span id="cb3-3"><a></a>              [<span class="fl">0.3</span>, <span class="fl">0.4</span>, <span class="fl">0.3</span>], </span>
@@ -559,11 +559,11 @@ P = \begin{bmatrix}
 <span id="cb3-9"><a></a><span class="bu">print</span>(x1 <span class="op">@</span> P <span class="op">@</span> P <span class="op">@</span> P <span class="op">@</span> P <span class="op">@</span> P <span class="op">@</span> P <span class="op">@</span> P <span class="op">@</span> P <span class="op">@</span> P)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[0.32144092 0.46427961 0.21427948]
-[0.32142527 0.46428717 0.21428756]</code></pre>
+[0.32142527 0.46428717 0.21428755]</code></pre>
 </div>
 </div>
 <p>Eigenvector</p>
-<div id="62c1710c" class="cell" data-execution_count="3">
+<div id="45518504" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a>a <span class="op">=</span> np.linalg.eig(P.T).eigenvectors[:,<span class="dv">0</span>] <span class="co"># row eigenvector</span></span>
 <span id="cb5-2"><a></a>pi <span class="op">=</span> a<span class="op">/</span><span class="bu">sum</span>(a) <span class="co"># normalized</span></span>
 <span id="cb5-3"><a></a><span class="bu">print</span>(pi)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
