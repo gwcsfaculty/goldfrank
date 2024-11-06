@@ -121,22 +121,8 @@ MathJax = {
 </script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
-  <script>document.addEventListener("DOMContentLoaded", function () {
- var mathElements = document.getElementsByClassName("math");
- var macros = [];
- for (var i = 0; i < mathElements.length; i++) {
-  var texText = mathElements[i].firstChild;
-  if (mathElements[i].tagName == "SPAN") {
-   katex.render(texText.data, mathElements[i], {
-    displayMode: mathElements[i].classList.contains('display'),
-    throwOnError: false,
-    macros: macros,
-    fleqn: false
-   });
-}}});
-  </script>
-  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -344,8 +330,8 @@ Submitting
 </section>
 <section id="the-expr-class" class="level2">
 <h2 class="anchored" data-anchor-id="the-expr-class">The Expr Class</h2>
-<p>In the first part of this project, you will be working with the <code>Expr</code> class defined in <code>logic.py</code> to build propositional logic sentences. An <code>Expr</code> object is implemented as a tree with logical operators (<span class="math inline">\land</span>, <span class="math inline">\lor</span>, <span class="math inline">\neg</span>, <span class="math inline">\Rightarrow</span>, <span class="math inline">\iff</span>) at each node and with literals (A, B, C) at the leaves. Here is an example sentence and its representation:</p>
-<p>(A <span class="math inline">\land</span> B) <span class="math inline">\iff</span> (<span class="math inline">\neg</span> C <span class="math inline">\lor</span> D)</p>
+<p>In the first part of this project, you will be working with the <code>Expr</code> class defined in <code>logic.py</code> to build propositional logic sentences. An <code>Expr</code> object is implemented as a tree with logical operators (<span class="math inline">\(\land\)</span>, <span class="math inline">\(\lor\)</span>, <span class="math inline">\(\neg\)</span>, <span class="math inline">\(\Rightarrow\)</span>, <span class="math inline">\(\iff\)</span>) at each node and with literals (A, B, C) at the leaves. Here is an example sentence and its representation:</p>
+<p>(A <span class="math inline">\(\land\)</span> B) <span class="math inline">\(\iff\)</span> (<span class="math inline">\(\neg\)</span> C <span class="math inline">\(\lor\)</span> D)</p>
 <div style="max-width: 65%; margin: auto">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -358,13 +344,13 @@ Submitting
 <div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> Expr(<span class="st">'A'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The <code>Expr</code> class allows you to use Python operators to build up these expressions. The following are the available Python operators and their meanings:</p>
 <ul>
-<li><code>~A</code>: <span class="math inline">\neg</span> A</li>
-<li><code>A &amp; B</code>: A <span class="math inline">\land</span> B</li>
-<li><code>A | B</code>: A <span class="math inline">\lor</span> B</li>
-<li><code>A &gt;&gt; B</code>: A <span class="math inline">\Rightarrow</span> B</li>
-<li><code>A % B</code>: A <span class="math inline">\iff</span> B</li>
+<li><code>~A</code>: <span class="math inline">\(\neg\)</span> A</li>
+<li><code>A &amp; B</code>: A <span class="math inline">\(\land\)</span> B</li>
+<li><code>A | B</code>: A <span class="math inline">\(\lor\)</span> B</li>
+<li><code>A &gt;&gt; B</code>: A <span class="math inline">\(\Rightarrow\)</span> B</li>
+<li><code>A % B</code>: A <span class="math inline">\(\iff\)</span> B</li>
 </ul>
-<p>So to build the expression A <span class="math inline">\land</span> B, you would type this:</p>
+<p>So to build the expression A <span class="math inline">\(\land\)</span> B, you would type this:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> Expr(<span class="st">'A'</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> Expr(<span class="st">'B'</span>)</span>
@@ -428,16 +414,16 @@ Submitting
 <ul>
 <li><code>sentence1()</code>: Create one <code>Expr</code> instance that represents the proposition that the following three sentences are true. Do not do any logical simplification, just put them in a list in this order, and return the list conjoined. Each element of your list should correspond to each of the three sentences.</li>
 </ul>
-<p>A <span class="math inline">\lor</span> B</p>
-<p><span class="math inline">\neg</span> A <span class="math inline">\iff</span> (<span class="math inline">\neg</span> B <span class="math inline">\lor</span> C)</p>
-<p><span class="math inline">\neg</span> A <span class="math inline">\lor</span> <span class="math inline">\neg</span> B <span class="math inline">\lor</span> C</p>
+<p>A <span class="math inline">\(\lor\)</span> B</p>
+<p><span class="math inline">\(\neg\)</span> A <span class="math inline">\(\iff\)</span> (<span class="math inline">\(\neg\)</span> B <span class="math inline">\(\lor\)</span> C)</p>
+<p><span class="math inline">\(\neg\)</span> A <span class="math inline">\(\lor\)</span> <span class="math inline">\(\neg\)</span> B <span class="math inline">\(\lor\)</span> C</p>
 <ul>
 <li><code>sentence2()</code>: Create one <code>Expr</code> instance that represents the proposition that the following four sentences are true. Again, do not do any logical simplification, just put them in a list in this order, and return the list conjoined.</li>
 </ul>
-<p>C <span class="math inline">\iff</span> (B <span class="math inline">\lor</span> D)</p>
-<p>A <span class="math inline">\Rightarrow</span> (<span class="math inline">\neg</span> B <span class="math inline">\land</span> <span class="math inline">\neg</span> D)</p>
-<p><span class="math inline">\neg</span> (B <span class="math inline">\land</span> <span class="math inline">\neg</span> C) <span class="math inline">\Rightarrow</span> A</p>
-<p><span class="math inline">\neg</span> D <span class="math inline">\Rightarrow</span> C</p>
+<p>C <span class="math inline">\(\iff\)</span> (B <span class="math inline">\(\lor\)</span> D)</p>
+<p>A <span class="math inline">\(\Rightarrow\)</span> (<span class="math inline">\(\neg\)</span> B <span class="math inline">\(\land\)</span> <span class="math inline">\(\neg\)</span> D)</p>
+<p><span class="math inline">\(\neg\)</span> (B <span class="math inline">\(\land\)</span> <span class="math inline">\(\neg\)</span> C) <span class="math inline">\(\Rightarrow\)</span> A</p>
+<p><span class="math inline">\(\neg\)</span> D <span class="math inline">\(\Rightarrow\)</span> C</p>
 <ul>
 <li><code>sentence3()</code>: Using the <code>PropSymbolExpr</code> constructor, create symbols named <code>PacmanAlive_0</code>, <code>PacmanAlive_1</code>, <code>PacmanBorn_0</code>, and <code>PacmanKilled_0</code>. Hint: recall that <code>PropSymbolExpr(str, a1, a2, a3, a4, time=a5)</code> creates the expression <code>str[a1,a2,a3,a4]_a5</code> where <code>str</code> is a string; you should make some strings for this problem. Then, create one <code>Expr</code> instance which encodes the following three <em>English</em> sentences as propositional logic in this order without any simplification:</li>
 </ul>
@@ -457,7 +443,7 @@ Submitting
 <li><code>entails(premise, conclusion)</code>: Return True if and only if the <code>premise</code> entails the <code>conclusion</code>. Hint: <code>findModel</code> is helpful here; think about what must be unsatisfiable in order for the entails to be True, and what it means for something to be unstatisfiable.</li>
 <li><code>plTrueInverse(assignments, inverse_statement)</code>: Returns True if and only if the (not inverse_statement) is True given assignments.</li>
 </ul>
-<p>Before you continue, try instantiating a small sentence, e.g.&nbsp;A <span class="math inline">\land</span> B <span class="math inline">\Rightarrow</span> C, and call <code>to_cnf</code> on it. Inspect the output and make sure you understand it (refer to Russell &amp; Norvig, Section 7.5.2, for details on the algorithm <code>to_cnf</code> implements).</p>
+<p>Before you continue, try instantiating a small sentence, e.g.&nbsp;A <span class="math inline">\(\land\)</span> B <span class="math inline">\(\Rightarrow\)</span> C, and call <code>to_cnf</code> on it. Inspect the output and make sure you understand it (refer to Russell &amp; Norvig, Section 7.5.2, for details on the algorithm <code>to_cnf</code> implements).</p>
 <p>To test and debug your code run:</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> autograder.py <span class="at">-q</span> q1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
@@ -532,7 +518,7 @@ Submitting
 <p>You will need to code up the following sentences for your knowledge base, in the following pseudocode form:</p>
 <ul>
 <li><p>Add to KB: Initial knowledge: Pacman’s initial location at timestep 0</p></li>
-<li><p>for t in range(50). (Autograder will not test on layouts requiring <span class="math inline">\geq</span> 50 timesteps.)</p></li>
+<li><p>for t in range(50). (Autograder will not test on layouts requiring <span class="math inline">\(\geq\)</span> 50 timesteps.)</p></li>
 <li><p>Print time step; this is to see that the code is running and how far it is.</p></li>
 <li><p>Add to KB: Initial knowledge: Pacman can only be at <code>exactlyOne</code> of the locations in <code>non_wall_coords</code> at timestep t. This is similar to <code>pacphysicsAxioms</code>, but don’t use that method since we are using <code>non_wall_coors</code> when generating the list of possible locations in the first place (and <code>walls_grid</code> later).</p></li>
 <li><p>Is there a satisfying assignment for the variables given the knowledge base so far? Use <code>findModel</code> and pass in the Goal Assertion and <code>KB</code>.</p></li>
@@ -604,7 +590,7 @@ Submitting
 <li><p>If there exists a satisfying assignment where Pacman is at (x, y) at time t, add (x, y) to <code>possible_locations</code>.</p></li>
 <li><p>Add to KB: (x, y) locations where Pacman is provably at, at time t.</p></li>
 <li><p>Add to KB: (x, y) locations where Pacman is provably not at, at time t.</p></li>
-<li><p>Hint: check if the results of entails contradict each other (i.e.&nbsp;KB entails A and entails <span class="math inline">\neg</span> A). If they do, print feedback to help debugging.</p></li>
+<li><p>Hint: check if the results of entails contradict each other (i.e.&nbsp;KB entails A and entails <span class="math inline">\(\neg\)</span> A). If they do, print feedback to help debugging.</p></li>
 </ul>
 </section>
 <section id="find-provable-wall-locations-with-updated-kb" class="level3">
@@ -614,7 +600,7 @@ Submitting
 <li><p>Can we prove whether a wall is at (x, y)? Can we prove whether a wall is not at (x, y)? Use <code>entails</code> and the <code>KB</code>.</p></li>
 <li><p>Add to KB and update <code>known_map</code>: (x, y) locations where there is provably a wall.</p></li>
 <li><p>Add to KB and update <code>known_map</code>: (x, y) locations where there is provably not a wall.</p></li>
-<li><p>Hint: check if the results of entails contradict each other (i.e.&nbsp;KB entails A and entails <span class="math inline">\neg</span> A). If they do, print feedback to help debugging.</p></li>
+<li><p>Hint: check if the results of entails contradict each other (i.e.&nbsp;KB entails A and entails <span class="math inline">\(\neg\)</span> A). If they do, print feedback to help debugging.</p></li>
 </ul>
 <p>Observation: we add known Pacman locations and walls to KB so that we don’t have to redo the work of finding this on later timesteps; this is technically redundant information since we proved it using the KB in the first place.</p>
 </section>
@@ -626,7 +612,7 @@ Submitting
 <li><code>localization(problem, agent)</code>: Given an instance of <code>logicPlan.LocalizationProblem</code> and an instance of <code>logicAgents.LocalizationLogicAgent</code>, repeatedly yields for timesteps t between 0 and <code>agent.num_steps-1</code> a list of possible locations (x_i, y_i) at t: [(x_0_0, y_0_0), (x_1_0, y_1_0), …]. Note that you don’t need to worry about how generators work as that line is already written for you.</li>
 </ul>
 <p>For Pacman to make use of sensor information during localization, you will use two methods already implemented for you: <code>sensorAxioms</code> – i.e.&nbsp;</p>
-<p>Blocked[Direction]_t <span class="math inline">\iff</span> [(P[x_i, y_j]_t <span class="math inline">\land</span> WALL[x_i+dx, y_j+dy]) <span class="math inline">\lor</span> (P[x_i’, y_j’]_t <span class="math inline">\land</span> WALL[x_i’+dx, y_j’+dy]) … ]</p>
+<p>Blocked[Direction]_t <span class="math inline">\(\iff\)</span> [(P[x_i, y_j]_t <span class="math inline">\(\land\)</span> WALL[x_i+dx, y_j+dy]) <span class="math inline">\(\lor\)</span> (P[x_i’, y_j’]_t <span class="math inline">\(\land\)</span> WALL[x_i’+dx, y_j’+dy]) … ]</p>
 <p>– and <code>fourBitPerceptRules</code>, which translate the percepts at time t into logic sentences.</p>
 <p>Please implement the function according to our pseudocode:</p>
 <ul>

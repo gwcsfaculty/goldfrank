@@ -121,22 +121,8 @@ MathJax = {
 </script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
-  <script>document.addEventListener("DOMContentLoaded", function () {
- var mathElements = document.getElementsByClassName("math");
- var macros = [];
- for (var i = 0; i < mathElements.length; i++) {
-  var texText = mathElements[i].firstChild;
-  if (mathElements[i].tagName == "SPAN") {
-   katex.render(texText.data, mathElements[i], {
-    displayMode: mathElements[i].classList.contains('display'),
-    throwOnError: false,
-    macros: macros,
-    fleqn: false
-   });
-}}});
-  </script>
-  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -422,8 +408,8 @@ window.Quarto = {
 <p>The <code>AlphaBetaAgent</code> minimax values should be identical to the <code>MinimaxAgent</code> minimax values, although the actions it selects can vary because of different tie-breaking behavior. Again, the minimax values of the initial state in the <code>minimaxClassic</code> layout are 9, 8, 7 and -492 for depths 1, 2, 3 and 4 respectively.</p>
 <p><em>Grading</em>: Because we check your code to determine whether it explores the correct number of states, it is important that you perform alpha-beta pruning without reordering children. In other words, successor states should always be processed in the order returned by <code>GameState.getLegalActions</code>. Again, do not call <code>GameState.generateSuccessor</code> more than necessary.</p>
 <p><strong>You must not prune on equality in order to match the set of states explored by our autograder.</strong> (Indeed, alternatively, but incompatible with our autograder, would be to also allow for pruning on equality and invoke alpha-beta once on each child of the root node, but this will not match the autograder.)</p>
-<p>The pseudo-code below represents the algorithm you should implement for this question. It varies from the reference implementation of Alpha-Beta pruning in the text/lecture by capturing more than two agents with a scalar value <span class="math inline">v</span> (because the ghosts are all cooperating to defeat the Pacman).</p>
-<div class="pseudocode-container" data-no-end="false" data-comment-delimiter="//" data-pseudocode-index="1" data-alg-title="Algorithm" data-line-number="true" data-indent-size="1.2em" data-line-number-punc=":">
+<p>The pseudo-code below represents the algorithm you should implement for this question. It varies from the reference implementation of Alpha-Beta pruning in the text/lecture by capturing more than two agents with a scalar value <span class="math inline">\(v\)</span> (because the ghosts are all cooperating to defeat the Pacman).</p>
+<div class="pseudocode-container" data-line-number-punc=":" data-no-end="false" data-line-number="true" data-pseudocode-index="1" data-indent-size="1.2em" data-comment-delimiter="//" data-alg-title="Algorithm">
 <div class="pseudocode">
 \begin{algorithm} \caption{Alpha-Beta Pruning} \begin{algorithmic} \Function{Max-Value}{$state, \alpha, \beta$} \State $v \gets -\infty$ \State $successors \gets$ \textsc{Expand}($state$) \For{\textbf{each} $s$ \textbf{in} $successors$} \State $v \gets$ \Call{Max}{$v$, \textsc{Min-Value}($successor, \alpha, \beta$)} \If{$v &gt; \beta$} \State \textbf{return} $v$ \EndIf \State $\alpha \gets$ \Call{Max}{$\alpha, v$} \EndFor \State \textbf{return} $v$ \EndFunction \State \Function{Min-Value}{$state, \alpha, \beta$} \State $v \gets \infty$ \State $successors \gets$ \textsc{Expand}($state$) \For{\textbf{each} $s$ \textbf{in} $successors$} \State $v \gets$ \Call{Min}{$v$, \textsc{Value}($successor, \alpha, \beta$)} \If{$v &lt; \alpha$} \State \textbf{return} $v$ \EndIf \State $\beta \gets$ \Call{Min}{$\beta, v$} \EndFor \State \textbf{return} $v$ \EndFunction \State \Function{Value}{$state, \alpha, \beta$} \If{\Call{NextAgent}{$state$} is $Max$} \State \textbf{return} \Call{Max-Value}{$state, \alpha, \beta$} \EndIf \State \textbf{return} \Call{Min-Value}{$state, \alpha, \beta$} \EndFunction \end{algorithmic} \end{algorithm}
 </div>

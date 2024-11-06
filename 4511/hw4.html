@@ -121,22 +121,8 @@ MathJax = {
 </script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
-  <script>document.addEventListener("DOMContentLoaded", function () {
- var mathElements = document.getElementsByClassName("math");
- var macros = [];
- for (var i = 0; i < mathElements.length; i++) {
-  var texText = mathElements[i].firstChild;
-  if (mathElements[i].tagName == "SPAN") {
-   katex.render(texText.data, mathElements[i], {
-    displayMode: mathElements[i].classList.contains('display'),
-    throwOnError: false,
-    macros: macros,
-    fleqn: false
-   });
-}}});
-  </script>
-  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -312,8 +298,8 @@ Autograder Details
 <ul>
 <li>A factor is of the general form $f(X_1,…,X_m,y_1,…,y_n ∣ Z_1,…,Z_p,w_1,…,w_q) $.</li>
 <li>Lower case variables have already been assigned.</li>
-<li>For each possible assignment of values to the <span class="math inline">X_i​</span> and <span class="math inline">Z_j</span>​ variables, the factor stores a single number.</li>
-<li>The <span class="math inline">Z_j</span>​ and <span class="math inline">w_k</span>​ variables are conditioned while the <span class="math inline">X_i</span>​ and <span class="math inline">y_l</span>​ variables are unconditioned.</li>
+<li>For each possible assignment of values to the <span class="math inline">\(X_i​\)</span> and <span class="math inline">\(Z_j\)</span>​ variables, the factor stores a single number.</li>
+<li>The <span class="math inline">\(Z_j\)</span>​ and <span class="math inline">\(w_k\)</span>​ variables are conditioned while the <span class="math inline">\(X_i\)</span>​ and <span class="math inline">\(y_l\)</span>​ variables are unconditioned.</li>
 </ul></li>
 <li><p><strong>Conditional Probability Table (CPT):</strong> This is a factor satisfying two properties:</p>
 <ul>
@@ -321,9 +307,9 @@ Autograder Details
 <li>There is exactly one unconditioned variable.</li>
 <li>The Traffic Bayes Net stores the following CPTs:
 <ul>
-<li><span class="math inline">P(Raining)</span></li>
-<li><span class="math inline">P(Ballgame)</span></li>
-<li><span class="math inline">P(Traffic | Ballgame, Raining)</span></li>
+<li><span class="math inline">\(P(Raining)\)</span></li>
+<li><span class="math inline">\(P(Ballgame)\)</span></li>
+<li><span class="math inline">\(P(Traffic | Ballgame, Raining)\)</span></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -346,7 +332,7 @@ Autograder Details
 <ul>
 <li>Add all possible position tuples for these.</li>
 </ul></li>
-<li>Observations here are non-negative, equal to Manhattan distances of Pacman to ghosts <span class="math inline">\pm</span> noise.</li>
+<li>Observations here are non-negative, equal to Manhattan distances of Pacman to ghosts <span class="math inline">\(\pm\)</span> noise.</li>
 </ul>
 <p>To test and debug your code, run</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> autograder.py <span class="at">-q</span> q1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -356,8 +342,8 @@ Autograder Details
 <p>Implement the <code>joinFactors</code> function in <code>factorOperations.py</code>. It takes in a list of Factors and returns a new Factor whose probability entries are the product of the corresponding rows of the input Factors.</p>
 <p><code>joinFactors</code> can be used as the product rule/law of total probability:</p>
 <ul>
-<li>For example, if we have a factor of the form <span class="math inline">P(X∣Y)</span> and another factor of the form <span class="math inline">P(Y)</span>, then joining these factors will yield <span class="math inline">P(X,Y)</span>.</li>
-<li><code>joinFactors</code> allows us to incorporate probabilities for conditioned variables (in this case, <span class="math inline">Y</span>).</li>
+<li>For example, if we have a factor of the form <span class="math inline">\(P(X∣Y)\)</span> and another factor of the form <span class="math inline">\(P(Y)\)</span>, then joining these factors will yield <span class="math inline">\(P(X,Y)\)</span>.</li>
+<li><code>joinFactors</code> allows us to incorporate probabilities for conditioned variables (in this case, <span class="math inline">\(Y\)</span>).</li>
 <li>However, you should not assume that <code>joinFactors</code> is called on probability tables.
 <ul>
 <li>It is possible to call joinFactors on Factors whose rows do not sum to 1.</li>
@@ -382,10 +368,10 @@ Hints
 <p>Your <code>joinFactors</code> function should return a new <code>Factor</code>.</p>
 <p>Here are some examples of what <code>joinFactors</code> can do:</p>
 <ul>
-<li><span class="math inline">\texttt{joinFactors}(P(X∣Y),P(Y)) \rightarrow P(X,Y)</span></li>
-<li><span class="math inline">\texttt{joinFactors}(P(V,W∣X,Y,Z),P(X,Y∣Z)) \rightarrow P(V,W,X,Y∣Z)</span></li>
-<li><span class="math inline">\texttt{joinFactors}(P(X∣Y,Z),P(Y))=P(X,Y∣Z)</span></li>
-<li><span class="math inline">\texttt{joinFactors}(P(V∣W),P(X∣Y),P(Z))=P(V,X,Z∣W,Y)</span></li>
+<li><span class="math inline">\(\texttt{joinFactors}(P(X∣Y),P(Y)) \rightarrow P(X,Y)\)</span></li>
+<li><span class="math inline">\(\texttt{joinFactors}(P(V,W∣X,Y,Z),P(X,Y∣Z)) \rightarrow P(V,W,X,Y∣Z)\)</span></li>
+<li><span class="math inline">\(\texttt{joinFactors}(P(X∣Y,Z),P(Y))=P(X,Y∣Z)\)</span></li>
+<li><span class="math inline">\(\texttt{joinFactors}(P(V∣W),P(X∣Y),P(Z))=P(V,X,Z∣W,Y)\)</span></li>
 </ul>
 <p>For a general <code>joinFactors</code> operation, which variables are unconditioned in the returned <code>Factor</code>? Which variables are conditioned?</p>
 <ul>
@@ -424,8 +410,8 @@ Hints
 <p>Your eliminate should return a new <code>Factor</code>.</p>
 <p><code>eliminate</code> can be used to marginalize variables from probability tables. For example:</p>
 <ul>
-<li><span class="math inline">\texttt{eliminate}(P(X,Y∣Z),Y)=P(X∣Z)</span></li>
-<li><span class="math inline">\texttt{eliminate}(P(X,Y∣Z),X)=P(Y∣Z)</span></li>
+<li><span class="math inline">\(\texttt{eliminate}(P(X,Y∣Z),Y)=P(X∣Z)\)</span></li>
+<li><span class="math inline">\(\texttt{eliminate}(P(X,Y∣Z),X)=P(Y∣Z)\)</span></li>
 </ul>
 <p>For a general eliminate operation, which variables are unconditioned in the returned Factor? Which variables are conditioned?</p>
 <p>Remember that <code>Factors</code> store the <code>variableDomainsDict</code> of the original <code>BayesNet</code>, and not only the unconditioned and conditioned variables that they use. As a result, the returned <code>Factor</code> should have the same <code>variableDomainsDict</code> as the input <code>Factor</code>.</p>
@@ -480,8 +466,8 @@ Hints
 <li><p>Implement the <code>getObservationProb</code> method in the <code>InferenceModule</code> base class in <code>inference.py</code>.</p>
 <ul>
 <li>This method takes in an observation (which is a noisy reading of the distance to the ghost), Pacman’s position, the ghost’s position, and the position of the ghost’s jail.</li>
-<li>The method returns the probability of the noisy distance reading given Pacman’s position and the ghost’s position. In other words, we want to return <span class="math inline">P(noisyDistance∣pacmanPosition, ghostPosition)</span>.</li>
-<li>The distance sensor has a probability distribution over distance readings given the true distance from Pacman to the ghost. This distribution is modeled by the function <code>busters.getObservationProbability(noisyDistance, trueDistance)</code>, which returns <span class="math inline">P(noisyDistance∣trueDistance)</span> and is provided for you. You should use this function to help you solve the problem, and use the provided <code>manhattanDistance</code> function to find the distance between Pacman’s location and the ghost’s location.</li>
+<li>The method returns the probability of the noisy distance reading given Pacman’s position and the ghost’s position. In other words, we want to return <span class="math inline">\(P(noisyDistance∣pacmanPosition, ghostPosition)\)</span>.</li>
+<li>The distance sensor has a probability distribution over distance readings given the true distance from Pacman to the ghost. This distribution is modeled by the function <code>busters.getObservationProbability(noisyDistance, trueDistance)</code>, which returns <span class="math inline">\(P(noisyDistance∣trueDistance)\)</span> and is provided for you. You should use this function to help you solve the problem, and use the provided <code>manhattanDistance</code> function to find the distance between Pacman’s location and the ghost’s location.</li>
 <li>There is the special case of jail that we have to handle as well. Specifically, when we capture a ghost and send it to the jail location, our distance sensor deterministically returns <code>None</code>, and nothing else (observation = <code>None</code> if and only if ghost is in jail). One consequence of this is that if the ghost’s position is the jail position, then the observation is <code>None</code> with probability 1, and everything else with probability 0. Make sure you handle this special case in your implementation; we effectively have a different set of rules for whenever ghost is in jail, as well as whenever observation is <code>None</code>.</li>
 </ul></li>
 </ol>
@@ -531,7 +517,7 @@ Tips
 <p>Where <code>oldPos</code> refers to the previous ghost position. <code>newPosDist</code> is a <code>DiscreteDistribution</code> object, where for each position <code>p</code> in <code>self.allPositions</code>, <code>newPosDist[p]</code> is the probability that the ghost is at position <code>p</code> at time <code>t + 1</code>, given that the ghost is at position <code>oldPos</code> at time <code>t</code>. Note that this call can be fairly expensive, so if your code is timing out, one thing to think about is whether or not you can reduce the number of calls to <code>self.getPositionDistribution</code>.</p>
 <p>Since Pacman is not observing the ghost’s actions, these actions will not impact Pacman’s beliefs. Over time, Pacman’s beliefs will come to reflect places on the board where he believes ghosts are most likely to be given the geometry of the board and ghosts’ possible legal moves, which Pacman already knows.</p>
 <p>For the tests in this question we will sometimes use a ghost with random movements and other times we will use the <code>GoSouthGhost</code>. This ghost tends to move south so over time, and without any observations, Pacman’s belief distribution should begin to focus around the bottom of the board. To see which ghost is used for each test case you can look in the <code>.test</code> files.</p>
-<p>The below diagram shows what the Bayes Net/ Hidden Markov model for what is happening.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> Still, you should rely on the above description for implementation because some parts are implemented for you, i.e.&nbsp;<code>getPositionDistribution</code> is abstracted to be <span class="math inline">P(G_{t+1}∣gameState,G{t})</span>.</p>
+<p>The below diagram shows what the Bayes Net/ Hidden Markov model for what is happening.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> Still, you should rely on the above description for implementation because some parts are implemented for you, i.e.&nbsp;<code>getPositionDistribution</code> is abstracted to be <span class="math inline">\(P(G_{t+1}∣gameState,G{t})\)</span>.</p>
 <div class="no-row-height column-margin column-container"><div id="fn2"><p><sup>2</sup>&nbsp;Only one Ghost is shown– each ghost is independent, given the Pacman position.</p></div></div><div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="moreBayesNet.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%"></p>
