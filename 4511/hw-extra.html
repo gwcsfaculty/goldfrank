@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Goldfrank Faculty Web Site - CSCI 4511/6511 Fall 2024</title>
+<title>Goldfrank Faculty Web Site - Extra Credit Homework</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -87,6 +87,35 @@ MathJax = {
 </script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -122,7 +151,7 @@ MathJax = {
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="../4511/index.html" aria-current="page"> 
+    <a class="nav-link" href="../4511/index.html"> 
 <span class="menu-text">AI Algorithms Course</span></a>
   </li>  
 </ul>
@@ -141,9 +170,19 @@ MathJax = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#notes" id="toc-notes" class="nav-link active" data-scroll-target="#notes">Notes</a></li>
-  <li><a href="#homework" id="toc-homework" class="nav-link" data-scroll-target="#homework">Homework</a></li>
-  <li><a href="#exam-prep" id="toc-exam-prep" class="nav-link" data-scroll-target="#exam-prep">Exam Prep</a></li>
+  <li><a href="#q1---carls-diner-35-pts" id="toc-q1---carls-diner-35-pts" class="nav-link active" data-scroll-target="#q1---carls-diner-35-pts">Q1 - Carl’s Diner (35 pts)</a>
+  <ul class="collapse">
+  <li><a href="#customers" id="toc-customers" class="nav-link" data-scroll-target="#customers">Customers</a></li>
+  <li><a href="#coffee-consumption" id="toc-coffee-consumption" class="nav-link" data-scroll-target="#coffee-consumption">Coffee Consumption</a></li>
+  <li><a href="#coffee-roasting" id="toc-coffee-roasting" class="nav-link" data-scroll-target="#coffee-roasting">Coffee Roasting</a></li>
+  <li><a href="#coffee-inventory" id="toc-coffee-inventory" class="nav-link" data-scroll-target="#coffee-inventory">Coffee Inventory</a></li>
+  <li><a href="#observations" id="toc-observations" class="nav-link" data-scroll-target="#observations">Observations</a></li>
+  <li><a href="#outcomes" id="toc-outcomes" class="nav-link" data-scroll-target="#outcomes">Outcomes</a></li>
+  <li><a href="#decisions" id="toc-decisions" class="nav-link" data-scroll-target="#decisions">Decisions</a></li>
+  <li><a href="#simplification" id="toc-simplification" class="nav-link" data-scroll-target="#simplification">Simplification</a></li>
+  </ul></li>
+  <li><a href="#q2---feedback-5-pts" id="toc-q2---feedback-5-pts" class="nav-link" data-scroll-target="#q2---feedback-5-pts">Q2 - Feedback (5 pts)</a></li>
+  <li><a href="#how-to-submit" id="toc-how-to-submit" class="nav-link" data-scroll-target="#how-to-submit">How To Submit</a></li>
   </ul>
 </nav>
     </div>
@@ -152,7 +191,8 @@ MathJax = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">CSCI 4511/6511 Fall 2024</h1>
+<h1 class="title">Extra Credit Homework</h1>
+<p class="subtitle lead">☕</p>
 </div>
 
 
@@ -169,41 +209,65 @@ MathJax = {
 </header>
 
 
-<p><a href="syllabus.pdf">Syllabus</a></p>
-<section id="notes" class="level2">
-<h2 class="anchored" data-anchor-id="notes">Notes</h2>
+<p><em>This assignment is individual effort; adhere to the syllabus collaboration policy and ask me if you have any questions.</em></p>
+<p>This is an extra credit homework assignment. It will be scored out of 40. Any points you earn on it will be applied to your lowest homework grade, and can cause that grade to exceed 100.</p>
+<section id="q1---carls-diner-35-pts" class="level1">
+<h1>Q1 - Carl’s Diner (35 pts)</h1>
+<p>In South Cleric, AZ, Carl’s Diner serves the best coffee in town. The coffee is brewed at the nearby Ignatius Coffee company in Cleric. Carl hopes to optimize his coffee purchasing.</p>
+<section id="customers" class="level3">
+<h3 class="anchored" data-anchor-id="customers">Customers</h3>
+<p>Carl gets about 400 customers who want coffee per day, and he has noticed that the number of customers on each day <span class="math inline">\(c_t\)</span> seems to be related to the number of customers on the previous day, <span class="math inline">\(c_{t-1}\)</span></p>
+<p>Specifically, the number of customers on each day is given by a Poisson distribution:</p>
+<p><span class="math inline">\(c_t \sim Poisson(\lambda=100+\frac{3*c_{t-1}}{4})\)</span></p>
+</section>
+<section id="coffee-consumption" class="level3">
+<h3 class="anchored" data-anchor-id="coffee-consumption">Coffee Consumption</h3>
+<p>Carl purchases coffee by the bag. Each bag provides enough coffee for 25 customers.</p>
+</section>
+<section id="coffee-roasting" class="level3">
+<h3 class="anchored" data-anchor-id="coffee-roasting">Coffee Roasting</h3>
+<p>Coffee is roasted by Ignatius every day, to order. Carl takes delivery of coffee bags and tests the coffee to see if it meets his standards. 5% of coffee bags received from Ignatius do not meet Carl’s standards.</p>
+</section>
+<section id="coffee-inventory" class="level3">
+<h3 class="anchored" data-anchor-id="coffee-inventory">Coffee Inventory</h3>
 <ul>
-<li><a href="../4511/01/01.html">Lecture 1 - 28 Aug</a></li>
-<li><a href="../4511/02/02.html">Lecture 2 - 04 Sep</a></li>
-<li><a href="../4511/03/03.html">Lecture 3 - 11 Sep</a> <a href="03/03.pdf">PDF</a></li>
-<li><a href="../4511/04/04.html">Lecture 4 - 18 Sep</a> <a href="04/04.pdf">PDF</a></li>
-<li><a href="../4511/05/05.html">Lecture 5 - 25 Sep</a> <a href="05/05.pdf">PDF</a></li>
-<li><a href="../4511/06/06.html">Lecture 6 - 02 Oct</a> <a href="06/06.pdf">PDF</a></li>
-<li><a href="../4511/07/07.html">Lecture 7 - 09 Oct</a> <a href="07/07.pdf">PDF</a></li>
-<li><a href="../4511/08a/ParticleFilters.html">Lecture 8 - 23 Oct</a> (Julia Notebook)</li>
-<li><a href="../4511/09/09.html">Lecture 9 - 30 Oct</a></li>
-<li><a href="../4511/10/MDPs.html">Lecture 10 - 6 Nov Oct</a> (Python Notebook) <a href="10/10.pdf">Lecture PDF</a></li>
-<li><a href="11/11.pdf">Lecture 11 - 13 Nov Oct</a></li>
+<li>Once a bag of coffee is opened, the whole bag is used that day.</li>
+<li>Unused coffee doesn’t last forever. For each bag of coffee left over at the end of the day, there is a 25% chance the coffee will be stale the next day.</li>
 </ul>
 </section>
-<section id="homework" class="level2">
-<h2 class="anchored" data-anchor-id="homework">Homework</h2>
+<section id="observations" class="level3">
+<h3 class="anchored" data-anchor-id="observations">Observations</h3>
+<p>Carl observes exactly how many customers came into the diner during the day, and knows exactly how many bags of coffee are left over at the end of the day.</p>
+</section>
+<section id="outcomes" class="level3">
+<h3 class="anchored" data-anchor-id="outcomes">Outcomes</h3>
 <ul>
-<li><p><a href="../4511/hw1.html">Homework One</a></p></li>
-<li><p><a href="../4511/hw2.html">Homework Two</a></p></li>
-<li><p><a href="../4511/hw3.html">Homework Three</a></p></li>
-<li><p><a href="../4511/hw4.html">Homework Four</a></p></li>
-<li><p><a href="../4511/project.html">Project Guidelines</a></p></li>
-<li><p><a href="../4511/hw-extra.html">Extra Credit</a></p></li>
+<li>Each bag of coffee costs Carl $10.</li>
+<li>Carl makes $2 off of every cup of coffee sold</li>
+<li>Carl values every unsatisfied customer at $-1
+<ul>
+<li>An unsatisfied customer is any customer who wants coffee and can’t get it</li>
+</ul></li>
 </ul>
 </section>
-<section id="exam-prep" class="level2">
-<h2 class="anchored" data-anchor-id="exam-prep">Exam Prep</h2>
-<ul>
-<li><a href="examprep/ep1.pdf">One</a></li>
-<li><a href="examprep/ep2.pdf">Two</a></li>
-<li><a href="examprep/ep3.pdf">Three</a></li>
-</ul>
+<section id="decisions" class="level3">
+<h3 class="anchored" data-anchor-id="decisions">Decisions</h3>
+<p>At the end of each day, after the last customer, Carl has to decide how much coffee to order for the following day. Ignatius will roast it overnight, and deliver it before Carl’s Diner opens the next morning.</p>
+<p><strong>Frame this problem as a Markov Decision Process and determine the optimal policy by which Carl orders coffee at the end of each day.</strong></p>
+<p>Include in your writeup how you framed the problem, and include whatever code you used to solve the problem.</p>
+</section>
+<section id="simplification" class="level3">
+<h3 class="anchored" data-anchor-id="simplification">Simplification</h3>
+<p>You should be able to solve the full problem, but if you can’t figure out how, you could simplify the problem and solve the simplified problem. Depending on the level of simplification (reduction in state space), you’ll get some partial credit.</p>
+</section>
+</section>
+<section id="q2---feedback-5-pts" class="level1">
+<h1>Q2 - Feedback (5 pts)</h1>
+<p>For <em>one</em> homework question (from Homeworks 1-4), identify an area where the homework assignment was unclear, and write an edited description of the problem statement (can be just a few sentences/bullet points) that you think would make the problem more clear. This could also include additional boilerplate Python code.</p>
+</section>
+<section id="how-to-submit" class="level1">
+<h1>How To Submit</h1>
+<p>Submit as a <code>.tar</code> with a single PDF writeup, plus any additional Python code as <code>.py</code> files. You can submit the final weights as <code>.csv</code> or <code>.json</code>.</p>
 
 
 </section>
