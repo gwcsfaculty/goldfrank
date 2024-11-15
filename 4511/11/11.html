@@ -589,8 +589,8 @@ Joe Goldfrank
 <p>Action-value function:</p>
 <p><span class="math inline">\(Q(s, a) = R(s, a) + \gamma \sum \limits_{s'} T(s' | s, a) U(s')\)</span></p>
 <p>we don’t know <span class="math inline">\(T\)</span>:</p>
-<p><span class="math inline">\(U^\pi(s) = E_\pi \left[ r_t + \gamma r_{t+1} + \gamma r_{t+2} + \gamma r_{t+3} + ...|s \right]\)</span></p>
-<p><span class="math inline">\(Q(s, a) = E_\pi \left[ r_t + \gamma r_{t+1} + \gamma r_{t+2} + \gamma r_{t+3} + ...|s,a \right]\)</span></p>
+<p><span class="math inline">\(U^\pi(s) = E_\pi \left[ r_t + \gamma r_{t+1} + \gamma^2 r_{t+2} + \gamma^3 r_{t+3} + ...|s \right]\)</span></p>
+<p><span class="math inline">\(Q(s, a) = E_\pi \left[ r_t + \gamma r_{t+1} + \gamma^2 r_{t+2} + \gamma^3 r_{t+3} + ...|s,a \right]\)</span></p>
 </section>
 <section id="temporal-difference-td-learning" class="slide level2">
 <h2>Temporal Difference (TD) Learning</h2>
