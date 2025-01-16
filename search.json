@@ -7,6 +7,174 @@
     "text": "Undergraduate\nIf I am your undergraduate advisor, email and office hours are the most straightforward ways to discuss your questions.\n\n\nGraduate\nI am not currently soliciting applications, however any graduate student interested in collaborating is welcome to send me a proposal. It does not have to be particularly formal, however:\n\nTell me what questions you are interested in answering\nShow me what other work has been done in this avenue\nDiscuss a plan for executing your project\n\nI am fond of the Heilmeier Catechism, although it is not a perfect match for many kinds of academic research questions."
   },
   {
+    "objectID": "4511/syllabus.html",
+    "href": "4511/syllabus.html",
+    "title": "Syllabus",
+    "section": "",
+    "text": "8 January 2025\n\n\n\n\n\n8 Jan: Original version of syllabus."
+  },
+  {
+    "objectID": "4511/syllabus.html#scope",
+    "href": "4511/syllabus.html#scope",
+    "title": "Syllabus",
+    "section": "Scope",
+    "text": "Scope\nRepresentation and space search; heuristic search; predicate calculus; knowledge representation and knowledge engineering for expert systems; rule-based, hybrid, and O-O systems; semantic nets, frames, and natural language; theorem provers; planning, learning, neural nets; use of AI languages. Knowledge representation and reasoning, propositional logic and predicate calculus. Logic programming; search, game trees, backtracking; planning."
+  },
+  {
+    "objectID": "4511/syllabus.html#prerequisites",
+    "href": "4511/syllabus.html#prerequisites",
+    "title": "Syllabus",
+    "section": "Prerequisites",
+    "text": "Prerequisites\n4511: CSCI 3212\n6511: CSCI 6212\nUndergraduate-level proficiency in object-oriented programming is assumed. Linear algebra and probability are useful, but fundamentals will be reviewed. Python is the programming language for this course."
+  },
+  {
+    "objectID": "4511/syllabus.html#course-learning-outcomes",
+    "href": "4511/syllabus.html#course-learning-outcomes",
+    "title": "Syllabus",
+    "section": "Course Learning Outcomes",
+    "text": "Course Learning Outcomes\n\nDemonstrate theoretical understanding of the design of decision-making software agents\nDescribe tractability of decision-making algorithms\nExpress decision problems as probability (Markov) models\nImplement decision-making agents for solving problems in continuous and discrete state spaces"
+  },
+  {
+    "objectID": "4511/syllabus.html#required-textbook",
+    "href": "4511/syllabus.html#required-textbook",
+    "title": "Syllabus",
+    "section": "Required Textbook",
+    "text": "Required Textbook\nStuart J. Russell and Peter Norvig. Artificial Intelligence : A Modern Approach. 4th edition, Pearson, 2020.1\n1 Several copes of this book will be on hold at the GWU Library. The international edition, which is much cheaper than the US edition, has the same contents."
+  },
+  {
+    "objectID": "4511/syllabus.html#supplemental-textbooks",
+    "href": "4511/syllabus.html#supplemental-textbooks",
+    "title": "Syllabus",
+    "section": "Supplemental Textbooks",
+    "text": "Supplemental Textbooks\nMykel J. Kochenderfer, Tim A. Wheeler, and Kyle H. Wray. Algorithms for Decision Making MIT Press, 2022\nRichard S. Sutton and Andrew G. Barto. Reinforcement Learning: An Introduction MIT Press, 2018"
+  },
+  {
+    "objectID": "4511/syllabus.html#instructor",
+    "href": "4511/syllabus.html#instructor",
+    "title": "Syllabus",
+    "section": "Instructor",
+    "text": "Instructor\n\nProf. Joseph Goldfrank joe.goldfrank@gwu.edu"
+  },
+  {
+    "objectID": "4511/syllabus.html#office-hours",
+    "href": "4511/syllabus.html#office-hours",
+    "title": "Syllabus",
+    "section": "Office Hours",
+    "text": "Office Hours\nM/W/F Afternoons: Detailed Schedule\n\nGrading Server & Autograding\nThis course will use the GWU Computer Science grading and submission server. You will receive test cases to run your code against at home. If you pass the test cases at home, you will pass them when I grade your work."
+  },
+  {
+    "objectID": "4511/syllabus.html#schedule",
+    "href": "4511/syllabus.html#schedule",
+    "title": "Syllabus",
+    "section": "Schedule",
+    "text": "Schedule\nReadings are from Russell & Norvig unless otherwise noted.\n\n\n\nDate\nSubject\nReading\nAssessments (Due)\n\n\n\n\n17 Jan\nRational Agents, Python\nCh. 2; Python Docs 4 and 9\n\n\n\n24 Jan\nSearch & Heuristics\nCh. 3, 4\n\n\n\n31 Jan\nGames\nCh. 5\n\n\n\n7 Feb\nCSPs\nCh. 6\nHW 1 (7 Feb)\n\n\n14 Feb\nLogic\nCh. 7\n\n\n\n21 Feb\nProbability & Linear Algebra Review\nCh. 13\nHW 2 (21 Feb)\n\n\n28 Feb\nUtility Theory & Exam Review\nCh. 16\n\n\n\n7 Mar\nMidterm Examination\n\nHW 3 (3 Mar)\n\n\n14 Mar\nSpring Break\n\n\n\n\n21 Mar\nState Uncertainty\nKochenderfer Ch. 19\n\n\n\n28 Mar\nMarkov Decision Processes\nCh. 17\n\n\n\n4 Apr\nPartially-Observable MDPs\nKochenderfer Ch. 20, 9.6\nHW 4 (4 Apr)\n\n\n11 Apr\nReinforcement Learning\nCh. 22\nProject Scope (6 Apr)\n\n\n18 Apr\nExam Review\n\nProject Milestone 1 (18 Apr)\n\n\n25 Apr\nFinal Examination\n\nProject Milestone 2 (25 Apr)\n\n\n6 May\n(No Scheduled Lecture)\n\nProject Due\n\n\n\n\nThis schedule of topics is approximate and I may deviate from it. No homework assignment will be released with less than two weeks’ time to complete it. No due dates will be made earlier. No exams will be rescheduled unless required by the University."
+  },
+  {
+    "objectID": "4511/syllabus.html#examinations-assessments",
+    "href": "4511/syllabus.html#examinations-assessments",
+    "title": "Syllabus",
+    "section": "Examinations & Assessments",
+    "text": "Examinations & Assessments\nThere will be four homework assignments, one project, one midterm exam, and one final exam. You must acknowledge the schedule of deliverables and agree to be present for both exams as part of the first homework assignment.\nThere may be extra credit opportunities in addition to what is listed here, some of which will be offered during class meetings. Any work you turn in for credit may be present on examinations."
+  },
+  {
+    "objectID": "4511/syllabus.html#grading",
+    "href": "4511/syllabus.html#grading",
+    "title": "Syllabus",
+    "section": "Grading",
+    "text": "Grading\n\nThe final exam grade replaces the midterm exam grade, if the final exam grade is higher\nThe lowest homework is weighted 50% (i.e., it will be worth less than the other homework assignments).\n\n\nGrading Scale\nA numerical average will be calculated as follows:\n\nHomework: 40%\nProject: 20%\nExams: 40%\n\nThe following grading scale will be applied at the end of the semester to calculate letter grades:\n\n\n\nNumerical Average\nLetter Grade\n\n\n\n\n90-100\nA\n\n\n85-89\nA-\n\n\n80-84\nB+\n\n\n75-79\nB\n\n\n70-74\nB-\n\n\n65-69\nC+\n\n\n60-64\nC\n\n\n55-59\nC-\n\n\n45-54\nD\n\n\n0-44\nF\n\n\n\nGrades are rounded to the nearest integer, e.g., 0.4 rounds to 0 and 0.5 rounds to 1. Grades of D are only for CSCI 4511. Any grade \\(\\leq\\) 54 in CSCI 6511 is an F."
+  },
+  {
+    "objectID": "4511/syllabus.html#conduct",
+    "href": "4511/syllabus.html#conduct",
+    "title": "Syllabus",
+    "section": "Conduct",
+    "text": "Conduct\nCredit (up to 10% of your final grade) for can be lost for actions that disrespect other students, such as being disruptive in class, asking for complete solutions during office hours, or requesting grading accommodations other than those outlined in this syllabus.\nThe environment of this class will be respectful of age, race, ethnicity, country of origin, language, religion, spiritual practice, sexual orientation, gender identity or expression, introversion/extroversion personality dimensions, and socioeconomic and mental/physical status. I am committed to supporting all members of the class in fostering a respectful, charitable, and professional academic environment. You must also do your part to make this course inclusive."
+  },
+  {
+    "objectID": "4511/syllabus.html#late-work",
+    "href": "4511/syllabus.html#late-work",
+    "title": "Syllabus",
+    "section": "Late Work",
+    "text": "Late Work\nLate work is not accepted, with the following exceptions:\n\nEach student will have eight “late days” to use on homework assignments. No more than three days can be used on any one assignment. These late days intentionally accommodate both time management difficulties and brief illnesses. I recommend saving a few late days for brief unexpected disruptions in your schedule. You can’t use late days for the project.\nExtensions will be granted should there arise circumstances beyond your control that substantially impede your ability to complete coursework. Notify me as soon as feasible in these cases. Examples of such circumstances include (but are not limited to) long-term illness and loss of housing. I will request documentation of such circumstances through your dean."
+  },
+  {
+    "objectID": "4511/syllabus.html#attendance",
+    "href": "4511/syllabus.html#attendance",
+    "title": "Syllabus",
+    "section": "Attendance",
+    "text": "Attendance\nI do not take attendance, but I strongly encourage you to attend. Lectures will not be videorecorded or audiorecorded, but lecture notes will be published. You are responsible for knowing the content of each lecture.\nFor long-term disruptions in schedule such as serious illness or loss of housing, I will make accommodations after being provided with documentation through the Office of Student Support or from your Dean. For illnesses impacting exams, I will also require such documentation.\nAbsence to represent GWU in an official capacity (such as at an athletic event) is always excused, however such excused absence will require confirmation from a faculty sponsor or athletic official, and must be arranged in advance."
+  },
+  {
+    "objectID": "4511/syllabus.html#time-commitment",
+    "href": "4511/syllabus.html#time-commitment",
+    "title": "Syllabus",
+    "section": "Time Commitment",
+    "text": "Time Commitment\nThere is one 150-minute class meeting per week. Students are expected to spend at least 5 hours per week independently learning outside of class meetings for this course. As preparation level for this course varies. It is possible that you will need to commit substantially more– or substantially less– than 5 hours per week."
+  },
+  {
+    "objectID": "4511/syllabus.html#collaboration-policy",
+    "href": "4511/syllabus.html#collaboration-policy",
+    "title": "Syllabus",
+    "section": "Collaboration Policy",
+    "text": "Collaboration Policy\nWrite your own solutions to homework assignments by yourself. You must acknowledge any discussions you had with others in your writeup for each homework. Don’t let other people copy your solutions, and don’t copy solutions from other people, from websites, or from other sources.\nThe challenge from this course is largely in understanding how decision-making algorithms work and how/when to apply them to problems. Discussing these concepts with others is always permitted, and is strongly encouraged. Likewise, helping a peer resolve a bug is permitted.\nIf you feel like a discussion with any person (including the professor) helped you answer a homework problem, include their name(s) in your comments at the start of that problem, and near the part you got help on. In the event your collaboration exceeds what is permitted, any penalty will be substantially reduced (or waived) if such a thing is an honest mistake as evidenced by these comments. If you aren’t sure: ask.\nIf I discover at any point during or after the semester that you have violated the collaboration policy, you will be formally referred to the Office of Student Rights and Responsibilities for Academic Dishonesty. In addition to failing the assignment, your final grade in the class will be reduced by a full letter grade. This policy is not a game. Do not attempt to circumvent it.\n\nGenerative Artificial Intelligence / Large Language Models\nCopying solutions for homework assignments from an AI assistant or Large Language Model such as (but not limited to) ChatGPT, Copilot, or Claude will be treated the same as copying it from another person or from any other online resource. It is not permitted on any homework assignment, and it is considered cheating.\n\n\nYou Can Search Your Errors\nCopying code snippets from Stack Overflow, language documentation, or similar is permitted, however please indicate when you have done this with a comment in your code citing the resource. If you have become accustomed to using LLMs for these searches, I expect you to verify the answers with language/library documentation and cite the documentation.\n\n\n\n\n\n\n\nUniversity Policies\n\n\n\n\n\n\nAcademic Integrity Code\nAcademic integrity is an essential part of the educational process, and all members of the GW community take these matters very seriously. As the instructor of record for this course, my role is to provide clear expectations and uphold them in all assessments. Violations of academic integrity occur when students fail to cite research sources properly, engage in unauthorized collaboration, falsify data, and otherwise violate the Code of Academic Integrity. If you have any questions about whether or not particular academic practices or resources are permitted, you should ask me for clarification. If you are reported for an academic integrity violation, you should contact the Office of Student Rights and Responsibilities (SRR) to learn more about your rights and options in the process. Consequences can range from failure of assignment to expulsion from the university and may include a transcript notation. For more information, please refer to the SRR website, email rights@gwu.edu, or call 202-994-6757.\n\n\nUniversity Policy on Observance of Religious Holidays\nStudents must notify faculty during the first week of the semester in which they are enrolled in the course, or as early as possible, but no later than three weeks prior to the absence, of their intention to be absent from class on their day(s) of religious observance. If the holiday falls within the first three weeks of class, the student must inform faculty in the first week of the semester. For details and policy, see “Religious Holidays” at Provost Policies, Procedures, and Guidelines.\n\n\nUse of Electronic Course Materials and Class Recordings\nStudents are encouraged to use electronic course materials, including recorded class sessions, for private personal use in connection with their academic program of study. Electronic course materials and recorded class sessions should not be shared or used for non-course related purposes unless express permission has been granted by the instructor. Students who impermissibly share any electronic course materials are subject to discipline under the Student Code of Conduct. Please contact the instructor if you have questions regarding what constitutes permissible or impermissible use of electronic course materials and/or recorded class sessions. Please contact Disability Support Services at https://disabilitysupport.gwu.edu if you have questions or need assistance in accessing electronic course materials.\n\n\nAcademic Support\n\nWriting Center\nGW’s Writing Center cultivates confident writers in the University community by facilitating collaborative, critical, and inclusive conversations at all stages of the writing process. Working alongside peer mentors, writers develop strategies to write independently in academic and public settings. Appointments can be booked online at https://gwu.mywconline.\n\n\nAcademic Commons\nAcademic Commons provides tutoring and other academic support resources to students in many courses. Students can schedule virtual one-on-one appointments or attend virtual drop-in sessions. Students may schedule an appointment, review the tutoring schedule, access other academic support resources, or obtain assistance at https://academiccommons.gwu.edu.\n\n\n\nSupport for Students Outside the Classroom\n\nDisability Support Services (DSS)\nTelephone: 202-994-8250\nAny student who may need an accommodation based on the potential impact of a disability should contact Disability Support Services to establish eligibility and to coordinate reasonable accommodations.\n\n\nCounseling and Psychological Services\nTelephone: 202-994-5300\nGW’s Colonial Health Center offers counseling and psychological services, supporting mental health and personal development by collaborating directly with students to overcome challenges and difficulties that may interfere with academic, emotional, and personal success.\n\n\nSafety and Security\n\nMonitor GW Alerts and Campus Advisories to Stay Informed before and during an emergency event or situation\nIn an emergency: call 911 or GWPD/EMeRG 202-994-6111\nFor situation-specific actions: refer to GW’s Emergency Response Handbook and Emergency Operations Plan\nIn the event of an armed intruder: Run. Hide. Fight."
+  },
+  {
+    "objectID": "4511/syllabus.html#academic-integrity-code",
+    "href": "4511/syllabus.html#academic-integrity-code",
+    "title": "Syllabus",
+    "section": "Academic Integrity Code",
+    "text": "Academic Integrity Code\nAcademic integrity is an essential part of the educational process, and all members of the GW community take these matters very seriously. As the instructor of record for this course, my role is to provide clear expectations and uphold them in all assessments. Violations of academic integrity occur when students fail to cite research sources properly, engage in unauthorized collaboration, falsify data, and otherwise violate the Code of Academic Integrity. If you have any questions about whether or not particular academic practices or resources are permitted, you should ask me for clarification. If you are reported for an academic integrity violation, you should contact the Office of Student Rights and Responsibilities (SRR) to learn more about your rights and options in the process. Consequences can range from failure of assignment to expulsion from the university and may include a transcript notation. For more information, please refer to the SRR website, email rights@gwu.edu, or call 202-994-6757."
+  },
+  {
+    "objectID": "4511/syllabus.html#university-policy-on-observance-of-religious-holidays",
+    "href": "4511/syllabus.html#university-policy-on-observance-of-religious-holidays",
+    "title": "Syllabus",
+    "section": "University Policy on Observance of Religious Holidays",
+    "text": "University Policy on Observance of Religious Holidays\nStudents must notify faculty during the first week of the semester in which they are enrolled in the course, or as early as possible, but no later than three weeks prior to the absence, of their intention to be absent from class on their day(s) of religious observance. If the holiday falls within the first three weeks of class, the student must inform faculty in the first week of the semester. For details and policy, see “Religious Holidays” at Provost Policies, Procedures, and Guidelines."
+  },
+  {
+    "objectID": "4511/syllabus.html#use-of-electronic-course-materials-and-class-recordings",
+    "href": "4511/syllabus.html#use-of-electronic-course-materials-and-class-recordings",
+    "title": "Syllabus",
+    "section": "Use of Electronic Course Materials and Class Recordings",
+    "text": "Use of Electronic Course Materials and Class Recordings\nStudents are encouraged to use electronic course materials, including recorded class sessions, for private personal use in connection with their academic program of study. Electronic course materials and recorded class sessions should not be shared or used for non-course related purposes unless express permission has been granted by the instructor. Students who impermissibly share any electronic course materials are subject to discipline under the Student Code of Conduct. Please contact the instructor if you have questions regarding what constitutes permissible or impermissible use of electronic course materials and/or recorded class sessions. Please contact Disability Support Services at https://disabilitysupport.gwu.edu if you have questions or need assistance in accessing electronic course materials."
+  },
+  {
+    "objectID": "4511/syllabus.html#writing-center",
+    "href": "4511/syllabus.html#writing-center",
+    "title": "Syllabus",
+    "section": "Writing Center",
+    "text": "Writing Center\nGW’s Writing Center cultivates confident writers in the University community by facilitating collaborative, critical, and inclusive conversations at all stages of the writing process. Working alongside peer mentors, writers develop strategies to write independently in academic and public settings. Appointments can be booked online at https://gwu.mywconline."
+  },
+  {
+    "objectID": "4511/syllabus.html#academic-commons",
+    "href": "4511/syllabus.html#academic-commons",
+    "title": "Syllabus",
+    "section": "Academic Commons",
+    "text": "Academic Commons\nAcademic Commons provides tutoring and other academic support resources to students in many courses. Students can schedule virtual one-on-one appointments or attend virtual drop-in sessions. Students may schedule an appointment, review the tutoring schedule, access other academic support resources, or obtain assistance at https://academiccommons.gwu.edu."
+  },
+  {
+    "objectID": "4511/syllabus.html#disability-support-services-dss",
+    "href": "4511/syllabus.html#disability-support-services-dss",
+    "title": "Syllabus",
+    "section": "Disability Support Services (DSS)",
+    "text": "Disability Support Services (DSS)\nTelephone: 202-994-8250\nAny student who may need an accommodation based on the potential impact of a disability should contact Disability Support Services to establish eligibility and to coordinate reasonable accommodations."
+  },
+  {
+    "objectID": "4511/syllabus.html#counseling-and-psychological-services",
+    "href": "4511/syllabus.html#counseling-and-psychological-services",
+    "title": "Syllabus",
+    "section": "Counseling and Psychological Services",
+    "text": "Counseling and Psychological Services\nTelephone: 202-994-5300\nGW’s Colonial Health Center offers counseling and psychological services, supporting mental health and personal development by collaborating directly with students to overcome challenges and difficulties that may interfere with academic, emotional, and personal success."
+  },
+  {
+    "objectID": "4511/syllabus.html#safety-and-security",
+    "href": "4511/syllabus.html#safety-and-security",
+    "title": "Syllabus",
+    "section": "Safety and Security",
+    "text": "Safety and Security\n\nMonitor GW Alerts and Campus Advisories to Stay Informed before and during an emergency event or situation\nIn an emergency: call 911 or GWPD/EMeRG 202-994-6111\nFor situation-specific actions: refer to GW’s Emergency Response Handbook and Emergency Operations Plan\nIn the event of an armed intruder: Run. Hide. Fight."
+  },
+  {
     "objectID": "4511/notes/01/python.html",
     "href": "4511/notes/01/python.html",
     "title": "Python Notes",
@@ -102,7 +270,7 @@
     "href": "4511/notes/01/python.html#modules-and-imports",
     "title": "Python Notes",
     "section": "Modules and Imports",
-    "text": "Modules and Imports\n\nVirtual Environments\nYou probably know this:\n\nimport numpy\n\nprint(numpy.random.random())\n\n0.008913432598291027\n\n\nand this3\n3 It might not run if you don’t have scipy installed, so install scipy.\nimport numpy as np\nimport pandas as pd\nfrom scipy import stats\n\na = stats.uniform(1, 5)\nprint(a)\nprint(a.cdf(2), a.cdf(3), a.cdf(5))\n\n&lt;scipy.stats._distn_infrastructure.rv_continuous_frozen object at 0x14cae04a0&gt;\n0.2 0.4 0.8\n\n\nWhere do imports come from? The environment. There’s a default environment; but for any complicated project, you’ll want to create your own. You can call it whatever you want. .venv works. You could call it otis. You should call it something meaningful.\nAt the command line:4\n4 Your install might use python3 instead of pythonpython -m venv otis\ncd otis; tree | head -n 172\n.\n├── bin\n│   ├── activate\n│   ├── activate.csh\n│   ├── activate.fish\n│   ├── Activate.ps1\n│   ├── pip\n│   ├── pip3\n│   ├── pip3.11\n│   ├── python -&gt; /home/adsr/miniconda3/bin/python\n│   ├── python3 -&gt; python\n│   └── python3.11 -&gt; python\n├── include\n│   └── python3.11\n├── lib\n│   └── python3.11\n│       └── site-packages\nMake a new environment for every project! Or don’t, and find out what happens:\n\nThere are several package managers for python, poetry and conda are the most popular5 as of 2024. You can use pip, it’s fine.\n5 My own assertion, no data to back this up, probably true.\n\nModules\nWhen you make a .py file with any definitions, it’s called a module, and the module name is the file name (before the .py extension).\nConsider this module:\n\n\nutils.py\n\nfrom copy import deepcopy\n\ndef stringify(L: list[int]) -&gt; list:\n    L = deepcopy(L)\n    L.sort()\n    return str(L)\n\nWe can import it from any script in the same folder:\n\nimport utils\nA = utils.stringify([3, 2, 2, 1])\nprint(A, type(A))\n\n[1, 2, 2, 3] &lt;class 'str'&gt;\n\n\nWe can also import component definitions:\n\nfrom utils import stringify\nA = stringify([\"otis\", \"carl\", \"bruce\"])\nprint(A, type(A))\n\n['bruce', 'carl', 'otis'] &lt;class 'str'&gt;\n\n\nPython doesn’t enforce type hints 🙃"
+    "text": "Modules and Imports\n\nVirtual Environments\nYou probably know this:\n\nimport numpy\n\nprint(numpy.random.random())\n\n0.8047863552739198\n\n\nand this3\n3 It might not run if you don’t have scipy installed, so install scipy.\nimport numpy as np\nimport pandas as pd\nfrom scipy import stats\n\na = stats.uniform(1, 5)\nprint(a)\nprint(a.cdf(2), a.cdf(3), a.cdf(5))\n\n&lt;scipy.stats._distn_infrastructure.rv_continuous_frozen object at 0x11f4507a0&gt;\n0.2 0.4 0.8\n\n\nWhere do imports come from? The environment. There’s a default environment; but for any complicated project, you’ll want to create your own. You can call it whatever you want. .venv works. You could call it otis. You should call it something meaningful.\nAt the command line:4\n4 Your install might use python3 instead of pythonpython -m venv otis\ncd otis; tree | head -n 172\n.\n├── bin\n│   ├── activate\n│   ├── activate.csh\n│   ├── activate.fish\n│   ├── Activate.ps1\n│   ├── pip\n│   ├── pip3\n│   ├── pip3.11\n│   ├── python -&gt; /home/adsr/miniconda3/bin/python\n│   ├── python3 -&gt; python\n│   └── python3.11 -&gt; python\n├── include\n│   └── python3.11\n├── lib\n│   └── python3.11\n│       └── site-packages\nMake a new environment for every project! Or don’t, and find out what happens:\n\nThere are several package managers for python, poetry and conda are the most popular5 as of 2024. You can use pip, it’s fine.\n5 My own assertion, no data to back this up, probably true.\n\nModules\nWhen you make a .py file with any definitions, it’s called a module, and the module name is the file name (before the .py extension).\nConsider this module:\n\n\nutils.py\n\nfrom copy import deepcopy\n\ndef stringify(L: list[int]) -&gt; list:\n    L = deepcopy(L)\n    L.sort()\n    return str(L)\n\nWe can import it from any script in the same folder:\n\nimport utils\nA = utils.stringify([3, 2, 2, 1])\nprint(A, type(A))\n\n[1, 2, 2, 3] &lt;class 'str'&gt;\n\n\nWe can also import component definitions:\n\nfrom utils import stringify\nA = stringify([\"otis\", \"carl\", \"bruce\"])\nprint(A, type(A))\n\n['bruce', 'carl', 'otis'] &lt;class 'str'&gt;\n\n\nPython doesn’t enforce type hints 🙃"
   },
   {
     "objectID": "4511/notes/01/python.html#classes",
@@ -130,7 +298,7 @@
     "href": "4511/notes/01/python.html#functions-as-references",
     "title": "Python Notes",
     "section": "Functions as References",
-    "text": "Functions as References\nFunctions are objects, too.\nRecall:\n\n\nutils.py\n\nfrom copy import deepcopy\n\ndef stringify(L: list[int]) -&gt; list:\n    L = deepcopy(L)\n    L.sort()\n    return str(L)\n\n\nfrom utils import stringify\nprint(stringify)\nx = stringify # what.\nx([1, 4, 5])\n\n&lt;function stringify at 0x103f00360&gt;\n\n\n'[1, 4, 5]'\n\n\nWe can pass them as arguments:\n\ndef f(x, y):\n    return x(y) + \"!!\"\n\na = f(stringify, [\"sun\", \"set\"])\nprint(a)\n\n['set', 'sun']!!"
+    "text": "Functions as References\nFunctions are objects, too.\nRecall:\n\n\nutils.py\n\nfrom copy import deepcopy\n\ndef stringify(L: list[int]) -&gt; list:\n    L = deepcopy(L)\n    L.sort()\n    return str(L)\n\n\nfrom utils import stringify\nprint(stringify)\nx = stringify # what.\nx([1, 4, 5])\n\n&lt;function stringify at 0x105f17ec0&gt;\n\n\n'[1, 4, 5]'\n\n\nWe can pass them as arguments:\n\ndef f(x, y):\n    return x(y) + \"!!\"\n\na = f(stringify, [\"sun\", \"set\"])\nprint(a)\n\n['set', 'sun']!!"
   },
   {
     "objectID": "4511/notes/01/python.html#comprehensions",
@@ -151,7 +319,7 @@
     "href": "4511/index.html#notes",
     "title": "CSCI 4511/6511 Spring 2025",
     "section": "Notes",
-    "text": "Notes\nOne Python"
+    "text": "Notes\nOne | Python"
   },
   {
     "objectID": "4511/index.html#homework",
@@ -161,18 +329,18 @@
     "text": "Homework\nHomework One"
   },
   {
-    "objectID": "4511/index.html#exam-prep",
-    "href": "4511/index.html#exam-prep",
+    "objectID": "4511/index.html#exercises",
+    "href": "4511/index.html#exercises",
     "title": "CSCI 4511/6511 Spring 2025",
-    "section": "Exam Prep",
-    "text": "Exam Prep"
+    "section": "Exercises",
+    "text": "Exercises\nPython Warmup"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Joe Goldfrank",
     "section": "",
-    "text": "Assistant Professor of Practice Department of Computer Science George Washington University\n\nI joined the GWU Department of Computer Science as a Visiting Professor in August 2022, and as an Assistant Professor of Practice in August 2023. You might read more about teaching and writing I have done.\nBefore this, I completed my PhD in Decision & Risk Analysis under the guidance of Elisabeth Paté-Cornell at Stanford University in California.\nSome years ago, I served on active duty in the U.S. Navy as a nuclear submarine line officer, and worked at the DOD Strategic Capabilities Office. I completed a B.S. (with honors) in Physics at the College of William and Mary in 2009.\nI am interested in improving the decisions that humans make. What that means is determined by each human.\nAdjacent to the university, I make acoustic, electric, and electronic music."
+    "text": "Assistant Professor of Practice Department of Computer Science George Washington University\n\nI joined the GWU Department of Computer Science as a Visiting Professor in August 2022, and as an Assistant Professor of Practice in August 2023. You might read more about teaching and writing I have done.\nBefore this, I completed my PhD in Decision & Risk Analysis under the guidance of Elisabeth Paté-Cornell at Stanford University in California.\nSome years ago, I served on active duty in the U.S. Navy as a nuclear submarine line officer, and worked at the DOD Strategic Capabilities Office. I completed a B.S. (with honors) in Physics at the College of William and Mary in 2009.\nI was genuinely honored to be awarded 2023-2024 Professor of the Year by the Computer Science student body.\nI am interested in improving the decisions that humans make. What that means is determined by each human.\nAdjacent to the university, I make acoustic, electric, and electronic music."
   },
   {
     "objectID": "contact.html",
@@ -298,7 +466,7 @@
     "href": "4511/notes/01/01.html#grading",
     "title": "AI Algorithms  Introduction",
     "section": "Grading",
-    "text": "Grading\n\n40% Homework average: weighted average of all homework\n\nLowest homework weighted 50%\n\n20% Project:\n\nOne intermediate deliverable\n\n40% Exam average: weighted average of two exams\n\nFinal replaces midterm if higher"
+    "text": "Grading\n\n40% Homework average: weighted average of all homework\n\nLowest homework weighted 50%\n\n20% Project:\n\nOne intermediate deliverable\n\n40% Exam average: weighted average of two exams\n\nFinal replaces midterm if final is higher\nMidterm can’t replace final"
   },
   {
     "objectID": "4511/notes/01/01.html#attendance",
@@ -333,7 +501,7 @@
     "href": "4511/notes/01/01.html#write-it-yourself-1",
     "title": "AI Algorithms  Introduction",
     "section": "Write It Yourself",
-    "text": "Write It Yourself\n\nI check my email and respond\nPlease do not use ChatGPT (etc.) to write emails to me\n\n“I hope this email finds you well”\n“I understand the importance of…”\n“I appreciate your time and attention to this matter”\n“I look forward to your response”\n\n\nIf nobody wrote it, why should anybody read it?"
+    "text": "Write It Yourself\n\nI check my email and respond\nPlease do not use ChatGPT (etc.) to write emails to me\n\n“I hope this email finds you well”\n“I understand the importance of…”\n“I appreciate your time and attention to this matter”\n“I look forward to your prompt response”\n\n\nIf nobody wrote it, why should anybody read it?"
   },
   {
     "objectID": "4511/notes/01/01.html#textbooks",
@@ -354,7 +522,14 @@
     "href": "4511/notes/01/01.html#how-to-succeed-1",
     "title": "AI Algorithms  Introduction",
     "section": "How To Succeed",
-    "text": "How To Succeed\n\nHomework assignments\n\nStart early1\n\nReadings\n\nActually do them\nLecture notes != readings\n\nExam practice\n\nDeliberately open-ended\n\n\nPlease."
+    "text": "How To Succeed\n\nHomework assignments\n\nStart early1\n\nReadings\n\nActually do them\nLecture notes != readings\n\nExercises\n\nDeliberately open-ended\n\n\nPlease."
+  },
+  {
+    "objectID": "4511/notes/01/01.html#ungraded-exercises",
+    "href": "4511/notes/01/01.html#ungraded-exercises",
+    "title": "AI Algorithms  Introduction",
+    "section": "Ungraded Exercises",
+    "text": "Ungraded Exercises\n\nPreparation for homework and exams\nUngraded for flexibility\n\nI assume completion/understanding\n\nStrongly correlated with final letter grade of A"
   },
   {
     "objectID": "4511/notes/01/01.html#do-we-even-need-to-introduce-ai",
@@ -595,171 +770,38 @@
     "text": "References\n\nStuart J. Russell and Peter Norvig. Artificial Intelligence: A Modern Approach. 4th Edition, 2020.\nStanford CS231\nUC Berkeley CS188"
   },
   {
-    "objectID": "4511/syllabus.html",
-    "href": "4511/syllabus.html",
-    "title": "Syllabus",
+    "objectID": "4511/exercises/python.html",
+    "href": "4511/exercises/python.html",
+    "title": "Python Warmup",
     "section": "",
-    "text": "8 January 2025\n\n\n\n\n\n8 Jan: Original version of syllabus."
+    "text": "In this exercise we will express a map of the DC Metro in Python 3 so that we might solve certain pathfinding problems.\nOne of the principal challenges of designing autonomous agents that work in the real world is creating useful models of the real world. Recall that all models are wrong: a useful model is a model that we can solve problems “on” such that our solutions (on the model) suggestion actions (in the real world) that, when taken, result in outcomes1 that we want.\n1 Everyone has them.This exercise reviews objected-oriented Python programming (which you may have just learned) and tree search algorithms (prerequisite material)."
   },
   {
-    "objectID": "4511/syllabus.html#scope",
-    "href": "4511/syllabus.html#scope",
-    "title": "Syllabus",
-    "section": "Scope",
-    "text": "Scope\nRepresentation and space search; heuristic search; predicate calculus; knowledge representation and knowledge engineering for expert systems; rule-based, hybrid, and O-O systems; semantic nets, frames, and natural language; theorem provers; planning, learning, neural nets; use of AI languages. Knowledge representation and reasoning, propositional logic and predicate calculus. Logic programming; search, game trees, backtracking; planning."
+    "objectID": "4511/exercises/python.html#what-and-why",
+    "href": "4511/exercises/python.html#what-and-why",
+    "title": "Python Warmup",
+    "section": "",
+    "text": "In this exercise we will express a map of the DC Metro in Python 3 so that we might solve certain pathfinding problems.\nOne of the principal challenges of designing autonomous agents that work in the real world is creating useful models of the real world. Recall that all models are wrong: a useful model is a model that we can solve problems “on” such that our solutions (on the model) suggestion actions (in the real world) that, when taken, result in outcomes1 that we want.\n1 Everyone has them.This exercise reviews objected-oriented Python programming (which you may have just learned) and tree search algorithms (prerequisite material)."
   },
   {
-    "objectID": "4511/syllabus.html#prerequisites",
-    "href": "4511/syllabus.html#prerequisites",
-    "title": "Syllabus",
-    "section": "Prerequisites",
-    "text": "Prerequisites\n4511: CSCI 3212\n6511: CSCI 6212\nUndergraduate-level proficiency in object-oriented programming is assumed. Linear algebra and probability are useful, but fundamentals will be reviewed. Python is the programming language for this course."
+    "objectID": "4511/exercises/python.html#the-solution",
+    "href": "4511/exercises/python.html#the-solution",
+    "title": "Python Warmup",
+    "section": "The Solution",
+    "text": "The Solution\nHere are the “questions” we would like to answer with our model:\n\nWhat is the path between two metro stations?\nWhat is the median travel time between two metro stations on a specific path?\nWhat is the 90th percentile2 travel time between two metro stations on a specific path?\nWhat is the 10th percentile travel time between any two metro stations on a specific path?\n\n2 i.e., time that is longer than 90% of times for the same trip.We would like for our model to account for transfers between train lines (and how much time those transfers take). We would also like for our model to account for wait time at the starting station before the arrival of the first relevant train."
   },
   {
-    "objectID": "4511/syllabus.html#course-learning-outcomes",
-    "href": "4511/syllabus.html#course-learning-outcomes",
-    "title": "Syllabus",
-    "section": "Course Learning Outcomes",
-    "text": "Course Learning Outcomes\n\nDemonstrate theoretical understanding of the design of decision-making software agents\nDescribe tractability of decision-making algorithms\nExpress decision problems as probability (Markov) models\nImplement decision-making agents for solving problems in continuous and discrete state spaces"
+    "objectID": "4511/exercises/python.html#the-problem",
+    "href": "4511/exercises/python.html#the-problem",
+    "title": "Python Warmup",
+    "section": "The Problem",
+    "text": "The Problem\nWe don’t need to implement a solution method for this exercise. Rather, we’re going to express a model that could be used to solve the problem. What we’ll need:\n\nStations\nWrite a Python Station class that models a single station on the metro. The stations can be found on the WMATA Map; your class should be “generic” such that it can accommodate any station in the system. These stations:\n\nServe only a single line\nServe multiple lines that are parallel in both directions\nServe multiple lines that are divergent in both directions\nServe multiple lines that are parallel in one direction and divergent in others\n\nYour class should include some way to connect stations in the model as they are connected in the real metro system. There is more than one way to accomplish this: you might implement a class the represents edges, but you don’t have to.\nYour class(es) should also capture information about travel times between stations.3\n3 This travel time isn’t present on the WMATA map. Let us assume it can be quantified.Implement a getSuccessors method for your Station class that returns a tuple of adjacent stations.\n\n\n\n\n\n\nThis Exercise Seems Too Easy\n\n\n\n\n\nPunishment gluttons are encouraged to implement the model for the NYC MTA system instead. The NYC subway has “local” and “express” trains that run on parallel tracks.\n\n\n\n\n\nSearch\nRecall the tree search algorithms you studied as a younger person. These algorithms could be used to determine the path (and from the path, we can calculate travel times).\nTo aid implementation of tree search algorithms for this problem, create a Node class to facilitate the tree representation of the graph problem. This class should include, at a minimum, instance variables that reference a Station and a parent Node."
   },
   {
-    "objectID": "4511/syllabus.html#required-textbook",
-    "href": "4511/syllabus.html#required-textbook",
-    "title": "Syllabus",
-    "section": "Required Textbook",
-    "text": "Required Textbook\nStuart J. Russell and Peter Norvig. Artificial Intelligence : A Modern Approach. 4th edition, Pearson, 2020.1\n1 Several copes of this book will be on hold at the GWU Library. The international edition, which is much cheaper than the US edition, has the same contents."
-  },
-  {
-    "objectID": "4511/syllabus.html#supplemental-textbooks",
-    "href": "4511/syllabus.html#supplemental-textbooks",
-    "title": "Syllabus",
-    "section": "Supplemental Textbooks",
-    "text": "Supplemental Textbooks\nMykel J. Kochenderfer, Tim A. Wheeler, and Kyle H. Wray. Algorithms for Decision Making MIT Press, 2022\nRichard S. Sutton and Andrew G. Barto. Reinforcement Learning: An Introduction MIT Press, 2018"
-  },
-  {
-    "objectID": "4511/syllabus.html#instructor",
-    "href": "4511/syllabus.html#instructor",
-    "title": "Syllabus",
-    "section": "Instructor",
-    "text": "Instructor\n\nProf. Joseph Goldfrank joe.goldfrank@gwu.edu"
-  },
-  {
-    "objectID": "4511/syllabus.html#office-hours",
-    "href": "4511/syllabus.html#office-hours",
-    "title": "Syllabus",
-    "section": "Office Hours",
-    "text": "Office Hours\nM/W/F Afternoons: Detailed Schedule\n\nGrading Server & Autograding\nThis course will use the GWU Computer Science grading and submission server. You will receive test cases to run your code against at home. If you pass the test cases at home, you will pass them when I grade your work."
-  },
-  {
-    "objectID": "4511/syllabus.html#schedule",
-    "href": "4511/syllabus.html#schedule",
-    "title": "Syllabus",
-    "section": "Schedule",
-    "text": "Schedule\nReadings are from Russell & Norvig unless otherwise noted.\n\n\n\nDate\nSubject\nReading\nAssessments (Due)\n\n\n\n\n17 Jan\nRational Agents, Python\nCh. 2; Python Docs 4 and 9\n\n\n\n24 Jan\nSearch & Heuristics\nCh. 3, 4\n\n\n\n31 Jan\nGames\nCh. 5\n\n\n\n7 Feb\nCSPs\nCh. 6\nHW 1 (7 Feb)\n\n\n14 Feb\nLogic\nCh. 7\n\n\n\n21 Feb\nProbability & Linear Algebra Review\nCh. 13\nHW 2 (21 Feb)\n\n\n28 Feb\nUtility Theory & Exam Review\nCh. 16\n\n\n\n7 Mar\nMidterm Examination\n\nHW 3 (3 Mar)\n\n\n14 Mar\nSpring Break\n\n\n\n\n21 Mar\nState Uncertainty\nKochenderfer Ch. 19\n\n\n\n28 Mar\nMarkov Decision Processes\nCh. 17\n\n\n\n4 Apr\nPartially-Observable MDPs\nKochenderfer Ch. 20, 9.6\nHW 4 (4 Apr)\n\n\n11 Apr\nReinforcement Learning\nCh. 22\nProject Scope (6 Apr)\n\n\n18 Apr\nExam Review\n\nProject Milestone 1 (18 Apr)\n\n\n25 Apr\nFinal Examination\n\nProject Milestone 2 (25 Apr)\n\n\n6 May\n(No Scheduled Lecture)\n\nProject Due\n\n\n\n\nThis schedule of topics is approximate and I may deviate from it. No homework assignment will be released with less than two weeks’ time to complete it. No due dates will be made earlier. No exams will be rescheduled unless required by the University."
-  },
-  {
-    "objectID": "4511/syllabus.html#examinations-assessments",
-    "href": "4511/syllabus.html#examinations-assessments",
-    "title": "Syllabus",
-    "section": "Examinations & Assessments",
-    "text": "Examinations & Assessments\nThere will be four homework assignments, one project, one midterm exam, and one final exam. You must acknowledge the schedule of deliverables and agree to be present for both exams as part of the first homework assignment.\nThere may be extra credit opportunities in addition to what is listed here, some of which will be offered during class meetings. Any work you turn in for credit may be present on examinations."
-  },
-  {
-    "objectID": "4511/syllabus.html#grading",
-    "href": "4511/syllabus.html#grading",
-    "title": "Syllabus",
-    "section": "Grading",
-    "text": "Grading\n\nThe final exam grade replaces the midterm exam grade, if the final exam grade is higher\nThe lowest homework is weighted 50% (i.e., it will be worth less than the other homework assignments).\n\n\nGrading Scale\nA numerical average will be calculated as follows:\n\nHomework: 40%\nProject: 20%\nExams: 40%\n\nThe following grading scale will be applied at the end of the semester to calculate letter grades:\n\n\n\nNumerical Average\nLetter Grade\n\n\n\n\n90-100\nA\n\n\n85-89\nA-\n\n\n80-84\nB+\n\n\n75-79\nB\n\n\n70-74\nB-\n\n\n65-69\nC+\n\n\n60-64\nC\n\n\n55-59\nC-\n\n\n45-54\nD\n\n\n0-44\nF\n\n\n\nGrades are rounded to the nearest integer, e.g., 0.4 rounds to 0 and 0.5 rounds to 1. Grades of D are only for CSCI 4511. Any grade \\(\\leq\\) 54 in CSCI 6511 is an F."
-  },
-  {
-    "objectID": "4511/syllabus.html#conduct",
-    "href": "4511/syllabus.html#conduct",
-    "title": "Syllabus",
-    "section": "Conduct",
-    "text": "Conduct\nCredit (up to 10% of your final grade) for can be lost for actions that disrespect other students, such as being disruptive in class, asking for complete solutions during office hours, or requesting grading accommodations other than those outlined in this syllabus.\nThe environment of this class will be respectful of age, race, ethnicity, country of origin, language, religion, spiritual practice, sexual orientation, gender identity or expression, introversion/extroversion personality dimensions, and socioeconomic and mental/physical status. I am committed to supporting all members of the class in fostering a respectful, charitable, and professional academic environment. You must also do your part to make this course inclusive."
-  },
-  {
-    "objectID": "4511/syllabus.html#late-work",
-    "href": "4511/syllabus.html#late-work",
-    "title": "Syllabus",
-    "section": "Late Work",
-    "text": "Late Work\nLate work is not accepted, with the following exceptions:\n\nEach student will have eight “late days” to use on homework assignments. No more than three days can be used on any one assignment. These late days intentionally accommodate both time management difficulties and brief illnesses. I recommend saving a few late days for brief unexpected disruptions in your schedule. You can’t use late days for the project.\nExtensions will be granted should there arise circumstances beyond your control that substantially impede your ability to complete coursework. Notify me as soon as feasible in these cases. Examples of such circumstances include (but are not limited to) long-term illness and loss of housing. I will request documentation of such circumstances through your dean."
-  },
-  {
-    "objectID": "4511/syllabus.html#attendance",
-    "href": "4511/syllabus.html#attendance",
-    "title": "Syllabus",
-    "section": "Attendance",
-    "text": "Attendance\nI do not take attendance, but I strongly encourage you to attend. Lectures will not be videorecorded or audiorecorded, but lecture notes will be published. You are responsible for knowing the content of each lecture.\nFor long-term disruptions in schedule such as serious illness or loss of housing, I will make accommodations after being provided with documentation through the Office of Student Support or from your Dean. For illnesses impacting exams, I will also require such documentation.\nAbsence to represent GWU in an official capacity (such as at an athletic event) is always excused, however such excused absence will require confirmation from a faculty sponsor or athletic official, and must be arranged in advance."
-  },
-  {
-    "objectID": "4511/syllabus.html#time-commitment",
-    "href": "4511/syllabus.html#time-commitment",
-    "title": "Syllabus",
-    "section": "Time Commitment",
-    "text": "Time Commitment\nThere is one 150-minute class meeting per week. Students are expected to spend at least 5 hours per week independently learning outside of class meetings for this course. As preparation level for this course varies. It is possible that you will need to commit substantially more– or substantially less– than 5 hours per week."
-  },
-  {
-    "objectID": "4511/syllabus.html#collaboration-policy",
-    "href": "4511/syllabus.html#collaboration-policy",
-    "title": "Syllabus",
-    "section": "Collaboration Policy",
-    "text": "Collaboration Policy\nWrite your own solutions to homework assignments by yourself. You must acknowledge any discussions you had with others in your writeup for each homework. Don’t let other people copy your solutions, and don’t copy solutions from other people, from websites, or from other sources.\nThe challenge from this course is largely in understanding how decision-making algorithms work and how/when to apply them to problems. Discussing these concepts with others is always permitted, and is strongly encouraged. Likewise, helping a peer resolve a bug is permitted.\nIf you feel like a discussion with any person (including the professor) helped you answer a homework problem, include their name(s) in your comments at the start of that problem, and near the part you got help on. In the event your collaboration exceeds what is permitted, any penalty will be substantially reduced (or waived) if such a thing is an honest mistake as evidenced by these comments. If you aren’t sure: ask.\nIf I discover at any point during or after the semester that you have violated the collaboration policy, you will be formally referred to the Office of Student Rights and Responsibilities for Academic Dishonesty. In addition to failing the assignment, your final grade in the class will be reduced by a full letter grade. This policy is not a game. Do not attempt to circumvent it.\n\nGenerative Artificial Intelligence / Large Language Models\nCopying solutions for homework assignments from an AI assistant or Large Language Model such as (but not limited to) ChatGPT, Copilot, or Claude will be treated the same as copying it from another person or from any other online resource. It is not permitted on any homework assignment, and it is considered cheating.\n\n\nYou Can Search Your Errors\nCopying code snippets from Stack Overflow, language documentation, or similar is permitted, however please indicate when you have done this with a comment in your code citing the resource. If you have become accustomed to using LLMs for these searches, I expect you to verify the answers with language/library documentation and cite the documentation.\n\n\n\n\n\n\n\nUniversity Policies\n\n\n\n\n\n\nAcademic Integrity Code\nAcademic integrity is an essential part of the educational process, and all members of the GW community take these matters very seriously. As the instructor of record for this course, my role is to provide clear expectations and uphold them in all assessments. Violations of academic integrity occur when students fail to cite research sources properly, engage in unauthorized collaboration, falsify data, and otherwise violate the Code of Academic Integrity. If you have any questions about whether or not particular academic practices or resources are permitted, you should ask me for clarification. If you are reported for an academic integrity violation, you should contact the Office of Student Rights and Responsibilities (SRR) to learn more about your rights and options in the process. Consequences can range from failure of assignment to expulsion from the university and may include a transcript notation. For more information, please refer to the SRR website, email rights@gwu.edu, or call 202-994-6757.\n\n\nUniversity Policy on Observance of Religious Holidays\nStudents must notify faculty during the first week of the semester in which they are enrolled in the course, or as early as possible, but no later than three weeks prior to the absence, of their intention to be absent from class on their day(s) of religious observance. If the holiday falls within the first three weeks of class, the student must inform faculty in the first week of the semester. For details and policy, see “Religious Holidays” at Provost Policies, Procedures, and Guidelines.\n\n\nUse of Electronic Course Materials and Class Recordings\nStudents are encouraged to use electronic course materials, including recorded class sessions, for private personal use in connection with their academic program of study. Electronic course materials and recorded class sessions should not be shared or used for non-course related purposes unless express permission has been granted by the instructor. Students who impermissibly share any electronic course materials are subject to discipline under the Student Code of Conduct. Please contact the instructor if you have questions regarding what constitutes permissible or impermissible use of electronic course materials and/or recorded class sessions. Please contact Disability Support Services at https://disabilitysupport.gwu.edu if you have questions or need assistance in accessing electronic course materials.\n\n\nAcademic Support\n\nWriting Center\nGW’s Writing Center cultivates confident writers in the University community by facilitating collaborative, critical, and inclusive conversations at all stages of the writing process. Working alongside peer mentors, writers develop strategies to write independently in academic and public settings. Appointments can be booked online at https://gwu.mywconline.\n\n\nAcademic Commons\nAcademic Commons provides tutoring and other academic support resources to students in many courses. Students can schedule virtual one-on-one appointments or attend virtual drop-in sessions. Students may schedule an appointment, review the tutoring schedule, access other academic support resources, or obtain assistance at https://academiccommons.gwu.edu.\n\n\n\nSupport for Students Outside the Classroom\n\nDisability Support Services (DSS)\nTelephone: 202-994-8250\nAny student who may need an accommodation based on the potential impact of a disability should contact Disability Support Services to establish eligibility and to coordinate reasonable accommodations.\n\n\nCounseling and Psychological Services\nTelephone: 202-994-5300\nGW’s Colonial Health Center offers counseling and psychological services, supporting mental health and personal development by collaborating directly with students to overcome challenges and difficulties that may interfere with academic, emotional, and personal success.\n\n\nSafety and Security\n\nMonitor GW Alerts and Campus Advisories to Stay Informed before and during an emergency event or situation\nIn an emergency: call 911 or GWPD/EMeRG 202-994-6111\nFor situation-specific actions: refer to GW’s Emergency Response Handbook and Emergency Operations Plan\nIn the event of an armed intruder: Run. Hide. Fight."
-  },
-  {
-    "objectID": "4511/syllabus.html#academic-integrity-code",
-    "href": "4511/syllabus.html#academic-integrity-code",
-    "title": "Syllabus",
-    "section": "Academic Integrity Code",
-    "text": "Academic Integrity Code\nAcademic integrity is an essential part of the educational process, and all members of the GW community take these matters very seriously. As the instructor of record for this course, my role is to provide clear expectations and uphold them in all assessments. Violations of academic integrity occur when students fail to cite research sources properly, engage in unauthorized collaboration, falsify data, and otherwise violate the Code of Academic Integrity. If you have any questions about whether or not particular academic practices or resources are permitted, you should ask me for clarification. If you are reported for an academic integrity violation, you should contact the Office of Student Rights and Responsibilities (SRR) to learn more about your rights and options in the process. Consequences can range from failure of assignment to expulsion from the university and may include a transcript notation. For more information, please refer to the SRR website, email rights@gwu.edu, or call 202-994-6757."
-  },
-  {
-    "objectID": "4511/syllabus.html#university-policy-on-observance-of-religious-holidays",
-    "href": "4511/syllabus.html#university-policy-on-observance-of-religious-holidays",
-    "title": "Syllabus",
-    "section": "University Policy on Observance of Religious Holidays",
-    "text": "University Policy on Observance of Religious Holidays\nStudents must notify faculty during the first week of the semester in which they are enrolled in the course, or as early as possible, but no later than three weeks prior to the absence, of their intention to be absent from class on their day(s) of religious observance. If the holiday falls within the first three weeks of class, the student must inform faculty in the first week of the semester. For details and policy, see “Religious Holidays” at Provost Policies, Procedures, and Guidelines."
-  },
-  {
-    "objectID": "4511/syllabus.html#use-of-electronic-course-materials-and-class-recordings",
-    "href": "4511/syllabus.html#use-of-electronic-course-materials-and-class-recordings",
-    "title": "Syllabus",
-    "section": "Use of Electronic Course Materials and Class Recordings",
-    "text": "Use of Electronic Course Materials and Class Recordings\nStudents are encouraged to use electronic course materials, including recorded class sessions, for private personal use in connection with their academic program of study. Electronic course materials and recorded class sessions should not be shared or used for non-course related purposes unless express permission has been granted by the instructor. Students who impermissibly share any electronic course materials are subject to discipline under the Student Code of Conduct. Please contact the instructor if you have questions regarding what constitutes permissible or impermissible use of electronic course materials and/or recorded class sessions. Please contact Disability Support Services at https://disabilitysupport.gwu.edu if you have questions or need assistance in accessing electronic course materials."
-  },
-  {
-    "objectID": "4511/syllabus.html#writing-center",
-    "href": "4511/syllabus.html#writing-center",
-    "title": "Syllabus",
-    "section": "Writing Center",
-    "text": "Writing Center\nGW’s Writing Center cultivates confident writers in the University community by facilitating collaborative, critical, and inclusive conversations at all stages of the writing process. Working alongside peer mentors, writers develop strategies to write independently in academic and public settings. Appointments can be booked online at https://gwu.mywconline."
-  },
-  {
-    "objectID": "4511/syllabus.html#academic-commons",
-    "href": "4511/syllabus.html#academic-commons",
-    "title": "Syllabus",
-    "section": "Academic Commons",
-    "text": "Academic Commons\nAcademic Commons provides tutoring and other academic support resources to students in many courses. Students can schedule virtual one-on-one appointments or attend virtual drop-in sessions. Students may schedule an appointment, review the tutoring schedule, access other academic support resources, or obtain assistance at https://academiccommons.gwu.edu."
-  },
-  {
-    "objectID": "4511/syllabus.html#disability-support-services-dss",
-    "href": "4511/syllabus.html#disability-support-services-dss",
-    "title": "Syllabus",
-    "section": "Disability Support Services (DSS)",
-    "text": "Disability Support Services (DSS)\nTelephone: 202-994-8250\nAny student who may need an accommodation based on the potential impact of a disability should contact Disability Support Services to establish eligibility and to coordinate reasonable accommodations."
-  },
-  {
-    "objectID": "4511/syllabus.html#counseling-and-psychological-services",
-    "href": "4511/syllabus.html#counseling-and-psychological-services",
-    "title": "Syllabus",
-    "section": "Counseling and Psychological Services",
-    "text": "Counseling and Psychological Services\nTelephone: 202-994-5300\nGW’s Colonial Health Center offers counseling and psychological services, supporting mental health and personal development by collaborating directly with students to overcome challenges and difficulties that may interfere with academic, emotional, and personal success."
-  },
-  {
-    "objectID": "4511/syllabus.html#safety-and-security",
-    "href": "4511/syllabus.html#safety-and-security",
-    "title": "Syllabus",
-    "section": "Safety and Security",
-    "text": "Safety and Security\n\nMonitor GW Alerts and Campus Advisories to Stay Informed before and during an emergency event or situation\nIn an emergency: call 911 or GWPD/EMeRG 202-994-6111\nFor situation-specific actions: refer to GW’s Emergency Response Handbook and Emergency Operations Plan\nIn the event of an armed intruder: Run. Hide. Fight."
+    "objectID": "4511/exercises/python.html#dont-solve-the-problem",
+    "href": "4511/exercises/python.html#dont-solve-the-problem",
+    "title": "Python Warmup",
+    "section": "Don’t Solve The Problem",
+    "text": "Don’t Solve The Problem\nIf you’ve completed the above, you’re warmed up and ready to start Homework One. The early parts of Homework One review search algorithms from CSCI 3212 and 6212. The latter parts rely on algorithms we’ll learn in lecture two."
   }
 ]

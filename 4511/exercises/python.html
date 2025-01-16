@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Goldfrank Faculty Web Site - CSCI 4511/6511 Spring 2025</title>
+<title>Goldfrank Faculty Web Site - Python Warmup</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,24 +23,24 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-html/quarto.js"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<script src="../site_libs/quarto-contrib/pseudocode-2.4.1/pseudocode.min.js"></script>
-<link href="../site_libs/quarto-contrib/pseudocode-2.4.1/pseudocode.min.css" rel="stylesheet">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/pseudocode-2.4.1/pseudocode.min.js"></script>
+<link href="../../site_libs/quarto-contrib/pseudocode-2.4.1/pseudocode.min.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -97,7 +97,7 @@ MathJax = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Goldfrank Faculty Web Site</span>
     </a>
   </div>
@@ -108,21 +108,21 @@ MathJax = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Me</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../advising.html"> 
+    <a class="nav-link" href="../../advising.html"> 
 <span class="menu-text">Advising</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../contact.html"> 
+    <a class="nav-link" href="../../contact.html"> 
 <span class="menu-text">Contact</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="../4511/index.html" aria-current="page"> 
+    <a class="nav-link" href="../../4511/index.html"> 
 <span class="menu-text">AI Algorithms Course</span></a>
   </li>  
 </ul>
@@ -141,18 +141,23 @@ MathJax = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#notes" id="toc-notes" class="nav-link active" data-scroll-target="#notes">Notes</a></li>
-  <li><a href="#homework" id="toc-homework" class="nav-link" data-scroll-target="#homework">Homework</a></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises">Exercises</a></li>
+  <li><a href="#what-and-why" id="toc-what-and-why" class="nav-link active" data-scroll-target="#what-and-why">What and Why</a></li>
+  <li><a href="#the-solution" id="toc-the-solution" class="nav-link" data-scroll-target="#the-solution">The Solution</a></li>
+  <li><a href="#the-problem" id="toc-the-problem" class="nav-link" data-scroll-target="#the-problem">The Problem</a>
+  <ul class="collapse">
+  <li><a href="#stations" id="toc-stations" class="nav-link" data-scroll-target="#stations">Stations</a></li>
+  <li><a href="#search" id="toc-search" class="nav-link" data-scroll-target="#search">Search</a></li>
+  </ul></li>
+  <li><a href="#dont-solve-the-problem" id="toc-dont-solve-the-problem" class="nav-link" data-scroll-target="#dont-solve-the-problem">Don’t Solve The Problem</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">CSCI 4511/6511 Spring 2025</h1>
+<h1 class="title">Python Warmup</h1>
 </div>
 
 
@@ -169,21 +174,68 @@ MathJax = {
 </header>
 
 
-<p><a href="../4511/syllabus.html">Syllabus</a></p>
-<section id="notes" class="level2">
-<h2 class="anchored" data-anchor-id="notes">Notes</h2>
-<p><a href="../4511/notes/01/01.html">One</a> | <a href="../4511/notes/01/python.html">Python</a></p>
+<section id="what-and-why" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="what-and-why">What and Why</h2>
+<p>In this exercise we will express a map of the DC Metro in Python 3 so that we might solve certain pathfinding problems.</p>
+<p>One of the principal challenges of designing autonomous agents that work in the real world is creating useful models of the real world. Recall that all models are wrong: a <em>useful</em> model is a model that we can solve problems “on” such that our solutions (on the model) suggestion actions (in the real world) that, when taken, result in outcomes<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> that we want.</p>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;Everyone has them.</p></div></div><p>This exercise reviews objected-oriented Python programming (which you may have just learned) and tree search algorithms (prerequisite material).</p>
 </section>
-<section id="homework" class="level2">
-<h2 class="anchored" data-anchor-id="homework">Homework</h2>
-<p><a href="../4511/hw/hw1.html">Homework One</a></p>
+<section id="the-solution" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="the-solution">The Solution</h2>
+<p>Here are the “questions” we would like to answer with our model:</p>
+<ul>
+<li>What is the path between two metro stations?</li>
+<li>What is the median travel time between two metro stations on a specific path?</li>
+<li>What is the 90th percentile<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> travel time between two metro stations on a specific path?</li>
+<li>What is the 10th percentile travel time between any two metro stations on a specific path?</li>
+</ul>
+<div class="no-row-height column-margin column-container"><div id="fn2"><p><sup>2</sup>&nbsp;i.e., time that is <em>longer</em> than 90% of times for the same trip.</p></div></div><p>We would like for our model to account for transfers between train lines (and how much time those transfers take). We would also like for our model to account for wait time at the starting station before the arrival of the first relevant train.</p>
 </section>
-<section id="exercises" class="level2">
-<h2 class="anchored" data-anchor-id="exercises">Exercises</h2>
-<p><a href="../4511/exercises/python.html">Python Warmup</a></p>
+<section id="the-problem" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="the-problem">The Problem</h2>
+<p>We don’t need to implement a solution method for this exercise. Rather, we’re going to express a model that could be used to solve the problem. What we’ll need:</p>
+<section id="stations" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="stations">Stations</h3>
+<p>Write a Python <code>Station</code> class that models a single station on the metro. The stations can be found on the <a href="https://www.wmata.com/schedules/maps/wmata-system-map.cfm">WMATA Map</a>; your class should be “generic” such that it can accommodate any station in the system. These stations:</p>
+<ul>
+<li>Serve only a single line</li>
+<li>Serve multiple lines that are parallel in both directions</li>
+<li>Serve multiple lines that are divergent in both directions</li>
+<li>Serve multiple lines that are parallel in one direction and divergent in others</li>
+</ul>
+<p>Your class should include some way to connect stations in the model as they are connected in the real metro system. There is more than one way to accomplish this: you might implement a class the represents edges, but you don’t have to.</p>
+<p>Your class(es) should also capture information about travel times between stations.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
+<div class="no-row-height column-margin column-container"><div id="fn3"><p><sup>3</sup>&nbsp;This travel time isn’t present on the WMATA map. Let us assume it can be quantified.</p></div></div><p>Implement a <code>getSuccessors</code> method for your <code>Station</code> class that returns a tuple of adjacent stations.</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+This Exercise Seems Too Easy
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Punishment gluttons are encouraged to implement the model for the <a href="https://new.mta.info/map/5256">NYC MTA</a> system instead. The NYC subway has “local” and “express” trains that run on parallel tracks.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="search" class="level3">
+<h3 class="anchored" data-anchor-id="search">Search</h3>
+<p>Recall the tree search algorithms you studied as a younger person. These algorithms could be used to determine the path (and from the path, we can calculate travel times).</p>
+<p>To aid implementation of tree search algorithms for this problem, create a <code>Node</code> class to facilitate the tree representation of the graph problem. This class should include, at a minimum, instance variables that reference a <code>Station</code> and a parent <code>Node</code>.</p>
+</section>
+</section>
+<section id="dont-solve-the-problem" class="level2">
+<h2 class="anchored" data-anchor-id="dont-solve-the-problem">Don’t Solve The Problem</h2>
+<p>If you’ve completed the above, you’re warmed up and ready to start Homework One. The early parts of Homework One review search algorithms from CSCI 3212 and 6212. The latter parts rely on algorithms we’ll learn in lecture two.</p>
 
 
 </section>
+
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
