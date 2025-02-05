@@ -191,6 +191,7 @@ MathJax = {
   <li><a href="#scheduling" id="toc-scheduling" class="nav-link" data-scroll-target="#scheduling">Scheduling</a></li>
   <li><a href="#data-format---problem" id="toc-data-format---problem" class="nav-link" data-scroll-target="#data-format---problem">Data Format - Problem</a></li>
   <li><a href="#how-to-solve-it" id="toc-how-to-solve-it" class="nav-link" data-scroll-target="#how-to-solve-it">How To Solve It</a></li>
+  <li><a href="#implementation" id="toc-implementation" class="nav-link" data-scroll-target="#implementation">Implementation</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -504,6 +505,25 @@ Data Format - Solution
 </ul></li>
 <li><strong>Do not</strong> use any libraries that solve constraint satisfaction or SAT problems.</li>
 </ul>
+</section>
+<section id="implementation" class="level2">
+<h2 class="anchored" data-anchor-id="implementation">Implementation</h2>
+<ul>
+<li>Your scheduler should run from <code>terminalScheduler.py</code>
+<ul>
+<li>You can write other modules if you like</li>
+</ul></li>
+<li><code>terminalScheduler.py</code> should require three command-line arguments
+<ul>
+<li><code>-meta</code> for the <code>meta.json</code> file</li>
+<li><code>-aircraft</code> for the <code>aircraft.json</code> file</li>
+<li><code>-trucks</code> for the <code>trucks.json</code> file</li>
+<li><code>-schedule</code> for the name of the output <code>schedule.json</code></li>
+</ul></li>
+</ul>
+<p>Calling:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1"></a><span class="ex">terminalScheduler.py</span> <span class="at">-meta</span> meta.json <span class="at">-aircraft</span> aircraft.json <span class="at">-trucks</span> trucks.json <span class="at">-schedule</span> schedule.json</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>should run your scheduler on the <code>meta.json</code>, <code>aircraft.json</code>, and <code>trucks.json</code> input files and and write the output to <code>schedule.json</code>.</p>
 
 
 </section>
