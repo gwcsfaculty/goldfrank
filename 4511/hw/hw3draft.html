@@ -267,29 +267,16 @@ MathJax = {
 <ul>
 <li>Any number of forklifts can work to unload a plane at any time</li>
 <li>One pallet can only be unloaded by one forklift</li>
-<li>To illustrate:
+<li>Multiple pallets can be unloaded from a plane simultaneously
 <ul>
-<li>If a plane is loaded with two pallets, one forklift will unload the plane in 40 minutes</li>
-<li>If a plane is loaded with two pallets, two forklifts will unload the plane in 20 minutes</li>
-<li>If a plane is loaded with two pallets, three forklifts will unload the plane in 20 minutes
-<ul>
-<li>Each of the two pallets is already being unloaded, so the third forklift has nothing to do</li>
+<li>Each must be unloaded by a separate forklift</li>
 </ul></li>
-<li>Additionally, forklifts work independently:
-<ul>
-<li>A plane is loaded with two pallets and arrives at 0900</li>
-<li>One forklift arrives to unload at 0900</li>
-<li>Another forklift arrives to unload at 0905</li>
-<li>The first pallet finishes unloading at 0920</li>
-<li>The second (final) pallet finishes unloading at 0925</li>
-</ul></li>
-</ul></li>
-<li>Assume it takes no time for a forklift to move from one hangar to another</li>
+<li>The plane must remain at the hangar until unloading is complete</li>
 </ul>
 <p><strong>Scheduling:</strong></p>
 <ul>
 <li>Forklifts must be scheduled to work at hangars at specific times.</li>
-<li>Forklifts must be scheduled to <em>unload</em> an aircraft or <em>load</em> a truck (see below)</li>
+<li>Forklifts must be scheduled to <em>unload</em> (from an aircraft) or <em>load</em> (to a truck) (see below)</li>
 </ul>
 </section>
 <section id="trucks" class="level3">
