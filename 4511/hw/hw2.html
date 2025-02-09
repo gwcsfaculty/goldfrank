@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.553">
+<meta name="generator" content="quarto-1.6.39">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Goldfrank Faculty Web Site - Homework Two</title>
+<title>Homework Two – Goldfrank Faculty Web Site</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -69,10 +69,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-f2a1071e85750ec973bbb8a8f120da0f.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-270819b4360238cebce5639d7b3c3afe.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="../../site_libs/quarto-contrib/pseudocode-2.4.1/pseudocode.min.js"></script>
 <link href="../../site_libs/quarto-contrib/pseudocode-2.4.1/pseudocode.min.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -121,7 +121,7 @@ MathJax = {
 </script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
@@ -165,7 +165,7 @@ window.Quarto = {
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -190,7 +190,7 @@ window.Quarto = {
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools">
+            <div class="quarto-navbar-tools">
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -249,7 +249,7 @@ window.Quarto = {
 <div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> autograder.py <span class="at">-t</span> test_cases/q2/0-small-tree</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>By default, the autograder displays graphics with the <code>-t</code> option, but doesn’t with the <code>-q</code> option. You can force graphics by using the <code>--graphics</code> flag, or force no graphics by using the <code>--no-graphics</code> flag.</p>
 <p>The code for this project consists of several Python files, some of which you will need to read and understand in order to complete the assignment, and some of which you can ignore. You can download all the code and supporting files in: <a href="games.zip">games dot zip</a>.</p>
-<p><strong>Files to Edit and Submit:</strong> You will fill in portions of <code>multiAgents.py</code> during the assignment. Once you have completed the assignment, you will submit these files to the submit server. <strong>Please submit a single (uncompressed) <code>.tar</code> containing this file.</strong> Include a comment at the start of <code>searchAgents.py</code> indicating what help, if any, you got on this assignment. If you didn’t get any help, indicate this. Failure to include this comment will result in losing 10 points on the assignment grade.</p>
+<p><strong>Files to Edit and Submit:</strong> You will fill in portions of <code>multiAgents.py</code> during the assignment. Once you have completed the assignment, you will submit these files to the submit server. <strong>Please submit a single (uncompressed) <code>.tar</code> containing this file.</strong> Include a comment at the start of <code>multiAgents.py</code> indicating what help, if any, you got on this assignment. If you didn’t get any help, indicate this. Failure to include this comment will result in losing 10 points on the assignment grade.</p>
 <p><strong>Evaluation:</strong> Evaluation of your code’s correctness will be performed by the autograder. If you think your code is correct and the autograder is in error, bring this to my attention <em>before</em> the submission deadline. Point values are relative within each assignment: all assignments are scaled to 100 when calculating grades. The server will allow you to submit multiple times for credit, but please run the autograder locally first.</p>
 <p><strong>Academic Dishonesty:</strong> This assignment is individual effort. Please review the collaboration policy for the course and adhere to it.</p>
 <hr>
@@ -349,7 +349,7 @@ Hints and Observations
 <p><em>Grading:</em> Because we check your code to determine whether it explores the correct number of states, it is important that you perform alpha-beta pruning <strong>without reordering children.</strong> In other words, successor states should always be processed in the order returned by <code>GameState.getLegalActions</code>. Again, do not call <code>GameState.generateSuccessor</code> more than necessary.</p>
 <p><strong>You must not prune on equality in order to match the set of states explored by our autograder.</strong> (Indeed, alternatively, but incompatible with our autograder, would be to also allow for pruning on equality and invoke alpha-beta once on each child of the root node, but this will not match the autograder.)</p>
 <p>The pseudo-code below represents the algorithm you should implement for this question. It varies from the reference implementation of Alpha-Beta pruning in the text/lecture by capturing more than two agents with a scalar value <span class="math inline">\(v\)</span> (because the ghosts are all cooperating to defeat the Pacman).</p>
-<div class="pseudocode-container" data-comment-delimiter="//" data-line-number-punc=":" data-line-number="true" data-pseudocode-index="1" data-alg-title="Algorithm" data-no-end="false" data-indent-size="1.2em">
+<div class="pseudocode-container" data-comment-delimiter="//" data-line-number-punc=":" data-line-number="true" data-alg-title="Algorithm" data-indent-size="1.2em" data-no-end="false" data-pseudocode-index="1">
 <div class="pseudocode">
 \begin{algorithm} \caption{Alpha-Beta Pruning} \begin{algorithmic} \Function{Max-Value}{$state, \alpha, \beta$} \State $v \gets -\infty$ \State $successors \gets$ \textsc{Expand}($state$) \For{\textbf{each} $s$ \textbf{in} $successors$} \State $v \gets$ \Call{Max}{$v$, \textsc{Min-Value}($successor, \alpha, \beta$)} \If{$v &gt; \beta$} \State \textbf{return} $v$ \EndIf \State $\alpha \gets$ \Call{Max}{$\alpha, v$} \EndFor \State \textbf{return} $v$ \EndFunction \State \Function{Min-Value}{$state, \alpha, \beta$} \State $v \gets \infty$ \State $successors \gets$ \textsc{Expand}($state$) \For{\textbf{each} $s$ \textbf{in} $successors$} \State $v \gets$ \Call{Min}{$v$, \textsc{Value}($successor, \alpha, \beta$)} \If{$v &lt; \alpha$} \State \textbf{return} $v$ \EndIf \State $\beta \gets$ \Call{Min}{$\beta, v$} \EndFor \State \textbf{return} $v$ \EndFunction \State \Function{Value}{$state, \alpha, \beta$} \If{\Call{NextAgent}{$state$} is $Max$} \State \textbf{return} \Call{Max-Value}{$state, \alpha, \beta$} \EndIf \State \textbf{return} \Call{Min-Value}{$state, \alpha, \beta$} \EndFunction \end{algorithmic} \end{algorithm}
 </div>
@@ -433,18 +433,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -476,7 +465,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -484,7 +493,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
@@ -581,7 +590,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
