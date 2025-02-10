@@ -233,7 +233,7 @@ MathJax = {
 <section id="submitting" class="level2">
 <h2 class="anchored" data-anchor-id="submitting">Submitting</h2>
 <p><strong>Files to Submit:</strong> You will write one ‘main’ file: <code>terminalScheduler.py</code>. Once you have completed the assignment, submit this file to the submit server. <strong>Please submit a single (uncompressed) <code>.tar</code> containing this file at the root of the tar, along with associated files you create.</strong> (Your homework could possibly be completed with just this file.) Include a comment at the start of <code>terminalScheduler.py</code> indicating what help, if any, you got on this assignment. If you didn’t get any help, indicate this. Failure to include this comment will result in losing 10 points on the assignment grade.</p>
-<p><strong>Evaluation:</strong> Evaluation of your code’s correctness will be performed by the autograder. If you think your code is correct and the autograder is in error, bring this to my attention <em>before</em> the submission deadline. Point values are relative within each assignment: all assignments are scaled to 100 when calculating grades. The server will allow you to submit multiple times for credit, but please run the autograder locally first.</p>
+<p><strong>Evaluation:</strong> Evaluation of your code’s correctness will be performed by the autograder. If you think your code is correct and the autograder is in error, bring this to my attention <em>before</em> the submission deadline. Point values are relative within each assignment: all assignments are scaled to 100 when calculating grades. The server will allow you to submit multiple times for credit.</p>
 <p><strong>Academic Dishonesty:</strong> This assignment is individual effort, with the option to work with one partner. Please review the collaboration policy for the course and adhere to it.</p>
 </section>
 <section id="autograder" class="level2">
@@ -254,7 +254,15 @@ MathJax = {
 <li>The manifest indicates how many cargo pallets are carried on the aircraft</li>
 </ul></li>
 </ul>
-<p><strong>Scheduling:</strong> Aircraft must be scheduled to unload at hangars at specific times.</p>
+<p><strong>Scheduling:</strong></p>
+<ul>
+<li>Aircraft must be scheduled to unload at hangars at specific times.</li>
+<li>Once an aircraft arrives at a hangar, it remains until unloaded
+<ul>
+<li>No aircraft can unload before arriving at a hangar</li>
+</ul></li>
+<li>Aircraft can wait for a hangar after landing at the terminal (be at “no hangar” between landing at the terminal and arriving at a hangar)</li>
+</ul>
 </section>
 <section id="hangars" class="level3">
 <h3 class="anchored" data-anchor-id="hangars">Hangars</h3>
@@ -271,7 +279,7 @@ MathJax = {
 <ul>
 <li>Each must be unloaded by a separate forklift</li>
 </ul></li>
-<li>The plane must remain at the hangar until unloading is complete</li>
+<li>The aircraft must remain at the hangar until unloading is complete</li>
 </ul>
 <p><strong>Scheduling:</strong></p>
 <ul>
@@ -294,6 +302,11 @@ MathJax = {
 <p><strong>Scheduling:</strong></p>
 <ul>
 <li>Cargo trucks must be scheduled to be loaded at hangars at specific times.</li>
+<li>The truck can arrive at the hangar before loading
+<ul>
+<li>The truck can’t load until it has arrived at a hangar</li>
+</ul></li>
+<li>Trucks can wait at the terminal (at no hangar) before arriving at a hangar to load</li>
 </ul>
 </section>
 </section>
