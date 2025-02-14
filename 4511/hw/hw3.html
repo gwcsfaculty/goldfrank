@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.553">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Goldfrank Faculty Web Site - Homework Three</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/pseudocode-2.4.1/pseudocode.min.js"></script>
+<link href="../../site_libs/quarto-contrib/pseudocode-2.4.1/pseudocode.min.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script>
+MathJax = {
+  loader: {
+    load: ['[tex]/boldsymbol']
+  },
+  tex: {
+    tags: "all",
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\\[','\\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    packages: {
+      '[+]': ['boldsymbol']
+    }
+  }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Goldfrank Faculty Web Site</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Me</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../advising.html"> 
+<span class="menu-text">Advising</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../contact.html"> 
+<span class="menu-text">Contact</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../4511/index.html"> 
+<span class="menu-text">AI Algorithms Course</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#collaboration" id="toc-collaboration" class="nav-link" data-scroll-target="#collaboration">Collaboration</a></li>
+  <li><a href="#submitting" id="toc-submitting" class="nav-link" data-scroll-target="#submitting">Submitting</a></li>
+  <li><a href="#early-submission" id="toc-early-submission" class="nav-link" data-scroll-target="#early-submission">Early Submission</a></li>
+  <li><a href="#autograder" id="toc-autograder" class="nav-link" data-scroll-target="#autograder">Autograder</a></li>
+  <li><a href="#the-problem" id="toc-the-problem" class="nav-link" data-scroll-target="#the-problem">The Problem</a>
+  <ul class="collapse">
+  <li><a href="#arrivals" id="toc-arrivals" class="nav-link" data-scroll-target="#arrivals">Arrivals</a></li>
+  <li><a href="#hangars" id="toc-hangars" class="nav-link" data-scroll-target="#hangars">Hangars</a></li>
+  <li><a href="#forklifts" id="toc-forklifts" class="nav-link" data-scroll-target="#forklifts">Forklifts</a></li>
+  <li><a href="#trucks" id="toc-trucks" class="nav-link" data-scroll-target="#trucks">Trucks</a></li>
+  </ul></li>
+  <li><a href="#scheduling" id="toc-scheduling" class="nav-link" data-scroll-target="#scheduling">Scheduling</a></li>
+  <li><a href="#data-format---problem" id="toc-data-format---problem" class="nav-link" data-scroll-target="#data-format---problem">Data Format - Problem</a></li>
+  <li><a href="#how-to-solve-it" id="toc-how-to-solve-it" class="nav-link" data-scroll-target="#how-to-solve-it">How To Solve It</a></li>
+  <li><a href="#implementation" id="toc-implementation" class="nav-link" data-scroll-target="#implementation">Implementation</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Homework Three</h1>
+<p class="subtitle lead">Constraint Satisfaction</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="introduction"><a href="#introduction"></a>Introduction</h2>
+<p>In this homework assignment, you will write a basic scheduling agent for an air freight terminal. This is a simplification<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> of a real-world problem: creating a schedule for the loading and unloading of cargo.</p>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;An extreme simplification.</p></div></div></section>
+<section id="collaboration" class="level2">
+<h2 class="anchored" data-anchor-id="collaboration">Collaboration</h2>
+<p>You may, optionally, collaborate with one (1) other person on this assignment. You must explicitly state who this person is in the initial comments of your program. If you choose to do this, both of you must submit separately, and both of you will be responsible for completely understanding how your program works.</p>
+</section>
+<section id="submitting" class="level2">
+<h2 class="anchored" data-anchor-id="submitting">Submitting</h2>
+<p><strong>Files to Submit:</strong> You will write one ‘main’ file: <code>terminalScheduler.py</code>. Once you have completed the assignment, submit this file to the submit server. <strong>Please submit a single (uncompressed) <code>.tar</code> containing this file at the root of the tar, along with associated files you create.</strong> (Your homework could possibly be completed with just this file.) Include a comment at the start of <code>terminalScheduler.py</code> indicating what help, if any, you got on this assignment. If you didn’t get any help, indicate this. Failure to include this comment will result in losing 10 points on the assignment grade.</p>
+<p><strong>Evaluation:</strong> Evaluation of your code’s correctness will be performed by the autograder. If you think your code is correct and the autograder is in error, bring this to my attention <em>before</em> the submission deadline. Point values are relative within each assignment: all assignments are scaled to 100 when calculating grades. The server will allow you to submit multiple times for credit.</p>
+<p><strong>Academic Dishonesty:</strong> This assignment is individual effort, with the option to work with one partner. Please review the collaboration policy for the course and adhere to it.</p>
+</section>
+<section id="early-submission" class="level2">
+<h2 class="anchored" data-anchor-id="early-submission">Early Submission</h2>
+<p>You’ll get a <strong>20-point extra-credit bonus</strong> on this assignment if you submit it by 7 Mar.&nbsp;Grace days can’t apply to this early deadline.</p>
+<p>Otherwise, it’s due 18 Mar, and grace days <em>can</em> apply to that deadline.</p>
+</section>
+<section id="autograder" class="level2">
+<h2 class="anchored" data-anchor-id="autograder">Autograder</h2>
+<p>Because any grading script would also be a partial solution, no local autograder is provided. You can submit unlimited times to the “test” autograder on the server, and ten times to the “credit” autograder on the server.</p>
+</section>
+<section id="the-problem" class="level2">
+<h2 class="anchored" data-anchor-id="the-problem">The Problem</h2>
+<p>An air cargo terminal receives aircraft loaded with freight, unloads the aircraft, sorts the cargo, and transfers the cargo to trucks for distribution.</p>
+<section id="arrivals" class="level3">
+<h3 class="anchored" data-anchor-id="arrivals">Arrivals</h3>
+<p>Aircraft arrive on a schedule. Each arriving aircraft has:</p>
+<ul>
+<li>A unique name</li>
+<li>An arrival time</li>
+<li>A cargo manifest:
+<ul>
+<li>The manifest indicates how many cargo pallets are carried on the aircraft</li>
+</ul></li>
+</ul>
+<p><strong>Scheduling:</strong></p>
+<ul>
+<li>Aircraft must be scheduled to unload at hangars at specific times.</li>
+<li>Once an aircraft arrives at a hangar, it remains until unloaded
+<ul>
+<li>No aircraft can unload before arriving at a hangar</li>
+</ul></li>
+<li>Aircraft can wait for a hangar after landing at the terminal (be at “no hangar” between landing at the terminal and arriving at a hangar)</li>
+</ul>
+</section>
+<section id="hangars" class="level3">
+<h3 class="anchored" data-anchor-id="hangars">Hangars</h3>
+<p>Aircraft are unloaded at hangars. Each terminal hangar can handle one aircraft at a time.</p>
+<p>After pallets are unloaded, they are stored at the hangar until they are subsequently loaded onto a cargo truck</p>
+</section>
+<section id="forklifts" class="level3">
+<h3 class="anchored" data-anchor-id="forklifts">Forklifts</h3>
+<p>Aircraft are unloaded by forklifts. Each forklift can unload one pallet in 20 minutes.</p>
+<ul>
+<li>Any number of forklifts can work to unload a plane at any time</li>
+<li>One pallet can only be unloaded by one forklift</li>
+<li>Multiple pallets can be unloaded from a plane simultaneously
+<ul>
+<li>Each must be unloaded by a separate forklift</li>
+</ul></li>
+<li>The aircraft must remain at the hangar until unloading is complete</li>
+</ul>
+<p><strong>Scheduling:</strong></p>
+<ul>
+<li>Forklifts must be scheduled to work at hangars at specific times.</li>
+<li>Forklifts must be scheduled to <em>unload</em> (from an aircraft) or <em>load</em> (to a truck) (see below)</li>
+</ul>
+</section>
+<section id="trucks" class="level3">
+<h3 class="anchored" data-anchor-id="trucks">Trucks</h3>
+<p>Each cargo truck can receive one pallet. Cargo trucks are loaded by forklifts, similar to how aircraft are unloaded by forklifts. Each forklift can load one pallet in 5 minutes:</p>
+<ul>
+<li>A cargo truck can be loaded by one forklift in 5 minutes</li>
+<li>A cargo truck can be loaded by two forklifts in 5 minutes
+<ul>
+<li>The pallet is already being loaded, so the second forklift has nothing to do</li>
+</ul></li>
+<li>Each hangar can accommodate one truck at any given time</li>
+<li>Assume the truck leaves as soon as it is loaded</li>
+</ul>
+<p><strong>Scheduling:</strong></p>
+<ul>
+<li>Cargo trucks must be scheduled to be loaded at hangars at specific times.</li>
+<li>The truck can arrive at the hangar before loading
+<ul>
+<li>The truck can’t load until it has arrived at a hangar</li>
+</ul></li>
+<li>Trucks can wait at the terminal (at no hangar) before arriving at a hangar to load</li>
+</ul>
+</section>
+</section>
+<section id="scheduling" class="level2">
+<h2 class="anchored" data-anchor-id="scheduling">Scheduling</h2>
+<ul>
+<li>Each aircraft must be scheduled to arrive a specific hangar at a specific time
+<ul>
+<li>The time must be after the plane arrives at the terminal</li>
+<li>The aircraft must be scheduled to depart from the hangar after it is finished unloading</li>
+</ul></li>
+<li>Forklifts must be assigned to a specific hangar
+<ul>
+<li>Each forklift must be assigned to <em>load</em> or <em>unload</em> at a specific hangar at a specific time</li>
+<li>A forklift can only unload if there is a plane with cargo waiting to be unloaded</li>
+<li>A forklift can only load if there is a truck waiting to be loaded and a pallet to load</li>
+</ul></li>
+</ul>
+<p>Time is always expressed as minutes on a 24h clock, i.e.&nbsp;<code>900</code> is five minutes after <code>855</code> and <code>1300</code> is five minutes after <code>1255</code>. Events should be scheduled to the closest five minutes (e.g.&nbsp;<code>1000</code>, <code>1005</code>, <code>1010</code>) and not more granularly.</p>
+<p>The scheduling problem is solved if an assignment of aircraft, forklifts, and trucks results in all cargo being unloaded from aircraft and loaded onto trucks by the end of the day.</p>
+</section>
+<section id="data-format---problem" class="level2">
+<h2 class="anchored" data-anchor-id="data-format---problem">Data Format - Problem</h2>
+<p>The <code>meta.json</code> file indicates what hangars are available and what forklifts are available. There is also a start time and a start time for the day’s work: all jobs must be scheduled after the start time and before the stop time.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>meta.json</strong></pre>
+</div>
+<div class="sourceCode" id="cb1" data-filename="meta.json"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">{</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a>    <span class="dt">"Start Time"</span><span class="fu">:</span> <span class="dv">730</span><span class="fu">,</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a>    <span class="dt">"Stop Time"</span><span class="fu">:</span> <span class="dv">1100</span><span class="fu">,</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a>    <span class="dt">"Hangars"</span><span class="fu">:</span> <span class="ot">[</span><span class="st">"North Hangar"</span><span class="ot">,</span> <span class="st">"South Hangar"</span><span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a>    <span class="dt">"Forklifts"</span><span class="fu">:</span> <span class="ot">[</span><span class="st">"F01"</span><span class="ot">,</span> <span class="st">"F02"</span><span class="ot">]</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a>  <span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>Hangars will be named via an arbitrary unique string.</li>
+</ul>
+<p>The <code>aircraft.json</code> file indicates the arrival schedule of aircraft:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>aircraft.json</strong></pre>
+</div>
+<div class="sourceCode" id="cb2" data-filename="aircraft.json"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">{</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a>    <span class="dt">"D213"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a>      <span class="dt">"Time"</span><span class="fu">:</span> <span class="dv">805</span><span class="fu">,</span> <span class="dt">"Cargo"</span><span class="fu">:</span> <span class="dv">2</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a>      <span class="fu">},</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a>    <span class="dt">"AT-LX-2Y2"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a>      <span class="dt">"Time"</span><span class="fu">:</span> <span class="dv">815</span><span class="fu">,</span> <span class="dt">"Cargo"</span><span class="fu">:</span> <span class="dv">1</span></span>
+<span id="cb2-7"><a href="#cb2-7"></a>      <span class="fu">},</span></span>
+<span id="cb2-8"><a href="#cb2-8"></a>    <span class="dt">"NW-19-1A"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb2-9"><a href="#cb2-9"></a>    <span class="dt">"Time"</span><span class="fu">:</span> <span class="dv">945</span><span class="fu">,</span> <span class="dt">"Cargo"</span><span class="fu">:</span> <span class="dv">1</span></span>
+<span id="cb2-10"><a href="#cb2-10"></a>    <span class="fu">}</span></span>
+<span id="cb2-11"><a href="#cb2-11"></a>  <span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>Aircraft will be named via an arbitrary unique string.</li>
+</ul>
+<p>The <code>trucks.json</code> file indicates the arrival schedule of aircraft:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>trucks.json</strong></pre>
+</div>
+<div class="sourceCode" id="cb3" data-filename="trucks.json"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">{</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a>    <span class="dt">"JLX-9828"</span><span class="fu">:</span> <span class="dv">745</span><span class="fu">,</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a>    <span class="dt">"PK2-341"</span><span class="fu">:</span> <span class="dv">735</span><span class="fu">,</span></span>
+<span id="cb3-4"><a href="#cb3-4"></a>    <span class="dt">"ADR-005"</span><span class="fu">:</span> <span class="dv">1020</span><span class="fu">,</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a>    <span class="dt">"TX-241-Y"</span><span class="fu">:</span> <span class="dv">755</span></span>
+<span id="cb3-6"><a href="#cb3-6"></a>  <span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>Trucks will be named via an arbitrary unique string.</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Data Format - Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Your solution should be JSON in the following format:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>schedule.json</strong></pre>
+</div>
+<div class="sourceCode" id="cb4" data-filename="schedule.json"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">{</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a>    <span class="dt">"aircraft"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a>        <span class="dt">"D213"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a>            <span class="dt">"Hangar"</span><span class="fu">:</span> <span class="st">"North Hangar"</span><span class="fu">,</span></span>
+<span id="cb4-5"><a href="#cb4-5"></a>            <span class="dt">"Arrival"</span><span class="fu">:</span> <span class="dv">810</span><span class="fu">,</span></span>
+<span id="cb4-6"><a href="#cb4-6"></a>            <span class="dt">"Departure"</span><span class="fu">:</span> <span class="dv">830</span></span>
+<span id="cb4-7"><a href="#cb4-7"></a>        <span class="fu">},</span></span>
+<span id="cb4-8"><a href="#cb4-8"></a>        <span class="dt">"AT-LX-2Y2"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb4-9"><a href="#cb4-9"></a>            <span class="dt">"Hangar"</span><span class="fu">:</span> <span class="st">"North Hangar"</span><span class="fu">,</span></span>
+<span id="cb4-10"><a href="#cb4-10"></a>            <span class="dt">"Arrival"</span><span class="fu">:</span> <span class="dv">830</span><span class="fu">,</span></span>
+<span id="cb4-11"><a href="#cb4-11"></a>            <span class="dt">"Departure"</span><span class="fu">:</span> <span class="dv">850</span></span>
+<span id="cb4-12"><a href="#cb4-12"></a>        <span class="fu">},</span></span>
+<span id="cb4-13"><a href="#cb4-13"></a>        <span class="dt">"NW-19-1A"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb4-14"><a href="#cb4-14"></a>            <span class="dt">"Hangar"</span><span class="fu">:</span> <span class="st">"North Hangar"</span><span class="fu">,</span></span>
+<span id="cb4-15"><a href="#cb4-15"></a>            <span class="dt">"Arrival"</span><span class="fu">:</span> <span class="dv">950</span><span class="fu">,</span></span>
+<span id="cb4-16"><a href="#cb4-16"></a>            <span class="dt">"Departure"</span><span class="fu">:</span> <span class="dv">1010</span></span>
+<span id="cb4-17"><a href="#cb4-17"></a>        <span class="fu">}</span></span>
+<span id="cb4-18"><a href="#cb4-18"></a>    <span class="fu">},</span></span>
+<span id="cb4-19"><a href="#cb4-19"></a>    <span class="dt">"trucks"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb4-20"><a href="#cb4-20"></a>        <span class="dt">"JLX-9828"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb4-21"><a href="#cb4-21"></a>            <span class="dt">"Hangar"</span><span class="fu">:</span> <span class="st">"North Hangar"</span><span class="fu">,</span></span>
+<span id="cb4-22"><a href="#cb4-22"></a>            <span class="dt">"Arrival"</span><span class="fu">:</span> <span class="dv">830</span><span class="fu">,</span></span>
+<span id="cb4-23"><a href="#cb4-23"></a>            <span class="dt">"Departure"</span><span class="fu">:</span> <span class="dv">835</span></span>
+<span id="cb4-24"><a href="#cb4-24"></a>        <span class="fu">},</span></span>
+<span id="cb4-25"><a href="#cb4-25"></a>        <span class="dt">"PK2-341"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb4-26"><a href="#cb4-26"></a>            <span class="dt">"Hangar"</span><span class="fu">:</span> <span class="st">"North Hangar"</span><span class="fu">,</span></span>
+<span id="cb4-27"><a href="#cb4-27"></a>            <span class="dt">"Arrival"</span><span class="fu">:</span> <span class="dv">835</span><span class="fu">,</span></span>
+<span id="cb4-28"><a href="#cb4-28"></a>            <span class="dt">"Departure"</span><span class="fu">:</span> <span class="dv">840</span></span>
+<span id="cb4-29"><a href="#cb4-29"></a>        <span class="fu">},</span></span>
+<span id="cb4-30"><a href="#cb4-30"></a>        <span class="dt">"ADR-005"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb4-31"><a href="#cb4-31"></a>            <span class="dt">"Hangar"</span><span class="fu">:</span> <span class="st">"North Hangar"</span><span class="fu">,</span></span>
+<span id="cb4-32"><a href="#cb4-32"></a>            <span class="dt">"Arrival"</span><span class="fu">:</span> <span class="dv">1020</span><span class="fu">,</span></span>
+<span id="cb4-33"><a href="#cb4-33"></a>            <span class="dt">"Departure"</span><span class="fu">:</span> <span class="dv">1025</span></span>
+<span id="cb4-34"><a href="#cb4-34"></a>        <span class="fu">},</span></span>
+<span id="cb4-35"><a href="#cb4-35"></a>        <span class="dt">"TX-241-Y"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb4-36"><a href="#cb4-36"></a>            <span class="dt">"Hangar"</span><span class="fu">:</span> <span class="st">"North Hangar"</span><span class="fu">,</span></span>
+<span id="cb4-37"><a href="#cb4-37"></a>            <span class="dt">"Arrival"</span><span class="fu">:</span> <span class="dv">850</span><span class="fu">,</span></span>
+<span id="cb4-38"><a href="#cb4-38"></a>            <span class="dt">"Departure"</span><span class="fu">:</span> <span class="dv">855</span></span>
+<span id="cb4-39"><a href="#cb4-39"></a>        <span class="fu">}</span></span>
+<span id="cb4-40"><a href="#cb4-40"></a>    <span class="fu">},</span></span>
+<span id="cb4-41"><a href="#cb4-41"></a>    <span class="dt">"forklifts"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb4-42"><a href="#cb4-42"></a>        <span class="dt">"F01"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb4-43"><a href="#cb4-43"></a>            <span class="fu">{</span></span>
+<span id="cb4-44"><a href="#cb4-44"></a>                <span class="dt">"Hangar"</span><span class="fu">:</span> <span class="st">"North Hangar"</span><span class="fu">,</span></span>
+<span id="cb4-45"><a href="#cb4-45"></a>                <span class="dt">"Time"</span><span class="fu">:</span> <span class="dv">810</span><span class="fu">,</span></span>
+<span id="cb4-46"><a href="#cb4-46"></a>                <span class="dt">"Job"</span><span class="fu">:</span> <span class="st">"Unload"</span></span>
+<span id="cb4-47"><a href="#cb4-47"></a>            <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb4-48"><a href="#cb4-48"></a>            <span class="fu">{</span></span>
+<span id="cb4-49"><a href="#cb4-49"></a>                <span class="dt">"Hangar"</span><span class="fu">:</span> <span class="st">"North Hangar"</span><span class="fu">,</span></span>
+<span id="cb4-50"><a href="#cb4-50"></a>                <span class="dt">"Time"</span><span class="fu">:</span> <span class="dv">830</span><span class="fu">,</span></span>
+<span id="cb4-51"><a href="#cb4-51"></a>                <span class="dt">"Job"</span><span class="fu">:</span> <span class="st">"Load"</span></span>
+<span id="cb4-52"><a href="#cb4-52"></a>            <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb4-53"><a href="#cb4-53"></a>            <span class="fu">{</span></span>
+<span id="cb4-54"><a href="#cb4-54"></a>                <span class="dt">"Hangar"</span><span class="fu">:</span> <span class="st">"North Hangar"</span><span class="fu">,</span></span>
+<span id="cb4-55"><a href="#cb4-55"></a>                <span class="dt">"Time"</span><span class="fu">:</span> <span class="dv">835</span><span class="fu">,</span></span>
+<span id="cb4-56"><a href="#cb4-56"></a>                <span class="dt">"Job"</span><span class="fu">:</span> <span class="st">"Load"</span></span>
+<span id="cb4-57"><a href="#cb4-57"></a>            <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb4-58"><a href="#cb4-58"></a>            <span class="fu">{</span></span>
+<span id="cb4-59"><a href="#cb4-59"></a>                <span class="dt">"Hangar"</span><span class="fu">:</span> <span class="st">"North Hangar"</span><span class="fu">,</span></span>
+<span id="cb4-60"><a href="#cb4-60"></a>                <span class="dt">"Time"</span><span class="fu">:</span> <span class="dv">850</span><span class="fu">,</span></span>
+<span id="cb4-61"><a href="#cb4-61"></a>                <span class="dt">"Job"</span><span class="fu">:</span> <span class="st">"Load"</span></span>
+<span id="cb4-62"><a href="#cb4-62"></a>            <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb4-63"><a href="#cb4-63"></a>            <span class="fu">{</span></span>
+<span id="cb4-64"><a href="#cb4-64"></a>                <span class="dt">"Hangar"</span><span class="fu">:</span> <span class="st">"North Hangar"</span><span class="fu">,</span></span>
+<span id="cb4-65"><a href="#cb4-65"></a>                <span class="dt">"Time"</span><span class="fu">:</span> <span class="dv">950</span><span class="fu">,</span></span>
+<span id="cb4-66"><a href="#cb4-66"></a>                <span class="dt">"Job"</span><span class="fu">:</span> <span class="st">"Unload"</span></span>
+<span id="cb4-67"><a href="#cb4-67"></a>            <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb4-68"><a href="#cb4-68"></a>            <span class="fu">{</span></span>
+<span id="cb4-69"><a href="#cb4-69"></a>                <span class="dt">"Hangar"</span><span class="fu">:</span> <span class="st">"North Hangar"</span><span class="fu">,</span></span>
+<span id="cb4-70"><a href="#cb4-70"></a>                <span class="dt">"Time"</span><span class="fu">:</span> <span class="dv">1020</span><span class="fu">,</span></span>
+<span id="cb4-71"><a href="#cb4-71"></a>                <span class="dt">"Job"</span><span class="fu">:</span> <span class="st">"Load"</span></span>
+<span id="cb4-72"><a href="#cb4-72"></a>            <span class="fu">}</span></span>
+<span id="cb4-73"><a href="#cb4-73"></a>        <span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb4-74"><a href="#cb4-74"></a>        <span class="dt">"F02"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb4-75"><a href="#cb4-75"></a>            <span class="fu">{</span></span>
+<span id="cb4-76"><a href="#cb4-76"></a>                <span class="dt">"Hangar"</span><span class="fu">:</span> <span class="st">"North Hangar"</span><span class="fu">,</span></span>
+<span id="cb4-77"><a href="#cb4-77"></a>                <span class="dt">"Time"</span><span class="fu">:</span> <span class="dv">810</span><span class="fu">,</span></span>
+<span id="cb4-78"><a href="#cb4-78"></a>                <span class="dt">"Job"</span><span class="fu">:</span> <span class="st">"Unload"</span></span>
+<span id="cb4-79"><a href="#cb4-79"></a>            <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb4-80"><a href="#cb4-80"></a>            <span class="fu">{</span></span>
+<span id="cb4-81"><a href="#cb4-81"></a>                <span class="dt">"Hangar"</span><span class="fu">:</span> <span class="st">"North Hangar"</span><span class="fu">,</span></span>
+<span id="cb4-82"><a href="#cb4-82"></a>                <span class="dt">"Time"</span><span class="fu">:</span> <span class="dv">830</span><span class="fu">,</span></span>
+<span id="cb4-83"><a href="#cb4-83"></a>                <span class="dt">"Job"</span><span class="fu">:</span> <span class="st">"Unload"</span></span>
+<span id="cb4-84"><a href="#cb4-84"></a>            <span class="fu">}</span></span>
+<span id="cb4-85"><a href="#cb4-85"></a>        <span class="ot">]</span></span>
+<span id="cb4-86"><a href="#cb4-86"></a>    <span class="fu">}</span></span>
+<span id="cb4-87"><a href="#cb4-87"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>If the problem cannot be solved, your solution should be:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>solution.json</strong></pre>
+</div>
+<div class="sourceCode" id="cb5" data-filename="solution.json"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb5-1"><a href="#cb5-1"></a></span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="fu">{</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a>    <span class="dt">"aircraft"</span><span class="fu">:</span> <span class="kw">null</span><span class="fu">,</span></span>
+<span id="cb5-4"><a href="#cb5-4"></a>    <span class="dt">"trucks"</span><span class="fu">:</span> <span class="kw">null</span><span class="fu">,</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a>    <span class="dt">"forklifts"</span><span class="fu">:</span> <span class="kw">null</span></span>
+<span id="cb5-6"><a href="#cb5-6"></a><span class="fu">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You do **not* need to “partially” solve a problem that cannot be fully solved.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="how-to-solve-it" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-solve-it">How To Solve It</h2>
+<ul>
+<li>First, frame the problem as an assignment of values to variables:
+<ul>
+<li>You will need to determine what the variables are</li>
+<li>You will need to determine what the domains of each variable are</li>
+<li>You will need to express the constraints</li>
+</ul></li>
+<li>Implement an algorithm that assigns values to variables, consistent with constraints
+<ul>
+<li>Naive recursive backtracking search is the easiest method</li>
+<li>You are welcome to use inferences such as AC3</li>
+<li>Approaches less efficient than basic backtracking search may time out the autograding server, and will not receive credit</li>
+</ul></li>
+<li><strong>Do not</strong> use any libraries that solve constraint satisfaction or SAT problems.</li>
+</ul>
+</section>
+<section id="implementation" class="level2">
+<h2 class="anchored" data-anchor-id="implementation">Implementation</h2>
+<ul>
+<li>Your scheduler should run from <code>terminalScheduler.py</code>
+<ul>
+<li>You can write other modules if you like</li>
+</ul></li>
+<li><code>terminalScheduler.py</code> should require four command-line arguments in this order:
+<ul>
+<li><code>-meta_path</code> for the <code>meta.json</code> file</li>
+<li><code>-aircraft_path</code> for the <code>aircraft.json</code> file</li>
+<li><code>-trucks_path</code> for the <code>trucks.json</code> file</li>
+<li><code>-schedule_path</code> for the name of the output <code>schedule.json</code></li>
+</ul></li>
+</ul>
+<p>Calling:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1"></a><span class="ex">terminalScheduler.py</span> META_PATH AIRCRAFT_PATH TRUCKS_PATH SCHEDULE_PATH</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>should run your scheduler on the specified input files and write to the specified output file.</p>
+
+
+</section>
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+    <script type="text/javascript">
+    (function(d) {
+      d.querySelectorAll(".pseudocode-container").forEach(function(el) {
+        let pseudocodeOptions = {
+          indentSize: el.dataset.indentSize || "1.2em",
+          commentDelimiter: el.dataset.commentDelimiter || "//",
+          lineNumber: el.dataset.lineNumber === "true" ? true : false,
+          lineNumberPunc: el.dataset.lineNumberPunc || ":",
+          noEnd: el.dataset.noEnd === "true" ? true : false,
+          titlePrefix: el.dataset.algTitle || "Algorithm"
+        };
+        pseudocode.renderElement(el.querySelector(".pseudocode"), pseudocodeOptions);
+      });
+    })(document);
+    (function(d) {
+      d.querySelectorAll(".pseudocode-container").forEach(function(el) {
+        titleSpan = el.querySelector(".ps-root > .ps-algorithm > .ps-line > .ps-keyword")
+        titlePrefix = el.dataset.algTitle;
+        titleIndex = ""
+        titleSpan.innerHTML = titlePrefix + " " + titleIndex + " ";
+      });
+    })(document);
+    </script>
+  
+
+
+
+
+</body></html>

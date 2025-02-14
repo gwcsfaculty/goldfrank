@@ -13,7 +13,7 @@
   <meta name="generator" content="quarto-1.4.553">
 
   <meta name="author" content="Joe Goldfrank">
-  <title>Goldfrank Faculty Web Site - Games, Constraint Satisfaction</title>
+  <title>Goldfrank Faculty Web Site - Constraint Satisfaction</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -31,6 +31,73 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        background-color: #ffffff;
+        color: #a0a0a0;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #a0a0a0;  padding-left: 4px; }
+    div.sourceCode
+      { color: #1f1c1b; background-color: #ffffff; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #1f1c1b; } /* Normal */
+    code span.al { color: #bf0303; background-color: #f7e6e6; font-weight: bold; } /* Alert */
+    code span.an { color: #ca60ca; } /* Annotation */
+    code span.at { color: #0057ae; } /* Attribute */
+    code span.bn { color: #b08000; } /* BaseN */
+    code span.bu { color: #644a9b; font-weight: bold; } /* BuiltIn */
+    code span.cf { color: #1f1c1b; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #924c9d; } /* Char */
+    code span.cn { color: #aa5500; } /* Constant */
+    code span.co { color: #898887; } /* Comment */
+    code span.cv { color: #0095ff; } /* CommentVar */
+    code span.do { color: #607880; } /* Documentation */
+    code span.dt { color: #0057ae; } /* DataType */
+    code span.dv { color: #b08000; } /* DecVal */
+    code span.er { color: #bf0303; text-decoration: underline; } /* Error */
+    code span.ex { color: #0095ff; font-weight: bold; } /* Extension */
+    code span.fl { color: #b08000; } /* Float */
+    code span.fu { color: #644a9b; } /* Function */
+    code span.im { color: #ff5500; } /* Import */
+    code span.in { color: #b08000; } /* Information */
+    code span.kw { color: #1f1c1b; font-weight: bold; } /* Keyword */
+    code span.op { color: #1f1c1b; } /* Operator */
+    code span.ot { color: #006e28; } /* Other */
+    code span.pp { color: #006e28; } /* Preprocessor */
+    code span.re { color: #0057ae; background-color: #e0e9f8; } /* RegionMarker */
+    code span.sc { color: #3daee9; } /* SpecialChar */
+    code span.ss { color: #ff5500; } /* SpecialString */
+    code span.st { color: #bf0303; } /* String */
+    code span.va { color: #0057ae; } /* Variable */
+    code span.vs { color: #bf0303; } /* VerbatimString */
+    code span.wa { color: #bf0303; } /* Warning */
   </style>
   <link rel="stylesheet" href="../../../site_libs/revealjs/dist/theme/quarto.css">
   <link href="../../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -328,7 +395,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Games, Constraint Satisfaction</h1>
+  <h1 class="title">Constraint Satisfaction</h1>
   <p class="subtitle">CSCI 4511/6511</p>
 
 <div class="quarto-title-authors">
@@ -342,109 +409,18 @@ Joe Goldfrank
 </section>
 <section id="announcements" class="slide level2">
 <h2>Announcements</h2>
-<!-- inevitably, one of you will look at the source -->
 <ul>
-<li><p>Homework 1 is due <em>today</em> at 11:55 PM</p>
+<li>Homework 2 is due on 21 February at 11:55 PM</li>
+<li>Homework 3 is released
 <ul>
-<li>No more than three grace days</li>
+<li>Working with one partner is optionally permitted</li>
 </ul></li>
-<li><p>Homework 2 is due on 21 February at 11:55 PM</p></li>
-<li><p>Autograder</p>
-<div style="max-width: 29%; position: absolute; left: 0rem; top: 19rem; transform: rotate(270deg)">
-<img data-src="img/discrete_pacman.png">
-</div>
-<p><br><br><br><br><br></p></li>
 </ul>
 </section>
 <section>
-<section id="algorithms-for-games" class="title-slide slide level1 center">
-<h1>Algorithms for Games</h1>
+<section id="games" class="title-slide slide level1 center">
+<h1>Games</h1>
 
-</section>
-<section id="adversity" class="slide level2">
-<h2>Adversity</h2>
-<p>So far:</p>
-<ul>
-<li>The world does not care about us</li>
-<li>This is a simplifying assumption!</li>
-</ul>
-<p>Reality:</p>
-<ul>
-<li>The world does not care about us</li>
-</ul>
-<div class="fragment">
-<ul>
-<li>…but it wants things for “itself”</li>
-</ul>
-</div>
-<div class="fragment">
-<ul>
-<li>…and we don’t want the same things</li>
-</ul>
-</div>
-</section>
-<section id="the-adversary" class="slide level2 smaller">
-<h2>The Adversary</h2>
-<p>One extreme:</p>
-<ul>
-<li>Single adversary
-<ul>
-<li>Adversary wants the <em>exact opposite</em> from us</li>
-<li>If adversary “wins,” we lose</li>
-</ul></li>
-</ul>
-<div class="fragment">
-<p>😐</p>
-</div>
-<div class="fragment">
-<p>Other extreme:</p>
-<ul>
-<li>An entire world of agents with different values
-<ul>
-<li>They might want some things similar to us</li>
-</ul></li>
-<li>“Economics”</li>
-</ul>
-</div>
-<div class="fragment">
-<p>😐</p>
-</div>
-</section>
-<section id="simple-games" class="slide level2">
-<h2>Simple Games</h2>
-<ul>
-<li>Two-player</li>
-<li>Turn-taking</li>
-<li>Discrete-state</li>
-<li>Fully-observable</li>
-<li>Zero-sum
-<ul>
-<li>This does some work for us!</li>
-</ul></li>
-</ul>
-</section>
-<section id="we-played-a-game" class="slide level2">
-<h2>We Played A Game</h2>
-<ul>
-<li>Pick a partner</li>
-<li>Place 11 pieces of candy between you</li>
-<li>Alternating turns, either:
-<ul>
-<li>Take one piece</li>
-<li>Take two pieces</li>
-</ul></li>
-<li>Last person to take a piece wins all of the candy</li>
-</ul>
-</section>
-<section id="max-and-min" class="slide level2">
-<h2>Max and Min</h2>
-<ul>
-<li>Two players want the opposite of each other</li>
-<li>State takes into account both agents
-<ul>
-<li>Actions depend on whose turn it is</li>
-</ul></li>
-</ul>
 </section>
 <section id="minimax" class="slide level2">
 <h2>Minimax</h2>
@@ -458,132 +434,6 @@ Joe Goldfrank
 </section>
 <section id="minimax-1" class="slide level2">
 <h2>Minimax</h2>
-</section>
-<section id="minimax-2" class="slide level2">
-<h2>Minimax</h2>
-
-<img data-src="img/minimax.png" class="r-stretch"></section>
-<section id="more-than-two-players" class="slide level2">
-<h2>More Than Two Players</h2>
-<ul>
-<li>Two players, two values: <span class="math inline">\(v_A, v_B\)</span>
-<ul>
-<li>Zero-sum: <span class="math inline">\(v_A = -v_B\)</span></li>
-<li>Only one value needs to be explicitly represented</li>
-</ul></li>
-<li><span class="math inline">\(&gt; 2\)</span> players:
-<ul>
-<li><span class="math inline">\(v_A, v_B, v_C ...\)</span></li>
-<li>Value scalar becomes <span class="math inline">\(\vec{v}\)</span></li>
-</ul></li>
-</ul>
-</section>
-<section id="society" class="slide level2 smaller">
-<h2>Society</h2>
-<ul>
-<li><span class="math inline">\(&gt;2\)</span> players, only one can win</li>
-<li>Cooperation can be rational!</li>
-</ul>
-<p>Example:</p>
-<ul>
-<li>A &amp; B: 30% win probability each</li>
-<li>C: 40% win probability</li>
-<li>A &amp; B cooperate to eliminate C
-<ul>
-<li><span class="math inline">\(\rightarrow\)</span> A &amp; B: 50% win probability each</li>
-</ul></li>
-</ul>
-<p><br>
-</p>
-<p>…what about friendship?</p>
-</section>
-<section id="minimax-efficiency" class="slide level2">
-<h2>Minimax Efficiency</h2>
-<p><em>Pruning</em> removes the need to explore the full tree.</p>
-<ul>
-<li>Max and Min nodes alternate</li>
-<li>Once <em>one</em> value has been found, we can eliminate parts of search
-<ul>
-<li>Lower values, for Max</li>
-<li>Higher values, for Min</li>
-</ul></li>
-<li>Remember highest value (<span class="math inline">\(\alpha\)</span>) for Max</li>
-<li>Remember lowest value (<span class="math inline">\(\beta\)</span>) for Min</li>
-</ul>
-</section>
-<section id="pruning" class="slide level2">
-<h2>Pruning</h2>
-</section>
-<section id="section" class="slide level2">
-<h2></h2>
-</section>
-<section id="heuristics" class="slide level2">
-<h2>Heuristics 😌</h2>
-<ul>
-<li>In practice, trees are far too deep to completely search</li>
-<li>Heuristic: replace utility with evaluation function
-<ul>
-<li>Better than losing, worse than winning</li>
-<li>Represents chance of winning</li>
-</ul></li>
-<li>Chance? 🎲🎲
-<ul>
-<li>Even in deterministic games</li>
-<li>Why?</li>
-</ul></li>
-</ul>
-</section>
-<section id="more-pruning" class="slide level2">
-<h2>More Pruning</h2>
-<ul>
-<li>Don’t bother further searching bad moves
-<ul>
-<li>Examples?</li>
-</ul></li>
-<li>Beam search
-<ul>
-<li>Lee Sedol’s singular win against AlphaGo</li>
-</ul></li>
-</ul>
-</section>
-<section id="other-techniques" class="slide level2">
-<h2>Other Techniques</h2>
-<ul>
-<li>Move ordering
-<ul>
-<li>How do we decide?</li>
-</ul></li>
-<li>Lookup tables
-<ul>
-<li>For subsets of games</li>
-</ul></li>
-</ul>
-</section>
-<section id="monte-carlo-tree-search" class="slide level2">
-<h2>Monte Carlo Tree Search</h2>
-<ul>
-<li>Many games are too large even for an efficient <span class="math inline">\(\alpha\)</span>-<span class="math inline">\(\beta\)</span> search 😔
-<ul>
-<li>We can still play them</li>
-</ul></li>
-<li><em>Simulate</em> plays of entire games from starting state
-<ul>
-<li>Update win probability from each node (for each player) based on result</li>
-</ul></li>
-<li>“Explore/exploit” paradigm for move selection</li>
-</ul>
-</section>
-<section id="choosing-moves" class="slide level2">
-<h2>Choosing Moves</h2>
-<ul>
-<li>We want our search to pick good moves</li>
-<li>We want our search to pick unknown moves</li>
-<li>We <em>don’t</em> want our search to pick bad moves
-<ul>
-<li>(Assuming they’re actually bad moves)</li>
-</ul></li>
-</ul>
-<p><strong>Select moves based on a heuristic.</strong></p>
 </section>
 <section id="games-of-luck" class="slide level2">
 <h2>Games of Luck</h2>
@@ -955,15 +805,429 @@ Joe Goldfrank
 <li>Dependency solvers</li>
 </ul></li>
 </ul>
+</section></section>
+<section>
+<section id="logic" class="title-slide slide level1 center">
+<h1>Logic</h1>
+
 </section>
-<section id="logic-preview" class="slide level2">
-<h2>Logic Preview</h2>
+<section id="yugoslav-logic" class="slide level2">
+<h2>Yugoslav Logic</h2>
 <p><span class="math inline">\(R_{HK} \Rightarrow \neg R_{SI}\)</span><br>
 <span class="math inline">\(G_{HK} \Rightarrow \neg G_{SI}\)</span><br>
 <span class="math inline">\(B_{HK} \Rightarrow \neg B_{SI}\)</span><br>
 <span class="math inline">\(R_{HK} \lor G_{HK} \lor B_{HK}\)</span><br>
 </p>
 <p>…</p>
+<p>Goal: find assignment of variables that satisfies conditions</p>
+</section>
+<section id="is-it-possible-to-know-things" class="slide level2">
+<h2>Is It Possible To Know Things?</h2>
+<p><br><br></p>
+<div class="fragment">
+<p>Yes.</p>
+</div>
+<div class="fragment">
+<p><br></p>
+<p><span style="font-size:300%">😌</span></p>
+</div>
+</section>
+<section id="how-even-do-we-know-things" class="slide level2">
+<h2>How Even Do We Know Things?</h2>
+<ul>
+<li>What color is an apple?
+<ul>
+<li>Red?</li>
+<li>Green?</li>
+<li>Blue?</li>
+</ul></li>
+<li>Are you sure?</li>
+</ul>
+</section>
+<section id="symbols" class="slide level2">
+<h2>Symbols</h2>
+<ul>
+<li>Propositional symbols
+<ul>
+<li>Similar to boolean variables</li>
+<li>Either True or False</li>
+</ul></li>
+</ul>
+</section>
+<section id="the-unambiguous-truth" class="slide level2">
+<h2>The Unambiguous Truth</h2>
+<ul>
+<li><span class="smallcaps"><code>It is a nice day.</code></span>
+<ul>
+<li>It is difficult to discern an unambiguous truth value.</li>
+</ul></li>
+<li><span class="smallcaps"><code>It is warm outside.</code></span>
+<ul>
+<li>This has some truth value, but it is ambiguous.</li>
+</ul></li>
+<li><span class="smallcaps"><code>The temperature is at least 78°F outside.</code></span>
+<ul>
+<li>This has an unambiguous truth value.<sup>1</sup></li>
+</ul></li>
+</ul>
+<aside><ol class="aside-footnotes"><li id="fn7"><p>Provided that ‘outside’ is well-defined.</p></li></ol></aside></section>
+<section id="what-matters-matters" class="slide level2">
+<h2>What Matters, Matters</h2>
+<ul>
+<li><em>Non-ambiguity</em> required</li>
+<li>Abitrary detail is not</li>
+<li><span class="smallcaps"><code>The temperature is exactly 78°F outside.</code></span>
+<ul>
+<li>We don’t necessarily need any other “related” symbols</li>
+</ul></li>
+<li>What is the problem?</li>
+<li>What do we care about?</li>
+</ul>
+</section>
+<section id="sentences" class="slide level2">
+<h2>Sentences</h2>
+<ul>
+<li>What is a linguistic sentence?
+<ul>
+<li>Subject(s)</li>
+<li>Verb(s)</li>
+<li>Object(s)</li>
+<li><em>Relationships</em></li>
+</ul></li>
+<li>What is a logical sentence?
+<ul>
+<li>Symbols</li>
+<li>Relationships</li>
+</ul></li>
+</ul>
+</section>
+<section id="familiar-logical-operators" class="slide level2">
+<h2>Familiar Logical Operators</h2>
+<ul>
+<li><span class="math inline">\(\neg\)</span>
+<ul>
+<li>“Not” operator, same as CS (<code>!</code>, <code>not</code>, etc.)</li>
+</ul></li>
+<li><span class="math inline">\(\land\)</span>
+<ul>
+<li>“And” operator, same as CS (<code>&amp;&amp;</code>, <code>and</code>, etc.)</li>
+<li>This is sometimes called a <em>conjunction.</em></li>
+</ul></li>
+<li><span class="math inline">\(\lor\)</span>
+<ul>
+<li>“Inclusive Or” operator, same as CS.</li>
+<li>This is sometimes called a <em>disjunction.</em></li>
+</ul></li>
+</ul>
+</section>
+<section id="unfamiliar-logical-operators" class="slide level2">
+<h2>Unfamiliar Logical Operators</h2>
+<ul>
+<li><span class="math inline">\(\Rightarrow\)</span>
+<ul>
+<li>Logical <em>implication.</em><br>
+</li>
+<li>If <span class="math inline">\(X_0 \Rightarrow X_1\)</span>, <span class="math inline">\(X_1\)</span> is always True when <span class="math inline">\(X_0\)</span> is True.<br>
+</li>
+<li>If <span class="math inline">\(X_0\)</span> is False, the value of <span class="math inline">\(X_1\)</span> is not constrained.</li>
+</ul></li>
+<li><span class="math inline">\(\iff\)</span>
+<ul>
+<li>“If and only If.”</li>
+<li>If <span class="math inline">\(X_0 \iff X_1\)</span>, <span class="math inline">\(X_0\)</span> and <span class="math inline">\(X_1\)</span> are either both True or both False.</li>
+<li>Also called a <em>biconditional.</em></li>
+</ul></li>
+</ul>
+</section>
+<section id="equivalent-statements" class="slide level2">
+<h2>Equivalent Statements</h2>
+<ul>
+<li><span class="math inline">\(X_0 \Rightarrow X_1\)</span> alternatively:
+<ul>
+<li><span class="math inline">\((X_0 \land X_1) \lor \neg X_0\)</span></li>
+</ul></li>
+<li><span class="math inline">\(X_0 \iff X_1\)</span> alternatively:
+<ul>
+<li><span class="math inline">\((X_0 \land X_1) \lor (\neg X_0 \land \neg X_1)\)</span></li>
+</ul></li>
+</ul>
+<p>&nbsp;</p>
+<ul>
+<li>Can we make an XOR?</li>
+</ul>
+</section>
+<section id="knowledge-base-queries" class="slide level2">
+<h2>Knowledge Base &amp; Queries</h2>
+<ul>
+<li>We encode everything that we ‘know’
+<ul>
+<li>Statements that are true</li>
+</ul></li>
+<li>We query the knowledge base
+<ul>
+<li>Statement that we’d like to know about</li>
+</ul></li>
+<li>Logic:
+<ul>
+<li>Is statement consistent with KB?</li>
+</ul></li>
+</ul>
+</section>
+<section id="models" class="slide level2">
+<h2>Models</h2>
+<ul>
+<li>Mathematical abstraction of problem
+<ul>
+<li>Allows us to solve it</li>
+</ul></li>
+<li>Logic:
+<ul>
+<li>Set of truth values for all sentences</li>
+<li>…sentences comprised of symbols…</li>
+<li>Set of truth values for all symbols</li>
+<li>New sentences, symbols over time</li>
+</ul></li>
+</ul>
+</section>
+<section id="entailment" class="slide level2">
+<h2>Entailment</h2>
+<ul>
+<li><span class="math inline">\(KB \models A\)</span>
+<ul>
+<li>“Knowledge Base entails A”</li>
+<li>For every model in which <span class="math inline">\(KB\)</span> is True, <span class="math inline">\(A\)</span> is also True</li>
+<li>One-way relationship: <span class="math inline">\(A\)</span> can be True for models where <span class="math inline">\(KB\)</span> is not True.</li>
+</ul></li>
+<li>Vocabulary: <span class="math inline">\(A\)</span> is the <em>query</em></li>
+</ul>
+</section>
+<section id="knowing-things" class="slide level2">
+<h2>Knowing Things</h2>
+<p>Falsehood:</p>
+<ul>
+<li><span class="math inline">\(KB \models \neg A\)</span>
+<ul>
+<li>No model exists where <span class="math inline">\(KB\)</span> is True and <span class="math inline">\(A\)</span> is True</li>
+</ul></li>
+</ul>
+<p>It is possible to not know things:<sup>1</sup></p>
+<ul>
+<li><span class="math inline">\(KB \nvdash A\)</span></li>
+<li><span class="math inline">\(KB \nvdash \neg A\)</span></li>
+</ul>
+<aside><ol class="aside-footnotes"><li id="fn8"><p><span class="math inline">\(\nvdash\)</span> – “does not entail”</p></li></ol></aside></section>
+<section id="it-is-possible-to-not-know-things" class="slide level2">
+<h2>It Is Possible To Not Know Things 😔</h2>
+
+<img data-src="img/platter.png" class="r-stretch"></section>
+<section id="lexicon" class="slide level2">
+<h2>Lexicon</h2>
+<ul>
+<li><em>Valid</em>
+<ul>
+<li><span class="math inline">\(A \lor \neg A\)</span></li>
+</ul></li>
+<li><em>Satisfiable</em>
+<ul>
+<li>True for some models</li>
+</ul></li>
+<li><em>Unsatisfiable</em>
+<ul>
+<li><span class="math inline">\(A \land \neg A\)</span></li>
+</ul></li>
+</ul>
+</section>
+<section id="inference-1" class="slide level2">
+<h2>Inference</h2>
+<ul>
+<li><span class="math inline">\(KB\)</span> models real world
+<ul>
+<li>Truth values unambiguous</li>
+<li><span class="math inline">\(KB\)</span> coded correctly</li>
+</ul></li>
+<li><span class="math inline">\(KB \models A\)</span>
+<ul>
+<li><span class="math inline">\(A\)</span> is true in the real world</li>
+</ul></li>
+</ul>
+</section>
+<section id="inference---how" class="slide level2">
+<h2>Inference - How?</h2>
+<ul>
+<li>Model checking
+<ul>
+<li>Enumerate possible models</li>
+<li>We can do better</li>
+<li>NP-complete 😣</li>
+</ul></li>
+<li>Theorem proving
+<ul>
+<li>Prove <span class="math inline">\(KB \models A\)</span></li>
+</ul></li>
+</ul>
+<div style="max-width: 23%; position: absolute; left: 30rem; top: 3rem; transform: rotate(180deg)">
+<img data-src="img/discrete_pacman.png">
+</div>
+</section>
+<section id="satisfiability" class="slide level2">
+<h2>Satisfiability</h2>
+<ul>
+<li>Commonly abbreviated “SAT”
+<ul>
+<li>Not the Scholastic Assessment Test</li>
+<li>Much more difficult</li>
+<li><em>First</em> NP-complete problem</li>
+</ul></li>
+<li>The</li>
+</ul>
+<div class="fragment">
+<p><em>Deliberate typographical error!</em></p>
+</div>
+</section>
+<section id="satisfiability-1" class="slide level2">
+<h2>Satisfiability</h2>
+<ul>
+<li><p>Commonly abbreviated “SAT”</p></li>
+<li><p><span class="math inline">\((X_0 \land X_1) \lor X_2\)</span></p>
+<ul>
+<li>Satisfied by <span class="math inline">\(X_0 = \text{True}, X_1 = \text{False}, X_2 = \text{True}\)</span></li>
+<li>Satisfied for any <span class="math inline">\(X_0\)</span> and <span class="math inline">\(X_1\)</span> if <span class="math inline">\(X_2 = \text{True}\)</span></li>
+</ul></li>
+<li><p><span class="math inline">\(X_0 \land \neg X_0 \land X_1\)</span></p>
+<ul>
+<li>Cannot be satisfied by any values of <span class="math inline">\(X_0\)</span> and <span class="math inline">\(X_1\)</span></li>
+</ul></li>
+</ul>
+</section>
+<section id="satisfaction" class="slide level2">
+<h2>Satisfaction</h2>
+<ul>
+<li>SAT reminiscent of Constraint Satisfaction Problems</li>
+</ul>
+<div class="fragment">
+<ul>
+<li>CSPs reduce to SAT
+<ul>
+<li>Solving SAT <span class="math inline">\(\rightarrow\)</span> solving CSPs</li>
+<li>Restricted to specific operators</li>
+<li>CSP global constraints <span class="math inline">\(\rightarrow\)</span> refactor as binary</li>
+</ul></li>
+<li>Still NP-Complete</li>
+</ul>
+</div>
+</section>
+<section id="why-do-i-keep-on-doing-this-to-you" class="slide level2">
+<h2>Why Do I Keep On Doing This To You</h2>
+<p><br> <br></p>
+<div class="fragment">
+<p><em>This is the entire point of the course.</em></p>
+</div>
+<div class="fragment">
+<p><br></p>
+<p><em>Theory and practice are the same, in theory, but in practice they differ.</em></p>
+</div>
+</section>
+<section id="csp-solution-methods" class="slide level2">
+<h2>CSP Solution Methods</h2>
+<ul>
+<li>They all work</li>
+<li>Backtracking search</li>
+<li>Hill-climbing</li>
+<li>Ordering (?)</li>
+</ul>
+</section>
+<section id="sat-solvers" class="slide level2">
+<h2>SAT Solvers</h2>
+<ul>
+<li>Heuristics</li>
+<li>PicoSAT
+<ul>
+<li>Python bindings: <code>pycosat</code></li>
+<li>(Solver written in C) (it’s fast)</li>
+</ul></li>
+<li>You don’t have to know anything about the problem
+<ul>
+<li>This is not actually true</li>
+</ul></li>
+<li>Conjunctive Normal Form</li>
+</ul>
+</section>
+<section id="conjunctive-normal-form" class="slide level2">
+<h2>Conjunctive Normal Form</h2>
+<ul>
+<li><em>Literals</em> — symbols or negated symbols
+<ul>
+<li><span class="math inline">\(X_0\)</span> is a literal</li>
+<li><span class="math inline">\(\neg X_0\)</span> is a literal</li>
+</ul></li>
+<li><em>Clauses</em> — combine literals and disjunction using disjunctions (<span class="math inline">\(\lor\)</span>)
+<ul>
+<li><span class="math inline">\(X_0 \lor \neg X_1\)</span> is a valid disjunction</li>
+<li><span class="math inline">\((X_0 \lor \neg X_1) \lor X_2\)</span> is a valid disjunction</li>
+</ul></li>
+</ul>
+</section>
+<section id="conjunctive-normal-form-1" class="slide level2">
+<h2>Conjunctive Normal Form</h2>
+<ul>
+<li><em>Conjunctions</em> (<span class="math inline">\(\land\)</span>) combine clauses (and literals)
+<ul>
+<li><span class="math inline">\(X_1 \land (X_0 \lor \neg X_2)\)</span></li>
+</ul></li>
+<li>Disjunctions cannot contain conjunctions:</li>
+<li><span class="math inline">\(X_0 \lor (X_1 \land X_2)\)</span> not in CNF
+<ul>
+<li>Can be rewritten in CNF: <span class="math inline">\((X_0 \lor X_1) \land (X_0 \lor X_2)\)</span></li>
+</ul></li>
+</ul>
+</section>
+<section id="converting-to-cnf" class="slide level2">
+<h2>Converting to CNF</h2>
+<ul>
+<li><span class="math inline">\(X_0 \iff X_1\)</span>
+<ul>
+<li><span class="math inline">\((X_0 \Rightarrow X_1) \land (X_1 \Rightarrow X_0)\)</span></li>
+</ul></li>
+<li><span class="math inline">\(X_0 \Rightarrow X_1\)</span>
+<ul>
+<li><span class="math inline">\(\neg X_0 \lor X_1\)</span></li>
+</ul></li>
+<li><span class="math inline">\(\neg (X_0 \land X_1)\)</span>
+<ul>
+<li><span class="math inline">\(\neg X_0 \lor \neg X_1\)</span></li>
+</ul></li>
+<li><span class="math inline">\(\neg (X_0 \lor X_1)\)</span>
+<ul>
+<li><span class="math inline">\(\neg X_0 \land \neg X_1\)</span></li>
+</ul></li>
+</ul>
+</section>
+<section id="limitations" class="slide level2">
+<h2>Limitations</h2>
+<ul>
+<li>Consider: <span class="smallcaps"><code>No cat is a vegetarian</code></span></li>
+<li>Express in propositional symbols?</li>
+<li><span class="math inline">\(\neg\)</span> <span class="smallcaps"><code>First cat is a vegetarian</code></span></li>
+<li><span class="math inline">\(\neg\)</span> <span class="smallcaps"><code>Second cat is a vegetarian</code></span></li>
+<li><span class="math inline">\(\neg\)</span> <span class="smallcaps"><code>Third cat is a vegetarian</code></span> …</li>
+</ul>
+<div class="fragment">
+<div style="max-width: 125%; position: absolute; left: 37rem; top: 3rem; transform: rotate(180deg)">
+<img data-src="img/discrete_pacman.png">
+</div>
+</div>
+</section>
+<section id="solutions" class="slide level2">
+<h2>Solutions</h2>
+<p>First-Order Logic:</p>
+<ul>
+<li><span class="math inline">\(\forall\)</span> (“for all”)</li>
+<li><span class="math inline">\(\exists\)</span> (“there exists at least one”)</li>
+</ul>
+<p>Loops 🙂 :</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="cf">for</span> cat <span class="kw">in</span> cats:</span>
+<span id="cb1-2"><a></a>  t <span class="op">=</span> Expr(<span class="ss">f"</span><span class="sc">{</span>cat<span class="sc">}</span><span class="ss"> is not a vegetarian"</span>)</span>
+<span id="cb1-3"><a></a>  Exprs.push(t)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Goal: find assignment of variables that satisifies conditions</p>
 </section>
 <section id="references" class="slide level2">
