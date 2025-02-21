@@ -140,788 +140,529 @@
     "text": "11 Q8 (3 pts): Suboptimal Search\nSometimes, even with A* and a good heuristic, finding the optimal path through all the dots is hard. In these cases, we’d still like to find a reasonably good path, quickly. In this section, you’ll write an agent that always greedily eats the closest dot. ClosestDotSearchAgent is implemented for you in searchAgents.py, but it’s missing a key function that finds a path to the closest dot.\nImplement the function findPathToClosestDot in searchAgents.py. Our agent solves this maze (suboptimally!) in under a second with a path cost of 350:\npython pacman.py -l bigSearch -p ClosestDotSearchAgent -z .5\nHint: The quickest way to complete findPathToClosestDot is to fill in the AnyFoodSearchProblem, which is missing its goal test. Then, solve that problem with an appropriate search function. The solution should be very short!\nYour ClosestDotSearchAgent won’t always find the shortest possible path through the maze. Make sure you understand why and try to come up with a small example where repeatedly going to the closest dot does not result in finding the shortest path for eating all the dots.\nGrading: Please run the below command to see if your implementation passes all the autograder test cases.\npython autograder.py -q q8"
   },
   {
-    "objectID": "4511/notes/05/05.html#announcements",
-    "href": "4511/notes/05/05.html#announcements",
-    "title": "Constraint Satisfaction",
+    "objectID": "4511/project.html",
+    "href": "4511/project.html",
+    "title": "Project",
+    "section": "",
+    "text": "This is a summary. Read the entire document.\n\nTeams of up to four people\nTurn in your proposal by 6 Apr\nComplete in Milestone 1 by 18 Apr\nComplete Milestone 2 by 25 Apr\nTurn in your final report by 6 May\n\nFinal report is an informal “blog post” explaining what you did\n6 May is a hard deadline with no extensions possible\n\nTurn in code to accompany your report via linked repository"
+  },
+  {
+    "objectID": "4511/project.html#scope-agreement",
+    "href": "4511/project.html#scope-agreement",
+    "title": "Project",
+    "section": "4.1 Scope Agreement:",
+    "text": "4.1 Scope Agreement:\n\nYou must propose a project to me and I must approve your proposal by 6 Apr. You should submit this proposal with ample time to account for possible revisions. You are welcome to submit it much earlier; I typically turn these around in 48 working hours. The earlier you scope your project, the earlier you can begin your project.\nIdentify in your proposal:\n\nThe problem you intend to solve\nThe uncertainties involved\nWhy the problem is non-trivial\nExisting solution methods\nYour plan for modeling and solving the problem: what is the state space, what is the action space, what are the observations, and what algorithms might you use?\n\nSubmit this to me via email. Only one submission per group is required."
+  },
+  {
+    "objectID": "4511/project.html#report",
+    "href": "4511/project.html#report",
+    "title": "Project",
+    "section": "4.2 Report:",
+    "text": "4.2 Report:\n\nThe final report must be turned in by 11:55 PM on 6 May\n\nThis is hard deadline and I will not grant extensions. Extenuating circumstances will result in a course Incomplete.\n\nYou will submit an informal report upon conclusion of the project. The format of the report will be a blog post. Possible ways to do this:\n\nGithub pages with Jekyll\nQuarto, which can embed Jupyter Notebooks into static websites\nThe literal README of your repo\n\nThe report must effectively communicate what you did for your project in a way that lets a technical bystander reproduce your work. Include:\n\nSoftware and hardware requirements\nLinks to any data sources\nMotivation for your project\nExplanation of what you accomplished\nHow you measured your success (or failure)\n\nI won’t grade you on spelling or grammar and ask that you write this yourself without the use of any AI tool or LLM.\n\nLLMs often ‘hallucinate’ logical inconsistencies in technical writeups. If your report has logical inconsistencies, you’ll lose credit.\n\nHow to submit: Each team member should turn in a PDF linking the report and the code repository, and detailing that team member’s contributions to the project.\n\n\n4.2.1 Report Milestones\nDetails for each milestone in the grading section\n\nState Space Specification (18 Apr)\nState Space Implementation (25 Apr)\nFinal Deadline (6 May)"
+  },
+  {
+    "objectID": "4511/project.html#code",
+    "href": "4511/project.html#code",
+    "title": "Project",
+    "section": "4.3 Code",
+    "text": "4.3 Code\n\nWrite your project in Python 3\n\nTalk to me if you think you have a good reason to use another language\n\nInclude code with your report in a Github or Gitlab or similar source repository.\nSpecify dependencies with a requirements.txt or pyproject.toml\nInclude enough details in your report for me to reproduce your work without perusing your source code. I recommend either:\n\nStep-by-step instructions\nA makefile and/or build/run scripts"
+  },
+  {
+    "objectID": "4511/project.html#grading-details",
+    "href": "4511/project.html#grading-details",
+    "title": "Project",
+    "section": "5.1 Grading Details",
+    "text": "5.1 Grading Details\n\n5.1.1 Project Scope (10%)\n\nScope document includes a stochastic sequential decision problem (5%)\nScope document proposes a feasible solution method for the problem (5%)\n\n\n\n5.1.2 State Space Description (10%)\n\nNatural language description of state space in draft report (5%)\nComplete mathematical description of states, transitions, actions, and observations (5%)\n\n\n\n5.1.3 State Space Implementation (15%)\n\nState space model implemented in your program\n\nYour model should generate successor states, given actions\nYour model should return observations1 from state-action \\(\\rightarrow\\) state transitions\n\n\n\n\nIf your problem is partially-observable↩︎\n\n\n\n\n5.1.4 Final Report (65%)\n\nDescribe your problem and solution in a blog post:\n\nProblem statement (5%)\nRelated solutions to similar problems (5%)\nState space, actions, transitions, and observations (previously completed)\nSolution method (5%)\n\nImplementation of solution method for problem (50%)\n\nOptimally or approximately-optimally compute a decision given a sequence of states/observations\nImplemented solution is consistent with report description."
+  },
+  {
+    "objectID": "4511/notes/01/python.html",
+    "href": "4511/notes/01/python.html",
+    "title": "Python Notes",
+    "section": "",
+    "text": "These notes are meant to accompany a lecture in the course. If you are looking for a full Python reference, I recommend the full Python reference."
+  },
+  {
+    "objectID": "4511/notes/01/python.html#whitespace-syntax",
+    "href": "4511/notes/01/python.html#whitespace-syntax",
+    "title": "Python Notes",
+    "section": "Whitespace Syntax",
+    "text": "Whitespace Syntax\nPython formally uses whitespace as part of its syntax. Examples:\nYou may be used to languages ending logical lines with a semicolon: ;. Python ends logical lines with a carriage return (a new line).\nCompare Java:\nSystem.out.println(\"Hello\");\nSystem.out.println(\"World\");\nwith Python:\nprint(\"Hello\")\nprint(\"World\")\n\n\n\n\n\n\nExtending Logical Lines in Python\n\n\n\n\n\nYou can extend a logical line of code over multiple lines using backslash characters:\nprint(\"Hello \\\n\")\nprint(\"World\")\nLogical lines can be extended inside of groupings such as arrays:\nx = [1, 2, 3,\n     4, 5, 6]\n\n\n\n\nWhere languages like Java use curly braces { and } to group statements, Python typically uses indentation.\nCompare Java:\nfor (int i = 0; i &lt; 5; i++) {\n  System.out.println(i);\n}\nwith Python:\nfor i in range(5):\n    print(i) # note that the print statement is indented \nThe above also demonstrates:\n\nComments are indicated with #\nfor loop syntax is concise\n\nDeclaration of i and incrementing i += 1 are implied\nPython does not have ++, use +=1\n\nThings that are associated with groups of statements end in a colon :\n\nNesting loops and/or conditionals uses multiple levels of indentation:\nfor i in range(3):\n    for j in range(4):\n        print(i+j)\n        print(i*j)"
+  },
+  {
+    "objectID": "4511/notes/01/python.html#the-interpreter",
+    "href": "4511/notes/01/python.html#the-interpreter",
+    "title": "Python Notes",
+    "section": "The Interpreter",
+    "text": "The Interpreter\nYou can run the Python interpreter from the command line and experiment with code. Open a terminal and simply run python."
+  },
+  {
+    "objectID": "4511/notes/01/python.html#operators",
+    "href": "4511/notes/01/python.html#operators",
+    "title": "Python Notes",
+    "section": "Operators",
+    "text": "Operators\nBasic math operators work similarly in Python and Java:\n\nprint(1 + 2)\n\n3\n\n\n\nprint(1 * 2)\n\n2\n\n\n\nprint(1 / 2)\n\n0.5\n\n\nDividing two integers (or any two numbers) with / automatically yields a float. Quotient/remainder is available with the quotient // and remainder % operators:\n\nprint(7 // 2)\n\n3\n\n\n\nprint(7 % 2)\n\n1\n\n\nThese are not constrained to integers:\n\nprint(6 // 2.5)\n\n2.0\n\n\n\nprint(6 % 2.5)\n\n1.0\n\n\nOperators like + and * work like math operators when the things on both sides of them are numbers. They do other things when they’re around strings.\n+ concatenates:\n\nprint(\"Fizz\" + \"Buzz\")\n\nFizzBuzz\n\n\n* extends the string, when used with an integer:\n\nprint(\"Fizz\" * 5)\n\nFizzFizzFizzFizzFizz\n\n\nThe above ‘multiplication’ operation would be nonsensical with a float instead of an int, or with two strings, and trying it will give you an error.\nPowers can be raised with **:\n\nprint(2**3)\n\n8\n\n\nThere is also a well-documented math library for things like square roots.\n\nimport math\n\nprint(math.sqrt(2))\n\n1.4142135623730951\n\n\nNote: There is nothing wrong with the math library, but most people use numpy for math these days.\n\nimport numpy as np\n\nprint(np.sqrt(2))\n\n1.4142135623730951"
+  },
+  {
+    "objectID": "4511/notes/01/python.html#conditionals",
+    "href": "4511/notes/01/python.html#conditionals",
+    "title": "Python Notes",
+    "section": "Conditionals",
+    "text": "Conditionals\nConditionals are expressed with if, elif, and else:\n\nThe if is required.\n\nAny whole number of elifs are allowed.\n\nZero or one elses are allowed, and the else always comes last.\n\nSyntax uses colons and indentation, just like loops.\n\nx = 5\n\nif x &gt; 10:\n    print(\"x is huge\")\nelif x &lt; 0:\n    print(\"x is negative\")\nelif x &gt; 0:\n    print(\"x can be counted on fingers\")\nelse:\n    print(\"x is zero\")\n\nx can be counted on fingers\n\n\n(This is a very silly example.)\nThere is an extremely powerful match case conditional syntax which you can use.1 Read about it here\n1 If you are extremely powerful."
+  },
+  {
+    "objectID": "4511/notes/01/python.html#types-and-variables",
+    "href": "4511/notes/01/python.html#types-and-variables",
+    "title": "Python Notes",
+    "section": "Types and Variables",
+    "text": "Types and Variables\nPython has types, but variables do not have types at compile time. Compared to Java, this might seem confusing. You can think of variables as pointing to objects that have types (Python also does not, explicitly, have pointers):\nx = 126\ny = \"sunset\"\nz = 12.6\n\n\n\n\n\n\n\n\n\nVariables can be reassigned without regard to the type the variable is pointing at:\nx = 126\nx = \"sunrise\"\n\n\n\nAssigning a variable to another variable assigns it to wherever the other variable is pointing:\n\nx = 126\ny = \"sunset\"\nx = y\nprint(x)\n\nsunset\n\n\n\n\n\nReassigning the other variable doesn’t change the first variable:\n\nx = 126\ny = \"sunset\"\nx = y\ny = \"sunrise\"\nprint(x)\n\nsunset"
+  },
+  {
+    "objectID": "4511/notes/01/python.html#lists",
+    "href": "4511/notes/01/python.html#lists",
+    "title": "Python Notes",
+    "section": "Lists",
+    "text": "Lists\nLists are delimited with square brackets [ and ].\n\nx = [5, 6, 7]\nprint(x)\n\n[5, 6, 7]\n\n\nThey are not typed and can contain whatever you want. Or, for the imaginative, they can contain any type of object.\n\nx = [126, \"sunset\", 12.6]\nprint(x)\n\n[126, 'sunset', 12.6]\n\n\nIndividual list elements can be accessed via “slicing.” Note that lists are 0-indexed.\n\nx = [126, \"sunset\", 12.6]\nprint(x[1])\n\nsunset\n\n\nIndividual elements of a list can be modified:\n\nx = [126, \"sunset\", 12.6]\nx[1] = \"sunrise\"\nprint(x)\n\n[126, 'sunrise', 12.6]\n\n\nLists are collections of references to variables and behave differently with respect to assignment. Specifically, assigning a variable to another variable that references a list will cause both variables to reference the same list object:\n\nx = [126, \"sunset\", 12.6]\ny = x\nprint(y)\n\n[126, 'sunset', 12.6]\n\n\n\n\n\nChanging x also changes y, since they reference the same thing:\n\nx = [126, \"sunset\", 12.6]\ny = x\nx[1] = \"sunrise\"\nprint(y)\n\n[126, 'sunrise', 12.6]\n\n\n\n\n\nSlicing can access more than one element:\n\nx = [126, \"sunset\", 12.6]\nprint(x[1:3])\n\n['sunset', 12.6]\n\n\nStrings can also be sliced:\n\nx = \"sunrise\"\nprint(x[0:3])\n\nsun\n\n\nMore details about slicing in the docs.\nLists can be concatenated with +, which returns a new list:\n\nx = [1, 2, 3] + [4, 5, 6]\nprint(x)\n\n[1, 2, 3, 4, 5, 6]\n\n\nLists have no fixed length, they can be lengthened in place with append()\n\nx = [\"sunrise\"]\nx.append(\"sunset\")\nprint(x)\n\n['sunrise', 'sunset']"
+  },
+  {
+    "objectID": "4511/notes/01/python.html#tuples",
+    "href": "4511/notes/01/python.html#tuples",
+    "title": "Python Notes",
+    "section": "Tuples",
+    "text": "Tuples\nTuples are similar to lists, but they are immutable. They are optionally delimited with parentheses ( and )\n\nx = (\"sunrise\", \"sunset\")\nprint(x[1])\ny = \"duck\", \"teal\"\nprint(y[0])\n\nsunset\nduck\n\n\nWhile the parentheses are optional, they are typically used.\nTuples can also be used for multiple assignment:\n\nA, B = 1, 2\nprint(A)\nprint(B)\n\n1\n2"
+  },
+  {
+    "objectID": "4511/notes/01/python.html#dicts",
+    "href": "4511/notes/01/python.html#dicts",
+    "title": "Python Notes",
+    "section": "Dicts",
+    "text": "Dicts\nHash tables in Python are called dictionaries, or “dicts.” They consist of key-value pairs. They are delimited with curly braces { and }.\nThis dict has one pair: the key is 'sunrise' (a string) and the value is 126 (an int).\n\nx = {'sunrise': 126}\nprint(x)\n\n{'sunrise': 126}\n\n\n\nKeys and values can be any variable type. Values can be lists or dicts, but keys cannot (since these cannot be hashed.)\n\nDict values can be accessed via their keys:\n\nx = {'sunrise': 126}\nprint(x['sunrise'])\n\n126\n\n\nDict values can also be changed or added via their keys:\n\nx = {'sunrise': 126}\nx['sunrise'] = 127\nx['sunset'] = 12.6\nprint(x)\n\n{'sunrise': 127, 'sunset': 12.6}"
+  },
+  {
+    "objectID": "4511/notes/01/python.html#looping",
+    "href": "4511/notes/01/python.html#looping",
+    "title": "Python Notes",
+    "section": "Looping",
+    "text": "Looping\nPython has several ways to loop through things.\nVia index:\n\nL = [\"cat\", \"dog\", \"owl\"]\nfor j in range(3):\n    print(L[j], end=\" - \")\n\ncat - dog - owl - \n\n\n\nVia content:\n\nL = [\"cat\", \"dog\", \"owl\"]\nfor j in L:\n    print(j, end= \" - \")\n\ncat - dog - owl - \n\n\n\nenumerate 😌\n\nL = [\"cat\", \"dog\", \"owl\"]\nfor j, item in enumerate(L):\n    print(item, j, end=\" - \")\n\ncat 0 - dog 1 - owl 2 - \n\n\n\nLooping directly through a dict iterates over keys:2\n2 Note the f-string\nA = {\"carl\": 5, \"otis\": 6, \"alan\": 2}\nfor j in A:\n    print(f\"{j}:{A[j]}\", end=\" - \")\n\ncarl:5 - otis:6 - alan:2 - \n\n\nYou can also iterate over the values:\n\nA = {\"carl\": 5, \"otis\": 6, \"alan\": 2}\nfor j in A.values():\n    print(j, end=\" - \")\n\n5 - 6 - 2 - \n\n\nOr the items:\n\nA = {\"carl\": 5, \"otis\": 6, \"alan\": 2}\nfor i, j in A.items():\n    print(i, j, end=\" - \")\n\ncarl 5 - otis 6 - alan 2 - \n\n\n\nThere are while loops:\n\nL = [\"cat\", \"dog\", \"hoss\", \"owl\"]\ni = 0\nwhile len(L[i]) == 3:\n    i += 1\nprint(L[i])\n\nhoss"
+  },
+  {
+    "objectID": "4511/notes/01/python.html#booleans",
+    "href": "4511/notes/01/python.html#booleans",
+    "title": "Python Notes",
+    "section": "Booleans",
+    "text": "Booleans\nPython uses and, or and not for boolean logic. Equality operators are the same as Java (==, &lt;, !=, etc.). Parentheses aren’t enforced, but it’s a fine idea to use them anyway.\nBools can take on either True and False.\n\nprint(1 != 2)\nprint(4 &lt;= 3)\nprint(0.1 + 0.2 == 0.3)\n\nTrue\nFalse\nFalse\n\n\nBoolean operators short-circuit, which means:\n\nIf the left side of an and is False, the right side isn’t evaluated.\nIf the left side of an or is True, the right side isn’t evaluated.\n\n\nprint((1 &gt; 0) or nonsense)\n\nTrue\n\n\nnonsense above isn’t defined but the reference is never reached, so the program runs without error. Short-circuiting is occasionally useful and occasionally gets you into trouble."
+  },
+  {
+    "objectID": "4511/notes/01/python.html#truth",
+    "href": "4511/notes/01/python.html#truth",
+    "title": "Python Notes",
+    "section": "Truth",
+    "text": "Truth\nPython has “truth values” for most built-in types. 0, empty values, and None (null) evaluate as false, non-zero and non-empty values evaluate as true, even though they aren’t equal to the boolean.\n\nx = []\nif not x:\n    print(x == False)\n    x.append(1)\nprint(x)\n\nFalse\n[1]"
+  },
+  {
+    "objectID": "4511/notes/01/python.html#functions",
+    "href": "4511/notes/01/python.html#functions",
+    "title": "Python Notes",
+    "section": "Functions",
+    "text": "Functions\nFunctions are defined with def and a colon. Indentation to group statements follows the same conventions you have already seen.\n\ndef doubling(x):\n    return x*2\n\ny = doubling(2)\nprint(y)\n\n4\n\n\nFunctions do not have to return anything.\n\ndef good_morning():\n    print(\"sunrise\")\n\ngood_morning()\n\nsunrise\n\n\nVariables passed to a function are copied into the function and not modified outside of the scope of the function.\n\ndef add_one(x):\n    x += 1\n    return x\n\ny = 2\nz = add_one(y)\nprint(y)\n\n2\n\n\nLists passed to a function are passed as references, and are modified outside of the scope of the function.\n\ndef append_sunrise(x):\n    x.append(\"sunrise\")\n    return x\n\ny = ['sunset']\nz = append_sunrise(y)\nprint(y)\n\n['sunset', 'sunrise']\n\n\nThis is a decent time to note that you can get into some trouble with functions because nothing in Python is explicitly typed:\ndef append_sunrise(x):\n    x.append(\"sunrise\")\n    return x\n\ny = 'sunset'\nz = append_sunrise(y)\nprint(y)"
+  },
+  {
+    "objectID": "4511/notes/01/python.html#modules-and-imports",
+    "href": "4511/notes/01/python.html#modules-and-imports",
+    "title": "Python Notes",
+    "section": "Modules and Imports",
+    "text": "Modules and Imports\n\nVirtual Environments\nYou probably know this:\n\nimport numpy\n\nprint(numpy.random.random())\n\n0.39856744986442416\n\n\nand this3\n3 It might not run if you don’t have scipy installed, so install scipy.\nimport numpy as np\nimport pandas as pd\nfrom scipy import stats\n\na = stats.uniform(1, 5)\nprint(a)\nprint(a.cdf(2), a.cdf(3), a.cdf(5))\n\n&lt;scipy.stats._distn_infrastructure.rv_continuous_frozen object at 0x7d7b783b0ec0&gt;\n0.2 0.4 0.8\n\n\nWhere do imports come from? The environment. There’s a default environment; but for any complicated project, you’ll want to create your own. You can call it whatever you want. .venv works. You could call it otis. You should call it something meaningful.\nAt the command line:4\n4 Your install might use python3 instead of pythonpython -m venv otis\ncd otis; tree | head -n 172\n.\n├── bin\n│   ├── activate\n│   ├── activate.csh\n│   ├── activate.fish\n│   ├── Activate.ps1\n│   ├── pip\n│   ├── pip3\n│   ├── pip3.11\n│   ├── python -&gt; /home/adsr/miniconda3/bin/python\n│   ├── python3 -&gt; python\n│   └── python3.11 -&gt; python\n├── include\n│   └── python3.11\n├── lib\n│   └── python3.11\n│       └── site-packages\nMake a new environment for every project! Or don’t, and find out what happens:\n\nThere are several package managers for python, poetry and conda are the most popular5 as of 2024. You can use pip, it’s fine.\n5 My own assertion, no data to back this up, probably true.\n\nModules\nWhen you make a .py file with any definitions, it’s called a module, and the module name is the file name (before the .py extension).\nConsider this module:\n\n\nutils.py\n\nfrom copy import deepcopy\n\ndef stringify(L: list[int]) -&gt; list:\n    L = deepcopy(L)\n    L.sort()\n    return str(L)\n\nWe can import it from any script in the same folder:\n\nimport utils\nA = utils.stringify([3, 2, 2, 1])\nprint(A, type(A))\n\n[1, 2, 2, 3] &lt;class 'str'&gt;\n\n\nWe can also import component definitions:\n\nfrom utils import stringify\nA = stringify([\"otis\", \"carl\", \"bruce\"])\nprint(A, type(A))\n\n['bruce', 'carl', 'otis'] &lt;class 'str'&gt;\n\n\nPython doesn’t enforce type hints 🙃"
+  },
+  {
+    "objectID": "4511/notes/01/python.html#classes",
+    "href": "4511/notes/01/python.html#classes",
+    "title": "Python Notes",
+    "section": "Classes",
+    "text": "Classes\nPython has excellent support for objects (classes), even though they aren’t necessary for basic scripts.\n\nclass Node:\n    def __init__(self, state, parent=None):\n        self.state = state\n        self.parent = parent\n\n    def __str__(self): # this determines the string representation of the node\n        return str(self.state)\n\nThe __init__ function is the constructor. We’ll try to unpack what happens below:\n\na = Node([2, 3])\nprint(a, a.parent)\n\nb = Node([2, 4], a)\na = 3\nprint(b.parent)\n\n[2, 3] None\n[2, 3]\n\n\n\nThe constructor is defined as __init__ but is called with the class name\nWe overrode __str__ so that printing a Node prints its state variable\nWe reassigned a to an integer, 3\nb still has a valid .parent reference!\n\n\nc = b.parent\nc.state = [2, 5]\nprint(b.parent)\n\n[2, 5]"
+  },
+  {
+    "objectID": "4511/notes/01/python.html#references",
+    "href": "4511/notes/01/python.html#references",
+    "title": "Python Notes",
+    "section": "References?",
+    "text": "References?\nSurely you are aware that Python doesn’t have pointers.\n…Python doesn’t have pointers in the sense that it does not have pointers that directly reference locations in memory. Python does have references, which point to objects in namespaces, and they are simultaneously extremely useful and extremely confusing. 🙃\n\nPrimitive/immutable types are assigned ‘directly’\nObjects are assigned as references\n\nTo illustrate:\nInts are immutable (so are floats and strings) \\(\\rightarrow\\) assignment is to the value\n\nx = 2\ny = x\nx = 3\nprint(y)\n\n2\n\n\nLists are objects \\(\\rightarrow\\) assignment is a reference\n\nA = [1, 2, 3]\nB = A\nA.append(4)\nprint(B)\n\n[1, 2, 3, 4]\n\n\nTuples are immutable \\(\\rightarrow\\) assignment is to the value\n\nA = 1, 2, 3\nB = A\nA = 4, 5, 6\nprint(B)\n\n(1, 2, 3)\n\n\nDicts are objects \\(\\rightarrow\\) assignment is a reference\n\nA = {\"carl\": 5, \"otis\": 6}\nB = A\nB[\"bruce\"] = 4\nprint(A)\n\n{'carl': 5, 'otis': 6, 'bruce': 4}\n\n\nStrings are immutable \\(\\rightarrow\\) assignment is to the value\n\nIf you want to just access the values of a list or dict, but not the object as a reference, use copy.deepcopy\n\n\nA = \"otis\"\nB = A\nA = \"carl\"\nprint(B)\n\notis"
+  },
+  {
+    "objectID": "4511/notes/01/python.html#hashing",
+    "href": "4511/notes/01/python.html#hashing",
+    "title": "Python Notes",
+    "section": "Hashing",
+    "text": "Hashing\nAnything that’s immutable can be hashed (can be the key of a dict):\n\nD = {}\nD[\"first\"] = 3\nD[(2, 3)] = 4\nD[1] = 1\nprint(D)\n\n{'first': 3, (2, 3): 4, 1: 1}"
+  },
+  {
+    "objectID": "4511/notes/01/python.html#functions-as-references",
+    "href": "4511/notes/01/python.html#functions-as-references",
+    "title": "Python Notes",
+    "section": "Functions as References",
+    "text": "Functions as References\nFunctions are objects, too.\nRecall:\n\n\nutils.py\n\nfrom copy import deepcopy\n\ndef stringify(L: list[int]) -&gt; list:\n    L = deepcopy(L)\n    L.sort()\n    return str(L)\n\n\nfrom utils import stringify\nprint(stringify)\nx = stringify # what.\nx([1, 4, 5])\n\n&lt;function stringify at 0x7d7b82ec1080&gt;\n\n\n'[1, 4, 5]'\n\n\nWe can pass them as arguments:\n\ndef f(x, y):\n    return x(y) + \"!!\"\n\na = f(stringify, [\"sun\", \"set\"])\nprint(a)\n\n['set', 'sun']!!"
+  },
+  {
+    "objectID": "4511/notes/01/python.html#comprehensions",
+    "href": "4511/notes/01/python.html#comprehensions",
+    "title": "Python Notes",
+    "section": "Comprehensions",
+    "text": "Comprehensions\nThey start out kind of cute\n\nx = [i**2 % 24 for i in range(2, 15)]\nprint(x)\n\n[4, 9, 16, 1, 12, 1, 16, 9, 4, 1, 0, 1, 4]\n\n\n\nx = [i**2 % 24 for i in range(2, 15) if i % 3 == 1]\nprint(x)\n\n[16, 1, 4, 1]\n\n\nThey rapidly become kind of cursed and unreadable:\n\ny = [j+i if i % 2 == 1 else \"otis\" for j, i in enumerate(x)]\nprint(y)\n\n['otis', 2, 'otis', 4]\n\n\nDict comprehensions exist:\n\nz = {i:j for i, j in enumerate(x)}\nprint(z)\n\n{0: 16, 1: 1, 2: 4, 3: 1}\n\n\nDon’t 🏌️\n\n[print(i+j, end=\" \") for i, j in enumerate([x+int(x**1.5) for x in range(2, 19)])]\nprint(\":)\")\n\n4 9 14 19 24 30 36 43 49 56 63 70 78 86 94 102 110 :)"
+  },
+  {
+    "objectID": "4511/notes/06/06.html#announcements",
+    "href": "4511/notes/06/06.html#announcements",
+    "title": "Logic & Probability",
     "section": "Announcements",
-    "text": "Announcements\n\nHomework 2 is due on 21 February at 11:55 PM\nHomework 3 is released\n\nWorking with one partner is optionally permitted"
+    "text": "Announcements\n\nHomework 2 is due on today February at 11:55 PM\n\nGrace days\n\nHomework 3 is released\n\nWorking with one partner is optionally permitted\n\nMidterm Exam on 7 Mar"
   },
   {
-    "objectID": "4511/notes/05/05.html#minimax",
-    "href": "4511/notes/05/05.html#minimax",
-    "title": "Constraint Satisfaction",
-    "section": "Minimax",
-    "text": "Minimax\n\nInitial state \\(s_0\\)\nActions(\\(s\\)) and To-move(\\(s\\))\nResult(\\(s, a\\))\nIs-Terminal(\\(s\\))\nUtility(\\(s, p\\))"
+    "objectID": "4511/notes/06/06.html#midterm-exam-on-7-mar",
+    "href": "4511/notes/06/06.html#midterm-exam-on-7-mar",
+    "title": "Logic & Probability",
+    "section": "Midterm Exam on 7 Mar",
+    "text": "Midterm Exam on 7 Mar\n\nIn lecture\n\nCOR 103, 12:45 PM\n\n100 minutes\nOpen note:\n\nTen sides1 of handwritten notes permitted\n\n\nStandard letter paper, 8.5x11” or A4. No legal paper. No scrolls."
   },
   {
-    "objectID": "4511/notes/05/05.html#minimax-1",
-    "href": "4511/notes/05/05.html#minimax-1",
-    "title": "Constraint Satisfaction",
-    "section": "Minimax",
-    "text": "Minimax"
+    "objectID": "4511/notes/06/06.html#states-variables-domains",
+    "href": "4511/notes/06/06.html#states-variables-domains",
+    "title": "Logic & Probability",
+    "section": "States, Variables, Domains",
+    "text": "States, Variables, Domains\n\nState variables: \\(X_1, X_2, ... , X_n\\)\nState variable domains: \\(D_1, D_2, ..., D_n\\)\n\nThe domain specifies which values are permitted for the state variable\nDomain: set of allowable variables (or permissible range for continuous variables)1\nSome constraints \\(C_1, C_2, ..., C_m\\) restrict allowable values\n\n\nOr a hybrid, such as a union of ranges of continuous variables."
   },
   {
-    "objectID": "4511/notes/05/05.html#games-of-luck",
-    "href": "4511/notes/05/05.html#games-of-luck",
-    "title": "Constraint Satisfaction",
-    "section": "Games of Luck",
-    "text": "Games of Luck\n\nReal-world problems are rarely deterministic\nNon-deterministic state evolution:\n\nRoll a die to determine next position\nToss a coin to determine who picks candy first\nPrecise trajectory of kicked football1\nOthers?\n\n\nAny definition of “football”"
-  },
-  {
-    "objectID": "4511/notes/05/05.html#solving-non-deterministic-games",
-    "href": "4511/notes/05/05.html#solving-non-deterministic-games",
-    "title": "Constraint Satisfaction",
-    "section": "Solving Non-Deterministic Games",
-    "text": "Solving Non-Deterministic Games\nPreviously: Max and Min alternate turns\nNow:\n\nMax\nChance\nMin\nChance\n\n 😣"
-  },
-  {
-    "objectID": "4511/notes/05/05.html#we-played-another-game",
-    "href": "4511/notes/05/05.html#we-played-another-game",
-    "title": "Constraint Satisfaction",
-    "section": "We Played Another Game",
-    "text": "We Played Another Game\n\nPlace 11 pieces of candy between you\nAlternating turns:\n\nChoose to take one or two pieces\n\nExcept:\n\nAfter choosing, flip two coins, record total number of heads1\nIf total is divisible by 3, take one less piece than you chose\nIf total is divisible by 5, take one more piece than you chose\nIf total divisible by 15, take no candy\n\nLast person to take a piece wins all of the candy\n\nKeep a running total through the game."
-  },
-  {
-    "objectID": "4511/notes/05/05.html#expectiminimax",
-    "href": "4511/notes/05/05.html#expectiminimax",
-    "title": "Constraint Satisfaction",
-    "section": "Expectiminimax",
-    "text": "Expectiminimax\n\n“Expected value” of next position\n\n\n\n\n\nHow does this impact branching factor of the search?\n\n🫠"
-  },
-  {
-    "objectID": "4511/notes/05/05.html#filled-with-uncertainty",
-    "href": "4511/notes/05/05.html#filled-with-uncertainty",
-    "title": "Constraint Satisfaction",
-    "section": "Filled With Uncertainty",
-    "text": "Filled With Uncertainty\nWhat is to be done?\n\nPruning is still possible\n\nHow?\n\nHeuristic evaluation functions\n\nChoose carefully!"
-  },
-  {
-    "objectID": "4511/notes/05/05.html#non-optimal-adversaries",
-    "href": "4511/notes/05/05.html#non-optimal-adversaries",
-    "title": "Constraint Satisfaction",
-    "section": "Non-Optimal Adversaries",
-    "text": "Non-Optimal Adversaries\n\nIs deterministic “best” behavior optimal?\nAre all adversaries rational?\n\n\n\n\nExpectimax"
-  },
-  {
-    "objectID": "4511/notes/05/05.html#factored-representation",
-    "href": "4511/notes/05/05.html#factored-representation",
-    "title": "Constraint Satisfaction",
-    "section": "Factored Representation",
-    "text": "Factored Representation\n\nEncode relationships between variables and states\nSolve problems with general search algorithms\n\nHeuristics do not require expert knowledge of problem\nEncoding problem requires expert knowledge of problem1\n\n\nWhy?\nBut it always does."
-  },
-  {
-    "objectID": "4511/notes/05/05.html#constraint-satisfaction",
-    "href": "4511/notes/05/05.html#constraint-satisfaction",
-    "title": "Constraint Satisfaction",
-    "section": "Constraint Satisfaction",
-    "text": "Constraint Satisfaction\n\nExpress problem in terms of state variables\n\nConstrain state variables\n\nBegin with all variables unassigned\nProgressively assign values to variables\nAssignment of values to state variables that “works:” solution"
-  },
-  {
-    "objectID": "4511/notes/05/05.html#more-formally",
-    "href": "4511/notes/05/05.html#more-formally",
-    "title": "Constraint Satisfaction",
-    "section": "More Formally",
-    "text": "More Formally\n\nState variables: \\(X_1, X_2, ... , X_n\\)\nState variable domains: \\(D_1, D_2, ..., D_n\\)\n\nThe domain specifies which values are permitted for the state variable\nDomain: set of allowable variables (or permissible range for continuous variables)1\nSome constraints \\(C_1, C_2, ..., C_m\\) restrict allowable values\n\n\nOr a hybrid, such as a union of ranges of continuous variables."
-  },
-  {
-    "objectID": "4511/notes/05/05.html#constraint-types",
-    "href": "4511/notes/05/05.html#constraint-types",
-    "title": "Constraint Satisfaction",
-    "section": "Constraint Types",
-    "text": "Constraint Types\n\nUnary: restrict single variable\n\nCan be rolled into domain\nWhy even have them?\n\nBinary: restricts two variables\nGlobal: restrict “all” variables"
-  },
-  {
-    "objectID": "4511/notes/05/05.html#constraint-examples",
-    "href": "4511/notes/05/05.html#constraint-examples",
-    "title": "Constraint Satisfaction",
-    "section": "Constraint Examples",
-    "text": "Constraint Examples\n\n\\(X_1\\) and \\(X_2\\) both have real domains, i.e. \\(X_1, X_2 \\in \\mathbb{R}\\)\n\nA constraint could be \\(X_1 &lt; X_2\\)\n\n\\(X_1\\) could have domain \\(\\{\\text{red}, \\text{green}, \\text{blue}\\}\\) and \\(X_2\\) could have domain \\(\\{\\text{green}, \\text{blue}, \\text{orange}\\}\\)\n\nA constraint could be \\(X_1 \\neq X_2\\)\n\n\\(X_1, X_2, ..., X_100 \\in \\mathbb{R}\\)\n\nConstraint: exactly four of \\(X_i\\) equal 12\nRewrite as binary constraint?"
-  },
-  {
-    "objectID": "4511/notes/05/05.html#assignments",
-    "href": "4511/notes/05/05.html#assignments",
-    "title": "Constraint Satisfaction",
+    "objectID": "4511/notes/06/06.html#assignments",
+    "href": "4511/notes/06/06.html#assignments",
+    "title": "Logic & Probability",
     "section": "Assignments",
     "text": "Assignments\n\nAssignments must be to values in each variable’s domain\nAssignment violates constraints?\n\nConsistency\n\nAll variables assigned?\n\nComplete"
   },
   {
-    "objectID": "4511/notes/05/05.html#yugoslavia",
-    "href": "4511/notes/05/05.html#yugoslavia",
-    "title": "Constraint Satisfaction",
-    "section": "Yugoslavia1",
-    "text": "Yugoslavia1\n\n\n\nOne of the most difficult problems of the 20th century"
-  },
-  {
-    "objectID": "4511/notes/05/05.html#four-colorings",
-    "href": "4511/notes/05/05.html#four-colorings",
-    "title": "Constraint Satisfaction",
-    "section": "Four-Colorings",
-    "text": "Four-Colorings\nTwo possibilities:"
-  },
-  {
-    "objectID": "4511/notes/05/05.html#formulate-as-csp",
-    "href": "4511/notes/05/05.html#formulate-as-csp",
-    "title": "Constraint Satisfaction",
-    "section": "Formulate as CSP?",
-    "text": "Formulate as CSP?"
-  },
-  {
-    "objectID": "4511/notes/05/05.html#graph-representations",
-    "href": "4511/notes/05/05.html#graph-representations",
-    "title": "Constraint Satisfaction",
-    "section": "Graph Representations",
-    "text": "Graph Representations\n\nConstraint graph:\n\nNodes are variables\nEdges are constraints\n\nConstraint hypergraph:\n\nVariables are nodes\nConstraints are nodes\nEdges show relationship\n\n\nWhy have two different representations?"
-  },
-  {
-    "objectID": "4511/notes/05/05.html#graph-representation-i",
-    "href": "4511/notes/05/05.html#graph-representation-i",
-    "title": "Constraint Satisfaction",
-    "section": "Graph Representation I",
-    "text": "Graph Representation I\nConstraint graph: edges are constraints"
-  },
-  {
-    "objectID": "4511/notes/05/05.html#graph-representation-ii",
-    "href": "4511/notes/05/05.html#graph-representation-ii",
-    "title": "Constraint Satisfaction",
-    "section": "Graph Representation II",
-    "text": "Graph Representation II\nConstraint hypergraph: constraints are nodes"
-  },
-  {
-    "objectID": "4511/notes/05/05.html#how-to-solve-it",
-    "href": "4511/notes/05/05.html#how-to-solve-it",
-    "title": "Constraint Satisfaction",
-    "section": "How To Solve It",
-    "text": "How To Solve It\n\nWe can search!\n\n…the space of consistent assignments\n\nComplexity \\(O(d^n)\\)\n\nDomain size \\(d\\), number of nodes \\(n\\)\n\nTree search for node assignment\n\nInference to reduce domain size\n\nRecursive search"
-  },
-  {
-    "objectID": "4511/notes/05/05.html#how-to-solve-it-1",
-    "href": "4511/notes/05/05.html#how-to-solve-it-1",
-    "title": "Constraint Satisfaction",
-    "section": "How To Solve It",
-    "text": "How To Solve It"
-  },
-  {
-    "objectID": "4511/notes/05/05.html#what-even-is-inference",
-    "href": "4511/notes/05/05.html#what-even-is-inference",
-    "title": "Constraint Satisfaction",
-    "section": "What Even Is Inference",
-    "text": "What Even Is Inference\n\nConstraints on one variable restrict others:\n\n\\(X_1 \\in \\{A, B, C, D\\}\\) and \\(X_2 \\in \\{A\\}\\)\n\\(X_1 \\neq X_2\\)\nInference: \\(X_1 \\in \\{B, C, D\\}\\)\n\nIf an unassigned variable has no domain…\n\nFailure"
-  },
-  {
-    "objectID": "4511/notes/05/05.html#inference",
-    "href": "4511/notes/05/05.html#inference",
-    "title": "Constraint Satisfaction",
-    "section": "Inference",
-    "text": "Inference\n\nArc consistency\n\nReduce domains for pairs of variables\n\nPath consistency\n\nAssignment to two variables\nReduce domain of third variable"
-  },
-  {
-    "objectID": "4511/notes/05/05.html#ac-3",
-    "href": "4511/notes/05/05.html#ac-3",
-    "title": "Constraint Satisfaction",
-    "section": "AC-3",
-    "text": "AC-3"
-  },
-  {
-    "objectID": "4511/notes/05/05.html#how-to-solve-it-again",
-    "href": "4511/notes/05/05.html#how-to-solve-it-again",
-    "title": "Constraint Satisfaction",
-    "section": "How To Solve It (Again)",
-    "text": "How To Solve It (Again)\nBacktracking search:\n\nSimilar to DFS\nVariables are ordered\n\nWhy?\n\nConstraints checked each step\nConstraints optionally propagated"
-  },
-  {
-    "objectID": "4511/notes/05/05.html#how-to-solve-it-again-1",
-    "href": "4511/notes/05/05.html#how-to-solve-it-again-1",
-    "title": "Constraint Satisfaction",
-    "section": "How To Solve It (Again)",
-    "text": "How To Solve It (Again)"
-  },
-  {
-    "objectID": "4511/notes/05/05.html#yugoslav-arc-consistency",
-    "href": "4511/notes/05/05.html#yugoslav-arc-consistency",
-    "title": "Constraint Satisfaction",
-    "section": "Yugoslav Arc Consistency",
-    "text": "Yugoslav Arc Consistency"
-  },
-  {
-    "objectID": "4511/notes/05/05.html#ordering",
-    "href": "4511/notes/05/05.html#ordering",
-    "title": "Constraint Satisfaction",
-    "section": "Ordering",
-    "text": "Ordering\n\nSelect-Unassgined-Variable(\\(CSP, assignment\\))\n\nChoose most-constrained variable1\n\nOrder-Domain-Variables(\\(CSP, var, assignment\\))\n\nLeast-constraining value\n\nWhy?\n\nor MRV: “Minimum Remaining Values”"
-  },
-  {
-    "objectID": "4511/notes/05/05.html#restructuring",
-    "href": "4511/notes/05/05.html#restructuring",
-    "title": "Constraint Satisfaction",
-    "section": "Restructuring",
-    "text": "Restructuring\nTree-structured CSPs:\n\nLinear time solution\nDirectional arc consistency: \\(X_i \\rightarrow X_{i+1}\\)\nCutsets\nSub-problems"
-  },
-  {
-    "objectID": "4511/notes/05/05.html#cutset-example",
-    "href": "4511/notes/05/05.html#cutset-example",
-    "title": "Constraint Satisfaction",
-    "section": "Cutset Example",
-    "text": "Cutset Example"
-  },
-  {
-    "objectID": "4511/notes/05/05.html#heuristic-local-search",
-    "href": "4511/notes/05/05.html#heuristic-local-search",
-    "title": "Constraint Satisfaction",
-    "section": "(Heuristic) Local Search",
-    "text": "(Heuristic) Local Search\n\nHill climbing\n\nRandom restarts\n\nSimulated annealing\nFast?\nComplete?\nOptimal?"
-  },
-  {
-    "objectID": "4511/notes/05/05.html#continuous-domains",
-    "href": "4511/notes/05/05.html#continuous-domains",
-    "title": "Constraint Satisfaction",
-    "section": "Continuous Domains",
-    "text": "Continuous Domains\n\nLinear:\n\n\\[\\begin{aligned}\n\\max_{x} \\quad & \\boldsymbol{c}^T\\boldsymbol{x}\\\\\n\\textrm{s.t.} \\quad & A\\boldsymbol{x} \\leq \\boldsymbol{b}\\\\\n  &\\boldsymbol{x} \\geq 0    \\\\\n\\end{aligned}\\]\n\nConvex\n\n\\[\\begin{aligned}\n\\min_{x} \\quad & f(\\boldsymbol{x})\\\\\n\\textrm{s.t.} \\quad & g_i(\\boldsymbol{x}) \\leq 0\\\\\n  & h_i(\\boldsymbol{x}) = 0    \\\\\n\\end{aligned}\\]"
-  },
-  {
-    "objectID": "4511/notes/05/05.html#is-this-even-relevant-in-2025",
-    "href": "4511/notes/05/05.html#is-this-even-relevant-in-2025",
-    "title": "Constraint Satisfaction",
-    "section": "Is This Even Relevant in 2025?",
-    "text": "Is This Even Relevant in 2025?\n\nAbsolutely yes.\nLLMs are bad at CSPs\nCSPs are common in the real world\n\nScheduling\nOptimization\nDependency solvers"
-  },
-  {
-    "objectID": "4511/notes/05/05.html#yugoslav-logic",
-    "href": "4511/notes/05/05.html#yugoslav-logic",
-    "title": "Constraint Satisfaction",
+    "objectID": "4511/notes/06/06.html#yugoslav-logic",
+    "href": "4511/notes/06/06.html#yugoslav-logic",
+    "title": "Logic & Probability",
     "section": "Yugoslav Logic",
-    "text": "Yugoslav Logic\n\\(R_{HK} \\Rightarrow \\neg R_{SI}\\)\n\\(G_{HK} \\Rightarrow \\neg G_{SI}\\)\n\\(B_{HK} \\Rightarrow \\neg B_{SI}\\)\n\\(R_{HK} \\lor G_{HK} \\lor B_{HK}\\)\n\n…\nGoal: find assignment of variables that satisfies conditions"
+    "text": "Yugoslav Logic\n\\(R_{HK} \\Rightarrow \\neg R_{SI}\\)\n\\(G_{HK} \\Rightarrow \\neg G_{SI}\\)\n\\(B_{HK} \\Rightarrow \\neg B_{SI}\\)\n\\(R_{HK} \\lor G_{HK} \\lor B_{HK}\\)\n\n\nGoal: find assignment of variables that satisfies conditions"
   },
   {
-    "objectID": "4511/notes/05/05.html#is-it-possible-to-know-things",
-    "href": "4511/notes/05/05.html#is-it-possible-to-know-things",
-    "title": "Constraint Satisfaction",
+    "objectID": "4511/notes/06/06.html#is-it-possible-to-know-things",
+    "href": "4511/notes/06/06.html#is-it-possible-to-know-things",
+    "title": "Logic & Probability",
     "section": "Is It Possible To Know Things?",
     "text": "Is It Possible To Know Things?\n\n\nYes.\n\n\n\n😌"
   },
   {
-    "objectID": "4511/notes/05/05.html#how-even-do-we-know-things",
-    "href": "4511/notes/05/05.html#how-even-do-we-know-things",
-    "title": "Constraint Satisfaction",
+    "objectID": "4511/notes/06/06.html#how-even-do-we-know-things",
+    "href": "4511/notes/06/06.html#how-even-do-we-know-things",
+    "title": "Logic & Probability",
     "section": "How Even Do We Know Things?",
     "text": "How Even Do We Know Things?\n\nWhat color is an apple?\n\nRed?\nGreen?\nBlue?\n\nAre you sure?"
   },
   {
-    "objectID": "4511/notes/05/05.html#symbols",
-    "href": "4511/notes/05/05.html#symbols",
-    "title": "Constraint Satisfaction",
+    "objectID": "4511/notes/06/06.html#symbols",
+    "href": "4511/notes/06/06.html#symbols",
+    "title": "Logic & Probability",
     "section": "Symbols",
     "text": "Symbols\n\nPropositional symbols\n\nSimilar to boolean variables\nEither True or False"
   },
   {
-    "objectID": "4511/notes/05/05.html#the-unambiguous-truth",
-    "href": "4511/notes/05/05.html#the-unambiguous-truth",
-    "title": "Constraint Satisfaction",
+    "objectID": "4511/notes/06/06.html#the-unambiguous-truth",
+    "href": "4511/notes/06/06.html#the-unambiguous-truth",
+    "title": "Logic & Probability",
     "section": "The Unambiguous Truth",
     "text": "The Unambiguous Truth\n\nIt is a nice day.\n\nIt is difficult to discern an unambiguous truth value.\n\nIt is warm outside.\n\nThis has some truth value, but it is ambiguous.\n\nThe temperature is at least 78°F outside.\n\nThis has an unambiguous truth value.1\n\n\nProvided that ‘outside’ is well-defined."
   },
   {
-    "objectID": "4511/notes/05/05.html#what-matters-matters",
-    "href": "4511/notes/05/05.html#what-matters-matters",
-    "title": "Constraint Satisfaction",
+    "objectID": "4511/notes/06/06.html#what-matters-matters",
+    "href": "4511/notes/06/06.html#what-matters-matters",
+    "title": "Logic & Probability",
     "section": "What Matters, Matters",
     "text": "What Matters, Matters\n\nNon-ambiguity required\nAbitrary detail is not\nThe temperature is exactly 78°F outside.\n\nWe don’t necessarily need any other “related” symbols\n\nWhat is the problem?\nWhat do we care about?"
   },
   {
-    "objectID": "4511/notes/05/05.html#sentences",
-    "href": "4511/notes/05/05.html#sentences",
-    "title": "Constraint Satisfaction",
+    "objectID": "4511/notes/06/06.html#sentences",
+    "href": "4511/notes/06/06.html#sentences",
+    "title": "Logic & Probability",
     "section": "Sentences",
     "text": "Sentences\n\nWhat is a linguistic sentence?\n\nSubject(s)\nVerb(s)\nObject(s)\nRelationships\n\nWhat is a logical sentence?\n\nSymbols\nRelationships"
   },
   {
-    "objectID": "4511/notes/05/05.html#familiar-logical-operators",
-    "href": "4511/notes/05/05.html#familiar-logical-operators",
-    "title": "Constraint Satisfaction",
+    "objectID": "4511/notes/06/06.html#familiar-logical-operators",
+    "href": "4511/notes/06/06.html#familiar-logical-operators",
+    "title": "Logic & Probability",
     "section": "Familiar Logical Operators",
     "text": "Familiar Logical Operators\n\n\\(\\neg\\)\n\n“Not” operator, same as CS (!, not, etc.)\n\n\\(\\land\\)\n\n“And” operator, same as CS (&&, and, etc.)\nThis is sometimes called a conjunction.\n\n\\(\\lor\\)\n\n“Inclusive Or” operator, same as CS.\nThis is sometimes called a disjunction."
   },
   {
-    "objectID": "4511/notes/05/05.html#unfamiliar-logical-operators",
-    "href": "4511/notes/05/05.html#unfamiliar-logical-operators",
-    "title": "Constraint Satisfaction",
+    "objectID": "4511/notes/06/06.html#unfamiliar-logical-operators",
+    "href": "4511/notes/06/06.html#unfamiliar-logical-operators",
+    "title": "Logic & Probability",
     "section": "Unfamiliar Logical Operators",
     "text": "Unfamiliar Logical Operators\n\n\\(\\Rightarrow\\)\n\nLogical implication.\n\nIf \\(X_0 \\Rightarrow X_1\\), \\(X_1\\) is always True when \\(X_0\\) is True.\n\nIf \\(X_0\\) is False, the value of \\(X_1\\) is not constrained.\n\n\\(\\iff\\)\n\n“If and only If.”\nIf \\(X_0 \\iff X_1\\), \\(X_0\\) and \\(X_1\\) are either both True or both False.\nAlso called a biconditional."
   },
   {
-    "objectID": "4511/notes/05/05.html#equivalent-statements",
-    "href": "4511/notes/05/05.html#equivalent-statements",
-    "title": "Constraint Satisfaction",
+    "objectID": "4511/notes/06/06.html#equivalent-statements",
+    "href": "4511/notes/06/06.html#equivalent-statements",
+    "title": "Logic & Probability",
     "section": "Equivalent Statements",
     "text": "Equivalent Statements\n\n\\(X_0 \\Rightarrow X_1\\) alternatively:\n\n\\((X_0 \\land X_1) \\lor \\neg X_0\\)\n\n\\(X_0 \\iff X_1\\) alternatively:\n\n\\((X_0 \\land X_1) \\lor (\\neg X_0 \\land \\neg X_1)\\)\n\n\n \n\nCan we make an XOR?"
   },
   {
-    "objectID": "4511/notes/05/05.html#knowledge-base-queries",
-    "href": "4511/notes/05/05.html#knowledge-base-queries",
-    "title": "Constraint Satisfaction",
+    "objectID": "4511/notes/06/06.html#knowledge-base-queries",
+    "href": "4511/notes/06/06.html#knowledge-base-queries",
+    "title": "Logic & Probability",
     "section": "Knowledge Base & Queries",
     "text": "Knowledge Base & Queries\n\nWe encode everything that we ‘know’\n\nStatements that are true\n\nWe query the knowledge base\n\nStatement that we’d like to know about\n\nLogic:\n\nIs statement consistent with KB?"
   },
   {
-    "objectID": "4511/notes/05/05.html#models",
-    "href": "4511/notes/05/05.html#models",
-    "title": "Constraint Satisfaction",
+    "objectID": "4511/notes/06/06.html#models",
+    "href": "4511/notes/06/06.html#models",
+    "title": "Logic & Probability",
     "section": "Models",
     "text": "Models\n\nMathematical abstraction of problem\n\nAllows us to solve it\n\nLogic:\n\nSet of truth values for all sentences\n…sentences comprised of symbols…\nSet of truth values for all symbols\nNew sentences, symbols over time"
   },
   {
-    "objectID": "4511/notes/05/05.html#entailment",
-    "href": "4511/notes/05/05.html#entailment",
-    "title": "Constraint Satisfaction",
+    "objectID": "4511/notes/06/06.html#entailment",
+    "href": "4511/notes/06/06.html#entailment",
+    "title": "Logic & Probability",
     "section": "Entailment",
     "text": "Entailment\n\n\\(KB \\models A\\)\n\n“Knowledge Base entails A”\nFor every model in which \\(KB\\) is True, \\(A\\) is also True\nOne-way relationship: \\(A\\) can be True for models where \\(KB\\) is not True.\n\nVocabulary: \\(A\\) is the query"
   },
   {
-    "objectID": "4511/notes/05/05.html#knowing-things",
-    "href": "4511/notes/05/05.html#knowing-things",
-    "title": "Constraint Satisfaction",
+    "objectID": "4511/notes/06/06.html#knowing-things",
+    "href": "4511/notes/06/06.html#knowing-things",
+    "title": "Logic & Probability",
     "section": "Knowing Things",
     "text": "Knowing Things\nFalsehood:\n\n\\(KB \\models \\neg A\\)\n\nNo model exists where \\(KB\\) is True and \\(A\\) is True\n\n\nIt is possible to not know things:1\n\n\\(KB \\nvdash A\\)\n\\(KB \\nvdash \\neg A\\)\n\n\\(\\nvdash\\) – “does not entail”"
   },
   {
-    "objectID": "4511/notes/05/05.html#it-is-possible-to-not-know-things",
-    "href": "4511/notes/05/05.html#it-is-possible-to-not-know-things",
-    "title": "Constraint Satisfaction",
+    "objectID": "4511/notes/06/06.html#it-is-possible-to-not-know-things",
+    "href": "4511/notes/06/06.html#it-is-possible-to-not-know-things",
+    "title": "Logic & Probability",
     "section": "It Is Possible To Not Know Things 😔",
     "text": "It Is Possible To Not Know Things 😔"
   },
   {
-    "objectID": "4511/notes/05/05.html#lexicon",
-    "href": "4511/notes/05/05.html#lexicon",
-    "title": "Constraint Satisfaction",
+    "objectID": "4511/notes/06/06.html#lexicon",
+    "href": "4511/notes/06/06.html#lexicon",
+    "title": "Logic & Probability",
     "section": "Lexicon",
     "text": "Lexicon\n\nValid\n\n\\(A \\lor \\neg A\\)\n\nSatisfiable\n\nTrue for some models\n\nUnsatisfiable\n\n\\(A \\land \\neg A\\)"
   },
   {
-    "objectID": "4511/notes/05/05.html#inference-1",
-    "href": "4511/notes/05/05.html#inference-1",
-    "title": "Constraint Satisfaction",
+    "objectID": "4511/notes/06/06.html#inference",
+    "href": "4511/notes/06/06.html#inference",
+    "title": "Logic & Probability",
     "section": "Inference",
     "text": "Inference\n\n\\(KB\\) models real world\n\nTruth values unambiguous\n\\(KB\\) coded correctly\n\n\\(KB \\models A\\)\n\n\\(A\\) is true in the real world"
   },
   {
-    "objectID": "4511/notes/05/05.html#inference---how",
-    "href": "4511/notes/05/05.html#inference---how",
-    "title": "Constraint Satisfaction",
+    "objectID": "4511/notes/06/06.html#inference---how",
+    "href": "4511/notes/06/06.html#inference---how",
+    "title": "Logic & Probability",
     "section": "Inference - How?",
     "text": "Inference - How?\n\nModel checking\n\nEnumerate possible models\nWe can do better\nNP-complete 😣\n\nTheorem proving\n\nProve \\(KB \\models A\\)"
   },
   {
-    "objectID": "4511/notes/05/05.html#satisfiability",
-    "href": "4511/notes/05/05.html#satisfiability",
-    "title": "Constraint Satisfaction",
+    "objectID": "4511/notes/06/06.html#satisfiability",
+    "href": "4511/notes/06/06.html#satisfiability",
+    "title": "Logic & Probability",
     "section": "Satisfiability",
     "text": "Satisfiability\n\nCommonly abbreviated “SAT”\n\nNot the Scholastic Assessment Test\nMuch more difficult\nFirst NP-complete problem\n\nThe\n\n\nDeliberate typographical error!"
   },
   {
-    "objectID": "4511/notes/05/05.html#satisfiability-1",
-    "href": "4511/notes/05/05.html#satisfiability-1",
-    "title": "Constraint Satisfaction",
+    "objectID": "4511/notes/06/06.html#satisfiability-1",
+    "href": "4511/notes/06/06.html#satisfiability-1",
+    "title": "Logic & Probability",
     "section": "Satisfiability",
     "text": "Satisfiability\n\nCommonly abbreviated “SAT”\n\\((X_0 \\land X_1) \\lor X_2\\)\n\nSatisfied by \\(X_0 = \\text{True}, X_1 = \\text{False}, X_2 = \\text{True}\\)\nSatisfied for any \\(X_0\\) and \\(X_1\\) if \\(X_2 = \\text{True}\\)\n\n\\(X_0 \\land \\neg X_0 \\land X_1\\)\n\nCannot be satisfied by any values of \\(X_0\\) and \\(X_1\\)"
   },
   {
-    "objectID": "4511/notes/05/05.html#satisfaction",
-    "href": "4511/notes/05/05.html#satisfaction",
-    "title": "Constraint Satisfaction",
+    "objectID": "4511/notes/06/06.html#satisfaction",
+    "href": "4511/notes/06/06.html#satisfaction",
+    "title": "Logic & Probability",
     "section": "Satisfaction",
     "text": "Satisfaction\n\nSAT reminiscent of Constraint Satisfaction Problems\n\n\n\nCSPs reduce to SAT\n\nSolving SAT \\(\\rightarrow\\) solving CSPs\nRestricted to specific operators\nCSP global constraints \\(\\rightarrow\\) refactor as binary\n\nStill NP-Complete"
   },
   {
-    "objectID": "4511/notes/05/05.html#why-do-i-keep-on-doing-this-to-you",
-    "href": "4511/notes/05/05.html#why-do-i-keep-on-doing-this-to-you",
-    "title": "Constraint Satisfaction",
+    "objectID": "4511/notes/06/06.html#why-do-i-keep-on-doing-this-to-you",
+    "href": "4511/notes/06/06.html#why-do-i-keep-on-doing-this-to-you",
+    "title": "Logic & Probability",
     "section": "Why Do I Keep On Doing This To You",
     "text": "Why Do I Keep On Doing This To You\n \n\nThis is the entire point of the course.\n\n\n\nTheory and practice are the same, in theory, but in practice they differ."
   },
   {
-    "objectID": "4511/notes/05/05.html#csp-solution-methods",
-    "href": "4511/notes/05/05.html#csp-solution-methods",
-    "title": "Constraint Satisfaction",
+    "objectID": "4511/notes/06/06.html#csp-solution-methods",
+    "href": "4511/notes/06/06.html#csp-solution-methods",
+    "title": "Logic & Probability",
     "section": "CSP Solution Methods",
     "text": "CSP Solution Methods\n\nThey all work\nBacktracking search\nHill-climbing\nOrdering (?)"
   },
   {
-    "objectID": "4511/notes/05/05.html#sat-solvers",
-    "href": "4511/notes/05/05.html#sat-solvers",
-    "title": "Constraint Satisfaction",
+    "objectID": "4511/notes/06/06.html#sat-solvers",
+    "href": "4511/notes/06/06.html#sat-solvers",
+    "title": "Logic & Probability",
     "section": "SAT Solvers",
     "text": "SAT Solvers\n\nHeuristics\nPicoSAT\n\nPython bindings: pycosat\n(Solver written in C) (it’s fast)\n\nYou don’t have to know anything about the problem\n\nThis is not actually true\n\nConjunctive Normal Form"
   },
   {
-    "objectID": "4511/notes/05/05.html#conjunctive-normal-form",
-    "href": "4511/notes/05/05.html#conjunctive-normal-form",
-    "title": "Constraint Satisfaction",
+    "objectID": "4511/notes/06/06.html#conjunctive-normal-form",
+    "href": "4511/notes/06/06.html#conjunctive-normal-form",
+    "title": "Logic & Probability",
     "section": "Conjunctive Normal Form",
     "text": "Conjunctive Normal Form\n\nLiterals — symbols or negated symbols\n\n\\(X_0\\) is a literal\n\\(\\neg X_0\\) is a literal\n\nClauses — combine literals and disjunction using disjunctions (\\(\\lor\\))\n\n\\(X_0 \\lor \\neg X_1\\) is a valid disjunction\n\\((X_0 \\lor \\neg X_1) \\lor X_2\\) is a valid disjunction"
   },
   {
-    "objectID": "4511/notes/05/05.html#conjunctive-normal-form-1",
-    "href": "4511/notes/05/05.html#conjunctive-normal-form-1",
-    "title": "Constraint Satisfaction",
+    "objectID": "4511/notes/06/06.html#conjunctive-normal-form-1",
+    "href": "4511/notes/06/06.html#conjunctive-normal-form-1",
+    "title": "Logic & Probability",
     "section": "Conjunctive Normal Form",
     "text": "Conjunctive Normal Form\n\nConjunctions (\\(\\land\\)) combine clauses (and literals)\n\n\\(X_1 \\land (X_0 \\lor \\neg X_2)\\)\n\nDisjunctions cannot contain conjunctions:\n\\(X_0 \\lor (X_1 \\land X_2)\\) not in CNF\n\nCan be rewritten in CNF: \\((X_0 \\lor X_1) \\land (X_0 \\lor X_2)\\)"
   },
   {
-    "objectID": "4511/notes/05/05.html#converting-to-cnf",
-    "href": "4511/notes/05/05.html#converting-to-cnf",
-    "title": "Constraint Satisfaction",
+    "objectID": "4511/notes/06/06.html#converting-to-cnf",
+    "href": "4511/notes/06/06.html#converting-to-cnf",
+    "title": "Logic & Probability",
     "section": "Converting to CNF",
     "text": "Converting to CNF\n\n\\(X_0 \\iff X_1\\)\n\n\\((X_0 \\Rightarrow X_1) \\land (X_1 \\Rightarrow X_0)\\)\n\n\\(X_0 \\Rightarrow X_1\\)\n\n\\(\\neg X_0 \\lor X_1\\)\n\n\\(\\neg (X_0 \\land X_1)\\)\n\n\\(\\neg X_0 \\lor \\neg X_1\\)\n\n\\(\\neg (X_0 \\lor X_1)\\)\n\n\\(\\neg X_0 \\land \\neg X_1\\)"
   },
   {
-    "objectID": "4511/notes/05/05.html#limitations",
-    "href": "4511/notes/05/05.html#limitations",
-    "title": "Constraint Satisfaction",
+    "objectID": "4511/notes/06/06.html#limitations",
+    "href": "4511/notes/06/06.html#limitations",
+    "title": "Logic & Probability",
     "section": "Limitations",
     "text": "Limitations\n\nConsider: No cat is a vegetarian\nExpress in propositional symbols?\n\\(\\neg\\) First cat is a vegetarian\n\\(\\neg\\) Second cat is a vegetarian\n\\(\\neg\\) Third cat is a vegetarian …"
   },
   {
-    "objectID": "4511/notes/05/05.html#solutions",
-    "href": "4511/notes/05/05.html#solutions",
-    "title": "Constraint Satisfaction",
+    "objectID": "4511/notes/06/06.html#solutions",
+    "href": "4511/notes/06/06.html#solutions",
+    "title": "Logic & Probability",
     "section": "Solutions",
     "text": "Solutions\nFirst-Order Logic:\n\n\\(\\forall\\) (“for all”)\n\\(\\exists\\) (“there exists at least one”)\n\nLoops 🙂 :\nfor cat in cats:\n  t = Expr(f\"{cat} is not a vegetarian\")\n  Exprs.push(t)\nGoal: find assignment of variables that satisifies conditions"
   },
   {
-    "objectID": "4511/notes/05/05.html#references",
-    "href": "4511/notes/05/05.html#references",
-    "title": "Constraint Satisfaction",
+    "objectID": "4511/notes/06/06.html#randomness-and-uncertainty",
+    "href": "4511/notes/06/06.html#randomness-and-uncertainty",
+    "title": "Logic & Probability",
+    "section": "Randomness and Uncertainty",
+    "text": "Randomness and Uncertainty\n\nWe don’t know things about future events\n\nSomeone else might know\n\nExample: expectimax!\n\nGhost could behave randomly\nGhost could behave according to some plan\nWe model behavior as random"
+  },
+  {
+    "objectID": "4511/notes/06/06.html#the-random-variable",
+    "href": "4511/notes/06/06.html#the-random-variable",
+    "title": "Logic & Probability",
+    "section": "The Random Variable",
+    "text": "The Random Variable\n\nUncertain future event: random variable\nProbability:\n\n\\[P(x) = \\lim_{n \\to \\infty} \\frac{n_x}{n}\\]\n\nProbabilities constrained \\(0 \\leq P(x) \\leq 1\\) for any \\(x\\)"
+  },
+  {
+    "objectID": "4511/notes/06/06.html#the-random-variable-1",
+    "href": "4511/notes/06/06.html#the-random-variable-1",
+    "title": "Logic & Probability",
+    "section": "The Random Variable",
+    "text": "The Random Variable\n\nIn ensemble of events, what fraction represent event \\(x\\) ?\n\nWhat’s troubling about this?\n\nHow do we quantify probability based on observations?\nHow do we quantify probability without direct observations?"
+  },
+  {
+    "objectID": "4511/notes/06/06.html#plausibility-of-statements",
+    "href": "4511/notes/06/06.html#plausibility-of-statements",
+    "title": "Logic & Probability",
+    "section": "Plausibility of Statements",
+    "text": "Plausibility of Statements\n\n“A is more plausible than B”\n\n\\(P(A) &gt; P(B)\\)\n\n“A is as plausible as B”\n\n\\(P(A) = P(B)\\)\n\n“A is impossible”\n\n\\(P(A) = 0\\)\n\n“A is certain”\n\n\\(P(A) = 1\\)"
+  },
+  {
+    "objectID": "4511/notes/06/06.html#probability-distribution",
+    "href": "4511/notes/06/06.html#probability-distribution",
+    "title": "Logic & Probability",
+    "section": "Probability Distribution",
+    "text": "Probability Distribution\n\nEnumerate possible outcomes1\nAssign probabilities to outcomes\nDistribution: ensemble of outcomes mapped to probabilities\nWorks for discrete and continuous cases\n\nEveryone has them."
+  },
+  {
+    "objectID": "4511/notes/06/06.html#combinatorics",
+    "href": "4511/notes/06/06.html#combinatorics",
+    "title": "Logic & Probability",
+    "section": "Combinatorics",
+    "text": "Combinatorics\n\nEnumerating outcomes is a counting problem\n\nWe know how to solve counting problems\n\nPermutations:\n\nOrdering \\(n\\) items: \\(n!\\)\nOrdering \\(n\\) items, \\(k\\) of which are alike: \\(\\frac{n!}{k!}\\)\n… \\(k_1\\), \\(k_2\\) of which are alike: \\(\\frac{n!}{k_1!k_2!}\\)"
+  },
+  {
+    "objectID": "4511/notes/06/06.html#i-am-extremely-sorry",
+    "href": "4511/notes/06/06.html#i-am-extremely-sorry",
+    "title": "Logic & Probability",
+    "section": "I Am Extremely Sorry",
+    "text": "I Am Extremely Sorry\n\n …if you thought this course was going to be about LLMs"
+  },
+  {
+    "objectID": "4511/notes/06/06.html#combinatorics-1",
+    "href": "4511/notes/06/06.html#combinatorics-1",
+    "title": "Logic & Probability",
+    "section": "Combinatorics",
+    "text": "Combinatorics\n\nHow many possible outcomes are there?\nHow many possible outcomes are there of interest?\nAssume all outcomes have equal probability\n\nOr don’t\n\nDivide\n\nWeight if necessary"
+  },
+  {
+    "objectID": "4511/notes/06/06.html#choice",
+    "href": "4511/notes/06/06.html#choice",
+    "title": "Logic & Probability",
+    "section": "Choice",
+    "text": "Choice\n\n\\(n\\) events\n\\(k\\) are of interest\n\n\\(n-k\\) are not of interest\n\n\nPossible combinations:\n\\[\\binom{n}{k} = \\frac{n!}{k!(n-k)!}\\]"
+  },
+  {
+    "objectID": "4511/notes/06/06.html#bernoulli-trials",
+    "href": "4511/notes/06/06.html#bernoulli-trials",
+    "title": "Logic & Probability",
+    "section": "Bernoulli Trials",
+    "text": "Bernoulli Trials\n\n“Single event” that occurs with probability \\(\\theta\\)\n\\(P(E) = \\theta\\)\n\\(P(\\neg E) = 1 - \\theta\\)\nAlternate notations:1\n\n\\(P(E^C) = 1 - \\theta\\)\n\\(P(\\bar{E}) = 1 - \\theta\\)\n\nExamples?\n\nMath notation can be inconsistent, which you may find infuriating."
+  },
+  {
+    "objectID": "4511/notes/06/06.html#math-notation",
+    "href": "4511/notes/06/06.html#math-notation",
+    "title": "Logic & Probability",
+    "section": "Math Notation",
+    "text": "Math Notation\n\n\\(P(E)\\)\n\nProbability of some event \\(E\\) occuring\n\n\\(P\\{X=a\\}\\)\n\nProbability of random variable \\(X\\) taking value \\(a\\)\n\n\\(p(a)\\)\n\nProbability of random variable taking value \\(a\\)"
+  },
+  {
+    "objectID": "4511/notes/06/06.html#bernoulli-random-variable",
+    "href": "4511/notes/06/06.html#bernoulli-random-variable",
+    "title": "Logic & Probability",
+    "section": "Bernoulli Random Variable",
+    "text": "Bernoulli Random Variable\n\nBernoulli trial:\n\nVariable, takes one of two values\nCoin toss: \\(H\\) or \\(T\\)\n\\(P\\{X = H\\} = \\theta\\)\n\\(P\\{X = T\\} = 1 - \\theta\\)"
+  },
+  {
+    "objectID": "4511/notes/06/06.html#expected-value",
+    "href": "4511/notes/06/06.html#expected-value",
+    "title": "Logic & Probability",
+    "section": "Expected Value",
+    "text": "Expected Value\n\nVariable’s values can be numeric values:\n\nCoin toss \\(H = 8\\) and \\(T2\\)\n\\(P\\{X = 8\\} = \\theta\\)\n\\(P\\{X = 2\\} = 1 - \\theta\\)\n\nExpected value:\n\n\\(E[X] = H \\cdot \\theta + T \\cdot (1-\\theta)\\)\n\\(E[X] = 8 \\cdot \\theta + 2 \\cdot (1-\\theta)\\)"
+  },
+  {
+    "objectID": "4511/notes/06/06.html#expected-value-1",
+    "href": "4511/notes/06/06.html#expected-value-1",
+    "title": "Logic & Probability",
+    "section": "Expected Value",
+    "text": "Expected Value\nOf a variable: \\[E[X] = \\sum_{i=0}^n x_i \\cdot p(x_i)\\]\nOf a function of a variable:\n\\[E[g(x)] = \\sum_{i=0}^n g(x_i) \\cdot p(x_i) \\neq g(E[X])\\]"
+  },
+  {
+    "objectID": "4511/notes/06/06.html#variance",
+    "href": "4511/notes/06/06.html#variance",
+    "title": "Logic & Probability",
+    "section": "Variance",
+    "text": "Variance\n\nHow much do values vary from the expected value?\n\n\\[\\text{Var}(X) = E[(X - E[X])^2]\\]\n\n\\(E[X]\\) represents mean, or \\(\\mu\\)\nWe’re really interested in \\(E[|X-\\mu|]\\)\n\nAbsolute values are mathematically troublesome\n\nStandard deviation: \\(\\sigma\\) = \\(\\sqrt{\\text{Var}}\\)"
+  },
+  {
+    "objectID": "4511/notes/06/06.html#variance-1",
+    "href": "4511/notes/06/06.html#variance-1",
+    "title": "Logic & Probability",
+    "section": "Variance",
+    "text": "Variance\n\\[\\begin{align}\\text{Var}(X) & = E[(E[X]-\\mu)^2]\\\\\n& = \\sum_x (x-\\mu)^2 p(x) \\\\\n& = \\sum_x (x^2 - 2 x \\mu + \\mu^2) p(x) \\\\\n& = \\sum_x x^2 p(x) - 2 \\mu \\sum_x x p(x) + \\mu^2 \\sum_x p(x) \\\\\n& = E[X^2] - 2 \\mu \\mu + \\mu^2 \\\\\n  & = E[X^2] - E[X]^2\n\\end{align}\\]"
+  },
+  {
+    "objectID": "4511/notes/06/06.html#how-to-lie-with-statistics",
+    "href": "4511/notes/06/06.html#how-to-lie-with-statistics",
+    "title": "Logic & Probability",
+    "section": "How To Lie With Statistics",
+    "text": "How To Lie With Statistics"
+  },
+  {
+    "objectID": "4511/notes/06/06.html#references",
+    "href": "4511/notes/06/06.html#references",
+    "title": "Logic & Probability",
     "section": "References",
     "text": "References\n\nStuart J. Russell and Peter Norvig. Artificial Intelligence: A Modern Approach. 4th Edition, 2020.\nMykal Kochenderfer, Tim Wheeler, and Kyle Wray. Algorithms for Decision Making. 1st Edition, 2022.\nStanford CS231\nStanford CS228\nUC Berkeley CS188"
-  },
-  {
-    "objectID": "4511/notes/01/01.html#good-afternoon",
-    "href": "4511/notes/01/01.html#good-afternoon",
-    "title": "AI Algorithms  Introduction",
-    "section": "Good Afternoon",
-    "text": "Good Afternoon"
-  },
-  {
-    "objectID": "4511/notes/01/01.html#how-to-succeed",
-    "href": "4511/notes/01/01.html#how-to-succeed",
-    "title": "AI Algorithms  Introduction",
-    "section": "How To Succeed",
-    "text": "How To Succeed\n\nPay Attention\nStart Early\nDo The Work\n\nYourself"
-  },
-  {
-    "objectID": "4511/notes/01/01.html#extremely-important-dates",
-    "href": "4511/notes/01/01.html#extremely-important-dates",
-    "title": "AI Algorithms  Introduction",
-    "section": "Extremely Important Dates",
-    "text": "Extremely Important Dates\nMidterm Exam: 7 Mar\n\nFinal Exam: 25 Apr\n\n\n\nArrange to be present for both exams."
-  },
-  {
-    "objectID": "4511/notes/01/01.html#grading",
-    "href": "4511/notes/01/01.html#grading",
-    "title": "AI Algorithms  Introduction",
-    "section": "Grading",
-    "text": "Grading\n\n40% Homework average: weighted average of all homework\n\nLowest homework weighted 50%\n\n20% Project:\n\nOne intermediate deliverable\n\n40% Exam average: weighted average of two exams\n\nFinal replaces midterm if final is higher\nMidterm can’t replace final"
-  },
-  {
-    "objectID": "4511/notes/01/01.html#attendance",
-    "href": "4511/notes/01/01.html#attendance",
-    "title": "AI Algorithms  Introduction",
-    "section": "Attendance",
-    "text": "Attendance\n\nOptional\nRecommended\nAssumed\nOffice Hours\n\nWhy are there so many?\n\nLate Work\n\nNot accepted.1\n\n\nThis is not strictly true: grace days abound. Use them carefully."
-  },
-  {
-    "objectID": "4511/notes/01/01.html#office-hours",
-    "href": "4511/notes/01/01.html#office-hours",
-    "title": "AI Algorithms  Introduction",
-    "section": "Office Hours",
-    "text": "Office Hours\nMe:\n\nMon 12:00-2:00 PM\nWeds 1:00 PM - 3:30 PM\nFri 3:30-6:00 PM\n\nRhys:\n\nWeds 10 AM - Noon"
-  },
-  {
-    "objectID": "4511/notes/01/01.html#the-syllabus",
-    "href": "4511/notes/01/01.html#the-syllabus",
-    "title": "AI Algorithms  Introduction",
-    "section": "The Syllabus",
-    "text": "The Syllabus\n\nSyllabus acknowledgement in HW 1\n\nMust be completed before you get credit for anything\nWrite it yourself"
-  },
-  {
-    "objectID": "4511/notes/01/01.html#write-it-yourself",
-    "href": "4511/notes/01/01.html#write-it-yourself",
-    "title": "AI Algorithms  Introduction",
-    "section": "Write It Yourself",
-    "text": "Write It Yourself\n\nCopying code (from anywhere!) is generally prohibited, however:\n\nSearching for errors, use of Stack Overflow, etc. is allowed\nUse of code snippets from language documentation is allowed\nCollaborating to understand the algorithms is always allowed\n\nDocument what help you received when solving the problems\n\nYour code will almost certainly show up on your exam."
-  },
-  {
-    "objectID": "4511/notes/01/01.html#write-it-yourself-1",
-    "href": "4511/notes/01/01.html#write-it-yourself-1",
-    "title": "AI Algorithms  Introduction",
-    "section": "Write It Yourself",
-    "text": "Write It Yourself\n\nI check my email and respond\nPlease do not use ChatGPT (etc.) to write emails to me\n\n“I hope this email finds you well”\n“I understand the importance of…”\n“I appreciate your time and attention to this matter”\n“I look forward to your prompt response”\n\n\nIf nobody wrote it, why should anybody read it?"
-  },
-  {
-    "objectID": "4511/notes/01/01.html#textbooks",
-    "href": "4511/notes/01/01.html#textbooks",
-    "title": "AI Algorithms  Introduction",
-    "section": "Textbook(s)",
-    "text": "Textbook(s)\n\nStuart J. Russell and Peter Norvig. Artificial Intelligence: A Modern Approach. 4th Edition, 2020.\n\nSeveral copies will be on reserve at the GWU Library.\n\nMykal Kochenderfer, Tim Wheeler, and Kyle Wray. Algorithms for Decision Making. 1st Edition, 2022.\nRichard S. Sutton and Andrew G. Barto. Reinforcement Learning: An Introduction. 2nd Edition, 2018."
-  },
-  {
-    "objectID": "4511/notes/01/01.html#mechanics",
-    "href": "4511/notes/01/01.html#mechanics",
-    "title": "AI Algorithms  Introduction",
-    "section": "Mechanics",
-    "text": "Mechanics\n\nOne 2.5 hr meeting per week\nExams in person\n\nPeriodic in-class practice\nOpen note\n\nHomework via submit server\nProgramming assignments in Python\n\nIf you don’t know Python: you will."
-  },
-  {
-    "objectID": "4511/notes/01/01.html#how-to-succeed-1",
-    "href": "4511/notes/01/01.html#how-to-succeed-1",
-    "title": "AI Algorithms  Introduction",
-    "section": "How To Succeed",
-    "text": "How To Succeed\n\nHomework assignments\n\nStart early1\n\nReadings\n\nActually do them\nLecture notes != readings\n\nExercises\n\nDeliberately open-ended\n\n\nPlease."
-  },
-  {
-    "objectID": "4511/notes/01/01.html#ungraded-exercises",
-    "href": "4511/notes/01/01.html#ungraded-exercises",
-    "title": "AI Algorithms  Introduction",
-    "section": "Ungraded Exercises",
-    "text": "Ungraded Exercises\n\nPreparation for homework and exams\nUngraded for flexibility\n\nI assume completion/understanding\n\nStrongly correlated with final letter grade of A"
-  },
-  {
-    "objectID": "4511/notes/01/01.html#do-we-even-need-to-introduce-ai",
-    "href": "4511/notes/01/01.html#do-we-even-need-to-introduce-ai",
-    "title": "AI Algorithms  Introduction",
-    "section": "Do We Even Need to Introduce AI?",
-    "text": "Do We Even Need to Introduce AI?\n\nYou have undoubtedly used an LLM\n\nYou have almost certainly used speech-to-text\n\nYou may have ridden in a self-driving car\nYou probably unlock your telephone with your face\n\nConsider how this sentence would have been received in 1995\n\nYou trust software to give you street directions\nYou have probably flown on an airliner with autopilot\nYou might have lost to a computer at chess"
-  },
-  {
-    "objectID": "4511/notes/01/01.html#what-is-artificial-intelligence",
-    "href": "4511/notes/01/01.html#what-is-artificial-intelligence",
-    "title": "AI Algorithms  Introduction",
-    "section": "What Is Artificial Intelligence?",
-    "text": "What Is Artificial Intelligence?\nWhat is intelligence?\n\nThought\nReasoning\nBehavior\n\nDo we need all three?\nDoes “AI” need all three?"
-  },
-  {
-    "objectID": "4511/notes/01/01.html#is-it-intelligent",
-    "href": "4511/notes/01/01.html#is-it-intelligent",
-    "title": "AI Algorithms  Introduction",
-    "section": "Is It Intelligent?",
-    "text": "Is It Intelligent?\n\n\n\n\n\n\n\n\nImages: Speed Queen, Volvo"
-  },
-  {
-    "objectID": "4511/notes/01/01.html#rationality",
-    "href": "4511/notes/01/01.html#rationality",
-    "title": "AI Algorithms  Introduction",
-    "section": "Rationality",
-    "text": "Rationality\n\nDecisions\nOutcomes\nValues\n\nIt is possible to make better decisions.\n\n\nRational agents make better decisions."
-  },
-  {
-    "objectID": "4511/notes/01/01.html#which-decision",
-    "href": "4511/notes/01/01.html#which-decision",
-    "title": "AI Algorithms  Introduction",
-    "section": "Which Decision?",
-    "text": "Which Decision?\n\n\n\nPay $17 for this pizza, delivered\nPay $21 for the same pizza, delivered"
-  },
-  {
-    "objectID": "4511/notes/01/01.html#basically-the-same-problem",
-    "href": "4511/notes/01/01.html#basically-the-same-problem",
-    "title": "AI Algorithms  Introduction",
-    "section": "Basically The Same Problem",
-    "text": "Basically The Same Problem\n\n\nImage: Bloomberg"
-  },
-  {
-    "objectID": "4511/notes/01/01.html#expected-utility",
-    "href": "4511/notes/01/01.html#expected-utility",
-    "title": "AI Algorithms  Introduction",
-    "section": "Expected Utility",
-    "text": "Expected Utility\nWhich would you prefer?\n\nReceive $10\nFlip a fair coin:\n\nHeads - Pay $10\nTails - Receive $100\n\n\n\n\n\nMany outcomes aren’t directly expressed in dollars\nRational agents maximize expected utility"
-  },
-  {
-    "objectID": "4511/notes/01/01.html#defining-ai-again",
-    "href": "4511/notes/01/01.html#defining-ai-again",
-    "title": "AI Algorithms  Introduction",
-    "section": "Defining AI, Again",
-    "text": "Defining AI, Again\n\nThought “vs.” Action\nHuman “vs.” Rational\nWhat is necessary?\n\nAll four combinations have been asserted"
-  },
-  {
-    "objectID": "4511/notes/01/01.html#errors",
-    "href": "4511/notes/01/01.html#errors",
-    "title": "AI Algorithms  Introduction",
-    "section": "Errors",
-    "text": "Errors\n\nWhat happens when a human crashes1 a bicycle?\nWhat happens when a self-driving car crashes2?\nWho is responsible when a self-driving car crashes?\n\n\n\nHow do “we” ensure3 AI values align with human values?\nHuman at faultSoftware at fault“ensure”"
-  },
-  {
-    "objectID": "4511/notes/01/01.html#alignment",
-    "href": "4511/notes/01/01.html#alignment",
-    "title": "AI Algorithms  Introduction",
-    "section": "Alignment",
-    "text": "Alignment\n\n\nImage: Meme; fair use."
-  },
-  {
-    "objectID": "4511/notes/01/01.html#alignment-1",
-    "href": "4511/notes/01/01.html#alignment-1",
-    "title": "AI Algorithms  Introduction",
-    "section": "Alignment",
-    "text": "Alignment\n\nAre universal human values defined?\nHow are AI values defined?\nHow are AI values validated?\n\nThis is an open area of investigation.1\nAnd of concern."
-  },
-  {
-    "objectID": "4511/notes/01/01.html#how-we-got-here",
-    "href": "4511/notes/01/01.html#how-we-got-here",
-    "title": "AI Algorithms  Introduction",
-    "section": "How We Got Here",
-    "text": "How We Got Here\n\n\nNeural Networks\n\nPerceptron (McCulloch & Pitts, 1943)\n“Computing Machinery and Intelligence” (Turing, 1950)\n\nLogic\n\nSamuel’s checkers, MANIAC Chess (1950s)\nDartmouth “Artificial Intelligence” conference (1956)\nMinsky & Papert assault perceptrons (1959)"
-  },
-  {
-    "objectID": "4511/notes/01/01.html#how-we-got-here-1",
-    "href": "4511/notes/01/01.html#how-we-got-here-1",
-    "title": "AI Algorithms  Introduction",
-    "section": "How We Got Here",
-    "text": "How We Got Here\n\n\nKnowledge/Expert Systems\n\nExpert systems boom (1980s)\nBack propagation paper (Rumelhart et al., 1986)\nExpert systems bust (1990s)\n\nProbabilistic methods\n\nTD-Gammon (1992)\nDeep Blue defeats Kasparov (1997)"
-  },
-  {
-    "objectID": "4511/notes/01/01.html#how-we-got-here-2",
-    "href": "4511/notes/01/01.html#how-we-got-here-2",
-    "title": "AI Algorithms  Introduction",
-    "section": "How We Got Here",
-    "text": "How We Got Here\n\n\nNeural Networks\n\nAlexNet computer vision (2012)\nDeepMind Atari (2013)\nAlphaGo defeats Sedol (2016)\nGoogle Translate LSTM (2016)\nAlphaFold (2018)\n\nLarge Language Models\n\nAttention Is All You Need (2017)\nGPT-3.5 (2022)"
-  },
-  {
-    "objectID": "4511/notes/01/01.html#where-do-we-go-now",
-    "href": "4511/notes/01/01.html#where-do-we-go-now",
-    "title": "AI Algorithms  Introduction",
-    "section": "Where Do We Go Now?",
-    "text": "Where Do We Go Now?\n\nGame-playing\n\nReal-world tasks that look like games\n\nStatistical generation of text, images, video…\nOpen-ended logical problems\n\nUnsolved problems\n\nProblems with poorly-defined interfaces"
-  },
-  {
-    "objectID": "4511/notes/01/01.html#societal-implications",
-    "href": "4511/notes/01/01.html#societal-implications",
-    "title": "AI Algorithms  Introduction",
-    "section": "Societal Implications",
-    "text": "Societal Implications\n\nTranslation\nText generation\n“Art” generation\nDecision-making\n\n“Who is responsible for…”"
-  },
-  {
-    "objectID": "4511/notes/01/01.html#what-this-course-is-not-about",
-    "href": "4511/notes/01/01.html#what-this-course-is-not-about",
-    "title": "AI Algorithms  Introduction",
-    "section": "What This Course Is Not About",
-    "text": "What This Course Is Not About\n\nTranslation\nText generation\n“Art” generation"
-  },
-  {
-    "objectID": "4511/notes/01/01.html#what-this-course-is-about",
-    "href": "4511/notes/01/01.html#what-this-course-is-about",
-    "title": "AI Algorithms  Introduction",
-    "section": "What This Course Is About",
-    "text": "What This Course Is About\n\nThe design of rational agents\nGeneral AI techniques for problem solving\n\nRecognizing when a new problem has an “existing” solution\n\nSolving problems approximately\n\nOptimal solutions often intractable"
-  },
-  {
-    "objectID": "4511/notes/01/01.html#the-rational-agent",
-    "href": "4511/notes/01/01.html#the-rational-agent",
-    "title": "AI Algorithms  Introduction",
-    "section": "The Rational Agent",
-    "text": "The Rational Agent\n\nHas a utility function\n\nMaximizes expected utility\n\nSensors: perceives environment\nActuators: influences environment\n\nWhat is in between sensors and actuators?\nThe agent function."
-  },
-  {
-    "objectID": "4511/notes/01/01.html#reflex-agent",
-    "href": "4511/notes/01/01.html#reflex-agent",
-    "title": "AI Algorithms  Introduction",
-    "section": "Reflex Agent",
-    "text": "Reflex Agent\n\n\n\nVery basic form of agent function\nPercept \\(\\rightarrow\\) Action lookup table\nGood for simple games\n\nTic-tac-toe\nCheckers?\n\nNeeds entire state space in table"
-  },
-  {
-    "objectID": "4511/notes/01/01.html#state-space-size",
-    "href": "4511/notes/01/01.html#state-space-size",
-    "title": "AI Algorithms  Introduction",
-    "section": "State Space Size",
-    "text": "State Space Size\n\n\n\nTic-tac-toe: \\(10^3\\)\nCheckers: \\(10^{20}\\)\nChess: \\(10^{44}\\)\nGo: \\(10^{170}\\)\nSelf-driving car: ?"
-  },
-  {
-    "objectID": "4511/notes/01/01.html#partially-observable-state",
-    "href": "4511/notes/01/01.html#partially-observable-state",
-    "title": "AI Algorithms  Introduction",
-    "section": "Partially-Observable State",
-    "text": "Partially-Observable State"
-  },
-  {
-    "objectID": "4511/notes/01/01.html#partially-observable-state-1",
-    "href": "4511/notes/01/01.html#partially-observable-state-1",
-    "title": "AI Algorithms  Introduction",
-    "section": "Partially-Observable State",
-    "text": "Partially-Observable State\n\nMost real-world problems\n\nSensor error\nModel error\n\nReflex agents fail1\nAgent needs a belief state\n\nUnless total number of partial observations is bounded"
-  },
-  {
-    "objectID": "4511/notes/01/01.html#backing-up",
-    "href": "4511/notes/01/01.html#backing-up",
-    "title": "AI Algorithms  Introduction",
-    "section": "Backing Up",
-    "text": "Backing Up\n\nThe Environment\n\nState Space\n\nRational Agents:\n\nSensors\nActuators\n\nSensors + State Space = Belief State\n\nFeatures of the problem are pre-defined; we define the agent function."
-  },
-  {
-    "objectID": "4511/notes/01/01.html#high-level-topics",
-    "href": "4511/notes/01/01.html#high-level-topics",
-    "title": "AI Algorithms  Introduction",
-    "section": "High-Level Topics",
-    "text": "High-Level Topics\n\nSearch & Planning\nMulti-Agent Problems\nProbability & Inference\nLearning"
-  },
-  {
-    "objectID": "4511/notes/01/01.html#search-planning",
-    "href": "4511/notes/01/01.html#search-planning",
-    "title": "AI Algorithms  Introduction",
-    "section": "Search & Planning",
-    "text": "Search & Planning\n\nWorld model\n\n“Fully known”\n\nHow do we accomplish a goal?"
-  },
-  {
-    "objectID": "4511/notes/01/01.html#multi-agent-problems",
-    "href": "4511/notes/01/01.html#multi-agent-problems",
-    "title": "AI Algorithms  Introduction",
-    "section": "Multi-Agent Problems",
-    "text": "Multi-Agent Problems\n\nOther agents with different utility functions\nAgents react to our agent\nHow do we maximize our own utility?"
-  },
-  {
-    "objectID": "4511/notes/01/01.html#probability-inference",
-    "href": "4511/notes/01/01.html#probability-inference",
-    "title": "AI Algorithms  Introduction",
-    "section": "Probability & Inference",
-    "text": "Probability & Inference\n\nPartially-observed states\nStochastic actions\nHow do we maintain a belief state?\nHow do we maximize our utility?"
-  },
-  {
-    "objectID": "4511/notes/01/01.html#learning",
-    "href": "4511/notes/01/01.html#learning",
-    "title": "AI Algorithms  Introduction",
-    "section": "Learning",
-    "text": "Learning\n\nInitially-unknown problem structure\nExplore vs. exploit\n\nActions tell us more about the problem\nActions have some cost\n\nCan also learn from data"
-  },
-  {
-    "objectID": "4511/notes/01/01.html#big-picture",
-    "href": "4511/notes/01/01.html#big-picture",
-    "title": "AI Algorithms  Introduction",
-    "section": "Big Picture",
-    "text": "Big Picture\n\nRepresent problems\n\nStates, actions\n\nImplement algorithms\nTrain (if needed) using data"
-  },
-  {
-    "objectID": "4511/notes/01/01.html#the-pac-man",
-    "href": "4511/notes/01/01.html#the-pac-man",
-    "title": "AI Algorithms  Introduction",
-    "section": "The Pac-Man",
-    "text": "The Pac-Man\n\n\nNote that Bandai Namco Entertainment Inc. owns the trademark to “PAC-MAN” for Coin and Non-Coin Operated Electronic Amusement Apparatus for Playing a Game on a Video Output Display, as well as for Entertainment, namely providing a computer game that may be accessed network-wide by network users via mobile phones and computers; providing computer games via network between communications networks and computers. Our use is educational."
-  },
-  {
-    "objectID": "4511/notes/01/01.html#why-pac-man",
-    "href": "4511/notes/01/01.html#why-pac-man",
-    "title": "AI Algorithms  Introduction",
-    "section": "Why Pac-Man?",
-    "text": "Why Pac-Man?\n\nReal world AI problems are hard\n\nThis is a one-semester course\n\nAlgorithms themselves are reasonably simple\n\nApplying them to problems is “the” problem\n\nPac-man is simple\nYou don’t have to like games\n\nSame algorithms apply to real world"
-  },
-  {
-    "objectID": "4511/notes/01/01.html#the-real-world",
-    "href": "4511/notes/01/01.html#the-real-world",
-    "title": "AI Algorithms  Introduction",
-    "section": "The Real World",
-    "text": "The Real World\n\nObservable?\nDeterministic?\nMarkov?\nStatic?\nDiscrete?\n\nExamples…"
-  },
-  {
-    "objectID": "4511/notes/01/01.html#references",
-    "href": "4511/notes/01/01.html#references",
-    "title": "AI Algorithms  Introduction",
-    "section": "References",
-    "text": "References\n\nStuart J. Russell and Peter Norvig. Artificial Intelligence: A Modern Approach. 4th Edition, 2020.\nStanford CS231\nUC Berkeley CS188"
   },
   {
     "objectID": "4511/notes/03/03.html#announcements",
@@ -1817,7 +1558,7 @@
     "href": "4511/index.html#notes",
     "title": "CSCI 4511/6511 Spring 2025",
     "section": "Notes",
-    "text": "Notes\nOne | Python\nTwo | PDF\nThree | PDF\nFour\nFive"
+    "text": "Notes\nOne | Python\nTwo | PDF\nThree | PDF\nFour\nFive Six"
   },
   {
     "objectID": "4511/index.html#homework",
@@ -1832,6 +1573,13 @@
     "title": "CSCI 4511/6511 Spring 2025",
     "section": "Exercises",
     "text": "Exercises\nPython Warmup"
+  },
+  {
+    "objectID": "4511/index.html#project-spec",
+    "href": "4511/index.html#project-spec",
+    "title": "CSCI 4511/6511 Spring 2025",
+    "section": "Project Spec",
+    "text": "Project Spec\nProject Spec"
   },
   {
     "objectID": "teaching_writing.html",
@@ -2772,137 +2520,788 @@
     "text": "References\n\nStuart J. Russell and Peter Norvig. Artificial Intelligence: A Modern Approach. 4th Edition, 2020.\nMykal Kochenderfer, Tim Wheeler, and Kyle Wray. Algorithms for Decision Making. 1st Edition, 2022.\nStanford CS231\nStanford CS228\nUC Berkeley CS188"
   },
   {
-    "objectID": "4511/notes/01/python.html",
-    "href": "4511/notes/01/python.html",
-    "title": "Python Notes",
-    "section": "",
-    "text": "These notes are meant to accompany a lecture in the course. If you are looking for a full Python reference, I recommend the full Python reference."
+    "objectID": "4511/notes/01/01.html#good-afternoon",
+    "href": "4511/notes/01/01.html#good-afternoon",
+    "title": "AI Algorithms  Introduction",
+    "section": "Good Afternoon",
+    "text": "Good Afternoon"
   },
   {
-    "objectID": "4511/notes/01/python.html#whitespace-syntax",
-    "href": "4511/notes/01/python.html#whitespace-syntax",
-    "title": "Python Notes",
-    "section": "Whitespace Syntax",
-    "text": "Whitespace Syntax\nPython formally uses whitespace as part of its syntax. Examples:\nYou may be used to languages ending logical lines with a semicolon: ;. Python ends logical lines with a carriage return (a new line).\nCompare Java:\nSystem.out.println(\"Hello\");\nSystem.out.println(\"World\");\nwith Python:\nprint(\"Hello\")\nprint(\"World\")\n\n\n\n\n\n\nExtending Logical Lines in Python\n\n\n\n\n\nYou can extend a logical line of code over multiple lines using backslash characters:\nprint(\"Hello \\\n\")\nprint(\"World\")\nLogical lines can be extended inside of groupings such as arrays:\nx = [1, 2, 3,\n     4, 5, 6]\n\n\n\n\nWhere languages like Java use curly braces { and } to group statements, Python typically uses indentation.\nCompare Java:\nfor (int i = 0; i &lt; 5; i++) {\n  System.out.println(i);\n}\nwith Python:\nfor i in range(5):\n    print(i) # note that the print statement is indented \nThe above also demonstrates:\n\nComments are indicated with #\nfor loop syntax is concise\n\nDeclaration of i and incrementing i += 1 are implied\nPython does not have ++, use +=1\n\nThings that are associated with groups of statements end in a colon :\n\nNesting loops and/or conditionals uses multiple levels of indentation:\nfor i in range(3):\n    for j in range(4):\n        print(i+j)\n        print(i*j)"
+    "objectID": "4511/notes/01/01.html#how-to-succeed",
+    "href": "4511/notes/01/01.html#how-to-succeed",
+    "title": "AI Algorithms  Introduction",
+    "section": "How To Succeed",
+    "text": "How To Succeed\n\nPay Attention\nStart Early\nDo The Work\n\nYourself"
   },
   {
-    "objectID": "4511/notes/01/python.html#the-interpreter",
-    "href": "4511/notes/01/python.html#the-interpreter",
-    "title": "Python Notes",
-    "section": "The Interpreter",
-    "text": "The Interpreter\nYou can run the Python interpreter from the command line and experiment with code. Open a terminal and simply run python."
+    "objectID": "4511/notes/01/01.html#extremely-important-dates",
+    "href": "4511/notes/01/01.html#extremely-important-dates",
+    "title": "AI Algorithms  Introduction",
+    "section": "Extremely Important Dates",
+    "text": "Extremely Important Dates\nMidterm Exam: 7 Mar\n\nFinal Exam: 25 Apr\n\n\n\nArrange to be present for both exams."
   },
   {
-    "objectID": "4511/notes/01/python.html#operators",
-    "href": "4511/notes/01/python.html#operators",
-    "title": "Python Notes",
-    "section": "Operators",
-    "text": "Operators\nBasic math operators work similarly in Python and Java:\n\nprint(1 + 2)\n\n3\n\n\n\nprint(1 * 2)\n\n2\n\n\n\nprint(1 / 2)\n\n0.5\n\n\nDividing two integers (or any two numbers) with / automatically yields a float. Quotient/remainder is available with the quotient // and remainder % operators:\n\nprint(7 // 2)\n\n3\n\n\n\nprint(7 % 2)\n\n1\n\n\nThese are not constrained to integers:\n\nprint(6 // 2.5)\n\n2.0\n\n\n\nprint(6 % 2.5)\n\n1.0\n\n\nOperators like + and * work like math operators when the things on both sides of them are numbers. They do other things when they’re around strings.\n+ concatenates:\n\nprint(\"Fizz\" + \"Buzz\")\n\nFizzBuzz\n\n\n* extends the string, when used with an integer:\n\nprint(\"Fizz\" * 5)\n\nFizzFizzFizzFizzFizz\n\n\nThe above ‘multiplication’ operation would be nonsensical with a float instead of an int, or with two strings, and trying it will give you an error.\nPowers can be raised with **:\n\nprint(2**3)\n\n8\n\n\nThere is also a well-documented math library for things like square roots.\n\nimport math\n\nprint(math.sqrt(2))\n\n1.4142135623730951\n\n\nNote: There is nothing wrong with the math library, but most people use numpy for math these days.\n\nimport numpy as np\n\nprint(np.sqrt(2))\n\n1.4142135623730951"
+    "objectID": "4511/notes/01/01.html#grading",
+    "href": "4511/notes/01/01.html#grading",
+    "title": "AI Algorithms  Introduction",
+    "section": "Grading",
+    "text": "Grading\n\n40% Homework average: weighted average of all homework\n\nLowest homework weighted 50%\n\n20% Project:\n\nOne intermediate deliverable\n\n40% Exam average: weighted average of two exams\n\nFinal replaces midterm if final is higher\nMidterm can’t replace final"
   },
   {
-    "objectID": "4511/notes/01/python.html#conditionals",
-    "href": "4511/notes/01/python.html#conditionals",
-    "title": "Python Notes",
-    "section": "Conditionals",
-    "text": "Conditionals\nConditionals are expressed with if, elif, and else:\n\nThe if is required.\n\nAny whole number of elifs are allowed.\n\nZero or one elses are allowed, and the else always comes last.\n\nSyntax uses colons and indentation, just like loops.\n\nx = 5\n\nif x &gt; 10:\n    print(\"x is huge\")\nelif x &lt; 0:\n    print(\"x is negative\")\nelif x &gt; 0:\n    print(\"x can be counted on fingers\")\nelse:\n    print(\"x is zero\")\n\nx can be counted on fingers\n\n\n(This is a very silly example.)\nThere is an extremely powerful match case conditional syntax which you can use.1 Read about it here\n1 If you are extremely powerful."
+    "objectID": "4511/notes/01/01.html#attendance",
+    "href": "4511/notes/01/01.html#attendance",
+    "title": "AI Algorithms  Introduction",
+    "section": "Attendance",
+    "text": "Attendance\n\nOptional\nRecommended\nAssumed\nOffice Hours\n\nWhy are there so many?\n\nLate Work\n\nNot accepted.1\n\n\nThis is not strictly true: grace days abound. Use them carefully."
   },
   {
-    "objectID": "4511/notes/01/python.html#types-and-variables",
-    "href": "4511/notes/01/python.html#types-and-variables",
-    "title": "Python Notes",
-    "section": "Types and Variables",
-    "text": "Types and Variables\nPython has types, but variables do not have types at compile time. Compared to Java, this might seem confusing. You can think of variables as pointing to objects that have types (Python also does not, explicitly, have pointers):\nx = 126\ny = \"sunset\"\nz = 12.6\n\n\n\n\n\n\n\n\n\nVariables can be reassigned without regard to the type the variable is pointing at:\nx = 126\nx = \"sunrise\"\n\n\n\nAssigning a variable to another variable assigns it to wherever the other variable is pointing:\n\nx = 126\ny = \"sunset\"\nx = y\nprint(x)\n\nsunset\n\n\n\n\n\nReassigning the other variable doesn’t change the first variable:\n\nx = 126\ny = \"sunset\"\nx = y\ny = \"sunrise\"\nprint(x)\n\nsunset"
+    "objectID": "4511/notes/01/01.html#office-hours",
+    "href": "4511/notes/01/01.html#office-hours",
+    "title": "AI Algorithms  Introduction",
+    "section": "Office Hours",
+    "text": "Office Hours\nMe:\n\nMon 12:00-2:00 PM\nWeds 1:00 PM - 3:30 PM\nFri 3:30-6:00 PM\n\nRhys:\n\nWeds 10 AM - Noon"
   },
   {
-    "objectID": "4511/notes/01/python.html#lists",
-    "href": "4511/notes/01/python.html#lists",
-    "title": "Python Notes",
-    "section": "Lists",
-    "text": "Lists\nLists are delimited with square brackets [ and ].\n\nx = [5, 6, 7]\nprint(x)\n\n[5, 6, 7]\n\n\nThey are not typed and can contain whatever you want. Or, for the imaginative, they can contain any type of object.\n\nx = [126, \"sunset\", 12.6]\nprint(x)\n\n[126, 'sunset', 12.6]\n\n\nIndividual list elements can be accessed via “slicing.” Note that lists are 0-indexed.\n\nx = [126, \"sunset\", 12.6]\nprint(x[1])\n\nsunset\n\n\nIndividual elements of a list can be modified:\n\nx = [126, \"sunset\", 12.6]\nx[1] = \"sunrise\"\nprint(x)\n\n[126, 'sunrise', 12.6]\n\n\nLists are collections of references to variables and behave differently with respect to assignment. Specifically, assigning a variable to another variable that references a list will cause both variables to reference the same list object:\n\nx = [126, \"sunset\", 12.6]\ny = x\nprint(y)\n\n[126, 'sunset', 12.6]\n\n\n\n\n\nChanging x also changes y, since they reference the same thing:\n\nx = [126, \"sunset\", 12.6]\ny = x\nx[1] = \"sunrise\"\nprint(y)\n\n[126, 'sunrise', 12.6]\n\n\n\n\n\nSlicing can access more than one element:\n\nx = [126, \"sunset\", 12.6]\nprint(x[1:3])\n\n['sunset', 12.6]\n\n\nStrings can also be sliced:\n\nx = \"sunrise\"\nprint(x[0:3])\n\nsun\n\n\nMore details about slicing in the docs.\nLists can be concatenated with +, which returns a new list:\n\nx = [1, 2, 3] + [4, 5, 6]\nprint(x)\n\n[1, 2, 3, 4, 5, 6]\n\n\nLists have no fixed length, they can be lengthened in place with append()\n\nx = [\"sunrise\"]\nx.append(\"sunset\")\nprint(x)\n\n['sunrise', 'sunset']"
+    "objectID": "4511/notes/01/01.html#the-syllabus",
+    "href": "4511/notes/01/01.html#the-syllabus",
+    "title": "AI Algorithms  Introduction",
+    "section": "The Syllabus",
+    "text": "The Syllabus\n\nSyllabus acknowledgement in HW 1\n\nMust be completed before you get credit for anything\nWrite it yourself"
   },
   {
-    "objectID": "4511/notes/01/python.html#tuples",
-    "href": "4511/notes/01/python.html#tuples",
-    "title": "Python Notes",
-    "section": "Tuples",
-    "text": "Tuples\nTuples are similar to lists, but they are immutable. They are optionally delimited with parentheses ( and )\n\nx = (\"sunrise\", \"sunset\")\nprint(x[1])\ny = \"duck\", \"teal\"\nprint(y[0])\n\nsunset\nduck\n\n\nWhile the parentheses are optional, they are typically used.\nTuples can also be used for multiple assignment:\n\nA, B = 1, 2\nprint(A)\nprint(B)\n\n1\n2"
+    "objectID": "4511/notes/01/01.html#write-it-yourself",
+    "href": "4511/notes/01/01.html#write-it-yourself",
+    "title": "AI Algorithms  Introduction",
+    "section": "Write It Yourself",
+    "text": "Write It Yourself\n\nCopying code (from anywhere!) is generally prohibited, however:\n\nSearching for errors, use of Stack Overflow, etc. is allowed\nUse of code snippets from language documentation is allowed\nCollaborating to understand the algorithms is always allowed\n\nDocument what help you received when solving the problems\n\nYour code will almost certainly show up on your exam."
   },
   {
-    "objectID": "4511/notes/01/python.html#dicts",
-    "href": "4511/notes/01/python.html#dicts",
-    "title": "Python Notes",
-    "section": "Dicts",
-    "text": "Dicts\nHash tables in Python are called dictionaries, or “dicts.” They consist of key-value pairs. They are delimited with curly braces { and }.\nThis dict has one pair: the key is 'sunrise' (a string) and the value is 126 (an int).\n\nx = {'sunrise': 126}\nprint(x)\n\n{'sunrise': 126}\n\n\n\nKeys and values can be any variable type. Values can be lists or dicts, but keys cannot (since these cannot be hashed.)\n\nDict values can be accessed via their keys:\n\nx = {'sunrise': 126}\nprint(x['sunrise'])\n\n126\n\n\nDict values can also be changed or added via their keys:\n\nx = {'sunrise': 126}\nx['sunrise'] = 127\nx['sunset'] = 12.6\nprint(x)\n\n{'sunrise': 127, 'sunset': 12.6}"
+    "objectID": "4511/notes/01/01.html#write-it-yourself-1",
+    "href": "4511/notes/01/01.html#write-it-yourself-1",
+    "title": "AI Algorithms  Introduction",
+    "section": "Write It Yourself",
+    "text": "Write It Yourself\n\nI check my email and respond\nPlease do not use ChatGPT (etc.) to write emails to me\n\n“I hope this email finds you well”\n“I understand the importance of…”\n“I appreciate your time and attention to this matter”\n“I look forward to your prompt response”\n\n\nIf nobody wrote it, why should anybody read it?"
   },
   {
-    "objectID": "4511/notes/01/python.html#looping",
-    "href": "4511/notes/01/python.html#looping",
-    "title": "Python Notes",
-    "section": "Looping",
-    "text": "Looping\nPython has several ways to loop through things.\nVia index:\n\nL = [\"cat\", \"dog\", \"owl\"]\nfor j in range(3):\n    print(L[j], end=\" - \")\n\ncat - dog - owl - \n\n\n\nVia content:\n\nL = [\"cat\", \"dog\", \"owl\"]\nfor j in L:\n    print(j, end= \" - \")\n\ncat - dog - owl - \n\n\n\nenumerate 😌\n\nL = [\"cat\", \"dog\", \"owl\"]\nfor j, item in enumerate(L):\n    print(item, j, end=\" - \")\n\ncat 0 - dog 1 - owl 2 - \n\n\n\nLooping directly through a dict iterates over keys:2\n2 Note the f-string\nA = {\"carl\": 5, \"otis\": 6, \"alan\": 2}\nfor j in A:\n    print(f\"{j}:{A[j]}\", end=\" - \")\n\ncarl:5 - otis:6 - alan:2 - \n\n\nYou can also iterate over the values:\n\nA = {\"carl\": 5, \"otis\": 6, \"alan\": 2}\nfor j in A.values():\n    print(j, end=\" - \")\n\n5 - 6 - 2 - \n\n\nOr the items:\n\nA = {\"carl\": 5, \"otis\": 6, \"alan\": 2}\nfor i, j in A.items():\n    print(i, j, end=\" - \")\n\ncarl 5 - otis 6 - alan 2 - \n\n\n\nThere are while loops:\n\nL = [\"cat\", \"dog\", \"hoss\", \"owl\"]\ni = 0\nwhile len(L[i]) == 3:\n    i += 1\nprint(L[i])\n\nhoss"
+    "objectID": "4511/notes/01/01.html#textbooks",
+    "href": "4511/notes/01/01.html#textbooks",
+    "title": "AI Algorithms  Introduction",
+    "section": "Textbook(s)",
+    "text": "Textbook(s)\n\nStuart J. Russell and Peter Norvig. Artificial Intelligence: A Modern Approach. 4th Edition, 2020.\n\nSeveral copies will be on reserve at the GWU Library.\n\nMykal Kochenderfer, Tim Wheeler, and Kyle Wray. Algorithms for Decision Making. 1st Edition, 2022.\nRichard S. Sutton and Andrew G. Barto. Reinforcement Learning: An Introduction. 2nd Edition, 2018."
   },
   {
-    "objectID": "4511/notes/01/python.html#booleans",
-    "href": "4511/notes/01/python.html#booleans",
-    "title": "Python Notes",
-    "section": "Booleans",
-    "text": "Booleans\nPython uses and, or and not for boolean logic. Equality operators are the same as Java (==, &lt;, !=, etc.). Parentheses aren’t enforced, but it’s a fine idea to use them anyway.\nBools can take on either True and False.\n\nprint(1 != 2)\nprint(4 &lt;= 3)\nprint(0.1 + 0.2 == 0.3)\n\nTrue\nFalse\nFalse\n\n\nBoolean operators short-circuit, which means:\n\nIf the left side of an and is False, the right side isn’t evaluated.\nIf the left side of an or is True, the right side isn’t evaluated.\n\n\nprint((1 &gt; 0) or nonsense)\n\nTrue\n\n\nnonsense above isn’t defined but the reference is never reached, so the program runs without error. Short-circuiting is occasionally useful and occasionally gets you into trouble."
+    "objectID": "4511/notes/01/01.html#mechanics",
+    "href": "4511/notes/01/01.html#mechanics",
+    "title": "AI Algorithms  Introduction",
+    "section": "Mechanics",
+    "text": "Mechanics\n\nOne 2.5 hr meeting per week\nExams in person\n\nPeriodic in-class practice\nOpen note\n\nHomework via submit server\nProgramming assignments in Python\n\nIf you don’t know Python: you will."
   },
   {
-    "objectID": "4511/notes/01/python.html#truth",
-    "href": "4511/notes/01/python.html#truth",
-    "title": "Python Notes",
-    "section": "Truth",
-    "text": "Truth\nPython has “truth values” for most built-in types. 0, empty values, and None (null) evaluate as false, non-zero and non-empty values evaluate as true, even though they aren’t equal to the boolean.\n\nx = []\nif not x:\n    print(x == False)\n    x.append(1)\nprint(x)\n\nFalse\n[1]"
+    "objectID": "4511/notes/01/01.html#how-to-succeed-1",
+    "href": "4511/notes/01/01.html#how-to-succeed-1",
+    "title": "AI Algorithms  Introduction",
+    "section": "How To Succeed",
+    "text": "How To Succeed\n\nHomework assignments\n\nStart early1\n\nReadings\n\nActually do them\nLecture notes != readings\n\nExercises\n\nDeliberately open-ended\n\n\nPlease."
   },
   {
-    "objectID": "4511/notes/01/python.html#functions",
-    "href": "4511/notes/01/python.html#functions",
-    "title": "Python Notes",
-    "section": "Functions",
-    "text": "Functions\nFunctions are defined with def and a colon. Indentation to group statements follows the same conventions you have already seen.\n\ndef doubling(x):\n    return x*2\n\ny = doubling(2)\nprint(y)\n\n4\n\n\nFunctions do not have to return anything.\n\ndef good_morning():\n    print(\"sunrise\")\n\ngood_morning()\n\nsunrise\n\n\nVariables passed to a function are copied into the function and not modified outside of the scope of the function.\n\ndef add_one(x):\n    x += 1\n    return x\n\ny = 2\nz = add_one(y)\nprint(y)\n\n2\n\n\nLists passed to a function are passed as references, and are modified outside of the scope of the function.\n\ndef append_sunrise(x):\n    x.append(\"sunrise\")\n    return x\n\ny = ['sunset']\nz = append_sunrise(y)\nprint(y)\n\n['sunset', 'sunrise']\n\n\nThis is a decent time to note that you can get into some trouble with functions because nothing in Python is explicitly typed:\ndef append_sunrise(x):\n    x.append(\"sunrise\")\n    return x\n\ny = 'sunset'\nz = append_sunrise(y)\nprint(y)"
+    "objectID": "4511/notes/01/01.html#ungraded-exercises",
+    "href": "4511/notes/01/01.html#ungraded-exercises",
+    "title": "AI Algorithms  Introduction",
+    "section": "Ungraded Exercises",
+    "text": "Ungraded Exercises\n\nPreparation for homework and exams\nUngraded for flexibility\n\nI assume completion/understanding\n\nStrongly correlated with final letter grade of A"
   },
   {
-    "objectID": "4511/notes/01/python.html#modules-and-imports",
-    "href": "4511/notes/01/python.html#modules-and-imports",
-    "title": "Python Notes",
-    "section": "Modules and Imports",
-    "text": "Modules and Imports\n\nVirtual Environments\nYou probably know this:\n\nimport numpy\n\nprint(numpy.random.random())\n\n0.29477280803113526\n\n\nand this3\n3 It might not run if you don’t have scipy installed, so install scipy.\nimport numpy as np\nimport pandas as pd\nfrom scipy import stats\n\na = stats.uniform(1, 5)\nprint(a)\nprint(a.cdf(2), a.cdf(3), a.cdf(5))\n\n&lt;scipy.stats._distn_infrastructure.rv_continuous_frozen object at 0x70158f9f4170&gt;\n0.2 0.4 0.8\n\n\nWhere do imports come from? The environment. There’s a default environment; but for any complicated project, you’ll want to create your own. You can call it whatever you want. .venv works. You could call it otis. You should call it something meaningful.\nAt the command line:4\n4 Your install might use python3 instead of pythonpython -m venv otis\ncd otis; tree | head -n 172\n.\n├── bin\n│   ├── activate\n│   ├── activate.csh\n│   ├── activate.fish\n│   ├── Activate.ps1\n│   ├── pip\n│   ├── pip3\n│   ├── pip3.11\n│   ├── python -&gt; /home/adsr/miniconda3/bin/python\n│   ├── python3 -&gt; python\n│   └── python3.11 -&gt; python\n├── include\n│   └── python3.11\n├── lib\n│   └── python3.11\n│       └── site-packages\nMake a new environment for every project! Or don’t, and find out what happens:\n\nThere are several package managers for python, poetry and conda are the most popular5 as of 2024. You can use pip, it’s fine.\n5 My own assertion, no data to back this up, probably true.\n\nModules\nWhen you make a .py file with any definitions, it’s called a module, and the module name is the file name (before the .py extension).\nConsider this module:\n\n\nutils.py\n\nfrom copy import deepcopy\n\ndef stringify(L: list[int]) -&gt; list:\n    L = deepcopy(L)\n    L.sort()\n    return str(L)\n\nWe can import it from any script in the same folder:\n\nimport utils\nA = utils.stringify([3, 2, 2, 1])\nprint(A, type(A))\n\n[1, 2, 2, 3] &lt;class 'str'&gt;\n\n\nWe can also import component definitions:\n\nfrom utils import stringify\nA = stringify([\"otis\", \"carl\", \"bruce\"])\nprint(A, type(A))\n\n['bruce', 'carl', 'otis'] &lt;class 'str'&gt;\n\n\nPython doesn’t enforce type hints 🙃"
+    "objectID": "4511/notes/01/01.html#do-we-even-need-to-introduce-ai",
+    "href": "4511/notes/01/01.html#do-we-even-need-to-introduce-ai",
+    "title": "AI Algorithms  Introduction",
+    "section": "Do We Even Need to Introduce AI?",
+    "text": "Do We Even Need to Introduce AI?\n\nYou have undoubtedly used an LLM\n\nYou have almost certainly used speech-to-text\n\nYou may have ridden in a self-driving car\nYou probably unlock your telephone with your face\n\nConsider how this sentence would have been received in 1995\n\nYou trust software to give you street directions\nYou have probably flown on an airliner with autopilot\nYou might have lost to a computer at chess"
   },
   {
-    "objectID": "4511/notes/01/python.html#classes",
-    "href": "4511/notes/01/python.html#classes",
-    "title": "Python Notes",
-    "section": "Classes",
-    "text": "Classes\nPython has excellent support for objects (classes), even though they aren’t necessary for basic scripts.\n\nclass Node:\n    def __init__(self, state, parent=None):\n        self.state = state\n        self.parent = parent\n\n    def __str__(self): # this determines the string representation of the node\n        return str(self.state)\n\nThe __init__ function is the constructor. We’ll try to unpack what happens below:\n\na = Node([2, 3])\nprint(a, a.parent)\n\nb = Node([2, 4], a)\na = 3\nprint(b.parent)\n\n[2, 3] None\n[2, 3]\n\n\n\nThe constructor is defined as __init__ but is called with the class name\nWe overrode __str__ so that printing a Node prints its state variable\nWe reassigned a to an integer, 3\nb still has a valid .parent reference!\n\n\nc = b.parent\nc.state = [2, 5]\nprint(b.parent)\n\n[2, 5]"
+    "objectID": "4511/notes/01/01.html#what-is-artificial-intelligence",
+    "href": "4511/notes/01/01.html#what-is-artificial-intelligence",
+    "title": "AI Algorithms  Introduction",
+    "section": "What Is Artificial Intelligence?",
+    "text": "What Is Artificial Intelligence?\nWhat is intelligence?\n\nThought\nReasoning\nBehavior\n\nDo we need all three?\nDoes “AI” need all three?"
   },
   {
-    "objectID": "4511/notes/01/python.html#references",
-    "href": "4511/notes/01/python.html#references",
-    "title": "Python Notes",
-    "section": "References?",
-    "text": "References?\nSurely you are aware that Python doesn’t have pointers.\n…Python doesn’t have pointers in the sense that it does not have pointers that directly reference locations in memory. Python does have references, which point to objects in namespaces, and they are simultaneously extremely useful and extremely confusing. 🙃\n\nPrimitive/immutable types are assigned ‘directly’\nObjects are assigned as references\n\nTo illustrate:\nInts are immutable (so are floats and strings) \\(\\rightarrow\\) assignment is to the value\n\nx = 2\ny = x\nx = 3\nprint(y)\n\n2\n\n\nLists are objects \\(\\rightarrow\\) assignment is a reference\n\nA = [1, 2, 3]\nB = A\nA.append(4)\nprint(B)\n\n[1, 2, 3, 4]\n\n\nTuples are immutable \\(\\rightarrow\\) assignment is to the value\n\nA = 1, 2, 3\nB = A\nA = 4, 5, 6\nprint(B)\n\n(1, 2, 3)\n\n\nDicts are objects \\(\\rightarrow\\) assignment is a reference\n\nA = {\"carl\": 5, \"otis\": 6}\nB = A\nB[\"bruce\"] = 4\nprint(A)\n\n{'carl': 5, 'otis': 6, 'bruce': 4}\n\n\nStrings are immutable \\(\\rightarrow\\) assignment is to the value\n\nIf you want to just access the values of a list or dict, but not the object as a reference, use copy.deepcopy\n\n\nA = \"otis\"\nB = A\nA = \"carl\"\nprint(B)\n\notis"
+    "objectID": "4511/notes/01/01.html#is-it-intelligent",
+    "href": "4511/notes/01/01.html#is-it-intelligent",
+    "title": "AI Algorithms  Introduction",
+    "section": "Is It Intelligent?",
+    "text": "Is It Intelligent?\n\n\n\n\n\n\n\n\nImages: Speed Queen, Volvo"
   },
   {
-    "objectID": "4511/notes/01/python.html#hashing",
-    "href": "4511/notes/01/python.html#hashing",
-    "title": "Python Notes",
-    "section": "Hashing",
-    "text": "Hashing\nAnything that’s immutable can be hashed (can be the key of a dict):\n\nD = {}\nD[\"first\"] = 3\nD[(2, 3)] = 4\nD[1] = 1\nprint(D)\n\n{'first': 3, (2, 3): 4, 1: 1}"
+    "objectID": "4511/notes/01/01.html#rationality",
+    "href": "4511/notes/01/01.html#rationality",
+    "title": "AI Algorithms  Introduction",
+    "section": "Rationality",
+    "text": "Rationality\n\nDecisions\nOutcomes\nValues\n\nIt is possible to make better decisions.\n\n\nRational agents make better decisions."
   },
   {
-    "objectID": "4511/notes/01/python.html#functions-as-references",
-    "href": "4511/notes/01/python.html#functions-as-references",
-    "title": "Python Notes",
-    "section": "Functions as References",
-    "text": "Functions as References\nFunctions are objects, too.\nRecall:\n\n\nutils.py\n\nfrom copy import deepcopy\n\ndef stringify(L: list[int]) -&gt; list:\n    L = deepcopy(L)\n    L.sort()\n    return str(L)\n\n\nfrom utils import stringify\nprint(stringify)\nx = stringify # what.\nx([1, 4, 5])\n\n&lt;function stringify at 0x7015cb97bec0&gt;\n\n\n'[1, 4, 5]'\n\n\nWe can pass them as arguments:\n\ndef f(x, y):\n    return x(y) + \"!!\"\n\na = f(stringify, [\"sun\", \"set\"])\nprint(a)\n\n['set', 'sun']!!"
+    "objectID": "4511/notes/01/01.html#which-decision",
+    "href": "4511/notes/01/01.html#which-decision",
+    "title": "AI Algorithms  Introduction",
+    "section": "Which Decision?",
+    "text": "Which Decision?\n\n\n\nPay $17 for this pizza, delivered\nPay $21 for the same pizza, delivered"
   },
   {
-    "objectID": "4511/notes/01/python.html#comprehensions",
-    "href": "4511/notes/01/python.html#comprehensions",
-    "title": "Python Notes",
-    "section": "Comprehensions",
-    "text": "Comprehensions\nThey start out kind of cute\n\nx = [i**2 % 24 for i in range(2, 15)]\nprint(x)\n\n[4, 9, 16, 1, 12, 1, 16, 9, 4, 1, 0, 1, 4]\n\n\n\nx = [i**2 % 24 for i in range(2, 15) if i % 3 == 1]\nprint(x)\n\n[16, 1, 4, 1]\n\n\nThey rapidly become kind of cursed and unreadable:\n\ny = [j+i if i % 2 == 1 else \"otis\" for j, i in enumerate(x)]\nprint(y)\n\n['otis', 2, 'otis', 4]\n\n\nDict comprehensions exist:\n\nz = {i:j for i, j in enumerate(x)}\nprint(z)\n\n{0: 16, 1: 1, 2: 4, 3: 1}\n\n\nDon’t 🏌️\n\n[print(i+j, end=\" \") for i, j in enumerate([x+int(x**1.5) for x in range(2, 19)])]\nprint(\":)\")\n\n4 9 14 19 24 30 36 43 49 56 63 70 78 86 94 102 110 :)"
+    "objectID": "4511/notes/01/01.html#basically-the-same-problem",
+    "href": "4511/notes/01/01.html#basically-the-same-problem",
+    "title": "AI Algorithms  Introduction",
+    "section": "Basically The Same Problem",
+    "text": "Basically The Same Problem\n\n\nImage: Bloomberg"
+  },
+  {
+    "objectID": "4511/notes/01/01.html#expected-utility",
+    "href": "4511/notes/01/01.html#expected-utility",
+    "title": "AI Algorithms  Introduction",
+    "section": "Expected Utility",
+    "text": "Expected Utility\nWhich would you prefer?\n\nReceive $10\nFlip a fair coin:\n\nHeads - Pay $10\nTails - Receive $100\n\n\n\n\n\nMany outcomes aren’t directly expressed in dollars\nRational agents maximize expected utility"
+  },
+  {
+    "objectID": "4511/notes/01/01.html#defining-ai-again",
+    "href": "4511/notes/01/01.html#defining-ai-again",
+    "title": "AI Algorithms  Introduction",
+    "section": "Defining AI, Again",
+    "text": "Defining AI, Again\n\nThought “vs.” Action\nHuman “vs.” Rational\nWhat is necessary?\n\nAll four combinations have been asserted"
+  },
+  {
+    "objectID": "4511/notes/01/01.html#errors",
+    "href": "4511/notes/01/01.html#errors",
+    "title": "AI Algorithms  Introduction",
+    "section": "Errors",
+    "text": "Errors\n\nWhat happens when a human crashes1 a bicycle?\nWhat happens when a self-driving car crashes2?\nWho is responsible when a self-driving car crashes?\n\n\n\nHow do “we” ensure3 AI values align with human values?\nHuman at faultSoftware at fault“ensure”"
+  },
+  {
+    "objectID": "4511/notes/01/01.html#alignment",
+    "href": "4511/notes/01/01.html#alignment",
+    "title": "AI Algorithms  Introduction",
+    "section": "Alignment",
+    "text": "Alignment\n\n\nImage: Meme; fair use."
+  },
+  {
+    "objectID": "4511/notes/01/01.html#alignment-1",
+    "href": "4511/notes/01/01.html#alignment-1",
+    "title": "AI Algorithms  Introduction",
+    "section": "Alignment",
+    "text": "Alignment\n\nAre universal human values defined?\nHow are AI values defined?\nHow are AI values validated?\n\nThis is an open area of investigation.1\nAnd of concern."
+  },
+  {
+    "objectID": "4511/notes/01/01.html#how-we-got-here",
+    "href": "4511/notes/01/01.html#how-we-got-here",
+    "title": "AI Algorithms  Introduction",
+    "section": "How We Got Here",
+    "text": "How We Got Here\n\n\nNeural Networks\n\nPerceptron (McCulloch & Pitts, 1943)\n“Computing Machinery and Intelligence” (Turing, 1950)\n\nLogic\n\nSamuel’s checkers, MANIAC Chess (1950s)\nDartmouth “Artificial Intelligence” conference (1956)\nMinsky & Papert assault perceptrons (1959)"
+  },
+  {
+    "objectID": "4511/notes/01/01.html#how-we-got-here-1",
+    "href": "4511/notes/01/01.html#how-we-got-here-1",
+    "title": "AI Algorithms  Introduction",
+    "section": "How We Got Here",
+    "text": "How We Got Here\n\n\nKnowledge/Expert Systems\n\nExpert systems boom (1980s)\nBack propagation paper (Rumelhart et al., 1986)\nExpert systems bust (1990s)\n\nProbabilistic methods\n\nTD-Gammon (1992)\nDeep Blue defeats Kasparov (1997)"
+  },
+  {
+    "objectID": "4511/notes/01/01.html#how-we-got-here-2",
+    "href": "4511/notes/01/01.html#how-we-got-here-2",
+    "title": "AI Algorithms  Introduction",
+    "section": "How We Got Here",
+    "text": "How We Got Here\n\n\nNeural Networks\n\nAlexNet computer vision (2012)\nDeepMind Atari (2013)\nAlphaGo defeats Sedol (2016)\nGoogle Translate LSTM (2016)\nAlphaFold (2018)\n\nLarge Language Models\n\nAttention Is All You Need (2017)\nGPT-3.5 (2022)"
+  },
+  {
+    "objectID": "4511/notes/01/01.html#where-do-we-go-now",
+    "href": "4511/notes/01/01.html#where-do-we-go-now",
+    "title": "AI Algorithms  Introduction",
+    "section": "Where Do We Go Now?",
+    "text": "Where Do We Go Now?\n\nGame-playing\n\nReal-world tasks that look like games\n\nStatistical generation of text, images, video…\nOpen-ended logical problems\n\nUnsolved problems\n\nProblems with poorly-defined interfaces"
+  },
+  {
+    "objectID": "4511/notes/01/01.html#societal-implications",
+    "href": "4511/notes/01/01.html#societal-implications",
+    "title": "AI Algorithms  Introduction",
+    "section": "Societal Implications",
+    "text": "Societal Implications\n\nTranslation\nText generation\n“Art” generation\nDecision-making\n\n“Who is responsible for…”"
+  },
+  {
+    "objectID": "4511/notes/01/01.html#what-this-course-is-not-about",
+    "href": "4511/notes/01/01.html#what-this-course-is-not-about",
+    "title": "AI Algorithms  Introduction",
+    "section": "What This Course Is Not About",
+    "text": "What This Course Is Not About\n\nTranslation\nText generation\n“Art” generation"
+  },
+  {
+    "objectID": "4511/notes/01/01.html#what-this-course-is-about",
+    "href": "4511/notes/01/01.html#what-this-course-is-about",
+    "title": "AI Algorithms  Introduction",
+    "section": "What This Course Is About",
+    "text": "What This Course Is About\n\nThe design of rational agents\nGeneral AI techniques for problem solving\n\nRecognizing when a new problem has an “existing” solution\n\nSolving problems approximately\n\nOptimal solutions often intractable"
+  },
+  {
+    "objectID": "4511/notes/01/01.html#the-rational-agent",
+    "href": "4511/notes/01/01.html#the-rational-agent",
+    "title": "AI Algorithms  Introduction",
+    "section": "The Rational Agent",
+    "text": "The Rational Agent\n\nHas a utility function\n\nMaximizes expected utility\n\nSensors: perceives environment\nActuators: influences environment\n\nWhat is in between sensors and actuators?\nThe agent function."
+  },
+  {
+    "objectID": "4511/notes/01/01.html#reflex-agent",
+    "href": "4511/notes/01/01.html#reflex-agent",
+    "title": "AI Algorithms  Introduction",
+    "section": "Reflex Agent",
+    "text": "Reflex Agent\n\n\n\nVery basic form of agent function\nPercept \\(\\rightarrow\\) Action lookup table\nGood for simple games\n\nTic-tac-toe\nCheckers?\n\nNeeds entire state space in table"
+  },
+  {
+    "objectID": "4511/notes/01/01.html#state-space-size",
+    "href": "4511/notes/01/01.html#state-space-size",
+    "title": "AI Algorithms  Introduction",
+    "section": "State Space Size",
+    "text": "State Space Size\n\n\n\nTic-tac-toe: \\(10^3\\)\nCheckers: \\(10^{20}\\)\nChess: \\(10^{44}\\)\nGo: \\(10^{170}\\)\nSelf-driving car: ?"
+  },
+  {
+    "objectID": "4511/notes/01/01.html#partially-observable-state",
+    "href": "4511/notes/01/01.html#partially-observable-state",
+    "title": "AI Algorithms  Introduction",
+    "section": "Partially-Observable State",
+    "text": "Partially-Observable State"
+  },
+  {
+    "objectID": "4511/notes/01/01.html#partially-observable-state-1",
+    "href": "4511/notes/01/01.html#partially-observable-state-1",
+    "title": "AI Algorithms  Introduction",
+    "section": "Partially-Observable State",
+    "text": "Partially-Observable State\n\nMost real-world problems\n\nSensor error\nModel error\n\nReflex agents fail1\nAgent needs a belief state\n\nUnless total number of partial observations is bounded"
+  },
+  {
+    "objectID": "4511/notes/01/01.html#backing-up",
+    "href": "4511/notes/01/01.html#backing-up",
+    "title": "AI Algorithms  Introduction",
+    "section": "Backing Up",
+    "text": "Backing Up\n\nThe Environment\n\nState Space\n\nRational Agents:\n\nSensors\nActuators\n\nSensors + State Space = Belief State\n\nFeatures of the problem are pre-defined; we define the agent function."
+  },
+  {
+    "objectID": "4511/notes/01/01.html#high-level-topics",
+    "href": "4511/notes/01/01.html#high-level-topics",
+    "title": "AI Algorithms  Introduction",
+    "section": "High-Level Topics",
+    "text": "High-Level Topics\n\nSearch & Planning\nMulti-Agent Problems\nProbability & Inference\nLearning"
+  },
+  {
+    "objectID": "4511/notes/01/01.html#search-planning",
+    "href": "4511/notes/01/01.html#search-planning",
+    "title": "AI Algorithms  Introduction",
+    "section": "Search & Planning",
+    "text": "Search & Planning\n\nWorld model\n\n“Fully known”\n\nHow do we accomplish a goal?"
+  },
+  {
+    "objectID": "4511/notes/01/01.html#multi-agent-problems",
+    "href": "4511/notes/01/01.html#multi-agent-problems",
+    "title": "AI Algorithms  Introduction",
+    "section": "Multi-Agent Problems",
+    "text": "Multi-Agent Problems\n\nOther agents with different utility functions\nAgents react to our agent\nHow do we maximize our own utility?"
+  },
+  {
+    "objectID": "4511/notes/01/01.html#probability-inference",
+    "href": "4511/notes/01/01.html#probability-inference",
+    "title": "AI Algorithms  Introduction",
+    "section": "Probability & Inference",
+    "text": "Probability & Inference\n\nPartially-observed states\nStochastic actions\nHow do we maintain a belief state?\nHow do we maximize our utility?"
+  },
+  {
+    "objectID": "4511/notes/01/01.html#learning",
+    "href": "4511/notes/01/01.html#learning",
+    "title": "AI Algorithms  Introduction",
+    "section": "Learning",
+    "text": "Learning\n\nInitially-unknown problem structure\nExplore vs. exploit\n\nActions tell us more about the problem\nActions have some cost\n\nCan also learn from data"
+  },
+  {
+    "objectID": "4511/notes/01/01.html#big-picture",
+    "href": "4511/notes/01/01.html#big-picture",
+    "title": "AI Algorithms  Introduction",
+    "section": "Big Picture",
+    "text": "Big Picture\n\nRepresent problems\n\nStates, actions\n\nImplement algorithms\nTrain (if needed) using data"
+  },
+  {
+    "objectID": "4511/notes/01/01.html#the-pac-man",
+    "href": "4511/notes/01/01.html#the-pac-man",
+    "title": "AI Algorithms  Introduction",
+    "section": "The Pac-Man",
+    "text": "The Pac-Man\n\n\nNote that Bandai Namco Entertainment Inc. owns the trademark to “PAC-MAN” for Coin and Non-Coin Operated Electronic Amusement Apparatus for Playing a Game on a Video Output Display, as well as for Entertainment, namely providing a computer game that may be accessed network-wide by network users via mobile phones and computers; providing computer games via network between communications networks and computers. Our use is educational."
+  },
+  {
+    "objectID": "4511/notes/01/01.html#why-pac-man",
+    "href": "4511/notes/01/01.html#why-pac-man",
+    "title": "AI Algorithms  Introduction",
+    "section": "Why Pac-Man?",
+    "text": "Why Pac-Man?\n\nReal world AI problems are hard\n\nThis is a one-semester course\n\nAlgorithms themselves are reasonably simple\n\nApplying them to problems is “the” problem\n\nPac-man is simple\nYou don’t have to like games\n\nSame algorithms apply to real world"
+  },
+  {
+    "objectID": "4511/notes/01/01.html#the-real-world",
+    "href": "4511/notes/01/01.html#the-real-world",
+    "title": "AI Algorithms  Introduction",
+    "section": "The Real World",
+    "text": "The Real World\n\nObservable?\nDeterministic?\nMarkov?\nStatic?\nDiscrete?\n\nExamples…"
+  },
+  {
+    "objectID": "4511/notes/01/01.html#references",
+    "href": "4511/notes/01/01.html#references",
+    "title": "AI Algorithms  Introduction",
+    "section": "References",
+    "text": "References\n\nStuart J. Russell and Peter Norvig. Artificial Intelligence: A Modern Approach. 4th Edition, 2020.\nStanford CS231\nUC Berkeley CS188"
+  },
+  {
+    "objectID": "4511/notes/05/05.html#announcements",
+    "href": "4511/notes/05/05.html#announcements",
+    "title": "Constraint Satisfaction",
+    "section": "Announcements",
+    "text": "Announcements\n\nHomework 2 is due on 21 February at 11:55 PM\nHomework 3 is released\n\nWorking with one partner is optionally permitted"
+  },
+  {
+    "objectID": "4511/notes/05/05.html#minimax",
+    "href": "4511/notes/05/05.html#minimax",
+    "title": "Constraint Satisfaction",
+    "section": "Minimax",
+    "text": "Minimax\n\nInitial state \\(s_0\\)\nActions(\\(s\\)) and To-move(\\(s\\))\nResult(\\(s, a\\))\nIs-Terminal(\\(s\\))\nUtility(\\(s, p\\))"
+  },
+  {
+    "objectID": "4511/notes/05/05.html#minimax-1",
+    "href": "4511/notes/05/05.html#minimax-1",
+    "title": "Constraint Satisfaction",
+    "section": "Minimax",
+    "text": "Minimax"
+  },
+  {
+    "objectID": "4511/notes/05/05.html#games-of-luck",
+    "href": "4511/notes/05/05.html#games-of-luck",
+    "title": "Constraint Satisfaction",
+    "section": "Games of Luck",
+    "text": "Games of Luck\n\nReal-world problems are rarely deterministic\nNon-deterministic state evolution:\n\nRoll a die to determine next position\nToss a coin to determine who picks candy first\nPrecise trajectory of kicked football1\nOthers?\n\n\nAny definition of “football”"
+  },
+  {
+    "objectID": "4511/notes/05/05.html#solving-non-deterministic-games",
+    "href": "4511/notes/05/05.html#solving-non-deterministic-games",
+    "title": "Constraint Satisfaction",
+    "section": "Solving Non-Deterministic Games",
+    "text": "Solving Non-Deterministic Games\nPreviously: Max and Min alternate turns\nNow:\n\nMax\nChance\nMin\nChance\n\n 😣"
+  },
+  {
+    "objectID": "4511/notes/05/05.html#we-played-another-game",
+    "href": "4511/notes/05/05.html#we-played-another-game",
+    "title": "Constraint Satisfaction",
+    "section": "We Played Another Game",
+    "text": "We Played Another Game\n\nPlace 11 pieces of candy between you\nAlternating turns:\n\nChoose to take one or two pieces\n\nExcept:\n\nAfter choosing, flip two coins, record total number of heads1\nIf total is divisible by 3, take one less piece than you chose\nIf total is divisible by 5, take one more piece than you chose\nIf total divisible by 15, take no candy\n\nLast person to take a piece wins all of the candy\n\nKeep a running total through the game."
+  },
+  {
+    "objectID": "4511/notes/05/05.html#expectiminimax",
+    "href": "4511/notes/05/05.html#expectiminimax",
+    "title": "Constraint Satisfaction",
+    "section": "Expectiminimax",
+    "text": "Expectiminimax\n\n“Expected value” of next position\n\n\n\n\n\nHow does this impact branching factor of the search?\n\n🫠"
+  },
+  {
+    "objectID": "4511/notes/05/05.html#filled-with-uncertainty",
+    "href": "4511/notes/05/05.html#filled-with-uncertainty",
+    "title": "Constraint Satisfaction",
+    "section": "Filled With Uncertainty",
+    "text": "Filled With Uncertainty\nWhat is to be done?\n\nPruning is still possible\n\nHow?\n\nHeuristic evaluation functions\n\nChoose carefully!"
+  },
+  {
+    "objectID": "4511/notes/05/05.html#non-optimal-adversaries",
+    "href": "4511/notes/05/05.html#non-optimal-adversaries",
+    "title": "Constraint Satisfaction",
+    "section": "Non-Optimal Adversaries",
+    "text": "Non-Optimal Adversaries\n\nIs deterministic “best” behavior optimal?\nAre all adversaries rational?\n\n\n\n\nExpectimax"
+  },
+  {
+    "objectID": "4511/notes/05/05.html#factored-representation",
+    "href": "4511/notes/05/05.html#factored-representation",
+    "title": "Constraint Satisfaction",
+    "section": "Factored Representation",
+    "text": "Factored Representation\n\nEncode relationships between variables and states\nSolve problems with general search algorithms\n\nHeuristics do not require expert knowledge of problem\nEncoding problem requires expert knowledge of problem1\n\n\nWhy?\nBut it always does."
+  },
+  {
+    "objectID": "4511/notes/05/05.html#constraint-satisfaction",
+    "href": "4511/notes/05/05.html#constraint-satisfaction",
+    "title": "Constraint Satisfaction",
+    "section": "Constraint Satisfaction",
+    "text": "Constraint Satisfaction\n\nExpress problem in terms of state variables\n\nConstrain state variables\n\nBegin with all variables unassigned\nProgressively assign values to variables\nAssignment of values to state variables that “works:” solution"
+  },
+  {
+    "objectID": "4511/notes/05/05.html#more-formally",
+    "href": "4511/notes/05/05.html#more-formally",
+    "title": "Constraint Satisfaction",
+    "section": "More Formally",
+    "text": "More Formally\n\nState variables: \\(X_1, X_2, ... , X_n\\)\nState variable domains: \\(D_1, D_2, ..., D_n\\)\n\nThe domain specifies which values are permitted for the state variable\nDomain: set of allowable variables (or permissible range for continuous variables)1\nSome constraints \\(C_1, C_2, ..., C_m\\) restrict allowable values\n\n\nOr a hybrid, such as a union of ranges of continuous variables."
+  },
+  {
+    "objectID": "4511/notes/05/05.html#constraint-types",
+    "href": "4511/notes/05/05.html#constraint-types",
+    "title": "Constraint Satisfaction",
+    "section": "Constraint Types",
+    "text": "Constraint Types\n\nUnary: restrict single variable\n\nCan be rolled into domain\nWhy even have them?\n\nBinary: restricts two variables\nGlobal: restrict “all” variables"
+  },
+  {
+    "objectID": "4511/notes/05/05.html#constraint-examples",
+    "href": "4511/notes/05/05.html#constraint-examples",
+    "title": "Constraint Satisfaction",
+    "section": "Constraint Examples",
+    "text": "Constraint Examples\n\n\\(X_1\\) and \\(X_2\\) both have real domains, i.e. \\(X_1, X_2 \\in \\mathbb{R}\\)\n\nA constraint could be \\(X_1 &lt; X_2\\)\n\n\\(X_1\\) could have domain \\(\\{\\text{red}, \\text{green}, \\text{blue}\\}\\) and \\(X_2\\) could have domain \\(\\{\\text{green}, \\text{blue}, \\text{orange}\\}\\)\n\nA constraint could be \\(X_1 \\neq X_2\\)\n\n\\(X_1, X_2, ..., X_100 \\in \\mathbb{R}\\)\n\nConstraint: exactly four of \\(X_i\\) equal 12\nRewrite as binary constraint?"
+  },
+  {
+    "objectID": "4511/notes/05/05.html#assignments",
+    "href": "4511/notes/05/05.html#assignments",
+    "title": "Constraint Satisfaction",
+    "section": "Assignments",
+    "text": "Assignments\n\nAssignments must be to values in each variable’s domain\nAssignment violates constraints?\n\nConsistency\n\nAll variables assigned?\n\nComplete"
+  },
+  {
+    "objectID": "4511/notes/05/05.html#yugoslavia",
+    "href": "4511/notes/05/05.html#yugoslavia",
+    "title": "Constraint Satisfaction",
+    "section": "Yugoslavia1",
+    "text": "Yugoslavia1\n\n\n\nOne of the most difficult problems of the 20th century"
+  },
+  {
+    "objectID": "4511/notes/05/05.html#four-colorings",
+    "href": "4511/notes/05/05.html#four-colorings",
+    "title": "Constraint Satisfaction",
+    "section": "Four-Colorings",
+    "text": "Four-Colorings\nTwo possibilities:"
+  },
+  {
+    "objectID": "4511/notes/05/05.html#formulate-as-csp",
+    "href": "4511/notes/05/05.html#formulate-as-csp",
+    "title": "Constraint Satisfaction",
+    "section": "Formulate as CSP?",
+    "text": "Formulate as CSP?"
+  },
+  {
+    "objectID": "4511/notes/05/05.html#graph-representations",
+    "href": "4511/notes/05/05.html#graph-representations",
+    "title": "Constraint Satisfaction",
+    "section": "Graph Representations",
+    "text": "Graph Representations\n\nConstraint graph:\n\nNodes are variables\nEdges are constraints\n\nConstraint hypergraph:\n\nVariables are nodes\nConstraints are nodes\nEdges show relationship\n\n\nWhy have two different representations?"
+  },
+  {
+    "objectID": "4511/notes/05/05.html#graph-representation-i",
+    "href": "4511/notes/05/05.html#graph-representation-i",
+    "title": "Constraint Satisfaction",
+    "section": "Graph Representation I",
+    "text": "Graph Representation I\nConstraint graph: edges are constraints"
+  },
+  {
+    "objectID": "4511/notes/05/05.html#graph-representation-ii",
+    "href": "4511/notes/05/05.html#graph-representation-ii",
+    "title": "Constraint Satisfaction",
+    "section": "Graph Representation II",
+    "text": "Graph Representation II\nConstraint hypergraph: constraints are nodes"
+  },
+  {
+    "objectID": "4511/notes/05/05.html#how-to-solve-it",
+    "href": "4511/notes/05/05.html#how-to-solve-it",
+    "title": "Constraint Satisfaction",
+    "section": "How To Solve It",
+    "text": "How To Solve It\n\nWe can search!\n\n…the space of consistent assignments\n\nComplexity \\(O(d^n)\\)\n\nDomain size \\(d\\), number of nodes \\(n\\)\n\nTree search for node assignment\n\nInference to reduce domain size\n\nRecursive search"
+  },
+  {
+    "objectID": "4511/notes/05/05.html#how-to-solve-it-1",
+    "href": "4511/notes/05/05.html#how-to-solve-it-1",
+    "title": "Constraint Satisfaction",
+    "section": "How To Solve It",
+    "text": "How To Solve It"
+  },
+  {
+    "objectID": "4511/notes/05/05.html#what-even-is-inference",
+    "href": "4511/notes/05/05.html#what-even-is-inference",
+    "title": "Constraint Satisfaction",
+    "section": "What Even Is Inference",
+    "text": "What Even Is Inference\n\nConstraints on one variable restrict others:\n\n\\(X_1 \\in \\{A, B, C, D\\}\\) and \\(X_2 \\in \\{A\\}\\)\n\\(X_1 \\neq X_2\\)\nInference: \\(X_1 \\in \\{B, C, D\\}\\)\n\nIf an unassigned variable has no domain…\n\nFailure"
+  },
+  {
+    "objectID": "4511/notes/05/05.html#inference",
+    "href": "4511/notes/05/05.html#inference",
+    "title": "Constraint Satisfaction",
+    "section": "Inference",
+    "text": "Inference\n\nArc consistency\n\nReduce domains for pairs of variables\n\nPath consistency\n\nAssignment to two variables\nReduce domain of third variable"
+  },
+  {
+    "objectID": "4511/notes/05/05.html#ac-3",
+    "href": "4511/notes/05/05.html#ac-3",
+    "title": "Constraint Satisfaction",
+    "section": "AC-3",
+    "text": "AC-3"
+  },
+  {
+    "objectID": "4511/notes/05/05.html#how-to-solve-it-again",
+    "href": "4511/notes/05/05.html#how-to-solve-it-again",
+    "title": "Constraint Satisfaction",
+    "section": "How To Solve It (Again)",
+    "text": "How To Solve It (Again)\nBacktracking search:\n\nSimilar to DFS\nVariables are ordered\n\nWhy?\n\nConstraints checked each step\nConstraints optionally propagated"
+  },
+  {
+    "objectID": "4511/notes/05/05.html#how-to-solve-it-again-1",
+    "href": "4511/notes/05/05.html#how-to-solve-it-again-1",
+    "title": "Constraint Satisfaction",
+    "section": "How To Solve It (Again)",
+    "text": "How To Solve It (Again)"
+  },
+  {
+    "objectID": "4511/notes/05/05.html#yugoslav-arc-consistency",
+    "href": "4511/notes/05/05.html#yugoslav-arc-consistency",
+    "title": "Constraint Satisfaction",
+    "section": "Yugoslav Arc Consistency",
+    "text": "Yugoslav Arc Consistency"
+  },
+  {
+    "objectID": "4511/notes/05/05.html#ordering",
+    "href": "4511/notes/05/05.html#ordering",
+    "title": "Constraint Satisfaction",
+    "section": "Ordering",
+    "text": "Ordering\n\nSelect-Unassgined-Variable(\\(CSP, assignment\\))\n\nChoose most-constrained variable1\n\nOrder-Domain-Variables(\\(CSP, var, assignment\\))\n\nLeast-constraining value\n\nWhy?\n\nor MRV: “Minimum Remaining Values”"
+  },
+  {
+    "objectID": "4511/notes/05/05.html#restructuring",
+    "href": "4511/notes/05/05.html#restructuring",
+    "title": "Constraint Satisfaction",
+    "section": "Restructuring",
+    "text": "Restructuring\nTree-structured CSPs:\n\nLinear time solution\nDirectional arc consistency: \\(X_i \\rightarrow X_{i+1}\\)\nCutsets\nSub-problems"
+  },
+  {
+    "objectID": "4511/notes/05/05.html#cutset-example",
+    "href": "4511/notes/05/05.html#cutset-example",
+    "title": "Constraint Satisfaction",
+    "section": "Cutset Example",
+    "text": "Cutset Example"
+  },
+  {
+    "objectID": "4511/notes/05/05.html#heuristic-local-search",
+    "href": "4511/notes/05/05.html#heuristic-local-search",
+    "title": "Constraint Satisfaction",
+    "section": "(Heuristic) Local Search",
+    "text": "(Heuristic) Local Search\n\nHill climbing\n\nRandom restarts\n\nSimulated annealing\nFast?\nComplete?\nOptimal?"
+  },
+  {
+    "objectID": "4511/notes/05/05.html#continuous-domains",
+    "href": "4511/notes/05/05.html#continuous-domains",
+    "title": "Constraint Satisfaction",
+    "section": "Continuous Domains",
+    "text": "Continuous Domains\n\nLinear:\n\n\\[\\begin{aligned}\n\\max_{x} \\quad & \\boldsymbol{c}^T\\boldsymbol{x}\\\\\n\\textrm{s.t.} \\quad & A\\boldsymbol{x} \\leq \\boldsymbol{b}\\\\\n  &\\boldsymbol{x} \\geq 0    \\\\\n\\end{aligned}\\]\n\nConvex\n\n\\[\\begin{aligned}\n\\min_{x} \\quad & f(\\boldsymbol{x})\\\\\n\\textrm{s.t.} \\quad & g_i(\\boldsymbol{x}) \\leq 0\\\\\n  & h_i(\\boldsymbol{x}) = 0    \\\\\n\\end{aligned}\\]"
+  },
+  {
+    "objectID": "4511/notes/05/05.html#is-this-even-relevant-in-2025",
+    "href": "4511/notes/05/05.html#is-this-even-relevant-in-2025",
+    "title": "Constraint Satisfaction",
+    "section": "Is This Even Relevant in 2025?",
+    "text": "Is This Even Relevant in 2025?\n\nAbsolutely yes.\nLLMs are bad at CSPs\nCSPs are common in the real world\n\nScheduling\nOptimization\nDependency solvers"
+  },
+  {
+    "objectID": "4511/notes/05/05.html#yugoslav-logic",
+    "href": "4511/notes/05/05.html#yugoslav-logic",
+    "title": "Constraint Satisfaction",
+    "section": "Yugoslav Logic",
+    "text": "Yugoslav Logic\n\\(R_{HK} \\Rightarrow \\neg R_{SI}\\)\n\\(G_{HK} \\Rightarrow \\neg G_{SI}\\)\n\\(B_{HK} \\Rightarrow \\neg B_{SI}\\)\n\\(R_{HK} \\lor G_{HK} \\lor B_{HK}\\)\n\n…\nGoal: find assignment of variables that satisfies conditions"
+  },
+  {
+    "objectID": "4511/notes/05/05.html#is-it-possible-to-know-things",
+    "href": "4511/notes/05/05.html#is-it-possible-to-know-things",
+    "title": "Constraint Satisfaction",
+    "section": "Is It Possible To Know Things?",
+    "text": "Is It Possible To Know Things?\n\n\nYes.\n\n\n\n😌"
+  },
+  {
+    "objectID": "4511/notes/05/05.html#how-even-do-we-know-things",
+    "href": "4511/notes/05/05.html#how-even-do-we-know-things",
+    "title": "Constraint Satisfaction",
+    "section": "How Even Do We Know Things?",
+    "text": "How Even Do We Know Things?\n\nWhat color is an apple?\n\nRed?\nGreen?\nBlue?\n\nAre you sure?"
+  },
+  {
+    "objectID": "4511/notes/05/05.html#symbols",
+    "href": "4511/notes/05/05.html#symbols",
+    "title": "Constraint Satisfaction",
+    "section": "Symbols",
+    "text": "Symbols\n\nPropositional symbols\n\nSimilar to boolean variables\nEither True or False"
+  },
+  {
+    "objectID": "4511/notes/05/05.html#the-unambiguous-truth",
+    "href": "4511/notes/05/05.html#the-unambiguous-truth",
+    "title": "Constraint Satisfaction",
+    "section": "The Unambiguous Truth",
+    "text": "The Unambiguous Truth\n\nIt is a nice day.\n\nIt is difficult to discern an unambiguous truth value.\n\nIt is warm outside.\n\nThis has some truth value, but it is ambiguous.\n\nThe temperature is at least 78°F outside.\n\nThis has an unambiguous truth value.1\n\n\nProvided that ‘outside’ is well-defined."
+  },
+  {
+    "objectID": "4511/notes/05/05.html#what-matters-matters",
+    "href": "4511/notes/05/05.html#what-matters-matters",
+    "title": "Constraint Satisfaction",
+    "section": "What Matters, Matters",
+    "text": "What Matters, Matters\n\nNon-ambiguity required\nAbitrary detail is not\nThe temperature is exactly 78°F outside.\n\nWe don’t necessarily need any other “related” symbols\n\nWhat is the problem?\nWhat do we care about?"
+  },
+  {
+    "objectID": "4511/notes/05/05.html#sentences",
+    "href": "4511/notes/05/05.html#sentences",
+    "title": "Constraint Satisfaction",
+    "section": "Sentences",
+    "text": "Sentences\n\nWhat is a linguistic sentence?\n\nSubject(s)\nVerb(s)\nObject(s)\nRelationships\n\nWhat is a logical sentence?\n\nSymbols\nRelationships"
+  },
+  {
+    "objectID": "4511/notes/05/05.html#familiar-logical-operators",
+    "href": "4511/notes/05/05.html#familiar-logical-operators",
+    "title": "Constraint Satisfaction",
+    "section": "Familiar Logical Operators",
+    "text": "Familiar Logical Operators\n\n\\(\\neg\\)\n\n“Not” operator, same as CS (!, not, etc.)\n\n\\(\\land\\)\n\n“And” operator, same as CS (&&, and, etc.)\nThis is sometimes called a conjunction.\n\n\\(\\lor\\)\n\n“Inclusive Or” operator, same as CS.\nThis is sometimes called a disjunction."
+  },
+  {
+    "objectID": "4511/notes/05/05.html#unfamiliar-logical-operators",
+    "href": "4511/notes/05/05.html#unfamiliar-logical-operators",
+    "title": "Constraint Satisfaction",
+    "section": "Unfamiliar Logical Operators",
+    "text": "Unfamiliar Logical Operators\n\n\\(\\Rightarrow\\)\n\nLogical implication.\n\nIf \\(X_0 \\Rightarrow X_1\\), \\(X_1\\) is always True when \\(X_0\\) is True.\n\nIf \\(X_0\\) is False, the value of \\(X_1\\) is not constrained.\n\n\\(\\iff\\)\n\n“If and only If.”\nIf \\(X_0 \\iff X_1\\), \\(X_0\\) and \\(X_1\\) are either both True or both False.\nAlso called a biconditional."
+  },
+  {
+    "objectID": "4511/notes/05/05.html#equivalent-statements",
+    "href": "4511/notes/05/05.html#equivalent-statements",
+    "title": "Constraint Satisfaction",
+    "section": "Equivalent Statements",
+    "text": "Equivalent Statements\n\n\\(X_0 \\Rightarrow X_1\\) alternatively:\n\n\\((X_0 \\land X_1) \\lor \\neg X_0\\)\n\n\\(X_0 \\iff X_1\\) alternatively:\n\n\\((X_0 \\land X_1) \\lor (\\neg X_0 \\land \\neg X_1)\\)\n\n\n \n\nCan we make an XOR?"
+  },
+  {
+    "objectID": "4511/notes/05/05.html#knowledge-base-queries",
+    "href": "4511/notes/05/05.html#knowledge-base-queries",
+    "title": "Constraint Satisfaction",
+    "section": "Knowledge Base & Queries",
+    "text": "Knowledge Base & Queries\n\nWe encode everything that we ‘know’\n\nStatements that are true\n\nWe query the knowledge base\n\nStatement that we’d like to know about\n\nLogic:\n\nIs statement consistent with KB?"
+  },
+  {
+    "objectID": "4511/notes/05/05.html#models",
+    "href": "4511/notes/05/05.html#models",
+    "title": "Constraint Satisfaction",
+    "section": "Models",
+    "text": "Models\n\nMathematical abstraction of problem\n\nAllows us to solve it\n\nLogic:\n\nSet of truth values for all sentences\n…sentences comprised of symbols…\nSet of truth values for all symbols\nNew sentences, symbols over time"
+  },
+  {
+    "objectID": "4511/notes/05/05.html#entailment",
+    "href": "4511/notes/05/05.html#entailment",
+    "title": "Constraint Satisfaction",
+    "section": "Entailment",
+    "text": "Entailment\n\n\\(KB \\models A\\)\n\n“Knowledge Base entails A”\nFor every model in which \\(KB\\) is True, \\(A\\) is also True\nOne-way relationship: \\(A\\) can be True for models where \\(KB\\) is not True.\n\nVocabulary: \\(A\\) is the query"
+  },
+  {
+    "objectID": "4511/notes/05/05.html#knowing-things",
+    "href": "4511/notes/05/05.html#knowing-things",
+    "title": "Constraint Satisfaction",
+    "section": "Knowing Things",
+    "text": "Knowing Things\nFalsehood:\n\n\\(KB \\models \\neg A\\)\n\nNo model exists where \\(KB\\) is True and \\(A\\) is True\n\n\nIt is possible to not know things:1\n\n\\(KB \\nvdash A\\)\n\\(KB \\nvdash \\neg A\\)\n\n\\(\\nvdash\\) – “does not entail”"
+  },
+  {
+    "objectID": "4511/notes/05/05.html#it-is-possible-to-not-know-things",
+    "href": "4511/notes/05/05.html#it-is-possible-to-not-know-things",
+    "title": "Constraint Satisfaction",
+    "section": "It Is Possible To Not Know Things 😔",
+    "text": "It Is Possible To Not Know Things 😔"
+  },
+  {
+    "objectID": "4511/notes/05/05.html#lexicon",
+    "href": "4511/notes/05/05.html#lexicon",
+    "title": "Constraint Satisfaction",
+    "section": "Lexicon",
+    "text": "Lexicon\n\nValid\n\n\\(A \\lor \\neg A\\)\n\nSatisfiable\n\nTrue for some models\n\nUnsatisfiable\n\n\\(A \\land \\neg A\\)"
+  },
+  {
+    "objectID": "4511/notes/05/05.html#inference-1",
+    "href": "4511/notes/05/05.html#inference-1",
+    "title": "Constraint Satisfaction",
+    "section": "Inference",
+    "text": "Inference\n\n\\(KB\\) models real world\n\nTruth values unambiguous\n\\(KB\\) coded correctly\n\n\\(KB \\models A\\)\n\n\\(A\\) is true in the real world"
+  },
+  {
+    "objectID": "4511/notes/05/05.html#inference---how",
+    "href": "4511/notes/05/05.html#inference---how",
+    "title": "Constraint Satisfaction",
+    "section": "Inference - How?",
+    "text": "Inference - How?\n\nModel checking\n\nEnumerate possible models\nWe can do better\nNP-complete 😣\n\nTheorem proving\n\nProve \\(KB \\models A\\)"
+  },
+  {
+    "objectID": "4511/notes/05/05.html#satisfiability",
+    "href": "4511/notes/05/05.html#satisfiability",
+    "title": "Constraint Satisfaction",
+    "section": "Satisfiability",
+    "text": "Satisfiability\n\nCommonly abbreviated “SAT”\n\nNot the Scholastic Assessment Test\nMuch more difficult\nFirst NP-complete problem\n\nThe\n\n\nDeliberate typographical error!"
+  },
+  {
+    "objectID": "4511/notes/05/05.html#satisfiability-1",
+    "href": "4511/notes/05/05.html#satisfiability-1",
+    "title": "Constraint Satisfaction",
+    "section": "Satisfiability",
+    "text": "Satisfiability\n\nCommonly abbreviated “SAT”\n\\((X_0 \\land X_1) \\lor X_2\\)\n\nSatisfied by \\(X_0 = \\text{True}, X_1 = \\text{False}, X_2 = \\text{True}\\)\nSatisfied for any \\(X_0\\) and \\(X_1\\) if \\(X_2 = \\text{True}\\)\n\n\\(X_0 \\land \\neg X_0 \\land X_1\\)\n\nCannot be satisfied by any values of \\(X_0\\) and \\(X_1\\)"
+  },
+  {
+    "objectID": "4511/notes/05/05.html#satisfaction",
+    "href": "4511/notes/05/05.html#satisfaction",
+    "title": "Constraint Satisfaction",
+    "section": "Satisfaction",
+    "text": "Satisfaction\n\nSAT reminiscent of Constraint Satisfaction Problems\n\n\n\nCSPs reduce to SAT\n\nSolving SAT \\(\\rightarrow\\) solving CSPs\nRestricted to specific operators\nCSP global constraints \\(\\rightarrow\\) refactor as binary\n\nStill NP-Complete"
+  },
+  {
+    "objectID": "4511/notes/05/05.html#why-do-i-keep-on-doing-this-to-you",
+    "href": "4511/notes/05/05.html#why-do-i-keep-on-doing-this-to-you",
+    "title": "Constraint Satisfaction",
+    "section": "Why Do I Keep On Doing This To You",
+    "text": "Why Do I Keep On Doing This To You\n \n\nThis is the entire point of the course.\n\n\n\nTheory and practice are the same, in theory, but in practice they differ."
+  },
+  {
+    "objectID": "4511/notes/05/05.html#csp-solution-methods",
+    "href": "4511/notes/05/05.html#csp-solution-methods",
+    "title": "Constraint Satisfaction",
+    "section": "CSP Solution Methods",
+    "text": "CSP Solution Methods\n\nThey all work\nBacktracking search\nHill-climbing\nOrdering (?)"
+  },
+  {
+    "objectID": "4511/notes/05/05.html#sat-solvers",
+    "href": "4511/notes/05/05.html#sat-solvers",
+    "title": "Constraint Satisfaction",
+    "section": "SAT Solvers",
+    "text": "SAT Solvers\n\nHeuristics\nPicoSAT\n\nPython bindings: pycosat\n(Solver written in C) (it’s fast)\n\nYou don’t have to know anything about the problem\n\nThis is not actually true\n\nConjunctive Normal Form"
+  },
+  {
+    "objectID": "4511/notes/05/05.html#conjunctive-normal-form",
+    "href": "4511/notes/05/05.html#conjunctive-normal-form",
+    "title": "Constraint Satisfaction",
+    "section": "Conjunctive Normal Form",
+    "text": "Conjunctive Normal Form\n\nLiterals — symbols or negated symbols\n\n\\(X_0\\) is a literal\n\\(\\neg X_0\\) is a literal\n\nClauses — combine literals and disjunction using disjunctions (\\(\\lor\\))\n\n\\(X_0 \\lor \\neg X_1\\) is a valid disjunction\n\\((X_0 \\lor \\neg X_1) \\lor X_2\\) is a valid disjunction"
+  },
+  {
+    "objectID": "4511/notes/05/05.html#conjunctive-normal-form-1",
+    "href": "4511/notes/05/05.html#conjunctive-normal-form-1",
+    "title": "Constraint Satisfaction",
+    "section": "Conjunctive Normal Form",
+    "text": "Conjunctive Normal Form\n\nConjunctions (\\(\\land\\)) combine clauses (and literals)\n\n\\(X_1 \\land (X_0 \\lor \\neg X_2)\\)\n\nDisjunctions cannot contain conjunctions:\n\\(X_0 \\lor (X_1 \\land X_2)\\) not in CNF\n\nCan be rewritten in CNF: \\((X_0 \\lor X_1) \\land (X_0 \\lor X_2)\\)"
+  },
+  {
+    "objectID": "4511/notes/05/05.html#converting-to-cnf",
+    "href": "4511/notes/05/05.html#converting-to-cnf",
+    "title": "Constraint Satisfaction",
+    "section": "Converting to CNF",
+    "text": "Converting to CNF\n\n\\(X_0 \\iff X_1\\)\n\n\\((X_0 \\Rightarrow X_1) \\land (X_1 \\Rightarrow X_0)\\)\n\n\\(X_0 \\Rightarrow X_1\\)\n\n\\(\\neg X_0 \\lor X_1\\)\n\n\\(\\neg (X_0 \\land X_1)\\)\n\n\\(\\neg X_0 \\lor \\neg X_1\\)\n\n\\(\\neg (X_0 \\lor X_1)\\)\n\n\\(\\neg X_0 \\land \\neg X_1\\)"
+  },
+  {
+    "objectID": "4511/notes/05/05.html#limitations",
+    "href": "4511/notes/05/05.html#limitations",
+    "title": "Constraint Satisfaction",
+    "section": "Limitations",
+    "text": "Limitations\n\nConsider: No cat is a vegetarian\nExpress in propositional symbols?\n\\(\\neg\\) First cat is a vegetarian\n\\(\\neg\\) Second cat is a vegetarian\n\\(\\neg\\) Third cat is a vegetarian …"
+  },
+  {
+    "objectID": "4511/notes/05/05.html#solutions",
+    "href": "4511/notes/05/05.html#solutions",
+    "title": "Constraint Satisfaction",
+    "section": "Solutions",
+    "text": "Solutions\nFirst-Order Logic:\n\n\\(\\forall\\) (“for all”)\n\\(\\exists\\) (“there exists at least one”)\n\nLoops 🙂 :\nfor cat in cats:\n  t = Expr(f\"{cat} is not a vegetarian\")\n  Exprs.push(t)\nGoal: find assignment of variables that satisifies conditions"
+  },
+  {
+    "objectID": "4511/notes/05/05.html#references",
+    "href": "4511/notes/05/05.html#references",
+    "title": "Constraint Satisfaction",
+    "section": "References",
+    "text": "References\n\nStuart J. Russell and Peter Norvig. Artificial Intelligence: A Modern Approach. 4th Edition, 2020.\nMykal Kochenderfer, Tim Wheeler, and Kyle Wray. Algorithms for Decision Making. 1st Edition, 2022.\nStanford CS231\nStanford CS228\nUC Berkeley CS188"
   },
   {
     "objectID": "4511/syllabus.html",
