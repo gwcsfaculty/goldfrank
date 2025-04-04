@@ -13,7 +13,7 @@
   <meta name="generator" content="quarto-1.4.553">
 
   <meta name="author" content="Joe Goldfrank">
-  <title>Goldfrank Faculty Web Site - Markov Decision Processes</title>
+  <title>Goldfrank Faculty Web Site - MDPs and Reinforcement Learning</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -31,71 +31,6 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-    /* CSS for syntax highlighting */
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-      }
-    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-    div.sourceCode
-      { color: #24292e;  }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span { color: #24292e; } /* Normal */
-    code span.al { color: #ff5555; font-weight: bold; } /* Alert */
-    code span.an { color: #6a737d; } /* Annotation */
-    code span.at { color: #d73a49; } /* Attribute */
-    code span.bn { color: #005cc5; } /* BaseN */
-    code span.bu { color: #d73a49; } /* BuiltIn */
-    code span.cf { color: #d73a49; } /* ControlFlow */
-    code span.ch { color: #032f62; } /* Char */
-    code span.cn { color: #005cc5; } /* Constant */
-    code span.co { color: #6a737d; } /* Comment */
-    code span.cv { color: #6a737d; } /* CommentVar */
-    code span.do { color: #6a737d; } /* Documentation */
-    code span.dt { color: #d73a49; } /* DataType */
-    code span.dv { color: #005cc5; } /* DecVal */
-    code span.er { color: #ff5555; text-decoration: underline; } /* Error */
-    code span.ex { color: #d73a49; font-weight: bold; } /* Extension */
-    code span.fl { color: #005cc5; } /* Float */
-    code span.fu { color: #6f42c1; } /* Function */
-    code span.im { color: #032f62; } /* Import */
-    code span.in { color: #6a737d; } /* Information */
-    code span.kw { color: #d73a49; } /* Keyword */
-    code span.op { color: #24292e; } /* Operator */
-    code span.ot { color: #6f42c1; } /* Other */
-    code span.pp { color: #d73a49; } /* Preprocessor */
-    code span.re { color: #6a737d; } /* RegionMarker */
-    code span.sc { color: #005cc5; } /* SpecialChar */
-    code span.ss { color: #032f62; } /* SpecialString */
-    code span.st { color: #032f62; } /* String */
-    code span.va { color: #e36209; } /* Variable */
-    code span.vs { color: #032f62; } /* VerbatimString */
-    code span.wa { color: #ff5555; } /* Warning */
   </style>
   <link rel="stylesheet" href="../../../site_libs/revealjs/dist/theme/quarto.css">
   <link href="../../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -393,7 +328,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Markov Decision Processes</h1>
+  <h1 class="title">MDPs and Reinforcement Learning</h1>
   <p class="subtitle">CSCI 4511/6511</p>
 
 <div class="quarto-title-authors">
@@ -412,7 +347,7 @@ Joe Goldfrank
 <ul>
 <li>Turn in for 75% credit max through 25 Apr (hard deadline)</li>
 </ul></li>
-<li>Homework Four: 4 Apr</li>
+<li>Homework Four: <em>Today</em></li>
 <li>Project Scope: 6 Apr</li>
 </ul>
 </section>
@@ -430,206 +365,6 @@ Joe Goldfrank
 <li>No information in <span class="math inline">\(X_{t-2}\)</span> (or other past states) influences <span class="math inline">\(X_{t}\)</span></li>
 </ul>
 </section>
-<section id="what-even-is-state" class="slide level2 smaller">
-<h2>What Even Is State?</h2>
-<p>Random Walk:</p>
-<div style="width: 60%; margin-left: 7rem">
-<p><img data-src="img/randomwalk.png"></p>
-</div>
-<ul>
-<li>Start with some amount of money, flip coin:
-<ul>
-<li>Heads: Gain $1</li>
-<li>Tails: Lose $1</li>
-</ul></li>
-<li><span class="math inline">\(x_t\)</span>: Money</li>
-<li><span class="math inline">\(p\)</span>: Coin flip probability</li>
-</ul>
-</section>
-<section id="what-even-is-state-1" class="slide level2 smaller">
-<h2>What Even Is State?</h2>
-<p>The Same Random Walk:</p>
-<div style="width: 70%; margin-left: 7rem">
-<p><img data-src="img/randomwalk2.png"></p>
-</div>
-<ul>
-<li><span class="math inline">\(x_t\)</span>: tuple (Money, coin flip probability)</li>
-<li>Markov Property satisfied</li>
-</ul>
-</section>
-<section id="state-transitions" class="slide level2">
-<h2>State Transitions</h2>
-<p>Stochastic matrix <span class="math inline">\(P\)</span></p>
-<p><span class="math display">\[
-P = \begin{bmatrix}
-    P_{1,1} &amp; \dots  &amp; P_{1,n}\\
-    \vdots &amp; \ddots &amp; \\
-    P_{n, 1} &amp;  &amp; P_{n,n}
-    \end{bmatrix}
-\]</span></p>
-<ul>
-<li>All rows sum to 1</li>
-<li>Discrete state spaces implied</li>
-</ul>
-</section>
-<section id="state-transitions-1" class="slide level2">
-<h2>State Transitions</h2>
-<div style="width: 90%; margin-left: 7rem">
-<p><img data-src="img/markov.png"></p>
-</div>
-</section>
-<section id="state-transitions-2" class="slide level2">
-<h2>State Transitions</h2>
-<ul>
-<li>State: Full state <span class="math inline">\(x\)</span> is row vector
-<ul>
-<li>Each entry represents one state</li>
-</ul></li>
-<li>Example: three states representing weather
-<ul>
-<li>Clear, Clouds, Rain</li>
-<li><span class="math inline">\(x_t = \begin{bmatrix}1 &amp; 0 &amp; 0\end{bmatrix} \rightarrow\)</span> Clear</li>
-<li><span class="math inline">\(x_t = \begin{bmatrix}0 &amp; 1 &amp; 0\end{bmatrix} \rightarrow\)</span> Clouds</li>
-<li><span class="math inline">\(x_t = \begin{bmatrix}0 &amp; 0 &amp; 1\end{bmatrix} \rightarrow\)</span> Rain</li>
-</ul></li>
-</ul>
-</section>
-<section id="state-transitions-3" class="slide level2">
-<h2>State Transitions</h2>
-<p><span class="math inline">\(x_{t+1} = x_t P\)</span></p>
-<p><span class="math inline">\(x_0 = \begin{bmatrix}1 &amp; 0 &amp; 0\end{bmatrix}\)</span> and <span class="math inline">\(P = \begin{bmatrix} 0.5 &amp; 0.4  &amp; 0.1 \\ 0.3 &amp; 0.4 &amp; 0.3 \\ 0.1 &amp; 0.7 &amp; 0.2 \end{bmatrix}\)</span></p>
-<p><br>
-</p>
-<p><span class="math inline">\(x_{1} = \begin{bmatrix}1 &amp; 0 &amp; 0\end{bmatrix} \begin{bmatrix} 0.5 &amp; 0.4  &amp; 0.1 \\ 0.3 &amp; 0.4 &amp; 0.3 \\ 0.1 &amp; 0.7 &amp; 0.2 \end{bmatrix} = \begin{bmatrix}0.5 &amp; 0.4 &amp; 0.1\end{bmatrix}\)</span></p>
-</section>
-<section id="state-transitions-4" class="slide level2">
-<h2>State Transitions</h2>
-<p><span class="math inline">\(x_{1} = \begin{bmatrix}0.5 &amp; 0.4 &amp; 0.1\end{bmatrix}\)</span></p>
-<p><em>Probabilities</em> of being in each state: Clear, Clouds, Rain</p>
-<p><br>
-</p>
-<p><span class="math inline">\(x_{2} = \begin{bmatrix}0.5 &amp; 0.4 &amp; 0.1\end{bmatrix} \begin{bmatrix} 0.5 &amp; 0.4  &amp; 0.1 \\ 0.3 &amp; 0.4 &amp; 0.3 \\ 0.1 &amp; 0.7 &amp; 0.2 \end{bmatrix}\)</span></p>
-<p><span class="math inline">\(= \begin{bmatrix}0.38 &amp; 0.43 &amp; 0.35\end{bmatrix}\)</span></p>
-</section>
-<section id="numpy" class="slide level2">
-<h2><code>numpy</code></h2>
-<ul>
-<li>Use the matrix multiplication operator: <code>@</code></li>
-<li>Altneratively: <code>numpy.matmul</code></li>
-</ul>
-<div id="0b0aab94" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-2"><a></a>P <span class="op">=</span> np.array([[<span class="fl">0.5</span>, <span class="fl">0.4</span>, <span class="fl">0.1</span>], </span>
-<span id="cb1-3"><a></a>              [<span class="fl">0.3</span>, <span class="fl">0.4</span>, <span class="fl">0.3</span>], </span>
-<span id="cb1-4"><a></a>              [<span class="fl">0.1</span>, <span class="fl">0.7</span>, <span class="fl">0.2</span>]])</span>
-<span id="cb1-5"><a></a></span>
-<span id="cb1-6"><a></a>x0 <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>])</span>
-<span id="cb1-7"><a></a></span>
-<span id="cb1-8"><a></a>x1 <span class="op">=</span> x0 <span class="op">@</span> P</span>
-<span id="cb1-9"><a></a><span class="bu">print</span>(x1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[0.5 0.4 0.1]</code></pre>
-</div>
-</div>
-</section>
-<section id="stationary-behavior" class="slide level2">
-<h2>Stationary Behavior</h2>
-<ul>
-<li>“Long run” behavior of Markov chain</li>
-</ul>
-<p><span class="math inline">\(x_0 P^k\)</span> for large <span class="math inline">\(k\)</span></p>
-<ul>
-<li>“Stationary state” <span class="math inline">\(\pi\)</span> such that:</li>
-</ul>
-<p><span class="math inline">\(\pi = \pi P\)</span></p>
-<ul>
-<li>Row eigenvector for <span class="math inline">\(P\)</span> for eigenvalue 1</li>
-<li>😌</li>
-</ul>
-</section>
-<section id="stationary-behavior-numpy" class="slide level2">
-<h2>Stationary Behavior (<code>numpy</code>)</h2>
-<p><span class="math inline">\(P^k\)</span></p>
-<div id="b19c30a0" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb3-2"><a></a>P <span class="op">=</span> np.array([[<span class="fl">0.5</span>, <span class="fl">0.4</span>, <span class="fl">0.1</span>], </span>
-<span id="cb3-3"><a></a>              [<span class="fl">0.3</span>, <span class="fl">0.4</span>, <span class="fl">0.3</span>], </span>
-<span id="cb3-4"><a></a>              [<span class="fl">0.1</span>, <span class="fl">0.7</span>, <span class="fl">0.2</span>]])</span>
-<span id="cb3-5"><a></a></span>
-<span id="cb3-6"><a></a>x0 <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>])</span>
-<span id="cb3-7"><a></a><span class="bu">print</span>(x0 <span class="op">@</span> P <span class="op">@</span> P <span class="op">@</span> P <span class="op">@</span> P <span class="op">@</span> P <span class="op">@</span> P <span class="op">@</span> P <span class="op">@</span> P <span class="op">@</span> P)</span>
-<span id="cb3-8"><a></a>x1 <span class="op">=</span> np.array([<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>])</span>
-<span id="cb3-9"><a></a><span class="bu">print</span>(x1 <span class="op">@</span> P <span class="op">@</span> P <span class="op">@</span> P <span class="op">@</span> P <span class="op">@</span> P <span class="op">@</span> P <span class="op">@</span> P <span class="op">@</span> P <span class="op">@</span> P)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[0.32144092 0.46427961 0.21427948]
-[0.32142527 0.46428717 0.21428756]</code></pre>
-</div>
-</div>
-<p>Eigenvector</p>
-<div id="b7e33bcc" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a>a <span class="op">=</span> np.linalg.eig(P.T).eigenvectors[:,<span class="dv">0</span>] <span class="co"># row eigenvector</span></span>
-<span id="cb5-2"><a></a>pi <span class="op">=</span> a<span class="op">/</span><span class="bu">sum</span>(a) <span class="co"># normalized</span></span>
-<span id="cb5-3"><a></a><span class="bu">print</span>(pi)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[0.32142857 0.46428571 0.21428571]</code></pre>
-</div>
-</div>
-</section>
-<section id="absorbing-states" class="slide level2">
-<h2>Absorbing States</h2>
-<ul>
-<li>State that cannot be “escaped” from
-<ul>
-<li>Example: gambling <span class="math inline">\(\rightarrow\)</span> running out of money</li>
-</ul></li>
-</ul>
-<p><span class="math inline">\(P = \begin{bmatrix} 0.5 &amp; 0.3 &amp; 0.1 &amp; 0.1 \\ 0.3 &amp; 0.4 &amp; 0.3 &amp; 0 \\ 0.1 &amp; 0.6 &amp; 0.2 &amp; 0.1 \\ 0 &amp; 0 &amp; 0 &amp; 1 \end{bmatrix}\)</span></p>
-<ul>
-<li>Non-absorbing states: “transient” states</li>
-</ul>
-</section>
-<section id="communication" class="slide level2">
-<h2>Communication</h2>
-<ul>
-<li>Sub-classes</li>
-</ul>
-<p><span class="math inline">\(P = \begin{bmatrix} 0.5 &amp; 0.3 &amp; 0.2 &amp; 0 &amp; 0 \\ 0.3 &amp; 0.4 &amp; 0.3 &amp; 0 &amp; 0\\ 0.1 &amp; 0.6 &amp; 0.2 &amp; 0.1 &amp; 0 \\ 0 &amp; 0 &amp; 0 &amp; 0.6 &amp; 0.4 \\ 0 &amp; 0 &amp; 0 &amp; 0.3 &amp; 0.7  \end{bmatrix}\)</span></p>
-<ul>
-<li>Examples?</li>
-</ul>
-</section>
-<section id="non-discrete-cases" class="slide level2">
-<h2>Non-Discrete Cases</h2>
-<p>Gaussian random walk:</p>
-<p><span class="math inline">\(x_{t+1} = x_t + \mathcal{N}(0,1)\)</span></p>
-<ul>
-<li>Markov property?</li>
-<li>“Long-run” behavior?</li>
-</ul>
-<p><span class="math inline">\(\mathcal{N}(\mu_a,\sigma_a^2) + \mathcal{N}(\mu_b,\sigma_b^2) = \mathcal{N}(\mu_a + \mu_b,\sigma_a^2 + \sigma_b^2)\)</span></p>
-<div style="margin-left: 9rem; font-size: 200%">
-<p>😌</p>
-</div>
-</section>
-<section id="outcomes" class="slide level2 smaller">
-<h2>Outcomes<sup>1</sup></h2>
-<ul>
-<li>Each state associated with some “reward”
-<ul>
-<li>Spend one time step in state <span class="math inline">\(\rightarrow\)</span> reward collected</li>
-</ul></li>
-<li>Future rewards <em>discounted</em></li>
-</ul>
-<p>Discounting:</p>
-<ul>
-<li><span class="math inline">\(\$1.00\)</span> today bears interest <span class="math inline">\(\rightarrow\)</span> <span class="math inline">\(\$1.05\)</span> next year</li>
-<li><span class="math inline">\(\$1.00\)</span> next year is worth <span class="math inline">\(\frac{1}{1.05} \approx \$0.95\)</span> today</li>
-<li>Rationale: resources today are <em>productive</em>
-<ul>
-<li>Build things for the future</li>
-</ul></li>
-</ul>
-<aside><ol class="aside-footnotes"><li id="fn1"><p>Everyone has them</p></li></ol></aside></section>
 <section id="markov-reward-process" class="slide level2">
 <h2>Markov Reward Process</h2>
 <ul>
@@ -644,34 +379,6 @@ P = \begin{bmatrix}
 </div>
 <p><span class="math inline">\(U_t = \sum_k \gamma^k R_{t+k+1}\)</span></p>
 </section>
-<section id="example" class="slide level2">
-<h2>Example</h2>
-<p>States: Sales Volume</p>
-<p><span class="math inline">\(P = \begin{matrix} Low \\ Medium \\ High \end{matrix} \begin{bmatrix} 0.4 &amp; 0.5  &amp; 0.1 \\ 0.2 &amp; 0.6 &amp; 0.2 \\ 0.8 &amp; 0.2 &amp; 0 \end{bmatrix}\)</span></p>
-<p>Rewards:</p>
-<p><span class="math inline">\(R = \begin{bmatrix} 1 \\ 2.5 \\ 5 \end{bmatrix}  \quad \quad \gamma = 0.85\)</span></p>
-</section>
-<section id="example-1" class="slide level2 smaller">
-<h2>Example</h2>
-<p>Reward for being in state <span class="math inline">\(x_0 = \begin{bmatrix}0 &amp; 1 &amp; 0\end{bmatrix}\)</span>:</p>
-<p><span class="math inline">\(R_1 = x_0 R = \begin{bmatrix}0 &amp; 1 &amp; 0\end{bmatrix}\begin{bmatrix} 1 \\ 2.5 \\ 5 \end{bmatrix} = 2.5\)</span></p>
-<p>State transition:</p>
-<p><span class="math inline">\(x_1 = \begin{bmatrix}0 &amp; 1 &amp; 0\end{bmatrix} \begin{bmatrix} 0.4 &amp; 0.5  &amp; 0.1 \\ 0.2 &amp; 0.6 &amp; 0.2 \\ 0.8 &amp; 0.2 &amp; 0 \end{bmatrix} = \begin{bmatrix}0.2 &amp; 0.6 &amp; 0.2\end{bmatrix}\)</span></p>
-<p><span class="math inline">\(R_2 = x_1 R = \begin{bmatrix}0.2 &amp; 0.6 &amp; 0.2\end{bmatrix}\begin{bmatrix} 1 \\ 2.5 \\ 5 \end{bmatrix} = 2.7\)</span></p>
-<p>Discounted reward: <span class="math inline">\(2.7 \cdot \gamma^1 = 2.7\cdot0.85 = 2.295\)</span></p>
-</section>
-<section id="value-function" class="slide level2">
-<h2>Value Function</h2>
-<p><span class="math inline">\(U_t = \sum_k \gamma^k R_{t+k+1}\)</span></p>
-<p><span class="math inline">\(U(s_t) = E\left[R_{t+1} + \gamma U(s_{t+1})\right]\)</span></p>
-<p><span class="math inline">\(U(s) = R_{s} + \gamma \sum\limits_{s' \in S} P_{s,s'} U(s')\)</span></p>
-<p><br>
-</p>
-<p><span class="math inline">\(U = R + \gamma P U\)</span></p>
-<p><span class="math inline">\((I-\gamma P) U = R\)</span></p>
-<p><span class="math inline">\(U = (I-\gamma P)^{-1} R\)</span></p>
-<!-- Complexity? -->
-</section>
 <section id="decisions" class="slide level2">
 <h2>Decisions<sup>1</sup></h2>
 <ul>
@@ -683,7 +390,7 @@ P = \begin{bmatrix}
 <div style="width: 60%; margin-left: 7rem">
 <p><img data-src="img/markovDecision.png"></p>
 </div>
-<aside><ol class="aside-footnotes"><li id="fn2"><p>Some people make them.</p></li></ol></aside></section>
+<aside><ol class="aside-footnotes"><li id="fn1"><p>Some people make them.</p></li></ol></aside></section>
 <section id="the-markov-decision-process" class="slide level2">
 <h2>The Markov Decision Process</h2>
 <ul>
@@ -698,37 +405,6 @@ P = \begin{bmatrix}
 <p><br>
 </p>
 <p>Rewards: <span class="math inline">\(R^a\)</span> with discount factor <span class="math inline">\(\gamma\)</span></p>
-</section>
-<section id="mathematical-notation" class="slide level2">
-<h2>Mathematical Notation 😔</h2>
-<ul>
-<li><span class="math inline">\(P^a\)</span> indicates transition matrix <span class="math inline">\(P\)</span> associated with action <span class="math inline">\(a\)</span>
-<ul>
-<li>Does <em>not</em> mean <span class="math inline">\(P\)</span> raised to some power</li>
-<li>We’ve used <span class="math inline">\(P^k\)</span> for <span class="math inline">\(P\)</span> raised to the power of <span class="math inline">\(k\)</span></li>
-</ul></li>
-<li><span class="math inline">\(P_{i,j}\)</span> indicates transition probability from state <span class="math inline">\(s_i\)</span> to state <span class="math inline">\(s_j\)</span></li>
-<li><span class="math inline">\(P_{s,s'}\)</span> indicates transition probability from state <span class="math inline">\(s\)</span> to state <span class="math inline">\(s'\)</span></li>
-</ul>
-<p>Alternatively:</p>
-<ul>
-<li><span class="math inline">\(T(s' | s, a)\)</span> – transition matrix from <span class="math inline">\(s\)</span> to <span class="math inline">\(s'\)</span> given action <span class="math inline">\(a\)</span></li>
-</ul>
-</section>
-<section id="mdp-example" class="slide level2 smaller">
-<h2>MDP Example</h2>
-<ul>
-<li>States: Sales Volume</li>
-<li>Actions: <span class="math inline">\(a_0, a_1\)</span></li>
-</ul>
-<p><span class="math inline">\(P^0 = \begin{matrix} Low \\ Medium \\ High \end{matrix} \begin{bmatrix} 0.4 &amp; 0.5  &amp; 0.1 \\ 0.2 &amp; 0.6 &amp; 0.2 \\ 0.8 &amp; 0.2 &amp; 0 \end{bmatrix} \quad P^1 = \begin{matrix} Low \\ Medium \\ High \end{matrix} \begin{bmatrix} 0.2 &amp; 0.6  &amp; 0.2 \\ 0.1 &amp; 0.6 &amp; 0.3 \\ 0.5 &amp; 0.4 &amp; 0.1 \end{bmatrix}\)</span></p>
-<ul>
-<li>Rewards: product of state <em>and</em> action</li>
-</ul>
-<p><span class="math inline">\(R^0 = \begin{bmatrix} 1 \\ 2.5 \\ 5 \end{bmatrix} R^1 = \begin{bmatrix} 0 \\ 1.5 \\ 4 \end{bmatrix}  \quad \quad \gamma = 0.85\)</span></p>
-<ul>
-<li>What does this example model?</li>
-</ul>
 </section>
 <section id="mdp---policies" class="slide level2">
 <h2>MDP - Policies</h2>
@@ -758,7 +434,7 @@ P = \begin{bmatrix}
 <p><br>
 </p>
 <p><em>Notation:</em> <span class="math inline">\(E_\pi\)</span> indicates expected value under policy <span class="math inline">\(\pi\)</span></p>
-<aside><ol class="aside-footnotes"><li id="fn3"><p>Often simply called “value function”</p></li><li id="fn4"><p>Often simply called “action value function”</p></li></ol></aside></section>
+<aside><ol class="aside-footnotes"><li id="fn2"><p>Often simply called “value function”</p></li><li id="fn3"><p>Often simply called “action value function”</p></li></ol></aside></section>
 <section id="bellman-expectation" class="slide level2">
 <h2>Bellman Expectation</h2>
 <p>Value function:</p>
@@ -776,9 +452,26 @@ P = \begin{bmatrix}
 </p>
 <p>Action-value fuction:</p>
 <p><span class="math inline">\(Q^\pi(s, a) = E_\pi[R_{t+1} + \gamma Q^\pi(S_{t+1}, A_{t+1}) | S_t = s, A_t =a]\)</span></p>
-<div style="position: absolute; left: 8rem; top: 19rem; transform: rotate(270deg)">
+<div style="position: absolute; left: 68rem; top: 15rem; transform: rotate(180deg); width: 12rem">
 <p><img data-src="img/discrete_pacman.png"></p>
 </div>
+<p><br>
+</p>
+<p><strong>Understanding these equations lynchpins all of MDPs</strong></p>
+</section>
+<section id="value-function" class="slide level2">
+<h2>Value Function</h2>
+<p><br>
+<br>
+</p>
+<p><span class="math inline">\(U^\pi(s) = E_\pi[R_{t+1} + \gamma U^\pi (S_{t+1}) | S_t = s]\)</span></p>
+</section>
+<section id="state-action-value-function" class="slide level2">
+<h2>State-Action Value Function</h2>
+<p><br>
+<br>
+</p>
+<p><span class="math inline">\(Q^\pi(s, a) = E_\pi[R_{t+1} + \gamma Q^\pi(S_{t+1}, A_{t+1}) | S_t = s, A_t =a]\)</span></p>
 </section>
 <section id="policy-evaluation" class="slide level2">
 <h2>Policy Evaluation</h2>
@@ -789,15 +482,6 @@ P = \begin{bmatrix}
 <p><br>
 </p>
 <p><span class="math inline">\(U^\pi_{k+1}(s) = R(s, \pi(s)) + \gamma \sum \limits_{s^{'}} T(s' | s, \pi(s)) U_k^\pi(s')\)</span></p>
-<p><br>
-</p>
-<ul>
-<li>Exact solution (matrix form):</li>
-</ul>
-<p><span class="math inline">\(U^\pi = R^\pi + \gamma T^\pi U^\pi\)</span></p>
-<p><br>
-</p>
-<p><span class="math inline">\(U^\pi = (I-\gamma T^\pi)^{-1}R^\pi\)</span></p>
 </section>
 <section id="optimal-policies" class="slide level2">
 <h2>Optimal Policies 😌</h2>
@@ -824,7 +508,7 @@ P = \begin{bmatrix}
 <ul>
 <li><span class="math inline">\(\pi^*(s) = \mathop{\operatorname{arg\,max}}\limits_a U^*(s)\)</span></li>
 </ul></li>
-<li>Value function:
+<li>State value function:
 <ul>
 <li><span class="math inline">\(U^*(s) = \max_a U^*(s)\)</span></li>
 </ul></li>
@@ -833,7 +517,7 @@ P = \begin{bmatrix}
 <section id="optimal-policies-2" class="slide level2">
 <h2>Optimal Policies</h2>
 <ul>
-<li>Action-value function:
+<li>State-action value function:
 <ul>
 <li><span class="math inline">\(Q(s, a) = R(s, a) + \gamma \sum \limits_{s'} T(s' | s, a) U(s')\)</span></li>
 </ul></li>
@@ -857,7 +541,7 @@ P = \begin{bmatrix}
 </section>
 <section id="bellman-equation-1" class="slide level2">
 <h2>Bellman Equation</h2>
-<p><span class="math display">\[Q^*(s, a) = R(s, a) + \gamma \sum \limits_{s'} T(s' | s, a) \max_a Q^*(s', a')\]</span></p>
+<p><span class="math display">\[Q^*(s, a) = R(s, a) + \gamma \sum \limits_{s'} \max_a \left[T(s' | s, a)  Q^*(s', a')\right]\]</span></p>
 </section>
 <section id="how-to-solve-it" class="slide level2">
 <h2>How To Solve It</h2>
@@ -893,7 +577,7 @@ P = \begin{bmatrix}
 <p>Iteratively, for each algorithm step <span class="math inline">\(k\)</span>:</p>
 <p><span class="math inline">\(U_{k+1}(s) =  \sum \limits_{a \in A}\left(R(s, a) + \gamma \sum \limits_{s'\in S} T(s' | s, a) U_k(s') \right)\)</span></p>
 <ul>
-<li>“Bellman Backup”</li>
+<li>Deterministic policy: only one action per state</li>
 </ul>
 </section>
 <section id="policy-iteration" class="slide level2">
@@ -968,7 +652,7 @@ P = \begin{bmatrix}
 <li><span class="math inline">\(k\)</span>-iteration policy evaluation</li>
 <li><span class="math inline">\(k = 1\)</span>: Value Iteration</li>
 </ul>
-<aside><ol class="aside-footnotes"><li id="fn5"><p>We do also care about value.</p></li></ol></aside></section>
+<aside><ol class="aside-footnotes"><li id="fn4"><p>We do also care about value.</p></li></ol></aside></section>
 <section id="value-iteration" class="slide level2">
 <h2>Value Iteration</h2>
 <p>Optimality:</p>
@@ -994,13 +678,12 @@ P = \begin{bmatrix}
 <ul>
 <li>Apply updates iteratively</li>
 <li>Use current <span class="math inline">\(U(s')\)</span> as “approximation” for <span class="math inline">\(U^*(s')\)</span></li>
-<li>That’s the algorithm.</li>
+<li>That’s it. That’s the algorithm.</li>
 <li>Extract policy from values after completion.</li>
 </ul>
-</section>
-<section id="value-iteration-illustrated" class="slide level2">
-<h2>Value Iteration Illustrated</h2>
-<p><span class="math display">\[U_{k+1}(s) \gets \max \limits_a \left( R(s,a) + \gamma \sum \limits_s' T(s'|s, a) U_k(s') \right)\]</span></p>
+<!-- ## Value Iteration Illustrated
+
+$$U_{k+1}(s) \gets \max \limits_a \left( R(s,a) + \gamma \sum \limits_s' T(s'|s, a) U_k(s') \right)$$ -->
 </section>
 <section id="synchronous-value-iteration" class="slide level2">
 <h2>Synchronous Value Iteration…</h2>
@@ -1024,6 +707,485 @@ P = \begin{bmatrix}
 </ul></li>
 </ul>
 </section>
+<section>
+<section id="monte-carlo-tree-search" class="title-slide slide level1 center">
+<h1>Monte Carlo Tree Search</h1>
+
+</section>
+<section id="multi-armed-bandits" class="slide level2">
+<h2>Multi-Armed Bandits</h2>
+<ul>
+<li>Slot machine with more than one arm</li>
+<li>Each pull has a cost</li>
+<li>Each pull has a payout</li>
+<li>Probability of payouts unknown</li>
+<li>Goal: maximize reward
+<ul>
+<li>Time horizon?</li>
+</ul></li>
+</ul>
+</section>
+<section id="solving-multi-armed-bandits" class="slide level2">
+<h2>Solving Multi-Armed Bandits</h2>
+<div style="margin-left: 5rem; margin-top: 7rem; font-size: 500%">
+😔
+</div>
+</section>
+<section id="confidence-bounds" class="slide level2">
+<h2>Confidence Bounds</h2>
+<ul>
+<li>Expected value of reward per arm
+<ul>
+<li>Confidence interval of reward per arm</li>
+</ul></li>
+<li>Select arm based on upper confidence bound</li>
+</ul>
+<p><br>
+</p>
+<ul>
+<li>How do we estimate rewards?
+<ul>
+<li>Explore vs.&nbsp;exploit</li>
+</ul></li>
+</ul>
+</section>
+<section id="bandit-as-mdp" class="slide level2">
+<h2>Bandit as MDP?</h2>
+</section>
+<section id="bandit-strategies" class="slide level2">
+<h2>Bandit Strategies</h2>
+<!-- - Gittins Index: $\lambda = \max \limits_{T>0}\frac{E[\sum^{T-1}\gamma^tR_t]}{E[\sum^{T-1}\gamma^t]}$ -->
+<ul>
+<li>Upper Confidence Bound for arm <span class="math inline">\(M_i\)</span>:
+<ul>
+<li><span class="math inline">\(UCB(M_i) = \mu_i + \frac{g(N)}{\sqrt{N_i}}\)</span></li>
+<li><span class="math inline">\(g(N)\)</span> is the “regret”</li>
+</ul></li>
+<li>Thompson Sampling
+<ul>
+<li><em>Sample</em> arm based on probability of being optimal</li>
+</ul></li>
+</ul>
+</section>
+<section id="monte-carlo-methods" class="slide level2">
+<h2>Monte Carlo Methods</h2>
+</section>
+<section id="tree-search" class="slide level2">
+<h2>Tree Search</h2>
+<ul>
+<li>Forget DFS, BFS, Dijkstra, A*
+<ul>
+<li>State space too large</li>
+<li>Stochastic expansion</li>
+</ul></li>
+<li>Impossible to search entire tree</li>
+<li>Can <em>simulate</em> problem forward in time from starting state</li>
+</ul>
+</section>
+<section id="monte-carlo-tree-search-1" class="slide level2">
+<h2>Monte Carlo Tree Search</h2>
+<ul>
+<li>Randomly simulate trajectories through tree
+<ul>
+<li>Complete trajectory</li>
+<li>No heuristic needed<sup>1</sup></li>
+<li><em>Need</em> a model</li>
+</ul></li>
+<li>Better than exhaustive search?</li>
+</ul>
+<aside><ol class="aside-footnotes"><li id="fn5"><p>Heuristics can be used.</p></li></ol></aside></section>
+<section id="selection-policy" class="slide level2">
+<h2>Selection Policy</h2>
+<ul>
+<li>Focus search on “important” parts of tree
+<ul>
+<li>Similar to alpha-beta pruning</li>
+</ul></li>
+<li>Explore vs.&nbsp;exploit
+<ul>
+<li>Simulation</li>
+<li>Not actually exploiting the problem</li>
+<li>Exploiting the <em>search</em></li>
+</ul></li>
+</ul>
+</section>
+<section id="monte-carlo-tree-search-2" class="slide level2">
+<h2>Monte Carlo Tree Search</h2>
+<ul>
+<li>Choose a node
+<ul>
+<li>Explore/exploit</li>
+<li>Choose a successor</li>
+<li>Continue to leaf of search tree</li>
+</ul></li>
+<li>Expand leaf node</li>
+<li>Simulate result until completion</li>
+<li>Back-propagate results to tree</li>
+</ul>
+</section>
+<section id="monte-carlo-tree-search-3" class="slide level2">
+<h2>Monte Carlo Tree Search</h2>
+<p>Selection/Search</p>
+
+<img data-src="img/selection.png" class="r-stretch"></section>
+<section id="monte-carlo-tree-search-4" class="slide level2">
+<h2>Monte Carlo Tree Search</h2>
+<p>Expansion</p>
+
+<img data-src="img/expansion.png" class="r-stretch"></section>
+<section id="monte-carlo-tree-search-5" class="slide level2">
+<h2>Monte Carlo Tree Search</h2>
+<p>Simulation/Rollout</p>
+
+<img data-src="img/expansion.png" class="r-stretch"></section>
+<section id="monte-carlo-tree-search-6" class="slide level2">
+<h2>Monte Carlo Tree Search</h2>
+<p>Back-Propagation</p>
+
+<img data-src="img/backprop.png" class="r-stretch"></section>
+<section id="upper-confidence-bounds-for-trees-uct" class="slide level2">
+<h2>Upper Confidence Bounds for Trees (UCT)</h2>
+<ul>
+<li>MDP: Maximize <span class="math inline">\(Q(s, a) + c\sqrt{\frac{\log{N(s)}}{N(s,a)}}\)</span>
+<ul>
+<li><span class="math inline">\(Q\)</span> for state <span class="math inline">\(s\)</span> and action <span class="math inline">\(a\)</span></li>
+</ul></li>
+<li>POMDP: Maximize <span class="math inline">\(Q(h, a) + c\sqrt{\frac{\log{N(h)}}{N(h,a)}}\)</span>
+<ul>
+<li><span class="math inline">\(Q\)</span> for history <span class="math inline">\(h\)</span> and action <span class="math inline">\(a\)</span></li>
+<li>History: action/observation sequence</li>
+</ul></li>
+<li><span class="math inline">\(c\)</span> is exploration bonus</li>
+</ul>
+</section>
+<section id="uct-search---algorithm" class="slide level2">
+<h2>UCT Search - Algorithm</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="img/dmu_mcts.png"></p>
+</div><div class="column" style="width:40%;">
+<p><img data-src="img/dmu_rollout.png"></p>
+<p><br>
+<br>
+<br>
+<br>
+</p>
+<p><span style="font-size: 50%">Mykal Kochenderfer. <em>Decision Making Under Uncertainty</em>, MIT Press 2015</span></p>
+</div>
+</div>
+</section>
+<section id="monte-carlo-tree-search---search" class="slide level2 smaller">
+<h2>Monte Carlo Tree Search - Search</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p><img data-src="img/tree.png"></p>
+</div><div class="column" style="width:40%;">
+<ul>
+<li><p>If current state <span class="math inline">\(\in T\)</span> (tree states):</p>
+<ul>
+<li>Maximize: <span class="math inline">\(Q(s,a) + c\sqrt{\frac{\log N(s)}{N(s,a)}}\)</span></li>
+<li>Update <span class="math inline">\(Q(s,a)\)</span> during search</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="monte-carlo-tree-search---expansion" class="slide level2 smaller">
+<h2>Monte Carlo Tree Search - Expansion</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p><img data-src="img/tree.png"></p>
+</div><div class="column" style="width:40%;">
+<ul>
+<li>State <span class="math inline">\(\notin T\)</span>
+<ul>
+<li>Initialize <span class="math inline">\(N(s,a)\)</span> and <span class="math inline">\(Q(s,a)\)</span></li>
+<li>Add state to <span class="math inline">\(T\)</span></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="monte-carlo-tree-search---rollout" class="slide level2 smaller">
+<h2>Monte Carlo Tree Search - Rollout</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p><img data-src="img/tree.png"></p>
+</div><div class="column" style="width:40%;">
+<ul>
+<li>Policy <span class="math inline">\(\pi_0\)</span> is “rollout” policy
+<ul>
+<li>Usually stochastic</li>
+<li>States <em>not</em> tracked</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</section></section>
+<section>
+<section id="model-uncertainty" class="title-slide slide level1 center">
+<h1>Model Uncertainty</h1>
+
+</section>
+<section id="erstwhile" class="slide level2">
+<h2>Erstwhile</h2>
+<ul>
+<li>States</li>
+<li>Actions</li>
+<li><em>Transition model</em> between states, based on actions</li>
+<li><em>Known</em> rewards</li>
+</ul>
+</section>
+<section id="model-uncertainty-1" class="slide level2">
+<h2>Model Uncertainty</h2>
+<ul>
+<li>No model of transition dynamics</li>
+<li>No initial knowledge of rewards</li>
+</ul>
+<p>😣</p>
+<p>We can <em>learn</em> these things!</p>
+</section>
+<section id="model-uncertainty-2" class="slide level2">
+<h2>Model Uncertainty</h2>
+<p>Action-value function:</p>
+<p><span class="math inline">\(Q(s, a) = R(s, a) + \gamma \sum \limits_{s'} T(s' | s, a) U(s')\)</span></p>
+<p>we don’t know <span class="math inline">\(T\)</span>:</p>
+<p><span class="math inline">\(U^\pi(s) = E_\pi \left[ r_t + \gamma r_{t+1} + \gamma^2 r_{t+2} + \gamma^3 r_{t+3} + ...|s \right]\)</span></p>
+<p><span class="math inline">\(Q(s, a) = E_\pi \left[ r_t + \gamma r_{t+1} + \gamma^2 r_{t+2} + \gamma^3 r_{t+3} + ...|s,a \right]\)</span></p>
+</section>
+<section id="temporal-difference-td-learning" class="slide level2">
+<h2>Temporal Difference (TD) Learning</h2>
+<ul>
+<li>Take action from state, observe new state, reward</li>
+</ul>
+<p><span class="math inline">\(U(s) \gets U(s) + \alpha \left[ r + \gamma U(s') - U(s)\right]\)</span></p>
+<ul>
+<li><p>Update immediately given <span class="math inline">\((s, a, r, s')\)</span></p></li>
+<li><p>TD Error: <span class="math inline">\(\left[ r + \gamma U(s') - U(s)\right]\)</span></p>
+<ul>
+<li>Measurement: <span class="math inline">\(r + \gamma U(s')\)</span></li>
+<li>Old Estimate: <span class="math inline">\(U(s)\)</span></li>
+</ul></li>
+</ul>
+</section>
+<section id="td-learning---example" class="slide level2">
+<h2>TD Learning - Example</h2>
+<div style="max-width: 50%; margin-left: 4rem">
+<p><img data-src="img/td_example.png"></p>
+</div>
+</section>
+<section id="q-learning" class="slide level2">
+<h2>Q-Learning</h2>
+<ul>
+<li><span class="math inline">\(U^\pi\)</span> gives us utility</li>
+<li>Solving for <span class="math inline">\(U^\pi\)</span> allows us to pick a new policy</li>
+</ul>
+<p>State-action value function: <span class="math inline">\(Q(s,a)\)</span></p>
+<ul>
+<li><span class="math inline">\(\max_a Q(s,a)\)</span> provides optimal policy</li>
+<li>Goal: <em>Learn</em> <span class="math inline">\(Q(s,a)\)</span></li>
+</ul>
+</section>
+<section id="q-learning-1" class="slide level2">
+<h2>Q-Learning</h2>
+<p>Iteratively update <span class="math inline">\(Q\)</span>:</p>
+<p><span class="math inline">\(Q(s,a) \gets Q(s,a) +\alpha \left[R + \gamma \max \limits_{a'} Q(s', a') - Q(s,a)\right]\)</span></p>
+<ul>
+<li>Current state <span class="math inline">\(s\)</span> and action <span class="math inline">\(a\)</span></li>
+<li>Next state <span class="math inline">\(s'\)</span>, next action(s) <span class="math inline">\(a'\)</span></li>
+<li>Reward <span class="math inline">\(R\)</span></li>
+<li>Discount rate <span class="math inline">\(\gamma\)</span></li>
+<li>Learning rate <span class="math inline">\(\alpha\)</span></li>
+</ul>
+</section>
+<section id="q-learning-algorithm" class="slide level2">
+<h2>Q-Learning Algorithm</h2>
+
+<img data-src="img/q_learning.png" class="r-stretch"><p><span style="font-size: 50%">Mykal Kochenderfer. <em>Decision Making Under Uncertainty</em>, MIT Press 2015</span></p>
+</section>
+<section id="q-learning-example" class="slide level2">
+<h2>Q-Learning Example</h2>
+<div style="max-width: 50%; margin-left: 4rem">
+<p><img data-src="img/td_example.png"></p>
+</div>
+</section>
+<section id="sarsa" class="slide level2">
+<h2>Sarsa</h2>
+<p>Q-Learning: <span class="math inline">\(Q(s,a) \gets Q(s,a) +\alpha \left[R + \gamma \max \limits_{a'} Q(s', a') - Q(s,a)\right]\)</span></p>
+<p>Sarsa:<br>
+<span class="math inline">\(Q(s,a) \gets Q(s,a) +\alpha \left[R + \gamma  Q(s', a') - Q(s,a)\right]\)</span></p>
+<p><br>
+</p>
+<p>Differences?</p>
+</section>
+<section id="sarsa-example" class="slide level2">
+<h2>Sarsa Example</h2>
+<div style="max-width: 50%; margin-left: 4rem">
+<p><img data-src="img/td_example.png"></p>
+</div>
+</section>
+<section id="q-learning-vs.-sarsa" class="slide level2">
+<h2>Q-Learning vs.&nbsp;Sarsa</h2>
+<ul>
+<li>Sarsa is “on-policy”
+<ul>
+<li>Evaluates state-action pairs <em>taken</em></li>
+<li>Updates policy every step</li>
+</ul></li>
+<li>Q-learning is “off-policy”
+<ul>
+<li>Evaluates “optimal” actions for future states</li>
+<li>Updates policy every step</li>
+</ul></li>
+</ul>
+</section>
+<section id="exploration-vs.-exploitation" class="slide level2">
+<h2>Exploration vs.&nbsp;Exploitation</h2>
+<ul>
+<li>Consider only the goal of learning the optimal policy
+<ul>
+<li>Always picking “optimal” policy does not search</li>
+<li>Picking randomly does not check “best” actions</li>
+</ul></li>
+<li><span class="math inline">\(\epsilon\)</span>-greedy:
+<ul>
+<li>With probability <span class="math inline">\(\epsilon\)</span>, choose random action</li>
+<li>With probability <span class="math inline">\(1-\epsilon\)</span>, choose ‘best’ action</li>
+<li><span class="math inline">\(\epsilon\)</span> need not be fixed</li>
+</ul></li>
+</ul>
+</section>
+<section id="eligibility-traces" class="slide level2">
+<h2>Eligibility Traces</h2>
+<ul>
+<li>Q-learning and Sarsa both propagate Q-values slowly
+<ul>
+<li>Only updates individual state</li>
+</ul></li>
+<li>Recall MCTS:
+<ul>
+<li>(Also recall that MCTS needs a generative model)</li>
+</ul></li>
+</ul>
+</section>
+<section id="recall-mcts" class="slide level2">
+<h2>Recall MCTS</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="img/backprop.png"></p>
+</div><div class="column" style="width:50%;">
+<p><img data-src="img/dmu_mcts.png"></p>
+</div>
+</div>
+</section>
+<section id="eligibility-traces-1" class="slide level2">
+<h2>Eligibility Traces</h2>
+<ul>
+<li>Keep track of what state-action pairs agent has seen</li>
+<li>Include future rewards in past Q-values</li>
+<li><em>Very</em> useful for sparse rewards
+<ul>
+<li>Can be more efficient for non-sparse rewards</li>
+</ul></li>
+</ul>
+</section>
+<section id="eligibility-traces-2" class="slide level2 smaller">
+<h2>Eligibility Traces</h2>
+<ul>
+<li>Keep <span class="math inline">\(N(s,a)\)</span>: “number of times visited”</li>
+<li>Take action <span class="math inline">\(a_t\)</span> from state <span class="math inline">\(s_t\)</span>:
+<ul>
+<li><span class="math inline">\(N(s_t,a_t) \gets N(s_t,a_t) + 1\)</span></li>
+</ul></li>
+<li>Every time step:<sup>1</sup>
+<ul>
+<li><span class="math inline">\(\delta = R + \gamma Q(s',a') - Q(s,a)\)</span></li>
+<li><span class="math inline">\(Q(s,a) \gets \alpha \delta N(s,a)\)</span></li>
+<li><span class="math inline">\(N(s,a) \gets \gamma \lambda  N(s,a)\)</span>
+<ul>
+<li>Discount factor <span class="math inline">\(\gamma\)</span></li>
+<li>Time decay <span class="math inline">\(\lambda\)</span></li>
+</ul></li>
+</ul></li>
+</ul>
+<aside><ol class="aside-footnotes"><li id="fn6"><p>Sarsa algorithm</p></li></ol></aside></section>
+<section id="sarsa-lambda" class="slide level2">
+<h2>Sarsa-<span class="math inline">\(\lambda\)</span></h2>
+<p>Sarsa:</p>
+<ul>
+<li><span class="math inline">\(Q(s,a) \gets Q(s,a) +\alpha \left[R + \gamma  Q(s', a') - Q(s,a)\right]\)</span></li>
+</ul>
+<p><br>
+</p>
+<p>Sarsa-<span class="math inline">\(\lambda\)</span>:</p>
+<ul>
+<li><span class="math inline">\(\delta = R + \gamma Q(s',a') - Q(s,a)\)</span></li>
+<li><span class="math inline">\(Q(s,a) \gets \alpha \delta N(s,a)\)</span></li>
+</ul>
+</section>
+<section id="sarsa-lambda-1" class="slide level2">
+<h2>Sarsa-<span class="math inline">\(\lambda\)</span></h2>
+
+<img data-src="img/sarsa_lambda.png" class="r-stretch"></section>
+<section id="sarsa-lambda-example" class="slide level2">
+<h2>Sarsa-<span class="math inline">\(\lambda\)</span> Example</h2>
+</section>
+<section id="q-lambda" class="slide level2">
+<h2>Q-<span class="math inline">\(\lambda\)</span> ?</h2>
+<p><em>Q-Learning:</em><br>
+<span class="math inline">\(\quad \quad Q(s,a) \gets Q(s,a) +\alpha \left[R + \gamma \max \limits_{a'} Q(s', a') - Q(s,a)\right]\)</span></p>
+<p><em>Sarsa:</em><br>
+<span class="math inline">\(\quad \quad Q(s,a) \gets Q(s,a) +\alpha \left[R + \gamma  Q(s', a') - Q(s,a)\right]\)</span></p>
+<p><br>
+</p>
+<p><em>Sarsa-<span class="math inline">\(\lambda\)</span>:</em><br>
+<span class="math inline">\(\quad \quad \delta = R + \gamma Q(s',a') - Q(s,a)\)</span> <span class="math inline">\(\quad \quad  Q(s,a) \gets \alpha \delta N(s,a)\)</span></p>
+</section>
+<section id="watkins-q-lambda" class="slide level2">
+<h2>Watkins Q-<span class="math inline">\(\lambda\)</span></h2>
+<p>Idea: only keep states in N(s,a) that policy would have visited</p>
+<ul>
+<li><p>Some actions are greedy: <span class="math inline">\(\max \limits_a' Q(s, a')\)</span></p></li>
+<li><p>Some are random</p></li>
+<li><p>On random action, reset <span class="math inline">\(N(s,a)\)</span></p></li>
+<li><p>Why the difference from Sarsa?</p></li>
+</ul>
+</section>
+<section id="approximation-methods" class="slide level2">
+<h2>Approximation Methods</h2>
+<ul>
+<li>Large problems:
+<ul>
+<li>Continuous state spaces</li>
+<li>Very large discrete state spaces</li>
+<li>Learning algorithms can’t visit all states</li>
+</ul></li>
+<li>Assumption: “close” states <span class="math inline">\(\rightarrow\)</span> similar state-action values</li>
+</ul>
+</section>
+<section id="local-approximation" class="slide level2">
+<h2>Local Approximation</h2>
+<ul>
+<li>Store <span class="math inline">\(Q(s,a)\)</span> for a limited number of states: <span class="math inline">\(\theta(s,a)\)</span></li>
+<li>Weighting function <span class="math inline">\(\beta\)</span>
+<ul>
+<li>Maps true states to states in <span class="math inline">\(\theta\)</span></li>
+</ul></li>
+</ul>
+<p><span class="math inline">\(Q(s,a) = \theta^T\beta(s,a)\)</span></p>
+<p><br>
+</p>
+<p>Update step:</p>
+<p><span class="math inline">\(\theta \gets \theta + \alpha \left[R + \gamma \theta^T \beta(s', a') - \theta^T\beta(s, a)\right] \beta(s, a)\)</span></p>
+</section>
+<section id="linear-approximation-q-learning" class="slide level2">
+<h2>Linear Approximation Q-Learning</h2>
+<p><img data-src="img/approx_qlearn.png"> <span style="font-size: 50%">Mykal Kochenderfer. <em>Decision Making Under Uncertainty</em>, MIT Press 2015</span></p>
+</section>
+<section id="example-grid-interpolations" class="slide level2">
+<h2>Example: Grid Interpolations</h2>
+
+<img data-src="img/baregrid.png" class="r-stretch"></section>
 <section id="references" class="slide level2">
 <h2>References</h2>
 <ul>
@@ -1040,7 +1202,7 @@ P = \begin{bmatrix}
 
 </div>
 </div>
-</section>
+</section></section>
 
     </div>
   </div>
