@@ -88,7 +88,7 @@
     "href": "4511/syllabus.html",
     "title": "Syllabus",
     "section": "",
-    "text": "25 Aug 2025\n\n\n\n\n\n25 Aug 2025 - Initial version of syllabus"
+    "text": "8 Sep 2025\n\n\n\n\n\n25 Aug 2025 - Initial version of syllabus\n8 Sep 2025 - HW2 deadline extended to 23 Sep"
   },
   {
     "objectID": "4511/syllabus.html#scope",
@@ -144,7 +144,7 @@
     "href": "4511/syllabus.html#schedule",
     "title": "Syllabus",
     "section": "Schedule",
-    "text": "Schedule\nReadings are from Russell & Norvig unless otherwise noted.\n\n\n\nDate\nSubject\nReading\nAssessments (Due)\n\n\n\n\n27 Aug\nRational Agents, Python\nCh. 2; Python Docs 4 and 9\n\n\n\n3 Sep\nSearch & Heuristics\nCh. 3, 4\n\n\n\n10 Sep\nGames\nCh. 5\nHW 1 (10 Sep)\n\n\n17 Sep\nCSPs\nCh. 6\n\n\n\n24 Sep\nLogic\nCh. 7\nHW 2 (21 Sep)\n\n\n1 Oct\nProbability & Linear Algebra Review\nCh. 13\n\n\n\n8 Oct\nUtility Theory & Exam Review\nCh. 16\nHW 3 Early (12 Oct)\n\n\n15 Oct\nMidterm Examination\n\nHW 3 (19 Oct)\n\n\n22 Oct\nState Uncertainty\nKochenderfer Ch. 19\n\n\n\n29 Oct\nMarkov Decision Processes\nCh. 17\nHW 4 (2 Nov)\n\n\n5 Nov\nPartially-Observable MDPs\nKochenderfer Ch. 20, 9.6\nProject Scope (9 Nov)\n\n\n12 Nov\nReinforcement Learning\nCh. 22\nProject Milestone 1 (16 Nov)\n\n\n19 Nov\nExam Review\n\n\n\n\n26 Nov\nThanksgiving Break\n\nProject Milestone 2 (30 Nov)\n\n\n3 Dec\nFinal Examination\n\n\n\n\n9 Dec\n(No Scheduled Lecture)\n\nProject Due (9 Dec)\n\n\n\n\nThis schedule of topics is approximate and I may deviate from it. No homework assignment will be released with less than two weeks’ time to complete it. No due dates will be made earlier. No exams will be rescheduled unless required by the University."
+    "text": "Schedule\nReadings are from Russell & Norvig unless otherwise noted.\n\n\n\nDate\nSubject\nReading\nAssessments (Due)\n\n\n\n\n27 Aug\nRational Agents, Python\nCh. 2; Python Docs 4 and 9\n\n\n\n3 Sep\nSearch & Heuristics\nCh. 3, 4\n\n\n\n10 Sep\nGames\nCh. 5\nHW 1 (10 Sep)\n\n\n17 Sep\nCSPs\nCh. 6\n\n\n\n24 Sep\nLogic\nCh. 7\nHW 2 (23 Sep)\n\n\n1 Oct\nProbability & Linear Algebra Review\nCh. 13\n\n\n\n8 Oct\nUtility Theory & Exam Review\nCh. 16\nHW 3 Early (12 Oct)\n\n\n15 Oct\nMidterm Examination\n\nHW 3 (19 Oct)\n\n\n22 Oct\nState Uncertainty\nKochenderfer Ch. 19\n\n\n\n29 Oct\nMarkov Decision Processes\nCh. 17\nHW 4 (2 Nov)\n\n\n5 Nov\nPartially-Observable MDPs\nKochenderfer Ch. 20, 9.6\nProject Scope (9 Nov)\n\n\n12 Nov\nReinforcement Learning\nCh. 22\nProject Milestone 1 (16 Nov)\n\n\n19 Nov\nExam Review\n\n\n\n\n26 Nov\nThanksgiving Break\n\nProject Milestone 2 (30 Nov)\n\n\n3 Dec\nFinal Examination\n\n\n\n\n9 Dec\n(No Scheduled Lecture)\n\nProject Due (9 Dec)\n\n\n\n\nThis schedule of topics is approximate and I may deviate from it. No homework assignment will be released with less than two weeks’ time to complete it. No due dates will be made earlier. No exams will be rescheduled unless required by the University."
   },
   {
     "objectID": "4511/syllabus.html#examinations-assessments",
@@ -3700,7 +3700,7 @@
     "href": "4511/index.html#homework",
     "title": "CSCI 4511/6511 Fall 2025",
     "section": "Homework",
-    "text": "Homework\nHomework One"
+    "text": "Homework\nHomework One\nHomework Two"
   },
   {
     "objectID": "4511/index.html#exercises",
@@ -3708,6 +3708,13 @@
     "title": "CSCI 4511/6511 Fall 2025",
     "section": "Exercises",
     "text": "Exercises\nPython Warmup"
+  },
+  {
+    "objectID": "4511/index.html#project-spec",
+    "href": "4511/index.html#project-spec",
+    "title": "CSCI 4511/6511 Fall 2025",
+    "section": "Project Spec",
+    "text": "Project Spec\nProject Spec"
   },
   {
     "objectID": "4511/index.html#exam-prep",
@@ -5233,7 +5240,7 @@
     "href": "4511/notes/01/python.html#modules-and-imports",
     "title": "Python Notes",
     "section": "Modules and Imports",
-    "text": "Modules and Imports\n\nVirtual Environments\nYou probably know this:\n\nimport numpy\n\nprint(numpy.random.random())\n\n0.5459833430741261\n\n\nand this3\n3 It might not run if you don’t have scipy installed, so install scipy.\nimport numpy as np\nimport pandas as pd\nfrom scipy import stats\n\na = stats.uniform(1, 5)\nprint(a)\nprint(a.cdf(2), a.cdf(3), a.cdf(5))\n\n&lt;scipy.stats._distn_infrastructure.rv_continuous_frozen object at 0x793bcf2774d0&gt;\n0.2 0.4 0.8\n\n\nWhere do imports come from? The environment. There’s a default environment; but for any complicated project, you’ll want to create your own. You can call it whatever you want. .venv works. You could call it otis. You should call it something meaningful.\nAt the command line:4\n4 Your install might use python3 instead of pythonpython -m venv otis\ncd otis; tree | head -n 172\n.\n├── bin\n│   ├── activate\n│   ├── activate.csh\n│   ├── activate.fish\n│   ├── Activate.ps1\n│   ├── pip\n│   ├── pip3\n│   ├── pip3.11\n│   ├── python -&gt; /home/adsr/miniconda3/bin/python\n│   ├── python3 -&gt; python\n│   └── python3.11 -&gt; python\n├── include\n│   └── python3.11\n├── lib\n│   └── python3.11\n│       └── site-packages\nMake a new environment for every project! Or don’t, and find out what happens:\n\nThere are several package managers for python, poetry and conda are the most popular5 as of 2024. You can use pip, it’s fine.\n5 My own assertion, no data to back this up, probably true.\n\nModules\nWhen you make a .py file with any definitions, it’s called a module, and the module name is the file name (before the .py extension).\nConsider this module:\n\n\nutils.py\n\nfrom copy import deepcopy\n\ndef stringify(L: list[int]) -&gt; list:\n    L = deepcopy(L)\n    L.sort()\n    return str(L)\n\nWe can import it from any script in the same folder:\n\nimport utils\nA = utils.stringify([3, 2, 2, 1])\nprint(A, type(A))\n\n[1, 2, 2, 3] &lt;class 'str'&gt;\n\n\nWe can also import component definitions:\n\nfrom utils import stringify\nA = stringify([\"otis\", \"carl\", \"bruce\"])\nprint(A, type(A))\n\n['bruce', 'carl', 'otis'] &lt;class 'str'&gt;\n\n\nPython doesn’t enforce type hints 🙃"
+    "text": "Modules and Imports\n\nVirtual Environments\nYou probably know this:\n\nimport numpy\n\nprint(numpy.random.random())\n\n0.26986108437846323\n\n\nand this3\n3 It might not run if you don’t have scipy installed, so install scipy.\nimport numpy as np\nimport pandas as pd\nfrom scipy import stats\n\na = stats.uniform(1, 5)\nprint(a)\nprint(a.cdf(2), a.cdf(3), a.cdf(5))\n\n&lt;scipy.stats._distn_infrastructure.rv_continuous_frozen object at 0x72d6b7732840&gt;\n0.2 0.4 0.8\n\n\nWhere do imports come from? The environment. There’s a default environment; but for any complicated project, you’ll want to create your own. You can call it whatever you want. .venv works. You could call it otis. You should call it something meaningful.\nAt the command line:4\n4 Your install might use python3 instead of pythonpython -m venv otis\ncd otis; tree | head -n 172\n.\n├── bin\n│   ├── activate\n│   ├── activate.csh\n│   ├── activate.fish\n│   ├── Activate.ps1\n│   ├── pip\n│   ├── pip3\n│   ├── pip3.11\n│   ├── python -&gt; /home/adsr/miniconda3/bin/python\n│   ├── python3 -&gt; python\n│   └── python3.11 -&gt; python\n├── include\n│   └── python3.11\n├── lib\n│   └── python3.11\n│       └── site-packages\nMake a new environment for every project! Or don’t, and find out what happens:\n\nThere are several package managers for python, poetry and conda are the most popular5 as of 2024. You can use pip, it’s fine.\n5 My own assertion, no data to back this up, probably true.\n\nModules\nWhen you make a .py file with any definitions, it’s called a module, and the module name is the file name (before the .py extension).\nConsider this module:\n\n\nutils.py\n\nfrom copy import deepcopy\n\ndef stringify(L: list[int]) -&gt; list:\n    L = deepcopy(L)\n    L.sort()\n    return str(L)\n\nWe can import it from any script in the same folder:\n\nimport utils\nA = utils.stringify([3, 2, 2, 1])\nprint(A, type(A))\n\n[1, 2, 2, 3] &lt;class 'str'&gt;\n\n\nWe can also import component definitions:\n\nfrom utils import stringify\nA = stringify([\"otis\", \"carl\", \"bruce\"])\nprint(A, type(A))\n\n['bruce', 'carl', 'otis'] &lt;class 'str'&gt;\n\n\nPython doesn’t enforce type hints 🙃"
   },
   {
     "objectID": "4511/notes/01/python.html#classes",
@@ -5261,7 +5268,7 @@
     "href": "4511/notes/01/python.html#functions-as-references",
     "title": "Python Notes",
     "section": "Functions as References",
-    "text": "Functions as References\nFunctions are objects, too.\nRecall:\n\n\nutils.py\n\nfrom copy import deepcopy\n\ndef stringify(L: list[int]) -&gt; list:\n    L = deepcopy(L)\n    L.sort()\n    return str(L)\n\n\nfrom utils import stringify\nprint(stringify)\nx = stringify # what.\nx([1, 4, 5])\n\n&lt;function stringify at 0x793c10627ce0&gt;\n\n\n'[1, 4, 5]'\n\n\nWe can pass them as arguments:\n\ndef f(x, y):\n    return x(y) + \"!!\"\n\na = f(stringify, [\"sun\", \"set\"])\nprint(a)\n\n['set', 'sun']!!"
+    "text": "Functions as References\nFunctions are objects, too.\nRecall:\n\n\nutils.py\n\nfrom copy import deepcopy\n\ndef stringify(L: list[int]) -&gt; list:\n    L = deepcopy(L)\n    L.sort()\n    return str(L)\n\n\nfrom utils import stringify\nprint(stringify)\nx = stringify # what.\nx([1, 4, 5])\n\n&lt;function stringify at 0x72d6f9cb72e0&gt;\n\n\n'[1, 4, 5]'\n\n\nWe can pass them as arguments:\n\ndef f(x, y):\n    return x(y) + \"!!\"\n\na = f(stringify, [\"sun\", \"set\"])\nprint(a)\n\n['set', 'sun']!!"
   },
   {
     "objectID": "4511/notes/01/python.html#comprehensions",
