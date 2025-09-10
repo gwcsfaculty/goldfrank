@@ -692,18 +692,19 @@ Joe Goldfrank
 <li>Place 11 pieces of candy between you</li>
 <li>Alternating turns:
 <ul>
-<li>Choose to take one or two pieces</li>
-</ul></li>
-<li><em>Except:</em>
+<li>First choose <code>0</code>, <code>1</code>, or <code>2</code></li>
+<li><em>Then</em>
 <ul>
-<li>After choosing, flip two coins, record <em>total</em> number of heads<sup>1</sup></li>
-<li>If total is divisible by 3, take one less piece than you chose</li>
-<li>If total is divisible by 5, take one more piece than you chose</li>
-<li>If total divisible by 15, take no candy</li>
+<li>Roll two dice, and add the sum the dice values with your number</li>
+<li>Take this sum <code>% 3</code></li>
+<li>Take that many pieces of candy</li>
+</ul></li>
+<li><em>Except:</em> If you roll a 2 (both dice show 1), skip your turn</li>
 </ul></li>
 <li>Last person to take a piece wins all of the candy</li>
 </ul>
-<aside><ol class="aside-footnotes"><li id="fn6"><p>Keep a running total through the game.</p></li></ol></aside></section></section>
+
+<img data-src="game.png" class="r-stretch"></section></section>
 <section>
 <section id="algorithms-for-games" class="title-slide slide level1 center">
 <h1>Algorithms for Games</h1>
@@ -932,7 +933,7 @@ Joe Goldfrank
 <li>Others?</li>
 </ul></li>
 </ul>
-<aside><ol class="aside-footnotes"><li id="fn7"><p>Any definition of “football”</p></li></ol></aside></section>
+<aside><ol class="aside-footnotes"><li id="fn6"><p>Any definition of “football”</p></li></ol></aside></section>
 <section id="solving-non-deterministic-games" class="slide level2">
 <h2>Solving Non-Deterministic Games</h2>
 <p>Previously: Max and Min alternate turns</p>
