@@ -13,7 +13,7 @@
   <meta name="generator" content="quarto-1.4.553">
 
   <meta name="author" content="Joe Goldfrank">
-  <title>Goldfrank Faculty Web Site - Constraint Satisfaction</title>
+  <title>Goldfrank Faculty Web Site - Logic &amp; Probability</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -395,7 +395,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Constraint Satisfaction</h1>
+  <h1 class="title">Logic &amp; Probability</h1>
   <p class="subtitle">CSCI 4511/6511</p>
 
 <div class="quarto-title-authors">
@@ -410,144 +410,40 @@ Joe Goldfrank
 <section id="announcements" class="slide level2">
 <h2>Announcements</h2>
 <ul>
-<li>Homework 2 is due on 21 February at 11:55 PM</li>
+<li>Homework 2 is due at 11:55 PM
+<ul>
+<li>Submit server password resets</li>
+</ul></li>
 <li>Homework 3 is released
 <ul>
 <li>Working with one partner is optionally permitted</li>
+<li>Early turnins!</li>
+</ul></li>
+<li>Midterm Exam on 15 Oct</li>
+<li>Project</li>
+</ul>
+</section>
+<section id="midterm-exam-on-15-oct" class="slide level2">
+<h2>Midterm Exam on 15 Oct</h2>
+<ul>
+<li>In lecture
+<ul>
+<li>SEH 7040, 12:45 PM</li>
+</ul></li>
+<li>100 minutes</li>
+<li>Open note:
+<ul>
+<li>Ten sides<sup>1</sup> of handwritten notes permitted</li>
 </ul></li>
 </ul>
-</section>
-<section>
-<section id="games" class="title-slide slide level1 center">
-<h1>Games</h1>
-
-</section>
-<section id="minimax" class="slide level2">
-<h2>Minimax</h2>
-<ul>
-<li>Initial state <span class="math inline">\(s_0\)</span></li>
-<li><span class="smallcaps">Actions</span>(<span class="math inline">\(s\)</span>) and <span class="smallcaps">To-move</span>(<span class="math inline">\(s\)</span>)</li>
-<li><span class="smallcaps">Result</span>(<span class="math inline">\(s, a\)</span>)</li>
-<li><span class="smallcaps">Is-Terminal</span>(<span class="math inline">\(s\)</span>)</li>
-<li><span class="smallcaps">Utility</span>(<span class="math inline">\(s, p\)</span>)</li>
-</ul>
-</section>
-<section id="minimax-1" class="slide level2">
-<h2>Minimax</h2>
-</section>
-<section id="games-of-luck" class="slide level2">
-<h2>Games of Luck</h2>
-<ul>
-<li>Real-world problems are rarely deterministic</li>
-<li>Non-deterministic state evolution:
-<ul>
-<li>Roll a die to determine next position</li>
-<li>Toss a coin to determine who picks candy first</li>
-<li>Precise trajectory of kicked football<sup>1</sup></li>
-<li>Others?</li>
-</ul></li>
-</ul>
-<aside><ol class="aside-footnotes"><li id="fn1"><p>Any definition of “football”</p></li></ol></aside></section>
-<section id="solving-non-deterministic-games" class="slide level2">
-<h2>Solving Non-Deterministic Games</h2>
-<p>Previously: Max and Min alternate turns</p>
-<p>Now:</p>
-<ul>
-<li>Max</li>
-<li>Chance</li>
-<li>Min</li>
-<li>Chance</li>
-</ul>
-<p><span style="font-size: 170%"> 😣 </span></p>
-</section>
-<section id="we-played-another-game" class="slide level2 smaller">
-<h2>We Played Another Game</h2>
-<ul>
-<li>Place 11 pieces of candy between you</li>
-<li>Alternating turns:
-<ul>
-<li>Choose to take one or two pieces</li>
-</ul></li>
-<li><em>Except:</em>
-<ul>
-<li>After choosing, flip two coins, record <em>total</em> number of heads<sup>1</sup></li>
-<li>If total is divisible by 3, take one less piece than you chose</li>
-<li>If total is divisible by 5, take one more piece than you chose</li>
-<li>If total divisible by 15, take no candy</li>
-</ul></li>
-<li>Last person to take a piece wins all of the candy</li>
-</ul>
-<aside><ol class="aside-footnotes"><li id="fn2"><p>Keep a running total through the game.</p></li></ol></aside></section>
-<section id="expectiminimax" class="slide level2">
-<h2>Expectiminimax</h2>
-<ul>
-<li>“Expected value” of next position</li>
-</ul>
-<div style="max-width: 10%; position: absolute; left: 40rem; top: 3.3rem; transform: rotate(180deg)">
-<img data-src="img/discrete_pacman.png">
-</div>
-<ul>
-<li>How does this impact branching factor of the search?</li>
-</ul>
-<p><span style="font-size: 350%; margin-left: 17rem; margin-top: 6rem">🫠</span></p>
-</section>
-<section id="filled-with-uncertainty" class="slide level2">
-<h2>Filled With Uncertainty</h2>
-<p>What is to be done?</p>
-<ul>
-<li>Pruning is still possible
-<ul>
-<li>How?</li>
-</ul></li>
-<li>Heuristic evaluation functions
-<ul>
-<li>Choose carefully!</li>
-</ul></li>
-</ul>
-</section>
-<section id="non-optimal-adversaries" class="slide level2">
-<h2>Non-Optimal Adversaries</h2>
-<ul>
-<li>Is deterministic “best” behavior optimal?</li>
-<li>Are all adversaries rational?</li>
-</ul>
-<p><br>
-</p>
-<ul>
-<li>Expectimax</li>
-</ul>
-</section></section>
+<aside><ol class="aside-footnotes"><li id="fn1"><p>Standard letter paper, 8.5x11” or A4. No legal paper. No scrolls.</p></li></ol></aside></section>
 <section>
 <section id="csps" class="title-slide slide level1 center">
 <h1>CSPs</h1>
 
 </section>
-<section id="factored-representation" class="slide level2">
-<h2>Factored Representation</h2>
-<ul>
-<li>Encode relationships between variables and states</li>
-<li>Solve problems with <em>general</em> search algorithms
-<ul>
-<li>Heuristics do not require expert knowledge of problem</li>
-<li>Encoding problem requires expert knowledge of problem<sup>1</sup></li>
-</ul></li>
-</ul>
-<p>Why?</p>
-<aside><ol class="aside-footnotes"><li id="fn3"><p>But it always does.</p></li></ol></aside></section>
-<section id="constraint-satisfaction" class="slide level2">
-<h2>Constraint Satisfaction</h2>
-<ul>
-<li>Express problem in terms of state variables
-<ul>
-<li>Constrain state variables</li>
-</ul></li>
-<li>Begin with all variables unassigned</li>
-<li>Progressively assign values to variables</li>
-<li>Assignment of values to state variables that “works:” <em>solution</em></li>
-</ul>
-</section>
-<section id="more-formally" class="slide level2">
-<h2>More Formally</h2>
+<section id="states-variables-domains" class="slide level2">
+<h2>States, Variables, Domains</h2>
 <ul>
 <li>State variables: <span class="math inline">\(X_1, X_2, ... , X_n\)</span></li>
 <li>State variable domains: <span class="math inline">\(D_1, D_2, ..., D_n\)</span>
@@ -557,37 +453,7 @@ Joe Goldfrank
 <li>Some constraints <span class="math inline">\(C_1, C_2, ..., C_m\)</span> restrict allowable values</li>
 </ul></li>
 </ul>
-<aside><ol class="aside-footnotes"><li id="fn4"><p>Or a hybrid, such as a union of ranges of continuous variables.</p></li></ol></aside></section>
-<section id="constraint-types" class="slide level2">
-<h2>Constraint Types</h2>
-<ul>
-<li>Unary: restrict single variable
-<ul>
-<li>Can be rolled into domain</li>
-<li>Why even have them?</li>
-</ul></li>
-<li>Binary: restricts two variables</li>
-<li>Global: restrict “all” variables</li>
-</ul>
-</section>
-<section id="constraint-examples" class="slide level2">
-<h2>Constraint Examples</h2>
-<ul>
-<li><span class="math inline">\(X_1\)</span> and <span class="math inline">\(X_2\)</span> both have real domains, i.e.&nbsp;<span class="math inline">\(X_1, X_2 \in \mathbb{R}\)</span>
-<ul>
-<li>A constraint could be <span class="math inline">\(X_1 &lt; X_2\)</span></li>
-</ul></li>
-<li><span class="math inline">\(X_1\)</span> could have domain <span class="math inline">\(\{\text{red}, \text{green}, \text{blue}\}\)</span> and <span class="math inline">\(X_2\)</span> could have domain <span class="math inline">\(\{\text{green}, \text{blue}, \text{orange}\}\)</span>
-<ul>
-<li>A constraint could be <span class="math inline">\(X_1 \neq X_2\)</span></li>
-</ul></li>
-<li><span class="math inline">\(X_1, X_2, ..., X_100 \in \mathbb{R}\)</span>
-<ul>
-<li>Constraint: exactly four of <span class="math inline">\(X_i\)</span> equal 12</li>
-<li>Rewrite as binary constraint?</li>
-</ul></li>
-</ul>
-</section>
+<aside><ol class="aside-footnotes"><li id="fn2"><p>Or a hybrid, such as a union of ranges of continuous variables.</p></li></ol></aside></section>
 <section id="assignments" class="slide level2">
 <h2>Assignments</h2>
 <ul>
@@ -599,210 +465,6 @@ Joe Goldfrank
 <li>All variables assigned?
 <ul>
 <li>Complete</li>
-</ul></li>
-</ul>
-</section>
-<section id="yugoslavia" class="slide level2">
-<h2>Yugoslavia<sup>1</sup></h2>
-<div style="margin-left: 5.5em; max-width: 65%">
-<p><img data-src="img/correct_fjr.png"></p>
-</div>
-<aside><ol class="aside-footnotes"><li id="fn5"><p>One of the most difficult problems of the 20th century</p></li></ol></aside></section>
-<section id="four-colorings" class="slide level2">
-<h2>Four-Colorings</h2>
-<p>Two possibilities:</p>
-
-<img data-src="img/correct_fjr2.png" class="r-stretch"></section>
-<section id="formulate-as-csp" class="slide level2">
-<h2>Formulate as CSP?</h2>
-<div style="margin-left: 5.5em; max-width: 65%">
-<p><img data-src="img/correct_fjr.png"></p>
-</div>
-</section>
-<section id="graph-representations" class="slide level2">
-<h2>Graph Representations</h2>
-<ul>
-<li>Constraint graph:
-<ul>
-<li>Nodes are variables</li>
-<li>Edges are constraints</li>
-</ul></li>
-<li>Constraint hypergraph:
-<ul>
-<li>Variables are nodes</li>
-<li>Constraints are nodes</li>
-<li>Edges show relationship</li>
-</ul></li>
-</ul>
-<p>Why have two different representations?</p>
-</section>
-<section id="graph-representation-i" class="slide level2">
-<h2>Graph Representation I</h2>
-<p>Constraint graph: edges are constraints</p>
-<div style="margin-left: 15.5em; max-width: 55%">
-<p><img data-src="img/correct_fjr.png"></p>
-</div>
-</section>
-<section id="graph-representation-ii" class="slide level2">
-<h2>Graph Representation II</h2>
-<p>Constraint hypergraph: constraints are nodes</p>
-<div style="margin-left: 15.5em; max-width: 55%">
-<p><img data-src="img/correct_fjr.png"></p>
-</div>
-</section>
-<section id="how-to-solve-it" class="slide level2">
-<h2>How To Solve It</h2>
-<ul>
-<li>We can search!
-<ul>
-<li>…the space of consistent assignments</li>
-</ul></li>
-<li>Complexity <span class="math inline">\(O(d^n)\)</span>
-<ul>
-<li>Domain size <span class="math inline">\(d\)</span>, number of nodes <span class="math inline">\(n\)</span></li>
-</ul></li>
-<li>Tree search for node assignment
-<ul>
-<li>Inference to reduce domain size</li>
-</ul></li>
-<li>Recursive search</li>
-</ul>
-</section>
-<section id="how-to-solve-it-1" class="slide level2">
-<h2>How To Solve It</h2>
-
-<img data-src="img/backtracking_search.png" class="r-stretch"></section>
-<section id="what-even-is-inference" class="slide level2">
-<h2>What Even Is Inference</h2>
-<ul>
-<li>Constraints on one variable restrict others:
-<ul>
-<li><span class="math inline">\(X_1 \in \{A, B, C, D\}\)</span> and <span class="math inline">\(X_2 \in \{A\}\)</span></li>
-<li><span class="math inline">\(X_1 \neq X_2\)</span></li>
-<li>Inference: <span class="math inline">\(X_1 \in \{B, C, D\}\)</span></li>
-</ul></li>
-<li>If an unassigned variable has no domain…
-<ul>
-<li>Failure</li>
-</ul></li>
-</ul>
-</section>
-<section id="inference" class="slide level2">
-<h2>Inference</h2>
-<ul>
-<li>Arc consistency
-<ul>
-<li>Reduce domains for pairs of variables</li>
-</ul></li>
-<li>Path consistency
-<ul>
-<li>Assignment to two variables</li>
-<li>Reduce domain of third variable</li>
-</ul></li>
-</ul>
-</section>
-<section id="ac-3" class="slide level2">
-<h2>AC-3</h2>
-
-<img data-src="img/ac_3.png" class="r-stretch"></section>
-<section id="how-to-solve-it-again" class="slide level2">
-<h2>How To Solve It (Again)</h2>
-<p>Backtracking search:</p>
-<ul>
-<li>Similar to DFS</li>
-<li>Variables are <em>ordered</em>
-<ul>
-<li>Why?</li>
-</ul></li>
-<li>Constraints checked each step</li>
-<li>Constraints optionally <em>propagated</em></li>
-</ul>
-</section>
-<section id="how-to-solve-it-again-1" class="slide level2">
-<h2>How To Solve It (Again)</h2>
-
-<img data-src="img/backtracking_search.png" class="r-stretch"></section>
-<section id="yugoslav-arc-consistency" class="slide level2">
-<h2>Yugoslav Arc Consistency</h2>
-<div style="margin-left: 15em; max-width: 45%">
-<p><img data-src="img/correct_fjr.png"></p>
-</div>
-</section>
-<section id="ordering" class="slide level2">
-<h2>Ordering</h2>
-<ul>
-<li><span class="smallcaps">Select-Unassgined-Variable</span>(<span class="math inline">\(CSP, assignment\)</span>)
-<ul>
-<li>Choose most-constrained variable<sup>1</sup></li>
-</ul></li>
-<li><span class="smallcaps">Order-Domain-Variables</span>(<span class="math inline">\(CSP, var, assignment\)</span>)
-<ul>
-<li>Least-constraining value</li>
-</ul></li>
-<li>Why?</li>
-</ul>
-<aside><ol class="aside-footnotes"><li id="fn6"><p>or MRV: “Minimum Remaining Values”</p></li></ol></aside></section>
-<section id="restructuring" class="slide level2">
-<h2>Restructuring</h2>
-<p>Tree-structured CSPs:</p>
-<ul>
-<li><p><em>Linear time</em> solution</p></li>
-<li><p>Directional arc consistency: <span class="math inline">\(X_i \rightarrow X_{i+1}\)</span></p></li>
-<li><p>Cutsets</p></li>
-<li><p>Sub-problems</p></li>
-</ul>
-</section>
-<section id="cutset-example" class="slide level2">
-<h2>Cutset Example</h2>
-<div style="margin-left: 15em; max-width: 45%">
-<p><img data-src="img/correct_fjr.png"></p>
-</div>
-</section>
-<section id="heuristic-local-search" class="slide level2">
-<h2>(Heuristic) Local Search</h2>
-<ul>
-<li>Hill climbing
-<ul>
-<li>Random restarts</li>
-</ul></li>
-<li>Simulated annealing</li>
-<li>Fast?</li>
-<li>Complete?</li>
-<li>Optimal?</li>
-</ul>
-</section>
-<section id="continuous-domains" class="slide level2 smaller">
-<h2>Continuous Domains</h2>
-<ul>
-<li>Linear:</li>
-</ul>
-<p><span class="math display">\[\begin{aligned}
-\max_{x} \quad &amp; \boldsymbol{c}^T\boldsymbol{x}\\
-\textrm{s.t.} \quad &amp; A\boldsymbol{x} \leq \boldsymbol{b}\\
-  &amp;\boldsymbol{x} \geq 0    \\
-\end{aligned}\]</span></p>
-<ul>
-<li>Convex</li>
-</ul>
-<p><span class="math display">\[\begin{aligned}
-\min_{x} \quad &amp; f(\boldsymbol{x})\\
-\textrm{s.t.} \quad &amp; g_i(\boldsymbol{x}) \leq 0\\
-  &amp; h_i(\boldsymbol{x}) = 0    \\
-\end{aligned}\]</span></p>
-<div style="max-width: 23%; position: absolute; left: 40rem; top: 22rem; transform: rotate(180deg)">
-<img data-src="img/discrete_pacman.png">
-</div>
-</section>
-<section id="is-this-even-relevant-in-2025" class="slide level2">
-<h2>Is This Even Relevant in 2025?</h2>
-<ul>
-<li>Absolutely yes.</li>
-<li>LLMs are bad at CSPs</li>
-<li>CSPs are common in the real world
-<ul>
-<li>Scheduling</li>
-<li>Optimization</li>
-<li>Dependency solvers</li>
 </ul></li>
 </ul>
 </section></section>
@@ -818,8 +480,9 @@ Joe Goldfrank
 <span class="math inline">\(B_{HK} \Rightarrow \neg B_{SI}\)</span><br>
 <span class="math inline">\(R_{HK} \lor G_{HK} \lor B_{HK}\)</span><br>
 </p>
-<p>…</p>
+<div class="fragment">
 <p>Goal: find assignment of variables that satisfies conditions</p>
+</div>
 </section>
 <section id="is-it-possible-to-know-things" class="slide level2">
 <h2>Is It Possible To Know Things?</h2>
@@ -829,7 +492,7 @@ Joe Goldfrank
 </div>
 <div class="fragment">
 <p><br></p>
-<p><span style="font-size:300%">😌</span></p>
+<p><span style="font-size:400%">😌</span></p>
 </div>
 </section>
 <section id="how-even-do-we-know-things" class="slide level2">
@@ -870,7 +533,7 @@ Joe Goldfrank
 <li>This has an unambiguous truth value.<sup>1</sup></li>
 </ul></li>
 </ul>
-<aside><ol class="aside-footnotes"><li id="fn7"><p>Provided that ‘outside’ is well-defined.</p></li></ol></aside></section>
+<aside><ol class="aside-footnotes"><li id="fn3"><p>Provided that ‘outside’ is well-defined.</p></li></ol></aside></section>
 <section id="what-matters-matters" class="slide level2">
 <h2>What Matters, Matters</h2>
 <ul>
@@ -1015,7 +678,7 @@ Joe Goldfrank
 <li><span class="math inline">\(KB \nvdash A\)</span></li>
 <li><span class="math inline">\(KB \nvdash \neg A\)</span></li>
 </ul>
-<aside><ol class="aside-footnotes"><li id="fn8"><p><span class="math inline">\(\nvdash\)</span> – “does not entail”</p></li></ol></aside></section>
+<aside><ol class="aside-footnotes"><li id="fn4"><p><span class="math inline">\(\nvdash\)</span> – “does not entail”</p></li></ol></aside></section>
 <section id="it-is-possible-to-not-know-things" class="slide level2">
 <h2>It Is Possible To Not Know Things 😔</h2>
 
@@ -1037,7 +700,7 @@ Joe Goldfrank
 </ul></li>
 </ul>
 </section>
-<section id="inference-1" class="slide level2">
+<section id="inference" class="slide level2">
 <h2>Inference</h2>
 <ul>
 <li><span class="math inline">\(KB\)</span> models real world
@@ -1229,7 +892,224 @@ Joe Goldfrank
 <span id="cb1-2"><a></a>  t <span class="op">=</span> Expr(<span class="ss">f"</span><span class="sc">{</span>cat<span class="sc">}</span><span class="ss"> is not a vegetarian"</span>)</span>
 <span id="cb1-3"><a></a>  Exprs.push(t)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Goal: find assignment of variables that satisifies conditions</p>
+</section></section>
+<section>
+<section id="probability" class="title-slide slide level1 center">
+<h1>Probability</h1>
+
 </section>
+<section id="randomness-and-uncertainty" class="slide level2">
+<h2>Randomness and Uncertainty</h2>
+<ul>
+<li>We don’t know things about future events
+<ul>
+<li>Someone else might know</li>
+</ul></li>
+<li>Example: expectimax!
+<ul>
+<li>Ghost could behave randomly</li>
+<li>Ghost could behave according to some plan</li>
+<li>We model behavior as random</li>
+</ul></li>
+</ul>
+</section>
+<section id="the-random-variable" class="slide level2">
+<h2>The Random Variable</h2>
+<ul>
+<li>Uncertain future event: random variable</li>
+<li>Probability:</li>
+</ul>
+<p><span class="math display">\[P(x) = \lim_{n \to \infty} \frac{n_x}{n}\]</span></p>
+<ul>
+<li>Probabilities constrained <span class="math inline">\(0 \leq P(x) \leq 1\)</span> for any <span class="math inline">\(x\)</span></li>
+</ul>
+</section>
+<section id="the-random-variable-1" class="slide level2">
+<h2>The Random Variable</h2>
+<ul>
+<li>In ensemble of events, what fraction represent event <span class="math inline">\(x\)</span> ?
+<ul>
+<li>What’s troubling about this?</li>
+</ul></li>
+<li>How do we quantify probability based on observations?</li>
+<li>How do we quantify probability without direct observations?</li>
+</ul>
+</section>
+<section id="plausibility-of-statements" class="slide level2">
+<h2>Plausibility of Statements</h2>
+<ul>
+<li>“A is more plausible than B”
+<ul>
+<li><span class="math inline">\(P(A) &gt; P(B)\)</span></li>
+</ul></li>
+<li>“A is as plausible as B”
+<ul>
+<li><span class="math inline">\(P(A) = P(B)\)</span></li>
+</ul></li>
+<li>“A is impossible”
+<ul>
+<li><span class="math inline">\(P(A) = 0\)</span></li>
+</ul></li>
+<li>“A is certain”
+<ul>
+<li><span class="math inline">\(P(A) = 1\)</span></li>
+</ul></li>
+</ul>
+</section>
+<section id="probability-distribution" class="slide level2">
+<h2>Probability Distribution</h2>
+<ul>
+<li>Enumerate possible outcomes<sup>1</sup></li>
+<li>Assign probabilities to outcomes</li>
+<li>Distribution: ensemble of outcomes mapped to probabilities</li>
+<li>Works for discrete and continuous cases</li>
+</ul>
+<aside><ol class="aside-footnotes"><li id="fn5"><p>Everyone has them.</p></li></ol></aside></section>
+<section id="combinatorics" class="slide level2">
+<h2>Combinatorics</h2>
+<ul>
+<li>Enumerating outcomes is a counting problem
+<ul>
+<li>We know how to solve counting problems</li>
+</ul></li>
+<li>Permutations:
+<ul>
+<li>Ordering <span class="math inline">\(n\)</span> items: <span class="math inline">\(n!\)</span></li>
+<li>Ordering <span class="math inline">\(n\)</span> items, <span class="math inline">\(k\)</span> of which are alike: <span class="math inline">\(\frac{n!}{k!}\)</span></li>
+<li>… <span class="math inline">\(k_1\)</span>, <span class="math inline">\(k_2\)</span> of which are alike: <span class="math inline">\(\frac{n!}{k_1!k_2!}\)</span></li>
+</ul></li>
+</ul>
+</section>
+<section id="i-am-extremely-sorry" class="slide level2">
+<h2>I Am Extremely Sorry</h2>
+<div class="fragment">
+<p><br><br><br> …if you thought this course was going to be about LLMs</p>
+</div>
+</section>
+<section id="combinatorics-1" class="slide level2">
+<h2>Combinatorics</h2>
+<ul>
+<li>How many possible outcomes are there?</li>
+<li>How many possible outcomes are there <em>of interest?</em></li>
+<li>Assume all outcomes have equal probability
+<ul>
+<li>Or don’t</li>
+</ul></li>
+<li>Divide
+<ul>
+<li>Weight if necessary</li>
+</ul></li>
+</ul>
+</section>
+<section id="choice" class="slide level2">
+<h2>Choice</h2>
+<ul>
+<li><span class="math inline">\(n\)</span> events</li>
+<li><span class="math inline">\(k\)</span> are of interest
+<ul>
+<li><span class="math inline">\(n-k\)</span> are <em>not</em> of interest</li>
+</ul></li>
+</ul>
+<p>Possible combinations:</p>
+<p><span class="math display">\[\binom{n}{k} = \frac{n!}{k!(n-k)!}\]</span></p>
+</section>
+<section id="bernoulli-trials" class="slide level2">
+<h2>Bernoulli Trials</h2>
+<ul>
+<li>“Single event” that occurs with probability <span class="math inline">\(\theta\)</span></li>
+<li><span class="math inline">\(P(E) = \theta\)</span></li>
+<li><span class="math inline">\(P(\neg E) = 1 - \theta\)</span></li>
+<li>Alternate notations:<sup>1</sup>
+<ul>
+<li><span class="math inline">\(P(E^C) = 1 - \theta\)</span></li>
+<li><span class="math inline">\(P(\bar{E}) = 1 - \theta\)</span></li>
+</ul></li>
+<li>Examples?</li>
+</ul>
+<aside><ol class="aside-footnotes"><li id="fn6"><p>Math notation can be inconsistent, which you may find infuriating.</p></li></ol></aside></section>
+<section id="math-notation" class="slide level2">
+<h2>Math Notation</h2>
+<ul>
+<li><span class="math inline">\(P(E)\)</span>
+<ul>
+<li>Probability of some event <span class="math inline">\(E\)</span> occuring</li>
+</ul></li>
+<li><span class="math inline">\(P\{X=a\}\)</span>
+<ul>
+<li>Probability of random variable <span class="math inline">\(X\)</span> taking value <span class="math inline">\(a\)</span></li>
+</ul></li>
+<li><span class="math inline">\(p(a)\)</span>
+<ul>
+<li>Probability of random variable taking value <span class="math inline">\(a\)</span></li>
+</ul></li>
+</ul>
+</section>
+<section id="bernoulli-random-variable" class="slide level2">
+<h2>Bernoulli Random Variable</h2>
+<ul>
+<li>Bernoulli trial:
+<ul>
+<li>Variable, takes one of two values</li>
+<li>Coin toss: <span class="math inline">\(H\)</span> or <span class="math inline">\(T\)</span></li>
+<li><span class="math inline">\(P\{X = H\} = \theta\)</span></li>
+<li><span class="math inline">\(P\{X = T\} = 1 - \theta\)</span></li>
+</ul></li>
+</ul>
+</section>
+<section id="expected-value" class="slide level2">
+<h2>Expected Value</h2>
+<ul>
+<li>Variable’s values can be numeric values:
+<ul>
+<li>Coin toss <span class="math inline">\(H = 8\)</span> and <span class="math inline">\(T2\)</span></li>
+<li><span class="math inline">\(P\{X = 8\} = \theta\)</span></li>
+<li><span class="math inline">\(P\{X = 2\} = 1 - \theta\)</span></li>
+</ul></li>
+<li>Expected value:
+<ul>
+<li><span class="math inline">\(E[X] = H \cdot \theta + T \cdot (1-\theta)\)</span></li>
+<li><span class="math inline">\(E[X] = 8 \cdot \theta + 2 \cdot (1-\theta)\)</span></li>
+</ul></li>
+</ul>
+</section>
+<section id="expected-value-1" class="slide level2">
+<h2>Expected Value</h2>
+<p>Of a variable: <span class="math display">\[E[X] = \sum_{i=0}^n x_i \cdot p(x_i)\]</span></p>
+<p>Of a function of a variable:</p>
+<p><span class="math display">\[E[g(x)] = \sum_{i=0}^n g(x_i) \cdot p(x_i) \neq g(E[X])\]</span></p>
+</section>
+<section id="variance" class="slide level2">
+<h2>Variance</h2>
+<ul>
+<li>How much do values <em>vary</em> from the expected value?</li>
+</ul>
+<p><span class="math display">\[\text{Var}(X) = E[(X - E[X])^2]\]</span></p>
+<ul>
+<li><span class="math inline">\(E[X]\)</span> represents mean, or <span class="math inline">\(\mu\)</span></li>
+<li>We’re really interested in <span class="math inline">\(E[|X-\mu|]\)</span>
+<ul>
+<li>Absolute values are mathematically troublesome</li>
+</ul></li>
+<li>Standard deviation: <span class="math inline">\(\sigma\)</span> = <span class="math inline">\(\sqrt{\text{Var}}\)</span></li>
+</ul>
+</section>
+<section id="variance-1" class="slide level2">
+<h2>Variance</h2>
+<p><span class="math display">\[\begin{align}\text{Var}(X) &amp; = E[(E[X]-\mu)^2]\\
+&amp; = \sum_x (x-\mu)^2 p(x) \\
+&amp; = \sum_x (x^2 - 2 x \mu + \mu^2) p(x) \\
+&amp; = \sum_x x^2 p(x) - 2 \mu \sum_x x p(x) + \mu^2 \sum_x p(x) \\
+&amp; = E[X^2] - 2 \mu \mu + \mu^2 \\
+  &amp; = E[X^2] - E[X]^2
+\end{align}\]</span></p>
+</section>
+<section id="how-to-lie-with-statistics" class="slide level2">
+<h2>How To Lie With Statistics</h2>
+
+<!-- 
+
+# Linear Algebra -->
+<img data-src="img/anscombe.png" class="r-stretch"></section>
 <section id="references" class="slide level2">
 <h2>References</h2>
 <ul>
