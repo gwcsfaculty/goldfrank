@@ -1097,7 +1097,7 @@ $$U_{k+1}(s) \gets \max \limits_a \left( R(s,a) + \gamma \sum \limits_s' T(s'|s,
 <li>Every time step:<sup>1</sup>
 <ul>
 <li><span class="math inline">\(\delta = R + \gamma Q(s',a') - Q(s,a)\)</span></li>
-<li><span class="math inline">\(Q(s,a) \gets \alpha \delta N(s,a)\)</span></li>
+<li><span class="math inline">\(Q(s,a) \gets Q(s, a) + \alpha \delta N(s,a)\)</span></li>
 <li><span class="math inline">\(N(s,a) \gets \gamma \lambda  N(s,a)\)</span>
 <ul>
 <li>Discount factor <span class="math inline">\(\gamma\)</span></li>
@@ -1117,7 +1117,7 @@ $$U_{k+1}(s) \gets \max \limits_a \left( R(s,a) + \gamma \sum \limits_s' T(s'|s,
 <p>Sarsa-<span class="math inline">\(\lambda\)</span>:</p>
 <ul>
 <li><span class="math inline">\(\delta = R + \gamma Q(s',a') - Q(s,a)\)</span></li>
-<li><span class="math inline">\(Q(s,a) \gets \alpha \delta N(s,a)\)</span></li>
+<li><span class="math inline">\(Q(s,a) \gets Q(s, a) + \alpha \delta N(s,a)\)</span></li>
 </ul>
 </section>
 <section id="sarsa-lambda-1" class="slide level2">
@@ -1136,7 +1136,7 @@ $$U_{k+1}(s) \gets \max \limits_a \left( R(s,a) + \gamma \sum \limits_s' T(s'|s,
 <p><br>
 </p>
 <p><em>Sarsa-<span class="math inline">\(\lambda\)</span>:</em><br>
-<span class="math inline">\(\quad \quad \delta = R + \gamma Q(s',a') - Q(s,a)\)</span> <span class="math inline">\(\quad \quad  Q(s,a) \gets \alpha \delta N(s,a)\)</span></p>
+<span class="math inline">\(\quad \quad \delta = R + \gamma Q(s',a') - Q(s,a)\)</span> <span class="math inline">\(\quad \quad  Q(s,a) \gets Q(s, a) + \alpha \delta N(s,a)\)</span></p>
 </section>
 <section id="watkins-q-lambda" class="slide level2">
 <h2>Watkins Q-<span class="math inline">\(\lambda\)</span></h2>
