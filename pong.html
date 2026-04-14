@@ -1,0 +1,1327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Partially-Observable Pong</title>
+<script src="https://cdn.jsdelivr.net/pyodide/v0.29.3/full/pyodide.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.18/codemirror.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.18/codemirror.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.18/mode/python/python.min.js"></script>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #f8f9fa;
+    display: flex; justify-content: center; align-items: flex-start; padding-top: 24px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: #212529;
+  }
+  #container {
+    text-align: center;
+    background: #fff;
+    max-width: 760px;
+    padding: 24px;
+    border: 1px solid #dee2e6;
+    border-radius: 0.375rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  }
+  canvas { border: 1px solid #dee2e6; display: block; margin: 0 auto 12px; border-radius: 0.25rem; }
+  #info { font-size: 14px; color: #6c757d; }
+  #controls { margin-bottom: 8px; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 14px; }
+  #controls input[type="range"] { width: 200px; accent-color: #0d6efd; }
+  #score { font-size: 22px; margin-bottom: 8px; color: #212529; }
+  #sensors { display: flex; justify-content: center; gap: 24px; margin-bottom: 8px; font-size: 14px; }
+  .sensor-item { display: flex; align-items: center; gap: 6px; }
+  .sensor-item span { display: inline-block; width: 3ch; text-align: right; }
+  .sensor-item input[type="checkbox"] { accent-color: currentColor; }
+  #editor-section {
+    margin-top: 16px; text-align: left; width: 100%;
+    padding-top: 16px; border-top: 1px solid #dee2e6; padding-bottom: 80px;
+  }
+  #editor-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; }
+  #editor-header h3 { font-size: 16px; color: #212529; }
+  #editor-buttons { display: flex; gap: 8px; }
+  .btn {
+    padding: 6px 16px; font-family: inherit; font-size: 14px; cursor: pointer;
+    border-radius: 0.375rem; border: 1px solid transparent;
+  }
+  .btn:disabled { background: #e9ecef !important; color: #adb5bd !important; border-color: #dee2e6 !important; cursor: default; }
+  #pause-btn { background: #0d6efd; color: #fff; border-color: #0d6efd; }
+  #pause-btn:hover:not(:disabled) { background: #0b5ed7; }
+  #commit-btn { background: #198754; color: #fff; border-color: #198754; }
+  #commit-btn:hover:not(:disabled) { background: #157347; }
+  #reset-btn { background: transparent; color: #6c757d; border-color: #6c757d; }
+  #reset-btn:hover:not(:disabled) { background: #6c757d; color: #fff; }
+  #error-output {
+    width: 100%; min-height: 24px; max-height: 120px; overflow-y: auto;
+    background: #f8d7da; color: #842029; border: 1px solid #f5c2c7;
+    padding: 6px 10px; font-size: 12px; white-space: pre-wrap; margin-top: 4px;
+    border-radius: 0.25rem; display: none;
+  }
+  #loading { font-size: 18px; color: #6c757d; margin-top: 40px; }
+  #api-docs {
+    margin-bottom: 8px; font-size: 13px; color: #212529;
+    border: 1px solid #dee2e6; border-radius: 0.25rem; background: #f8f9fa;
+  }
+  #api-docs summary {
+    padding: 8px 12px; cursor: pointer; font-weight: 600; font-size: 14px;
+    user-select: none;
+  }
+  #api-docs summary:hover { background: #e9ecef; }
+  #api-docs-content { padding: 8px 16px 12px; }
+  #api-docs-content p { margin-bottom: 8px; line-height: 1.5; }
+  #api-docs-content h4 { margin: 12px 0 6px; font-size: 13px; color: #495057; }
+  #api-docs-content code { background: #e9ecef; padding: 1px 4px; border-radius: 3px; font-size: 12px; }
+  #api-docs-content table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  #api-docs-content th { text-align: left; padding: 4px 8px; border-bottom: 2px solid #dee2e6; color: #495057; }
+  #api-docs-content td { padding: 4px 8px; border-bottom: 1px solid #dee2e6; vertical-align: top; }
+  #canvas-wrap { position: relative; display: inline-block; }
+  #replay-buttons {
+    display: none; position: absolute; left: 50%; bottom: 40px;
+    transform: translateX(-50%); z-index: 2;
+    gap: 12px; justify-content: center;
+  }
+  #unfocus-overlay {
+    position: fixed; inset: 0; background: rgba(0,0,0,0.45);
+    z-index: 9999; pointer-events: none; display: none;
+  }
+  body.unfocused #unfocus-overlay { display: block; }
+  #replay-buttons.visible { display: flex; }
+  #replay-buttons .btn { font-size: 14px; padding: 8px 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.3); }
+  #replay-again-btn { background: #fd7e14; color: #fff; border-color: #fd7e14; }
+  #replay-again-btn:hover { background: #e8690b; }
+  #replay-resume-btn { background: #198754; color: #fff; border-color: #198754; }
+  #replay-resume-btn:hover { background: #157347; }
+  .CodeMirror { height: 380px; border: 1px solid #dee2e6; font-size: 13px; border-radius: 0.25rem; }
+  #editor-resize {
+    height: 8px; cursor: ns-resize; background: #dee2e6;
+    border-radius: 0 0 0.25rem 0.25rem; display: flex; justify-content: center; align-items: center;
+  }
+  #editor-resize::after {
+    content: ''; width: 32px; height: 3px; background: #adb5bd; border-radius: 2px;
+  }
+  #step-btn { background: #0d6efd; color: #fff; border-color: #0d6efd; }
+  #step-btn:hover:not(:disabled) { background: #0b5ed7; }
+  #debug-btn { background: transparent; color: #6c757d; border-color: #6c757d; }
+  #debug-btn:hover:not(:disabled) { background: #6c757d; color: #fff; }
+  #debug-btn.active { background: #fd7e14; color: #fff; border-color: #fd7e14; }
+  #debug-btn.active:hover:not(:disabled) { background: #e8690b; }
+  #console-section { margin-top: 12px; text-align: left; }
+  #console-header {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 4px; font-size: 14px; color: #212529;
+  }
+  #console-buttons { display: flex; gap: 6px; }
+  #console-clear { padding: 2px 10px; font-size: 12px; }
+  #console-output {
+    width: 100%; height: 150px; overflow-y: auto;
+    background: #1e1e1e; color: #d4d4d4;
+    border: 1px solid #dee2e6; border-radius: 0.25rem;
+    padding: 8px 10px; font-family: SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 12px; white-space: pre-wrap; margin: 0;
+  }
+</style>
+</head>
+<body>
+<div id="unfocus-overlay"></div>
+<div id="container">
+  <div id="loading">Loading Pyodide + NumPy...</div>
+  <div id="game-ui" style="display:none">
+    <div id="score">Score: <span id="scoreVal">0</span></div>
+    <div id="canvas-wrap">
+      <canvas id="game" width="700" height="500"></canvas>
+      <div id="replay-buttons">
+        <button class="btn" id="replay-again-btn">Replay</button>
+        <button class="btn" id="replay-resume-btn">Resume</button>
+      </div>
+    </div>
+    <div id="sensors"></div>
+    <div id="controls">
+      <span>Sensor noise: <strong id="currentNoise">25</strong></span> <span style="color:#6c757d">(×<span id="noiseMultiplier">25</span> score)</span>
+      <span style="color:#6c757d">|</span>
+      <label for="noiseSlider">Change to:</label>
+      <input type="range" id="noiseSlider" min="1" max="50" value="25" step="1">
+      <span id="noiseVal">25</span>
+    </div>
+    <div id="controls">
+      <span>Sensor freq: <strong id="currentFreq">0.10</strong></span> <span style="color:#6c757d">(×<span id="freqMultiplier">1.0</span> score)</span>
+      <span style="color:#6c757d">|</span>
+      <label for="freqSlider">Change to:</label>
+      <input type="range" id="freqSlider" min="1" max="100" value="50" step="1">
+      <span id="freqVal">0.10</span>
+    </div>
+    <div id="controls">
+      <span>Paddle: <strong id="currentPaddleMode">Human Control</strong></span>
+      <span style="color:#6c757d">|</span>
+      <button class="btn" id="paddle-mode-btn" style="padding:3px 12px; font-size:12px">Switch to Automatic</button>
+      <span id="paddleModeNote" style="color:#6c757d; font-size:12px"></span>
+    </div>
+    <div id="info">Arrow Up / Down or W / S to move paddle</div>
+    <div id="editor-section">
+      <div id="editor-header">
+        <div id="editor-buttons">
+          <button class="btn" id="pause-btn" disabled>Pause</button>
+          <button class="btn" id="step-btn" disabled style="display:none">Step</button>
+          <button class="btn" id="debug-btn" disabled>Debug</button>
+          <button class="btn" id="commit-btn" disabled>Commit</button>
+          <button class="btn" id="reset-btn" disabled>Reset Game</button>
+        </div>
+      </div>
+        <h3>State Estimation and Autonomous Control</h3>
+      <details id="api-docs">
+        <summary>API Reference</summary>
+        <div id="api-docs-content">
+          <p>Your code must define <code>update(readings)</code>, called every 50ms.</p>
+          <p><code>readings</code> is a list of 4 values: a distance (float &ge; 0) if that sensor fired, or <code>-1</code> if it didn't. Sensors fire independently each tick with probability based on distance to ball (1.0 within 10px, 0.1 beyond 200px).</p>
+          <p>You may also define <code>reset_state()</code>, called when the ball resets.</p>
+          <h4>Game module (<code>import game</code>)</h4>
+          <table>
+            <tr><th colspan="2" style="color:#0d6efd">Heatmap</th></tr>
+            <tr><td><code>game.get_grid()</code></td><td>Returns flat list of GRID_ROWS &times; GRID_COLS probabilities</td></tr>
+            <tr><td><code>game.set_grid(lst)</code></td><td>Write back the updated heatmap grid (flat list)</td></tr>
+            <tr><td><code>game.GRID_ROWS</code>, <code>game.GRID_COLS</code></td><td>Grid dimensions</td></tr>
+            <tr><th colspan="2" style="color:#0d6efd">Sensors</th></tr>
+            <tr><td><code>game.get_sensors()</code></td><td>List of sensor positions [{x, y}, ...]</td></tr>
+            <tr><td><code>game.get_readings()</code></td><td>Most recent readings from all sensors</td></tr>
+            <tr><td><code>game.sensor_noise</code></td><td>Current sensor noise std dev (slider value)</td></tr>
+            <tr><td><code>game.SENSOR_NEAR_DIST</code></td><td>Distance at which fire probability = 1 (10px)</td></tr>
+            <tr><td><code>game.SENSOR_FAR_DIST</code></td><td>Distance at which fire probability = min (200px)</td></tr>
+            <tr><td><code>game.MIN_FIRE_PROB</code></td><td>Minimum fire probability (slider value / 100, default 0.1)</td></tr>
+            <tr><th colspan="2" style="color:#0d6efd">Paddle</th></tr>
+            <tr><td><code>game.paddle_y</code></td><td>Current paddle top y position</td></tr>
+            <tr><td><code>game.move_paddle(dir)</code></td><td>Move paddle: <code>"up"</code> or <code>"down"</code>. If not called, human controls the paddle.</td></tr>
+            <tr><td><code>game.PADDLE_X</code>, <code>game.PADDLE_W</code>, <code>game.PADDLE_H</code></td><td>Paddle geometry (constants)</td></tr>
+            <tr><th colspan="2" style="color:#0d6efd">Game</th></tr>
+            <tr><td><code>game.WIDTH</code>, <code>game.HEIGHT</code></td><td>Canvas dimensions in pixels</td></tr>
+            <tr><td><code>game.BALL_SPEED</code></td><td>Ball speed in pixels/frame (~60fps)</td></tr>
+          </table>
+          <h4>Available packages</h4>
+          <p><code>numpy</code> and <code>scipy</code> are pre-loaded.</p>
+        </div>
+      </details>
+      <textarea id="code-editor"></textarea>
+      <div id="editor-resize"></div>
+      <div id="error-output"></div>
+      <div id="console-section">
+        <div id="console-header">
+          <span>Python Console</span>
+          <div id="console-buttons">
+            <button class="btn" id="console-move">Move to top</button>
+            <button class="btn" id="console-clear">Clear</button>
+          </div>
+        </div>
+        <pre id="console-output"></pre>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+const DEFAULT_CODE = `\
+import numpy as np
+from scipy.ndimage import gaussian_filter
+import game
+
+ROWS = game.GRID_ROWS
+COLS = game.GRID_COLS
+W = game.WIDTH
+H = game.HEIGHT
+
+cx = (np.arange(COLS) + 0.5) * (W / COLS)
+cy = (np.arange(ROWS) + 0.5) * (H / ROWS)
+cx2d, cy2d = np.meshgrid(cx, cy)
+
+grid = np.ones((ROWS, COLS)) / (ROWS * COLS)
+
+def reset_state():
+    global grid
+    grid = np.ones((ROWS, COLS)) / (ROWS * COLS)
+
+def update(readings):
+    global grid
+    noise = max(game.sensor_noise, 1.0)
+    sensors = game.get_sensors()
+
+    # blur the grid slightly each tick
+    # good for humans -- good for autonomous agent?
+    grid = gaussian_filter(grid, sigma=1.0)
+
+    for i, s in enumerate(sensors):
+        if readings[i] < 0:
+            continue
+        dist_to_sensor = np.sqrt((cx2d - s.x)**2 + (cy2d - s.y)**2)
+        ring = np.exp(-0.5 * ((dist_to_sensor - readings[i]) / noise)**2)
+        grid *= ring
+
+    total = grid.sum()
+    if total > 0:
+        grid /= total
+    else:
+        grid = 1.0 / (ROWS * COLS)
+
+    game.set_grid(grid.ravel().tolist())
+
+    # Move paddle toward the peak y
+    best = np.unravel_index(grid.argmax(), grid.shape)
+    target_y = (best[0] + 0.5) * (H / ROWS) - game.PADDLE_H / 2
+    current_y = game.paddle_y
+    if target_y < (current_y - 2):
+        game.move_paddle("up")
+    elif target_y > (current_y + 2):
+        game.move_paddle("down")
+`;
+
+// ---- Game engine (JS) ----
+let pyodide = null;
+let userUpdateReady = false;
+let gamePaused = false;
+let countdownUntil = 0; // timestamp when countdown ends and game starts
+let paddleRecoil = 0;
+let paddleHitTime = 0; // timestamp of last paddle hit
+let paddleShake = 0;
+let needsReset = false;
+
+// Replay system
+const REPLAY_BUFFER_MAX = 180; // ~3s at 60fps
+let replayBuffer = [];        // circular buffer of frame snapshots
+let replayFrames = [];        // frozen copy for playback
+let replayStartTime = 0;
+let replayDone = false;       // true when showing buttons (MISS or post-replay)
+let replayPlaying = false;    // true during active replay playback
+let escapeY = 0;              // y position where ball exited
+
+const canvas = document.getElementById('game');
+const ctx = canvas.getContext('2d');
+const W = canvas.width;
+const H = canvas.height;
+
+const PADDLE_W = 14;
+const PADDLE_H = 80;
+const PADDLE_X = W - 30;
+const PADDLE_SPEED = 5;
+const BALL_R = 6;
+const BALL_SPEED = 3.5;
+
+const GRID_COLS = 70;
+const GRID_ROWS = 50;
+const CELL_W = W / GRID_COLS;
+const CELL_H = H / GRID_ROWS;
+
+const SENSOR_COLORS = ['#e74', '#4be', '#4e7', '#e4e'];
+const sensors = [
+  { x: W * 0.3, y: 0 },
+  { x: W * 0.7, y: 0 },
+  { x: W * 0.3, y: H },
+  { x: W * 0.7, y: H },
+];
+
+let SENSOR_NOISE_STD = 25;
+let pendingNoiseSTD = null;
+let paddleAutoMode = false;    // current active mode
+let pendingPaddleMode = null;  // pending mode change
+
+function applyPendingNoise() {
+  if (pendingNoiseSTD !== null) {
+    SENSOR_NOISE_STD = pendingNoiseSTD;
+    pendingNoiseSTD = null;
+    document.getElementById('currentNoise').textContent = SENSOR_NOISE_STD;
+    document.getElementById('noiseMultiplier').textContent = SENSOR_NOISE_STD;
+  }
+}
+
+function applyPendingPaddleMode() {
+  if (pendingPaddleMode !== null) {
+    paddleAutoMode = pendingPaddleMode;
+    pendingPaddleMode = null;
+    document.getElementById('currentPaddleMode').textContent = paddleAutoMode ? 'Automatic Control (×2 score)' : 'Human Control';
+    document.getElementById('paddleModeNote').textContent = '';
+    document.getElementById('paddle-mode-btn').textContent = paddleAutoMode ? 'Switch to Human' : 'Switch to Automatic';
+  }
+}
+const SENSOR_NEAR_DIST = 10;   // distance at which fire probability is 1
+const SENSOR_FAR_DIST = 200;   // distance at which fire probability is MIN_FIRE_PROB
+let sensorFreqSlider = 50;  // slider value 1-100 (log scale); 50 = default (0.1)
+let pendingFreqSlider = null;
+
+// Log scale: slider [1,100] → probability [0.01, 1.0]
+// slider 1 → 0.01, slider 50 → ~0.1, slider 100 → 1.0
+function getMinFireProb() {
+  const t = (sensorFreqSlider - 1) / 99; // 0 to 1
+  return Math.pow(10, -2 + 2 * t);       // 0.01 to 1.0
+}
+
+function applyPendingFreq() {
+  if (pendingFreqSlider !== null) {
+    sensorFreqSlider = pendingFreqSlider;
+    pendingFreqSlider = null;
+    document.getElementById('currentFreq').textContent = getMinFireProb().toFixed(2);
+    document.getElementById('freqMultiplier').textContent = (0.1 / getMinFireProb()).toFixed(1);
+  }
+}
+
+let paddle = { y: H / 2 - PADDLE_H / 2 };
+let ball = { x: 0, y: 0, vx: 0, vy: 0 };
+let score = 0;
+
+function addScore(points) {
+  let p = points;
+  if (p > 0 && paddleAutoMode) p *= 2;
+  const freqMultiplier = 0.1 / getMinFireProb();
+  score += Math.round(p * SENSOR_NOISE_STD * freqMultiplier);
+  document.getElementById('scoreVal').textContent = score;
+}
+let keys = {};
+let grid = [];
+let paddleCommand = null; // set by Python: 'up', 'down', or null for human control
+
+function resetBall() {
+  ball.x = 100 + Math.random() * 200;
+  ball.y = 100 + Math.random() * (H - 200);
+  const angle = (Math.random() - 0.5) * Math.PI * 0.6;
+  ball.vx = BALL_SPEED * Math.cos(angle);
+  ball.vy = BALL_SPEED * Math.sin(angle);
+  if (Math.random() < 0.5) ball.vx = Math.abs(ball.vx);
+  else ball.vx = -Math.abs(ball.vx);
+  applyPendingNoise();
+  applyPendingFreq();
+  applyPendingPaddleMode();
+  initGrid();
+  callPythonReset();
+  replayBuffer = [];
+}
+
+function initGrid() {
+  const uniform = 1 / (GRID_ROWS * GRID_COLS);
+  grid = new Float64Array(GRID_ROWS * GRID_COLS).fill(uniform);
+}
+
+function sensorFireProb(trueDist) {
+  const minP = getMinFireProb();
+  if (trueDist <= SENSOR_NEAR_DIST) return 1.0;
+  if (trueDist >= SENSOR_FAR_DIST) return minP;
+  const t = (trueDist - SENSOR_NEAR_DIST) / (SENSOR_FAR_DIST - SENSOR_NEAR_DIST);
+  return 1.0 - t * (1.0 - minP);
+}
+
+function sensorTick() {
+  // Each sensor independently decides whether to fire this tick
+  return sensors.map(s => {
+    const dx = ball.x - s.x;
+    const dy = ball.y - s.y;
+    const trueDist = Math.sqrt(dx * dx + dy * dy);
+    const prob = sensorFireProb(trueDist);
+    if (Math.random() >= prob) return null; // didn't fire
+    const noise = randn() * SENSOR_NOISE_STD;
+    return Math.max(0, trueDist + noise);
+  });
+}
+
+function randn() {
+  let u = 0, v = 0;
+  while (u === 0) u = Math.random();
+  while (v === 0) v = Math.random();
+  return Math.sqrt(-2.0 * Math.log(u)) * Math.cos(2.0 * Math.PI * v);
+}
+
+// ---- Game API exposed to Python ----
+const gameApi = {
+  get_grid: () => Array.from(grid),
+  set_grid: (flat) => {
+    for (let i = 0; i < grid.length; i++) grid[i] = flat[i];
+  },
+  get_sensors: () => sensors.map(s => ({ x: s.x, y: s.y })),
+  get_readings: () => Array.from(lastReadings),
+  GRID_ROWS,
+  GRID_COLS,
+  WIDTH: W,
+  HEIGHT: H,
+  get sensor_noise() { return SENSOR_NOISE_STD; },
+  BALL_SPEED,
+  SENSOR_NEAR_DIST,
+  SENSOR_FAR_DIST,
+  get MIN_FIRE_PROB() { return getMinFireProb(); },
+  PADDLE_X,
+  PADDLE_W,
+  PADDLE_H,
+  get paddle_y() { return paddle.y; },
+  move_paddle: (dir) => { paddleCommand = dir; },
+};
+
+// ---- Call user's Python update ----
+let lastReadings = [0, 0, 0, 0];
+
+let pendingReadings = null;
+const UPDATE_INTERVAL_MS = 50;
+let lastUpdateTime = 0;
+
+function callPythonReset() {
+  if (!pyodide || !userUpdateReady) return;
+  try {
+    pyodide.runPython("reset_state()");
+  } catch (e) {
+    // reset_state may not be defined by user code — that's ok
+  }
+}
+
+function callPythonUpdate(readings) {
+  if (!pyodide || !userUpdateReady) return;
+  try {
+    // Convert null to -1 since JS null becomes JsNull in Python, not None
+    const r = readings.map(v => v === null ? -1 : v);
+    pyodide.globals.set("_readings", r);
+    pyodide.runPython("update(_readings.to_py())");
+    showError('');
+  } catch (e) {
+    showError(e.message);
+  }
+}
+
+let hasError = false;
+
+function showError(msg) {
+  const el = document.getElementById('error-output');
+  if (msg) {
+    el.textContent = msg;
+    el.style.display = 'block';
+    hasError = true;
+  } else {
+    el.style.display = 'none';
+    hasError = false;
+  }
+}
+
+// ---- Compile user code ----
+async function compileUserCode() {
+  const code = cm.getValue();
+  try {
+    await pyodide.runPythonAsync(code);
+    pyodide.runPython("assert callable(update), 'You must define an update(readings) function'");
+    userUpdateReady = true;
+    showError('');
+    return true;
+  } catch (e) {
+    userUpdateReady = false;
+    showError(e.message);
+    return false;
+  }
+}
+
+// ---- Ball / paddle physics ----
+function updateBall() {
+  ball.x += ball.vx;
+  ball.y += ball.vy;
+
+  if (ball.y - BALL_R <= 0) { ball.y = BALL_R; ball.vy = Math.abs(ball.vy); }
+  if (ball.y + BALL_R >= H) { ball.y = H - BALL_R; ball.vy = -Math.abs(ball.vy); }
+  if (ball.x - BALL_R <= 0) { ball.x = BALL_R; ball.vx = Math.abs(ball.vx); }
+
+  if (ball.vx > 0 &&
+      ball.x + BALL_R >= PADDLE_X &&
+      ball.x - BALL_R <= PADDLE_X + PADDLE_W &&
+      ball.y >= paddle.y &&
+      ball.y <= paddle.y + PADDLE_H) {
+    ball.x = PADDLE_X - BALL_R;
+    ball.vx = -Math.abs(ball.vx);
+    const hitPos = (ball.y - paddle.y) / PADDLE_H - 0.5;
+    ball.vy += hitPos * 2;
+    paddleRecoil = 20;
+    paddleHitTime = performance.now();
+    if (!debugMode) {
+      addScore(1);
+    }
+    applyPendingNoise();
+    applyPendingFreq();
+    applyPendingPaddleMode();
+  }
+
+  if (ball.x > W + 20) {
+    if (debugMode) {
+      resetBall();
+    } else {
+      addScore(-3);
+      escapeY = ball.y;
+      replayFrames = replayBuffer.slice();
+      replayDone = true;
+      replayPlaying = false;
+      needsReset = true;
+      document.getElementById('replay-buttons').classList.add('visible');
+      startResumeCountdown();
+    }
+  }
+}
+
+function updatePaddle() {
+  if (paddleAutoMode) {
+    // Automatic: only accept code commands, ignore keyboard
+    if (paddleCommand !== null) {
+      if (paddleCommand === 'up') paddle.y -= PADDLE_SPEED;
+      else if (paddleCommand === 'down') paddle.y += PADDLE_SPEED;
+    }
+  } else {
+    // Human: only accept keyboard, ignore code commands
+    if (keys['ArrowUp'] || keys['w'] || keys['W']) paddle.y -= PADDLE_SPEED;
+    if (keys['ArrowDown'] || keys['s'] || keys['S']) paddle.y += PADDLE_SPEED;
+  }
+  paddleCommand = null;
+  paddle.y = Math.max(0, Math.min(H - PADDLE_H, paddle.y));
+}
+
+// ---- Drawing ----
+function drawHeatmap() {
+  let maxP = 0;
+  for (let i = 0; i < grid.length; i++) {
+    if (grid[i] > maxP) maxP = grid[i];
+  }
+  if (maxP <= 0) return;
+
+  for (let r = 0; r < GRID_ROWS; r++) {
+    for (let c = 0; c < GRID_COLS; c++) {
+      const v = grid[r * GRID_COLS + c] / maxP;
+      if (v < 0.01) continue;
+      // Blue (low) -> red (high), with opacity so low values fade into light bg
+      const h = (1 - v) * 240;
+      const s = 90;
+      const l = 45;
+      const a = Math.min(1, v * 1.2);
+      ctx.fillStyle = `hsla(${h}, ${s}%, ${l}%, ${a})`;
+      ctx.fillRect(c * CELL_W, r * CELL_H, CELL_W + 0.5, CELL_H + 0.5);
+    }
+  }
+}
+
+let sensorShowCircle = [false, false, false, false];
+
+const sensorsDiv = document.getElementById('sensors');
+sensors.forEach((s, i) => {
+  const pos = s.y === 0 ? 'Top' : 'Bot';
+  const col = s.x < W / 2 ? 'L' : 'R';
+  const item = document.createElement('span');
+  item.className = 'sensor-item';
+  item.style.color = SENSOR_COLORS[i];
+  item.innerHTML = `<input type="checkbox" id="sc${i}"><label for="sc${i}">S${i + 1} (${pos}-${col}): <span id="sr${i}">0</span></label>`;
+  sensorsDiv.appendChild(item);
+  document.getElementById(`sc${i}`).addEventListener('change', e => {
+    sensorShowCircle[i] = e.target.checked;
+  });
+});
+
+const SENSOR_RADIUS = 10;
+
+function drawSensors() {
+  sensors.forEach((s, i) => {
+    // Draw circle marker
+    ctx.beginPath();
+    ctx.arc(s.x, s.y, SENSOR_RADIUS, 0, Math.PI * 2);
+    ctx.fillStyle = SENSOR_COLORS[i] + '66';
+    ctx.fill();
+    ctx.strokeStyle = SENSOR_COLORS[i];
+    ctx.lineWidth = 2;
+    ctx.stroke();
+    // Label
+    ctx.fillStyle = SENSOR_COLORS[i];
+    ctx.font = '11px monospace';
+    ctx.textAlign = 'center';
+    const labelY = s.y < H / 2 ? s.y + SENSOR_RADIUS + 14 : s.y - SENSOR_RADIUS - 5;
+    ctx.fillText('S' + (i + 1), s.x, labelY);
+    ctx.textAlign = 'start';
+  });
+
+  // Show drag hint when paused
+  if (gamePaused && !debugMode && draggingSensor === -1) {
+    ctx.fillStyle = '#fff5';
+    ctx.font = '12px monospace';
+    ctx.textAlign = 'center';
+    ctx.fillText('drag sensors to reposition (-400 pts each)', W / 2, H / 2 + 30);
+    ctx.textAlign = 'start';
+  }
+}
+
+// ---- Sensor dragging ----
+let draggingSensor = -1;
+let sensorMoved = false;
+
+function canvasCoords(e) {
+  const rect = canvas.getBoundingClientRect();
+  return {
+    x: (e.clientX - rect.left) * (W / rect.width),
+    y: (e.clientY - rect.top) * (H / rect.height),
+  };
+}
+
+canvas.addEventListener('mousedown', e => {
+  if (!gamePaused) return;
+  const { x, y } = canvasCoords(e);
+  for (let i = 0; i < sensors.length; i++) {
+    const dx = x - sensors[i].x;
+    const dy = y - sensors[i].y;
+    if (dx * dx + dy * dy <= (SENSOR_RADIUS + 6) ** 2) {
+      if (score < 400) return;
+      draggingSensor = i;
+      sensorMoved = false;
+      canvas.style.cursor = 'grabbing';
+      e.preventDefault();
+      return;
+    }
+  }
+});
+
+canvas.addEventListener('mousemove', e => {
+  if (draggingSensor === -1) {
+    // Update cursor hint when paused
+    if (gamePaused) {
+      const { x, y } = canvasCoords(e);
+      let over = false;
+      for (let i = 0; i < sensors.length; i++) {
+        const dx = x - sensors[i].x;
+        const dy = y - sensors[i].y;
+        if (dx * dx + dy * dy <= (SENSOR_RADIUS + 6) ** 2) { over = true; break; }
+      }
+      canvas.style.cursor = over ? 'grab' : '';
+    }
+    return;
+  }
+  const { x, y } = canvasCoords(e);
+  sensors[draggingSensor].x = Math.max(0, Math.min(W, x));
+  sensors[draggingSensor].y = Math.max(0, Math.min(H, y));
+  sensorMoved = true;
+  e.preventDefault();
+});
+
+canvas.addEventListener('mouseup', () => {
+  if (draggingSensor !== -1) {
+    if (sensorMoved) {
+      score -= 400;
+      document.getElementById('scoreVal').textContent = score;
+    }
+    draggingSensor = -1;
+    sensorMoved = false;
+    canvas.style.cursor = '';
+  }
+});
+
+canvas.addEventListener('mouseleave', () => {
+  if (draggingSensor !== -1) {
+    draggingSensor = -1;
+    canvas.style.cursor = '';
+  }
+});
+
+function updateSensorDisplay() {
+  for (let i = 0; i < 4; i++) {
+    document.getElementById(`sr${i}`).textContent = Math.round(lastReadings[i]);
+  }
+}
+
+function drawConfidenceCircles() {
+  const margin = 1.96 * SENSOR_NOISE_STD;
+  for (let i = 0; i < 4; i++) {
+    if (!sensorShowCircle[i]) continue;
+    const s = sensors[i];
+    const r = lastReadings[i];
+    const rMin = Math.max(0, r - margin);
+    const rMax = r + margin;
+    ctx.strokeStyle = SENSOR_COLORS[i];
+    ctx.lineWidth = 1.5;
+    ctx.globalAlpha = 0.5;
+    ctx.beginPath(); ctx.arc(s.x, s.y, rMin, 0, Math.PI * 2); ctx.stroke();
+    ctx.beginPath(); ctx.arc(s.x, s.y, rMax, 0, Math.PI * 2); ctx.stroke();
+    ctx.globalAlpha = 1;
+  }
+}
+
+function drawPaddle() {
+  let px = PADDLE_X + paddleRecoil;
+  if (paddleShake > 0) {
+    px += Math.random() * 6 - 3;
+    paddleShake--;
+  }
+
+  const elapsed = (performance.now() - paddleHitTime) / 1000; // seconds
+  let blur = 0;
+  if (elapsed < 0.5) {
+    blur = 1;
+  } else if (elapsed < 1.5) {
+    blur = 1 - (elapsed - 0.5);
+  }
+
+  if (blur > 0) {
+    const spread = blur * 12;
+    const copies = 7;
+    ctx.globalAlpha = 0.15 * blur;
+    for (let j = 1; j <= copies; j++) {
+      const offset = j * (spread / copies);
+      ctx.fillStyle = '#212529';
+      ctx.fillRect(px + offset, paddle.y, PADDLE_W, PADDLE_H);
+    }
+    ctx.globalAlpha = 1;
+  }
+
+  ctx.fillStyle = '#212529';
+  ctx.fillRect(px, paddle.y, PADDLE_W, PADDLE_H);
+}
+
+function drawWalls() {
+  ctx.strokeStyle = '#495057';
+  ctx.lineWidth = 3;
+  ctx.beginPath(); ctx.moveTo(0, 0); ctx.lineTo(W, 0); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(0, H); ctx.lineTo(W, H); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(0, 0); ctx.lineTo(0, H); ctx.stroke();
+}
+
+function drawPauseOverlay() {
+  ctx.fillStyle = 'rgba(0, 0, 0, 0.5)';
+  ctx.fillRect(0, 0, W, H);
+  ctx.fillStyle = '#fff';
+  ctx.font = '36px monospace';
+  ctx.textAlign = 'center';
+  ctx.fillText('PAUSED', W / 2, H / 2);
+  ctx.textAlign = 'start';
+}
+
+function drawCountdown(timestamp) {
+  const remaining = (countdownUntil - timestamp) / 1000;
+  const n = Math.ceil(remaining);
+  const frac = remaining - (n - 1); // 1 -> 0 within each second
+
+  ctx.fillStyle = 'rgba(0, 0, 0, 0.5)';
+  ctx.fillRect(0, 0, W, H);
+
+  // Scale: starts big, shrinks over each second
+  const scale = 0.6 + frac * 0.4;
+  ctx.save();
+  ctx.translate(W / 2, H / 2);
+  ctx.scale(scale, scale);
+  ctx.globalAlpha = Math.min(1, frac + 0.3);
+  ctx.fillStyle = '#fff';
+  ctx.font = '72px monospace';
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillText(n, 0, 0);
+  ctx.restore();
+  ctx.globalAlpha = 1;
+}
+
+function startCountdown() {
+  countdownUntil = performance.now() + 3000;
+  gamePaused = true;
+  pauseBtn.textContent = 'Pause';
+}
+
+// ---- Game loop ----
+function gameLoop(timestamp) {
+  // Handle countdown end
+  if (countdownUntil > 0 && timestamp >= countdownUntil) {
+    countdownUntil = 0;
+    gamePaused = false;
+  }
+
+  if (!gamePaused) {
+    // Decay paddle recoil
+    paddleRecoil *= 0.8;
+    if (paddleRecoil < 0.5) paddleRecoil = 0;
+
+    // Handle active replay completion — stop at end, show buttons again
+    if (needsReset && replayPlaying) {
+      const replayElapsed = timestamp - replayStartTime;
+      const replayDuration = replayFrames.length * (1000 / 60);
+      if (replayElapsed >= replayDuration) {
+        replayDone = true;
+        replayPlaying = false;
+        document.getElementById('replay-buttons').classList.add('visible');
+      }
+    }
+
+    if (!needsReset) {
+      if (timestamp - lastUpdateTime >= UPDATE_INTERVAL_MS) {
+        lastUpdateTime = timestamp;
+        paddleCommand = null;
+        const tick = sensorTick();
+        for (let i = 0; i < 4; i++) {
+          if (tick[i] !== null) lastReadings[i] = tick[i];
+        }
+        updateSensorDisplay();
+        callPythonUpdate(tick);
+      }
+      updatePaddle();
+      updateBall();
+
+      // Record snapshot for replay
+      replayBuffer.push({
+        ballX: ball.x, ballY: ball.y,
+        paddleY: paddle.y,
+        grid: new Float64Array(grid),
+      });
+      if (replayBuffer.length > REPLAY_BUFFER_MAX) {
+        replayBuffer.shift();
+      }
+    }
+  }
+
+  ctx.fillStyle = '#e9ecef';
+  ctx.fillRect(0, 0, W, H);
+
+  drawHeatmap();
+  drawConfidenceCircles();
+  drawWalls();
+  drawSensors();
+  if (debugMode) {
+    ctx.fillStyle = '#212529';
+    ctx.beginPath();
+    ctx.arc(ball.x, ball.y, BALL_R, 0, Math.PI * 2);
+    ctx.fill();
+  }
+  drawPaddle();
+
+  if (needsReset && replayFrames.length > 0) {
+    if (replayPlaying) {
+      // Active replay playback
+      const replayElapsed = performance.now() - replayStartTime;
+      const frameDur = 1000 / 60;
+      const replayDuration = replayFrames.length * frameDur;
+      let fi = Math.min(Math.floor(replayElapsed / frameDur), replayFrames.length - 1);
+      const snap = replayFrames[fi];
+
+      ctx.fillStyle = '#e9ecef';
+      ctx.fillRect(0, 0, W, H);
+
+      // Draw stored heatmap
+      let maxP = 0;
+      for (let i = 0; i < snap.grid.length; i++) {
+        if (snap.grid[i] > maxP) maxP = snap.grid[i];
+      }
+      if (maxP > 0) {
+        for (let r = 0; r < GRID_ROWS; r++) {
+          for (let c = 0; c < GRID_COLS; c++) {
+            const v = snap.grid[r * GRID_COLS + c] / maxP;
+            if (v < 0.01) continue;
+            const h = (1 - v) * 240;
+            const a = Math.min(1, v * 1.2);
+            ctx.fillStyle = `hsla(${h}, 90%, 45%, ${a})`;
+            ctx.fillRect(c * CELL_W, r * CELL_H, CELL_W + 0.5, CELL_H + 0.5);
+          }
+        }
+      }
+
+      drawWalls();
+      drawSensors();
+
+      ctx.fillStyle = '#212529';
+      ctx.fillRect(PADDLE_X, snap.paddleY, PADDLE_W, PADDLE_H);
+
+      // Ball trail
+      const trailLen = 6;
+      for (let t = Math.max(0, fi - trailLen); t < fi; t++) {
+        const age = fi - t;
+        const alpha = 0.18 * (1 - age / trailLen);
+        ctx.fillStyle = `rgba(33, 37, 41, ${alpha})`;
+        ctx.beginPath();
+        ctx.arc(replayFrames[t].ballX, replayFrames[t].ballY, BALL_R, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      // Ball
+      ctx.fillStyle = '#212529';
+      ctx.beginPath();
+      ctx.arc(snap.ballX, snap.ballY, BALL_R, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Border
+      ctx.strokeStyle = 'rgba(255, 80, 80, 0.6)';
+      ctx.lineWidth = 4;
+      ctx.strokeRect(2, 2, W - 4, H - 4);
+
+      // "REPLAY" label
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.55)';
+      ctx.fillRect(W / 2 - 65, 8, 130, 34);
+      ctx.fillStyle = '#fff';
+      ctx.font = 'bold 20px monospace';
+      ctx.textAlign = 'center';
+      ctx.fillText('REPLAY', W / 2, 32);
+      ctx.textAlign = 'start';
+
+      // Progress bar
+      const progress = Math.min(1, replayElapsed / replayDuration);
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.3)';
+      ctx.fillRect(20, H - 12, W - 40, 4);
+      ctx.fillStyle = 'rgba(255, 80, 80, 0.8)';
+      ctx.fillRect(20, H - 12, (W - 40) * progress, 4);
+
+    } else {
+      // MISS screen — show last frame with exit point
+      const snap = replayFrames[replayFrames.length - 1];
+
+      ctx.fillStyle = '#e9ecef';
+      ctx.fillRect(0, 0, W, H);
+
+      // Draw stored heatmap
+      let maxP = 0;
+      for (let i = 0; i < snap.grid.length; i++) {
+        if (snap.grid[i] > maxP) maxP = snap.grid[i];
+      }
+      if (maxP > 0) {
+        for (let r = 0; r < GRID_ROWS; r++) {
+          for (let c = 0; c < GRID_COLS; c++) {
+            const v = snap.grid[r * GRID_COLS + c] / maxP;
+            if (v < 0.01) continue;
+            const h = (1 - v) * 240;
+            const a = Math.min(1, v * 1.2);
+            ctx.fillStyle = `hsla(${h}, 90%, 45%, ${a})`;
+            ctx.fillRect(c * CELL_W, r * CELL_H, CELL_W + 0.5, CELL_H + 0.5);
+          }
+        }
+      }
+
+      drawWalls();
+      drawSensors();
+
+      ctx.fillStyle = '#212529';
+      ctx.fillRect(PADDLE_X, snap.paddleY, PADDLE_W, PADDLE_H);
+
+      // Dim overlay
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.35)';
+      ctx.fillRect(0, 0, W, H);
+
+      // Exit point marker
+      const pulse = 0.7 + 0.3 * Math.sin(performance.now() / 100);
+      ctx.strokeStyle = `rgba(255, 80, 80, ${pulse})`;
+      ctx.lineWidth = 3;
+      ctx.beginPath();
+      ctx.arc(W - 5, escapeY, 16, 0, Math.PI * 2);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(W - 21, escapeY);
+      ctx.lineTo(W + 11, escapeY);
+      ctx.moveTo(W - 5, escapeY - 16);
+      ctx.lineTo(W - 5, escapeY + 16);
+      ctx.stroke();
+      ctx.fillStyle = `rgba(255, 60, 60, ${0.3 * pulse})`;
+      ctx.beginPath();
+      ctx.arc(W - 5, escapeY, 24, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Border
+      ctx.strokeStyle = 'rgba(255, 80, 80, 0.6)';
+      ctx.lineWidth = 4;
+      ctx.strokeRect(2, 2, W - 4, H - 4);
+
+      // "MISS" label
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.55)';
+      ctx.fillRect(W / 2 - 50, 8, 100, 34);
+      ctx.fillStyle = '#fff';
+      ctx.font = 'bold 20px monospace';
+      ctx.textAlign = 'center';
+      ctx.fillText('MISS', W / 2, 32);
+      ctx.textAlign = 'start';
+    }
+  }
+
+  if (countdownUntil > 0 && timestamp < countdownUntil) {
+    drawCountdown(timestamp);
+  } else if (gamePaused && !debugMode) {
+    drawPauseOverlay();
+  }
+
+  if (hasError) {
+    ctx.fillStyle = 'rgba(140, 0, 0, 0.6)';
+    ctx.fillRect(0, H / 2 - 30, W, 60);
+    ctx.fillStyle = '#fff';
+    ctx.font = 'bold 32px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText('ERROR', W / 2, H / 2);
+    ctx.textAlign = 'start';
+    ctx.textBaseline = 'alphabetic';
+  }
+
+  requestAnimationFrame(gameLoop);
+}
+
+// ---- CodeMirror editor ----
+const cm = CodeMirror.fromTextArea(document.getElementById('code-editor'), {
+  mode: 'python',
+  theme: 'default',
+  lineNumbers: true,
+  indentUnit: 4,
+  tabSize: 4,
+  indentWithTabs: false,
+  extraKeys: {
+    Tab: (cm) => cm.execCommand('indentMore'),
+    'Shift-Tab': (cm) => cm.execCommand('indentLess'),
+  },
+});
+cm.setValue(DEFAULT_CODE);
+
+// ---- Editor resize handle ----
+const resizeHandle = document.getElementById('editor-resize');
+let resizing = false;
+let resizeStartY = 0;
+let resizeStartH = 0;
+
+resizeHandle.addEventListener('mousedown', e => {
+  resizing = true;
+  resizeStartY = e.clientY;
+  resizeStartH = cm.getWrapperElement().offsetHeight;
+  e.preventDefault();
+});
+
+document.addEventListener('mousemove', e => {
+  if (!resizing) return;
+  const newH = Math.max(100, resizeStartH + (e.clientY - resizeStartY));
+  cm.setSize(null, newH);
+  e.preventDefault();
+});
+
+document.addEventListener('mouseup', () => { resizing = false; });
+
+// ---- Keyboard ----
+document.addEventListener('keydown', e => {
+  if (document.activeElement && document.activeElement.closest('.CodeMirror')) return;
+  if (e.ctrlKey || e.metaKey) return; // let browser handle Ctrl/Cmd shortcuts
+  if (e.key === ' ') {
+    e.preventDefault();
+    if (debugMode) {
+      stepBtn.click();
+    } else {
+      pauseBtn.click();
+    }
+    return;
+  }
+  keys[e.key] = true;
+  e.preventDefault();
+});
+document.addEventListener('keyup', e => { keys[e.key] = false; });
+
+// ---- Controls ----
+const pauseBtn = document.getElementById('pause-btn');
+const stepBtn = document.getElementById('step-btn');
+const debugBtn = document.getElementById('debug-btn');
+const commitBtn = document.getElementById('commit-btn');
+const resetBtn = document.getElementById('reset-btn');
+const consoleSection = document.getElementById('console-section');
+const consoleOutput = document.getElementById('console-output');
+
+let debugMode = false;
+
+function updateButtons() {
+  commitBtn.disabled = !gamePaused;
+  if (debugMode) {
+    pauseBtn.style.display = 'none';
+    stepBtn.style.display = '';
+    stepBtn.disabled = countdownUntil > 0 || needsReset;
+    debugBtn.classList.add('active');
+    debugBtn.textContent = 'Exit Debug';
+  } else {
+    pauseBtn.style.display = '';
+    stepBtn.style.display = 'none';
+    debugBtn.classList.remove('active');
+    debugBtn.textContent = 'Debug';
+  }
+}
+
+debugBtn.addEventListener('click', () => {
+  debugMode = !debugMode;
+  if (debugMode) {
+    gamePaused = true;
+    pauseBtn.textContent = 'Resume';
+  }
+  updateButtons();
+});
+
+document.getElementById('console-clear').addEventListener('click', () => {
+  consoleOutput.textContent = '';
+});
+
+const consoleMoveBtn = document.getElementById('console-move');
+const editorSection = document.getElementById('editor-section');
+let consoleAtBottom = true;
+
+consoleMoveBtn.addEventListener('click', () => {
+  const consoleEl = document.getElementById('console-section');
+  const apiDocs = document.getElementById('api-docs');
+  if (consoleAtBottom) {
+    editorSection.insertBefore(consoleEl, apiDocs);
+    consoleMoveBtn.textContent = 'Move to bottom';
+  } else {
+    editorSection.appendChild(consoleEl);
+    consoleMoveBtn.textContent = 'Move to top';
+  }
+  consoleAtBottom = !consoleAtBottom;
+});
+
+pauseBtn.addEventListener('click', () => {
+  if (countdownUntil > 0 || debugMode) return;
+  gamePaused = !gamePaused;
+  pauseBtn.textContent = gamePaused ? 'Resume' : 'Pause';
+  updateButtons();
+});
+
+stepBtn.addEventListener('click', () => {
+  if (!debugMode || !gamePaused) return;
+  // Run one tick: paddle, ball, sensors, filter
+  paddleRecoil *= 0.8;
+  if (paddleRecoil < 0.5) paddleRecoil = 0;
+  updatePaddle();
+  updateBall();
+  const tick = sensorTick();
+  for (let i = 0; i < 4; i++) {
+    if (tick[i] !== null) lastReadings[i] = tick[i];
+  }
+  updateSensorDisplay();
+  callPythonUpdate(tick);
+});
+
+commitBtn.addEventListener('click', async () => {
+  if (!gamePaused) return;
+  commitBtn.disabled = true;
+  const ok = await compileUserCode();
+  if (ok) {
+    score = 0;
+    document.getElementById('scoreVal').textContent = '0';
+    lastUpdateTime = 0;
+    resetBall();
+    startCountdown();
+  }
+  updateButtons();
+});
+
+resetBtn.addEventListener('click', () => {
+  score = 0;
+  document.getElementById('scoreVal').textContent = '0';
+  needsReset = false;
+  replayDone = false;
+  replayPlaying = false;
+  document.getElementById('replay-buttons').classList.remove('visible');
+  if (typeof clearResumeCountdown === 'function') clearResumeCountdown();
+  paddleShake = 0;
+  paddleRecoil = 0;
+  lastUpdateTime = 0;
+  resetBall();
+  startCountdown();
+  updateButtons();
+});
+
+// ---- Replay buttons ----
+let resumeCountdownTimer = null;
+const resumeBtn = document.getElementById('replay-resume-btn');
+
+function clearResumeCountdown() {
+  if (resumeCountdownTimer !== null) {
+    clearInterval(resumeCountdownTimer);
+    resumeCountdownTimer = null;
+  }
+  resumeBtn.textContent = 'Resume';
+}
+
+function doResume() {
+  clearResumeCountdown();
+  needsReset = false;
+  replayDone = false;
+  replayPlaying = false;
+  document.getElementById('replay-buttons').classList.remove('visible');
+  resetBall();
+  startCountdown();
+}
+
+function startResumeCountdown() {
+  clearResumeCountdown();
+  let remaining = 5;
+  resumeBtn.textContent = `Resume (${remaining})`;
+  resumeCountdownTimer = setInterval(() => {
+    remaining -= 1;
+    if (remaining <= 0) {
+      doResume();
+    } else {
+      resumeBtn.textContent = `Resume (${remaining})`;
+    }
+  }, 1000);
+}
+
+document.getElementById('replay-again-btn').addEventListener('click', () => {
+  clearResumeCountdown();
+  replayDone = false;
+  replayPlaying = true;
+  replayStartTime = performance.now();
+  document.getElementById('replay-buttons').classList.remove('visible');
+});
+
+resumeBtn.addEventListener('click', doResume);
+
+// ---- Unfocus overlay ----
+function updateFocusState() {
+  const unfocused = !document.hasFocus() || document.visibilityState === 'hidden';
+  document.body.classList.toggle('unfocused', unfocused);
+}
+window.addEventListener('blur', updateFocusState);
+window.addEventListener('focus', updateFocusState);
+document.addEventListener('visibilitychange', updateFocusState);
+updateFocusState();
+
+// ---- Paddle mode ----
+const paddleModeBtn = document.getElementById('paddle-mode-btn');
+const paddleModeNote = document.getElementById('paddleModeNote');
+
+paddleModeBtn.addEventListener('click', () => {
+  const newMode = !paddleAutoMode;
+  if (pendingPaddleMode === null) {
+    pendingPaddleMode = newMode;
+  } else {
+    // Toggle back — cancel pending change
+    pendingPaddleMode = null;
+  }
+  if (pendingPaddleMode !== null) {
+    paddleModeBtn.textContent = 'Cancel';
+    paddleModeNote.textContent = pendingPaddleMode ? '(switching to Automatic after next hit)' : '(switching to Human after next hit)';
+  } else {
+    paddleModeBtn.textContent = paddleAutoMode ? 'Switch to Human' : 'Switch to Automatic';
+    paddleModeNote.textContent = '';
+  }
+});
+
+// ---- Noise slider ----
+const noiseSlider = document.getElementById('noiseSlider');
+const noiseVal = document.getElementById('noiseVal');
+noiseSlider.addEventListener('input', () => {
+  pendingNoiseSTD = Number(noiseSlider.value);
+  noiseVal.textContent = noiseSlider.value;
+});
+
+// ---- Freq slider ----
+const freqSlider = document.getElementById('freqSlider');
+const freqVal = document.getElementById('freqVal');
+freqSlider.addEventListener('input', () => {
+  pendingFreqSlider = Number(freqSlider.value);
+  const t = (pendingFreqSlider - 1) / 99;
+  freqVal.textContent = Math.pow(10, -2 + 2 * t).toFixed(2);
+});
+
+// ---- Init ----
+async function init() {
+  pyodide = await loadPyodide({
+    stdout: (text) => {
+      consoleOutput.textContent += text + '\n';
+      consoleOutput.scrollTop = consoleOutput.scrollHeight;
+    },
+    stderr: (text) => {
+      consoleOutput.textContent += text + '\n';
+      consoleOutput.scrollTop = consoleOutput.scrollHeight;
+    },
+  });
+  await pyodide.loadPackage(['numpy', 'scipy']);
+  pyodide.registerJsModule('game', gameApi);
+
+  document.getElementById('loading').style.display = 'none';
+  document.getElementById('game-ui').style.display = '';
+  cm.refresh();
+  pauseBtn.disabled = false;
+  resetBtn.disabled = false;
+  debugBtn.disabled = false;
+  updateButtons();
+
+  await compileUserCode();
+  resetBall();
+  startCountdown();
+  requestAnimationFrame(gameLoop);
+}
+
+init();
+</script>
+</body>
+</html>
